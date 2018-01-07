@@ -1,0 +1,23 @@
+body {
+	margin: 0px;
+}
+
+#topbar {
+	margin: 0px;
+}
+
+#topbar > ul {
+	list-style: none;
+	margin: 0px;
+	padding-left: 0px;
+	background-color: #782f40;
+}
+
+#main-logo {
+	display: inline-block;
+	background-image: url("../img/logo.png");
+	background-size: 40px;
+	background-repeat: no-repeat;
+	height: 40px;
+	width: 40px;
+}
