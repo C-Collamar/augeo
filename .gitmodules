@@ -1,3 +1,6 @@
 [submodule "global/vendor/bootstrap"]
 	path = global/vendor/bootstrap
 	url = https://github.com/twbs/bootstrap.git
+[submodule "global/vendor/jquery"]
+	path = global/vendor/jquery
+	url = https://github.com/jquery/jquery.git
