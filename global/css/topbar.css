@@ -1,23 +1,13 @@
-body {
-	margin: 0px;
+.navbar-header {
+	user-select: none;
 }
 
-#topbar {
-	margin: 0px;
+#brand-logo {
+	height: 100%;
+	width: auto;
+	display: inline;
 }
 
-#topbar > ul {
-	list-style: none;
-	margin: 0px;
-	padding-left: 0px;
-	background-color: #782f40;
-}
-
-#main-logo {
-	display: inline-block;
-	background-image: url("../img/logo.png");
-	background-size: 40px;
-	background-repeat: no-repeat;
-	height: 40px;
-	width: 40px;
+#brand-name {
+	padding: 0px 10px 0px 10px;
 }
