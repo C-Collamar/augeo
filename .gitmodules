@@ -4,3 +4,6 @@
 [submodule "global/vendor/jquery"]
 	path = global/vendor/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "global/vendor/bootstrap-treeview"]
+	path = global/vendor/bootstrap-treeview
+	url = https://github.com/jonmiles/bootstrap-treeview.git
