@@ -25,7 +25,7 @@
 <input type="text" name="uname" id="uname" required><br>
 
 <label id="uname"> Password: </label>
-<input type="text" name="uname" id="uname" required><br>
+<input type="password" name="uname" id="uname" required><br>
 
 <input type="submit" name="submit" id="submit" value="Login">
 <br>

@@ -1,1 +1,26 @@
-.
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.change_pass {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+
+@media only screen and (max-width: 600px;){
+    body .w3-main{
+        min-width: 300px !important;
+    }
+}
+
+@media (max-width: 768px){
+    #topbar1{
+            margin-left: 20px;
+        }
+}
