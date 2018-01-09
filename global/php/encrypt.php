@@ -23,6 +23,17 @@ function encrypt($password) {
     $encrypt_password = md5($sha.$salt);
     return $encrypt_password;
 }
-$pas = "austin";
-echo encrypt($pas);
+
+function encode($string) {
+    return htmlspecialchars($string, ENT_HTML5 | ENT_QUOTES);
+//  return htmlspecialchars(str_replace("\n", "<br/>", $string), ENT_HTML5 | ENT_QUOTES); //backup
+}
+
+//after retrieving encoded data from database
+function decode($string) {
+    return htmlspecialchars_decode($string, ENT_HTML5 | ENT_QUOTES);
+}
+
+//$pas = "austin";
+//echo encrypt($pas);
 ?>

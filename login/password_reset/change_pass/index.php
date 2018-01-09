@@ -18,11 +18,11 @@ echo '
 
  <form name="c_Form" id="c_Form" method="POST" action="" onsubmit="return validateForm()">
 <div id=change_pass class="change_pass">
-<label for="c_pass"> New Password: </label>
-<input type="password" name="c_pass" id="c_pass" required"><br>
+<label for="c_pass"> New Password: </label><br>
+<input type="password" name="c_pass" id="c_pass" placeholder="Enter new password" required"><br>
 
-<label for="n_pass"> Re-enter Password: </label>
-<input type="password" name="n_pass" id="n_pass" required"><br>
+<label for="n_pass"> Re-enter Password: </label><br>
+<input type="password" name="n_pass" id="n_pass"  placeholder="Re-enter password" required"><br>
 <div id="error_msg">
 <p> </p>
 </div>

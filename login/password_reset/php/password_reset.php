@@ -68,8 +68,7 @@ $mail->SMTPOptions = array(
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
-    echo 'Message has been sent';
-    header("location: ../index.php");
+    header("location: ../index.php?success=1");
 } catch (Exception $e) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
