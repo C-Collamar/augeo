@@ -1,4 +1,4 @@
-//request
+//request login
 $(document).ready(function() {
              $("#submit").click(function(){
                 $.ajax({
@@ -61,15 +61,17 @@ $(document).ready(function () {
                     success: function(result) {
                         if(result == "Username's Available"){
                           document.getElementById("uname_error").innerHTML= result;
+                           $("#uname_error").css({color: 'green'});
                           $("input[type=button]#crt_acc").removeAttr("disabled");
-                           $("input[type=button]#crt_acc").css({backgroundColor: '#50a5e6'});
+                          $("input[type=button]#crt_acc").css({backgroundColor: '#50a5e6'});
 
                       }
                       else{
                           document.getElementById("uname_error").innerHTML= result;
                            $("input[type=button]#crt_acc").attr("disabled", "disabled");
+                           $("#uname_error").css({color: 'red'});
                             $("input[type=button]#crt_acc").css({backgroundColor: 'grey'});
-                            $("input[type=button]#crt_acc").removeClass('input[type=button]:hover');
+                            //$("input[type=button]#crt_acc").removeClass('input[type=button]:hover');
 
 
                       }
@@ -79,7 +81,7 @@ $(document).ready(function () {
          );
 });
 
-
+// validating email and sending
 $(document).ready(function() {
              $("#send_mail").click(function(){
                 $.ajax({
@@ -94,8 +96,36 @@ $(document).ready(function() {
                       }
                       else{
                          $("#myModal").modal('show');
+
+
                       }
                     }
                });
           });
      });
+
+// for creating account
+$(document).ready(function() {
+             $("#crt_acc").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "php/login.php",
+                    data: {
+                        crt_uname: $("#crt_uname").val(),
+                        crt_pass : $("#crt_pass").val()
+                    },
+                    success: function(result) {
+                        if(result == "sucess"){
+                         // window.location.assign("../home");
+                          window.location.assign("../home");
+                      }
+                      else{
+                        document.getElementById("uname_error").innerHTML= result;
+
+                      }
+                    }
+               });
+          });
+     });
+
+

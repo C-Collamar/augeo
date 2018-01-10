@@ -21,6 +21,24 @@ $result = mysqli_query($conn,"SELECT augeo_user_end.user_account.username,augeo_
 }
 
 }
+
+
+elseif(isset($_POST['crt_uname']) && isset($_POST['crt_pass'])) {
+     $username = $_POST['crt_uname'];
+     $password = $_POST['crt_pass'];
+
+ if(mysqli_query($conn,"INSERT INTO augeo_user_end.user_account(account_id,username,password) VALUES ('','$username','$password') ")){
+      echo "success";
+}
+else{
+      echo "failed".mysqli_error($conn);
+}
+
+
+
+}
+
+
 else{
   $username = encode($_POST['uname']);
 
