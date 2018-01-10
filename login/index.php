@@ -14,13 +14,15 @@
 
 <div id="login_form" class="login_form">
 <form  method="post" enctype="multipart/form-data">
-    <div id ="error_msg" class="error_msg">
-<p>  </p><br>
-</div>
+
 <!-- Login form -->
  <h1>Login to AUGEO</h1>
 <input type="text" name="uname" id="uname" placeholder="Enter Username" required><br>
-<input type="password" name="pass" id="pass" placeholder="Enter Password" required><br>
+<input type="password" name="pass" id="pass" placeholder="Enter Password" required>
+<br>
+  <div id ="error_msg" class="error_msg">
+<p>  </p>
+</div>
 <input type="button" name="submit" id="submit" value="Login">
 <br>
 
@@ -34,10 +36,13 @@
     <h1>Create a New Account</h1>
     <input type="text" name="crt_uname" id="crt_uname" placeholder="Username" required><br>
     <input type="password" name="crt_pass" id="crt_pass" placeholder="Password" required><br>
+    <div id="uname_error" class="uname_error"></div>
     <input type="button" name="crt_acc" id="crt_acc" value="Create account"><br><br>
     <a href="#" class="show_hide">Already have an account? Log in</a><br />
 
 </div>
+
+
 
 
  <script src="../global/vendor/jquery/dist/jquery.min.js"></script>

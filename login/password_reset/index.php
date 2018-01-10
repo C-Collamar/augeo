@@ -11,9 +11,9 @@ include("../../global/php/topbar.html");
 <link rel="stylesheet" href="../../global/vendor/bootstrap/dist/css/bootstrap.min.css">
 
 <body>
-<form id="email_form" action="php/password_reset.php" method="POST">
-<div id="email_d" class="email_d">
 
+<div id="email_d" class="email_d">
+<form id="email_form" action="php/password_reset.php" method="POST">
 
 
 <div class="page_header" >To reset your password, Enter your Email :<br></div><br>

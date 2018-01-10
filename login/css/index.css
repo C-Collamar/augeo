@@ -4,10 +4,9 @@ body {
     padding: 0;
 }
 
-.error_msg{
+.error_msg,.uname_error{
     color: red;
     font-size: 17px;
-
 }
 
 .login_form {
@@ -72,6 +71,10 @@ input[type=button]:hover {
   background: rgba(0,0,0,0);
   color: #3a7999;
   box-shadow: inset 0 0 0 3px #3a7999;
+}
+
+.disabled {
+    background-color: black;
 }
 
 .forgot_pass {
