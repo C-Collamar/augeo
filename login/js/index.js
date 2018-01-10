@@ -93,9 +93,7 @@ $(document).ready(function() {
                           document.getElementById("error_email").innerHTML= "Email not Found";
                       }
                       else{
-                        window.location.assign("../home");
-
-
+                         $("#myModal").modal('show');
                       }
                     }
                });
