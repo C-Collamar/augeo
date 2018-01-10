@@ -17,7 +17,7 @@
 			</div>
 			<div class="col-sm-9">
 				<div class="container-fluid">
-					<div class="row card-item">
+					<a class="row card-item">
 						<div class="col-sm-7 border-right">
 							<div class="media">
 								<div class="media-left">
@@ -25,11 +25,9 @@
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading">Item name</h4>
-									<span class="text-caption">Seller</span>
-									<span>Christian A. Collamar</span>
+									<span class="item-seller">Christian A. Collamar</span>
 									<div class="w-100"></div>
-									<span class="text-caption">Bidders participated</span>
-									<span>5</span>
+									<span class="bidders-participated">5</span>
 								</div>
 							</div>
 						</div>
@@ -47,9 +45,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 					<div class="hr-sect">December 2017</div>
-					<div class="row card-item">
+					<a class="row card-item">
 						<div class="col-sm-7 border-right">
 							<div class="media">
 								<div class="media-left">
@@ -57,8 +55,6 @@
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading">Item name</h4>
-									<span class="text-caption">Seller</span>
-									<span>Christian A. Collamar</span>
 									<div class="w-100"></div>
 									<span class="text-caption">Bidders participated</span>
 									<span>5</span>
@@ -79,7 +75,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -89,5 +85,6 @@
 	<script src="../global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
 	<script src="js/home.js"></script>
+	<script src="js/view.js"></script>
 </body>
 </html>
