@@ -26,7 +26,7 @@
 <input type="button" name="submit" id="submit" value="Login">
 <br>
 
-<div id="forgot_pass" class="forgot_pass"><a href="Password_reset/"> Forgot Password</a></div>
+<div id="forgot_pass"><a href="#" class="show_hide2"> Forgot Password</a></div>
 <a href="#" class="show_hide">Sign Up</a><br />
 </form>
 </div>
@@ -41,6 +41,26 @@
     <a href="#" class="show_hide">Already have an account? Log in</a><br />
 
 </div>
+
+
+<!--Reset Form -->
+
+<div id="email_d" class="email_d">
+<form method="post" enctype="multipart/form-data">
+
+<div class="page_header" >To reset your password, Enter your Email :<br></div><br>
+<input type="email" name="email" id="email" required placeholder="Enter Email"><br>
+
+<div id="error_email" class="error_email">
+
+    <p></p>
+
+</div>
+
+<input type="button" name="send_mail" id="send_mail" value="send">
+</form>
+</div>
+
 
 
 

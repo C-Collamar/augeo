@@ -27,7 +27,9 @@ $(document).ready(function(){
 
   $(".crt_form").hide();
   $(".show_hide").show();
+   $(".show_hide2").show();
   $(".crt_form").hide();
+  $(".email_d").hide();
 
   $('.show_hide').click(function(){
   $(".crt_form").slideToggle();
@@ -35,10 +37,17 @@ $(document).ready(function(){
 
   });
 
+$('.show_hide2').click(function(){
+ $(".crt_form").hide();
+ $(".login_form").hide();
+  $(".email_d").slideToggle();
+
+  });
+
 });
 
 
-
+// for validating username
 $(document).ready(function () {
 
         $("#crt_uname").blur(
@@ -69,3 +78,26 @@ $(document).ready(function () {
              }
          );
 });
+
+
+$(document).ready(function() {
+             $("#send_mail").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "php/password_reset.php",
+                    data: {
+                        email: $("#email").val()
+                    },
+                    success: function(result) {
+                        if(result == "failed"){
+                          document.getElementById("error_email").innerHTML= "Email not Found";
+                      }
+                      else{
+                        window.location.assign("../home");
+
+
+                      }
+                    }
+               });
+          });
+     });
