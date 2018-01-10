@@ -5,7 +5,7 @@ $(document).ready(function() {
                     url: "php/login.php",
                     data: {
                         uname: $("#uname").val(),
-                        : $("#pass").val()
+                        pass : $("#pass").val()
                     },
                     success: function(result) {
                         // show returned message in a pop up
