@@ -1,10 +1,12 @@
-var tree = [{
+// Note: Only one tree node must be in selected state at a time
+var treeStruct = [{
 	text: "Pending items in auction",
 	selectable: false,
 	state: { expanded: true, },
 	tags: ['available'],
 	nodes: [{
 		text: "Items you sell for auction",
+		href: "#sdf",
 		state: { selected: true }
 	}, {
 		text: "Items you participate in bidding"
@@ -29,4 +31,11 @@ var tree = [{
 	text: "Statistics"
 }];
 
-$('#tree').treeview({data: tree});
+var tree = $('#tree');
+var prevSelectedNode = null;
+
+tree.treeview({
+	data: treeStruct,
+	enableLinks: true,
+	selectedBackColor: "#a0495e"
+});
