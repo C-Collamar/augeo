@@ -4,8 +4,13 @@
 .text-caption::after { content: ": "; }
 .no-padding { padding: 0px; }
 .border-right { border-right: 1px solid #aaa; }
+.item-img { width: 60px; }
+.item-seller::before { content: "Seller: "; }
+.bidders-participated::before { content: "Bidders participated: "; }
 
 .card-item {
+	display: block;
+	color: black;
 	outline: 1px solid #888888;
 	transition-duration: 0.3s;
 }
