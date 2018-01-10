@@ -1,5 +1,5 @@
 <?php
-include("../../../global/php/topbar.html");
+include("../../global/php/topbar.html");
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,8 +7,8 @@ include("../../../global/php/topbar.html");
     <title>change password</title>
 </head>
 <link rel="stylesheet" href="css/index.css" />
-<link rel="stylesheet" href="../../../global/css/topbar.css">
-<link rel="stylesheet" href="../../../global/vendor/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../global/css/topbar.css">
+<link rel="stylesheet" href="../../global/vendor/bootstrap/dist/css/bootstrap.min.css">
 <body>
 <?php
 include("php/hide.php");
@@ -31,14 +31,14 @@ echo '
 
 }
 else{
-    header("location: ../../../global/php/page_error.php");
+    header("location: ../../global/php/page_error.php");
 }
 
  ?>
 
 </div>
-<script src="../../../global/vendor/jquery/dist/jquery.min.js"></script>
-<script src="../../../global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../global/vendor/jquery/dist/jquery.min.js"></script>
+<script src="../../global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
 
 

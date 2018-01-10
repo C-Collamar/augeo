@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-include("../../../global/php/connection.php");
+include("../../global/php/connection.php");
 $send_to = $_POST['email'];
 $bol = 0;
 // check if entered email is in the database
@@ -21,11 +21,11 @@ $result = mysqli_query($conn,"SELECT augeo_user_end.user.email,augeo_user_end.us
 
 if($bol == 1){
 
-   require "../../../global/vendor/PHPMailer/src/PHPMailer.php";
+   require "../../global/vendor/PHPMailer/src/PHPMailer.php";
 //    require "PHPMailer/src/OAuth.php";
-    require "../../../global/vendor/PHPMailer/src/SMTP.php";
+    require "../../global/vendor/PHPMailer/src/SMTP.php";
 //    require "PHPMailer/src/POP3.php";
-    require "../../../global/vendor/PHPMailer/src/Exception.php";
+    require "../../global/vendor/PHPMailer/src/Exception.php";
 
 $mail = new PHPMailer(true);                          // Passing `true` enables exceptions
 try {
@@ -62,13 +62,13 @@ $mail->SMTPOptions = array(
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Change Password';
     $mail->Body    = '<h1> AUGEO WEBSITE</h1><br>
-                    <p> to Change password, click <a href="localhost/augeo/login/password_reset/change_pass/index.php?aassmmss='.$account_id.'"> here </a>
+                    <p> to Change password, click <a href="localhost/augeo/login/change_pass/index.php?aassmmss='.$account_id.'"> here </a>
 
     ';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
-    header("location: ../index.php?success=1");
+   echo "success";
 } catch (Exception $e) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -76,5 +76,5 @@ $mail->SMTPOptions = array(
 }
 
 else{
-    header("location: ../index.php?error=1");
+    echo "failed";
 }
