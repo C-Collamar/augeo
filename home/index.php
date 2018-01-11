@@ -34,8 +34,7 @@
 						<div class="col-sm-5 text-center align-middle">
 							<div class="row no-padding">
 								<div class="col-xs-6">
-									<div class="row no-padding"><span class="text-caption">Your bid</span></div>
-									<div class="row no-padding"><h4>&#8369; 5.00</h4></div>
+									<div class="row no-padding your-bid"><h4>&#8369; 5.00</h4></div>
 									<div class="row no-padding"><small>1 week ago</small></div>
 								</div>
 								<div class="col-xs-6">
