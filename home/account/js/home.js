@@ -1,15 +1,18 @@
 var treeStruct = [
 	{
-		text: "Account",
+		text: "Account Settings",
 		selectable: false,
 		state: { expanded: true, },
 		tags: ['available'],
 		nodes: [{
-			text: "Items you sell for auction",
-			state: { selected: true }
+			text: "Profile"
+
 		}, {
-			text: "Items you participate in bidding"
-		}]
+			text: "Account"
+		},{
+			text: "Privacy"
+		}
+		]
 	}, {
 		text: "Sucessful auctions",
 		selectable: false,
@@ -18,16 +21,6 @@ var treeStruct = [
 		}, {
 			text: "You as the seller"
 		}]
-	}, {
-		text: "Unsucessful auctions",
-		selectable: false,
-		nodes: [{
-			text: "You as the bidder"
-		}, {
-			text: "You as the seller"
-		}]
-	}, {
-		text: "Statistics"
 	}
 ];
 
@@ -43,8 +36,10 @@ function update_view(event, node) {
 		url: "php/request_handler.php",
 		type: "GET",
 		data: { id: node.nodeId },
-		success: display_content,
-		error: handle_error
+		success: function(result) {
+			$("#cc").html(result);
+		}
+
 	});
 }
 

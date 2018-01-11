@@ -1,12 +1,26 @@
+#tree { user-select: none; }
 #tree a { text-decoration: none; }
 .row { padding: 10px; }
-.text-caption { user-select: none; }
-.text-caption::after { content: ": "; }
 .no-padding { padding: 0px; }
 .border-right { border-right: 1px solid #aaa; }
 .item-img { width: 60px; }
 .item-seller::before { content: "Seller: "; }
 .bidders-participated::before { content: "Bidders participated: "; }
+
+.your-bid::before {
+	display: block;
+	content: "Your bid: ";
+}
+
+.highest-bid::before {
+	display: block;
+	content: "Highest bid:"
+}
+
+.vertical-align {
+	display: flex !important;
+	align-items: center !important;
+}
 
 .card-item {
 	display: block;
