@@ -62,7 +62,7 @@ $mail->SMTPOptions = array(
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Change Password';
     $mail->Body    = '<h1> AUGEO WEBSITE</h1><br>
-                    <p> to Change password, click <a href="localhost/augeo/login/password_reset/index.php?aassmmss='.$account_id.'"> here </a>
+                    <p> to Change password, click <a href="localhost/augeo/login/password_reset/?aassmmss='.$account_id.'"> here </a>
 
     ';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

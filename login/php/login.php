@@ -1,9 +1,8 @@
 <?php
+session_start();
 include("../../global/php/connection.php");
 include("../../global/php/encrypt.php");
 
-    // code to act on the $request
-    // echo back to the calling page
 
 if(isset($_POST['uname']) && isset($_POST['pass'])){
      $username = encode($_POST['uname']);
@@ -16,6 +15,7 @@ $result = mysqli_query($conn,"SELECT augeo_user_end.user_account.username,augeo_
           $found = mysqli_fetch_array($result);
            $account_id =  $found['account_id'];
            echo "sucess";
+           $_SESSION['account_id'] = $account_id;
         }
     else{
            echo "Incorrect Username or Password";

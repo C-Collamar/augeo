@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-	<?php require "../global/php/topbar.html" ?>
+	<?php require "../global/php/topbar.html"; ?>
 
 	<div class="container-fluid">
 		<div class="row">
