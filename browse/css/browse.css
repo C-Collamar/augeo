@@ -1,0 +1,20 @@
+body {
+	overflow: hidden;
+}
+.navbar { margin: 0px; }
+
+#browse-content {
+	display: inline-block;
+	background-color: blue;
+	width: 100%;
+}
+
+#side-panel {
+	/* position: absolute;
+	top: 50px;
+	bottom: 0px;
+	right: -200px; */
+	width: 200px;
+	display: inline-block;
+	background-color: yellow;
+}
