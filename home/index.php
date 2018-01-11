@@ -21,7 +21,7 @@
 						<div class="col-sm-7 border-right">
 							<div class="media">
 								<div class="media-left">
-									<img src="../ignore/dummy/cropped.png" class="media-object" style="width:60px" title="Sample item description.">
+									<img src="../data/user/profile_img/0.png" class="media-object item-img" title="Sample item description.">
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading">Item name</h4>
@@ -51,27 +51,26 @@
 						<div class="col-sm-7 border-right">
 							<div class="media">
 								<div class="media-left">
-									<img src="../ignore/dummy/cropped.png" class="media-object" style="width:60px" title="Sample item description.">
+									<img
+										src="../data/user/items/0_0.jpg"
+										class="media-object item-img" title="A home 250GB slim game console developed by Microsoft. As the successor to the original Xbox, it is the second console in the Xbox series nd it's super fun to pl...">
 								</div>
 								<div class="media-body">
-									<h4 class="media-heading">Item name</h4>
+									<h4 class="media-heading">XBox360</h4>
 									<div class="w-100"></div>
-									<span class="text-caption">Bidders participated</span>
-									<span>5</span>
+									<span class="bidders-participated">5</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-5 text-center align-middle">
-							<div class="row no-padding">
+							<div class="row no-padding vertical-align">
 								<div class="col-xs-6">
-									<div class="row no-padding"><span class="text-caption">Your bid</span></div>
-									<div class="row no-padding"><h4>&#8369; 5.00</h4></div>
-									<div class="row no-padding"><small>1 week ago</small></div>
+									<div class="row no-padding"><span class="text-caption">Highest bid</span></div>
+									<div class="row no-padding"><h4>&#8369; 6.00</h4></div>
+									<div class="row no-padding"><small>3 days ago</small></div>
 								</div>
 								<div class="col-xs-6">
-								<div class="row no-padding"><span class="text-caption">Highest bid</span></div>
-								<div class="row no-padding"><h4>&#8369; 6.00</h4></div>
-								<div class="row no-padding"><small>3 days ago</small></div>
+									<button class="btn btn-green">Lock</button>
 								</div>
 							</div>
 						</div>
@@ -84,7 +83,7 @@
 	<script src="../global/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="../global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
-	<script src="js/home.js"></script>
 	<script src="js/view.js"></script>
+	<script src="js/home.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 function display_content(result, status, xhr) {
+    console.log(result);
     var info = JSON.parse(result);
     console.log(info);
     
@@ -38,4 +39,3 @@ function display_content(result, status, xhr) {
         '</a>';
 */
    }
-}
