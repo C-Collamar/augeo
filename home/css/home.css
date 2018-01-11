@@ -17,23 +17,6 @@
 	content: "Highest bid:"
 }
 
-.btn {
-	border-radius: 25px;
-	padding: 5px 20px;
-}
-
-.btn-green {
-	background-color: #5cb85c;
-	border: 1px solid #4cae4c;
-	color: white;
-	transition: 0.2s;
-}
-
-.btn-green:hover {
-	border: 2px solid #5cb85c;
-	background-color: transparent;
-}
-
 .vertical-align {
 	display: flex !important;
 	align-items: center !important;

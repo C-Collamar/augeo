@@ -3,8 +3,9 @@
 <head>
 	<title>Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../global/css/topbar.css">
 	<link rel="stylesheet" href="../global/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../global/css/topbar.css">
+	<link rel="stylesheet" href="../global/css/default.css">
 	<link rel="stylesheet" href="css/home.css">
 </head>
 <body>
