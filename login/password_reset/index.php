@@ -1,6 +1,12 @@
 <?php
 include("../../global/php/topbar.html");
-include("php/hide.php");
+
+if(!isset($_GET['aassmmss'])){
+    header("Location: ../../global/php/page_error.php");
+}
+else{
+    include("php/hide.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +23,11 @@ include("php/hide.php");
 
 
 <div id=change_pass class="change_pass">
-     <form name="c_Form" id="c_Form" method="POST" onsubmit="return validateForm()">
+    <div class="header" id="header">Recover Account</div>
+   <div id="hello_user" class="hello_user"></div>
+
+     <form name="c_Form" id="c_Form" method="POST" action="php/change_pass.php" onsubmit="return validateForm()">
+        <input type="hidden" name="hidden" id="hidden" value="<?php echo $id; ?>">
 <label for="c_pass"> New Password: </label><br>
 <input type="password" name="c_pass" id="c_pass" placeholder="Enter new password" required"><br>
 
