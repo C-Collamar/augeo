@@ -23,7 +23,7 @@
 			<div class="panel-body">
 				<div style="margin-bottom: 10px;">
 					<label class="radio-inline"><input type="radio" name="optradio" checked name="search-by">Item name</label>
-					<label class="radio-inline"><input type="radio" name="optradio" name="search-by">Item description</label>
+					<label class="radio-inline"><input type="radio" name="optradio" name="search-by">Tag name</label>
 				</div>
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Search">
@@ -33,6 +33,19 @@
 						</button>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">Sort</div>
+			<div class="panel-body">
+				<div>
+					<div class="checkbox">
+						<label><input type="checkbox" value="">Reverse order</label>
+					</div>
+				</div>
+				<hr style="margin: 10px 0px 10px 0px;">
+				<div><label class="radio-inline"><input type="radio" name="optradio" checked name="search-by">Item name</label></div>
+				<div><label class="radio-inline"><input type="radio" name="optradio" name="search-by"></label></div>
 			</div>
 		</div>
 	</div>
