@@ -9,7 +9,9 @@
 	<link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html"; ?>
+	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html";
+	//require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+	 ?>
 
 	<div class="container-fluid">
 		<div class="row">

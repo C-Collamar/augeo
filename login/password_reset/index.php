@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html");
 
 if(!isset($_GET['aassmmss'])){
-    header($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/page_error.php");
+    header("LOcation: http://localhost/augeo/global/php/page_error.php");
 }
 else{
     include("php/hide.php");
