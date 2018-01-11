@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../../global/php/connection.php");
-include("../../global/php/encrypt.php");
+include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
+include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php");
 
 
 if(isset($_POST['uname']) && isset($_POST['pass'])){

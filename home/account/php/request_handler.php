@@ -1,5 +1,5 @@
 <?php
-require_once "../../../global/php/connection.php";
+include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
 
 
 

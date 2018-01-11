@@ -1,5 +1,5 @@
 <?php
-require_once "../../global/php/connection.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 
 switch ($_GET["id"]) {
     //corresponds to "Items you sell for auction"

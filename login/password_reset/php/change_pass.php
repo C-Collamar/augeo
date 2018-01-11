@@ -1,5 +1,5 @@
 <?php
-include("../../../global/php/connection.php");
+include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
 
 // change password
 if(isset($_POST['n_pass'])  && isset($_POST['hidden']) ){

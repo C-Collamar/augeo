@@ -1,8 +1,8 @@
 <?php
-include("../../global/php/topbar.html");
+include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html");
 
 if(!isset($_GET['aassmmss'])){
-    header("Location: ../../global/php/page_error.php");
+    header($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/page_error.php");
 }
 else{
     include("php/hide.php");
@@ -14,8 +14,8 @@ else{
     <title>change password</title>
 </head>
 <link rel="stylesheet" href="css/index.css" />
-<link rel="stylesheet" href="../../global/css/topbar.css">
-<link rel="stylesheet" href="../../global/vendor/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
+<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 <body>
 
 
@@ -39,8 +39,8 @@ else{
 </form>
 
 </div>
-<script src="../../global/vendor/jquery/dist/jquery.min.js"></script>
-<script src="../../global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
 
 

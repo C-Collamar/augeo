@@ -3,13 +3,13 @@
 <head>
 	<title>Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../../global/vendor/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../global/css/topbar.css">
-	<link rel="stylesheet" href="../../global/css/default.css">
+	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
+	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 	<link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-	<?php require "../../global/php/topbar.html"; ?>
+	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html"; ?>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -24,9 +24,9 @@
 		</div>
 	</div>
 
-	<script src="../../global/vendor/jquery/dist/jquery.min.js"></script>
-	<script src="../../global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="../../global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
 	<script src="js/view.js"></script>
 	<script src="js/home.js"></script>
 </body>

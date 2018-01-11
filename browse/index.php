@@ -3,9 +3,9 @@
 <head>
 	<title>Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../global/vendor/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../global/css/topbar.css">
-	<link rel="stylesheet" href="../global/css/default.css">
+	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
+	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 	<link rel="stylesheet" href="css/browse.css">
 </head>
 <body>
@@ -21,9 +21,9 @@
         b
     </div>
 
-	<script src="../global/vendor/jquery/dist/jquery.min.js"></script>
-	<script src="../global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
     <script src="js/browse.js"></script>
 </body>
 </html>
