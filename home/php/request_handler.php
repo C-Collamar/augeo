@@ -1,21 +1,14 @@
 <?php
+require_once "../../global/php/connection.php";
 
 switch ($_GET["id"]) {
     //corresponds to "Items you sell for auction"
-    case 0:
-        $result = {
-            "item_img": "../ignore/dummy/cropped.png",
-            
-        };
+    /*case 1:
         break;
-
-    //corresponds to "Items you participate in bidding"
-    case 1:
-        break;
+    */
 
     default:
-        # code...
+        echo var_dump($_GET);
         break;
 }
-
 ?>
