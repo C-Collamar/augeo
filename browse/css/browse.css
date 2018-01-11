@@ -3,20 +3,20 @@
 #side-panel.contract { right: -300px; }
 
 #browse-content {
+	/* display: inline-block; */
 	width: -webkit-calc(100% - 300px);
 	width: -moz-calc(100% - 300px);
 	width: calc(100% - 300px);
-	/* background-color: blue; */
 	transition: width 0.3s ease;
 }
 
 #side-panel {
-	display: inline-block;
 	position: absolute;
-	top: 0px;
+	top: 50px;
 	right: 0px;
 	z-index: 1;
 	width: 300px;
+	height: 100%;
 	padding: 10px;
 	background-color: #a0495e;
 	transition: 0.3s ease;
