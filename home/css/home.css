@@ -9,6 +9,11 @@
 .item-seller::before { content: "Seller: "; }
 .bidders-participated::before { content: "Bidders participated: "; }
 
+.highest-bid::before {
+	display: block;
+	content: "Highest bid:"
+}
+
 .btn {
 	border-radius: 25px;
 	padding: 5px 20px;

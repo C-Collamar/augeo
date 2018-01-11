@@ -39,8 +39,7 @@
 									<div class="row no-padding"><small>1 week ago</small></div>
 								</div>
 								<div class="col-xs-6">
-								<div class="row no-padding"><span class="text-caption">Highest bid</span></div>
-								<div class="row no-padding"><h4>&#8369; 6.00</h4></div>
+								<div class="row no-padding highest-bid"><h4>&#8369; 6.00</h4></div>
 								<div class="row no-padding"><small>3 days ago</small></div>
 								</div>
 							</div>
@@ -65,8 +64,7 @@
 						<div class="col-sm-5 text-center align-middle">
 							<div class="row no-padding vertical-align">
 								<div class="col-xs-6">
-									<div class="row no-padding"><span class="text-caption">Highest bid</span></div>
-									<div class="row no-padding"><h4>&#8369; 6.00</h4></div>
+									<div class="row no-padding highest-bid"><h4>&#8369; 6.00</h4></div>
 									<div class="row no-padding"><small>3 days ago</small></div>
 								</div>
 								<div class="col-xs-6">
