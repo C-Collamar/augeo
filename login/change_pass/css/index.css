@@ -45,7 +45,7 @@ input[type=submit]{
     text-align: center;
     white-space: nowrap;
 
-        font-size: 14px;
+    font-size: 14px;
     font-weight: bold;
     color: white;
     padding: 9px 18px;
@@ -55,11 +55,13 @@ input[type=submit]{
     outline: 0;
     display: inline-block;
     margin-top: 5px;
-}
-}
 
 }
 
+.error_msg {
+    color: red;
+    font-size: 17px;
+}
 
 @media only screen and (max-width: 600px;){
     body .w3-main{
