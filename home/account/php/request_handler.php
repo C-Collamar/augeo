@@ -19,9 +19,17 @@ switch ($_GET["id"]) {
     case 1:
     echo '
 
-    <p>Name: </p><div class="data">'.$f_name.$m_name.$l_name.'</div>
+<div class="row">
+<div class="jumbotron">
+    <div class="jumbotext"><p>Name: '.$f_name.' '.$m_name.' '.$l_name.'</p></div>
+</div>
+</div>
 
-
+<div class="row">
+<div class="jumbotron">
+    <div class="jumbotext"><p>Name: '.$f_name.' '.$m_name.' '.$l_name.'</p></div>
+</div>
+</div>
 
 
 

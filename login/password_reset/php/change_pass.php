@@ -1,9 +1,10 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
+include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php");
 
 // change password
 if(isset($_POST['n_pass'])  && isset($_POST['hidden']) ){
-    $password = $_POST['n_pass'];
+   $password = encrypt(encode($_POST['n_pass']));
     $id = $_POST['hidden'];
 if(mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.user_account.password = '$password' where augeo_user_end.user_account.account_id = '$id'")){
     echo "sucess";
