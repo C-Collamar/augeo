@@ -9,23 +9,6 @@ body {
     font-size: 17px;
 }
 
-.login_form {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
-
-.crt_form {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-  align-items: center;
-  justify-content: space-around;
-}
 
 
 input[type=text],input[type=password]{
@@ -92,14 +75,6 @@ input[type=button]:hover {
   display:none;
 }
 
-
-.email_d {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
 
 
 .page_header {
