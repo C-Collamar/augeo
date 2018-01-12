@@ -45,16 +45,19 @@
 	max-width: 200px;
 }
 
+.item-description.overflow { content: "..."; }
+
 .highest-bid::before {
 	content: "Highest bid: ";
 	font-weight: bold;
 }
 
+.tag-list { line-height: 180%; }
+
 .tag-list::before {
-	content: "Tags: ";
+	content: "Tags:";
 	font-weight: bold;
-	display: block;
-	padding-bottom: 5px;
+	margin-right: 5px;
 }
 
 .tag-list > a {
@@ -62,6 +65,12 @@
 	color: white;
 	padding: 3px 5px;
 	white-space: nowrap;
+	transition: background-color 0.3s;
+}
+
+.tag-list > a:hover {
+	text-decoration: none;
+	background-color: #699ef5;
 }
 
 @media only screen and (max-width: 768px) {
