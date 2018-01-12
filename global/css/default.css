@@ -4,13 +4,23 @@
 }
 
 .btn-green {
-	background-color: #5cb85c;
-	border: 1px solid #4cae4c;
-	color: white;
+	color: #5cb85c;
+	border: 2px solid #5cb85c;
+	background-color: transparent;
 	transition: 0.2s;
 }
 
 .btn-green:hover {
-	border: 2px solid #5cb85c;
-	background-color: transparent;
+	color: white;
+	background-color: #5cb85c;
+	border: 1px solid #4cae4c;
+}
+
+.card {
+	outline: 1px solid #888888;
+	transition: 0.3s;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
