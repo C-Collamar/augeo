@@ -12,7 +12,7 @@ else{
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Password Reset</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
@@ -29,12 +29,12 @@ else{
     <div class="form-group">
       <input type="hidden" name="hidden" id="hidden" value="<?php echo $id; ?>">
       <label for="email">New Password:</label>
-      <input type="password" class="form-control" name="c_pass" id="c_pass" placeholder="Enter new password" required>
+      <input type="password" class="input-group" name="c_pass" id="c_pass" placeholder="Enter new password" required>
     </div>
 
     <div class="form-group">
       <label for="pwd">Re-enter Password:</label>
-      <input type="password" class="form-control" name="n_pass" id="n_pass"  placeholder="Re-enter password" required>
+      <input type="password" class="input-group" name="n_pass" id="n_pass"  placeholder="Re-enter password" required>
       <div id="error_msg" class="error_msg">
     </div>
 

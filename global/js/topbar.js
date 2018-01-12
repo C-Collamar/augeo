@@ -1,16 +1,22 @@
-$(window).ready(function() {
+ // check if user is logged in
+ window.onload = logged;
+ function logged() {
                 $.ajax({
-                    type: "POST",
                     url: "http://localhost/augeo/global/php/check_user.php",
                     success: function(result) {
-                        if(result == "not logged in"){
-                            alert("success");
+                        if(result == "true"){
+
+                     //         $(".logged_in").hide();
+                      //        $(".logged_in").slideToggle();
+
                       }
                       else{
-                        alert("success pa din");
+                       // $(".logged_in").hide();
+                         //     $(".not_logged").hide();
+                           //   $(".not_logged").slideToggle();
 
                       }
                     }
                });
 
-     });
+     };

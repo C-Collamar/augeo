@@ -1,3 +1,4 @@
+/*
 function display_content(result) {
     alert(result);
    // var info = JSON.parse(result);
@@ -16,3 +17,4 @@ function display_content(result) {
 
         $("#container-fluid").html = result;
 
+*/
