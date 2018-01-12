@@ -37,7 +37,7 @@ function update_view(event, node) {
 		type: "GET",
 		data: { id: node.nodeId },
 		success: function(result) {
-			$("#cc").html(result);
+			$("#html-code-here").html(result);
 		}
 
 	});

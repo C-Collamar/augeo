@@ -6,64 +6,71 @@
 <head>
     <title>login</title>
 </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/index.css" />
 <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
 <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 
 <body>
-
-<div id="login_form" class="login_form">
-<form  method="post" enctype="multipart/form-data">
-
 <!-- Login form -->
- <h1>Login to AUGEO</h1>
-<input type="text" name="uname" id="uname" placeholder="Enter Username" required><br>
-<input type="password" name="pass" id="pass" placeholder="Enter Password" required>
-<br>
-  <div id ="error_msg" class="error_msg">
-<p>  </p>
-</div>
-<input type="button" name="submit" id="submit" value="Login">
-<br>
+<div class="container login_form" align="center">
 
-<div id="forgot_pass"><a href="#" class="show_hide2"> Forgot Password</a></div>
-<a href="#" class="show_hide">Sign Up</a><br />
-</form>
-</div>
-
-<!-- Create form -->
-<div id="crt_form" class="crt_form">
-    <h1>Create a New Account</h1>
-    <input type="text" name="crt_uname" id="crt_uname" placeholder="Username" required><br>
-    <input type="password" name="crt_pass" id="crt_pass" placeholder="Password" required><br>
-    <div id="uname_error" class="uname_error"></div>
-    <input type="button" name="crt_acc" id="crt_acc" value="Create account"><br><br>
-    <a href="#" class="show_hide">Already have an account? Log in</a><br />
-
-</div>
-
-
-<!--Reset Form -->
-
-<div id="email_d" class="email_d">
+     <h2>Login to AUGEO</h2>
 <form method="post" enctype="multipart/form-data">
+    <div class="form-group">
 
-<div class="page_header" >To reset your password, Enter your Email :<br></div><br>
-<input type="email" name="email" id="email" required placeholder="Enter Email"><br>
+      <input type="text" class="input-group" name="uname" id="uname" placeholder="Enter Username" required>
+    </div>
+    <div class="form-group">
 
-<div id="error_email" class="error_email">
+      <input type="password" class="input-group" name="pass" id="pass" placeholder="Enter Password" required>
+       <div id ="error_msg" class="error_msg">
+</div>
+    </div>
 
-    <p></p>
-
+    <input type="button" class="btn btn-md" name="submit" id="submit" value="Login">
+    <div id="forgot_pass"><a href="#" class="show_hide2"> Forgot Password</a></div>
+<a href="#" class="show_hide">Sign Up</a><br />
+  </form>
 </div>
 
-<input type="button" name="send_mail" id="send_mail" value="send">
-</form>
+
+
+
+<!-- Password Reset FOrm-->
+<div class="container email_d" align="center">
+
+     <h2>To reset your password, Enter your Email :</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <input type="email" class="input-group" name="email" id="email" required placeholder="Enter Email">
+       <div id="error_email" class="error_email""><p></p>
+</div>
+    </div>
+    <input type="button" class="btn btn-default" name="send_mail" id="send_mail" value="send">
+  </form>
 </div>
 
+
+<!-- Create Form -->
+<div class="container crt_form" align="center">
+
+     <h2>Create a New Account</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <input type="text" class="input-group" name="crt_uname" id="crt_uname" placeholder="Username" required>
+      <input type="password" class="input-group" name="crt_pass" id="crt_pass" placeholder="Password" required>
+        <div id="uname_error" class="uname_error"></div>
+</div>
+
+    <input type="button" name="crt_acc" id="crt_acc" value="Create account"><br>
+     <a href="#" class="show_hide">Already have an account? Log in</a><br />
+  </form>
+</div>
 
 <!-- Email success -->
-    <div id="myModal" class="modal fade">
+<div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -76,7 +83,6 @@
             </div>
         </div>
     </div>
-
 
  <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
