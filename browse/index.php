@@ -13,11 +13,13 @@
 
 	<button class="btn btn-default" onclick="toggleOptionPanel()">Options</button>
 	<div id="browse-content">
-		<div class="container">
-			<div class="card">
+		<div class="grid">
+			<div class="grid-sizer"></div>
+			<div class="gutter-sizer"></div>
+			<div class="card grid-item">
 				<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
-				<div class="container-fluid">
-					<h4><b>XBox360</b></h4> 
+				<div class="item-details">
+					<h4><b>XBox360</b></h4>
 					<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
 					<div class="highest-bid">Php 5.00</div>
 					<div class="tag-list">
@@ -27,11 +29,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="card">
+			<div class="card grid-item">
 				<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
-				<div class="container-fluid">
-					<h4><b>XBox360</b></h4> 
-					<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente</p> 
+				<div class="item-details">
+					<h4><b>XBox360</b></h4>
+					<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
 					<div class="highest-bid">Php 5.00</div>
 					<div class="tag-list">
 						<a href="">tagname-1</a>
@@ -72,6 +74,7 @@
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/masonry/dist/masonry.pkgd.js"></script>
 	<script src="js/browse.js"></script>
 </body>
 </html>

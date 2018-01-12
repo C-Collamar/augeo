@@ -29,21 +29,23 @@
 	content: "Ordering";
 }
 
-.card {
-	padding-bottom: 10px;
-	display: inline-block;
-	max-width: 300px;
-	margin: 5px;
-	background-color: white;
+.gutter-sizer { width: 1%; }
+.grid-sizer,
+.grid-item {
+	width: 20%;
+}
+  
+.grid-item {
+	float: left;
+	margin-bottom: 10px;
 }
 
-.card img {
+.grid-item img {
 	display: block;
-	margin: 0px auto;
-	max-height: 200px;
-	width: auto;
-	max-width: 200px;
+	max-width: 100%;
 }
+
+.item-details { padding: 10px; }
 
 .item-description.overflow { content: "..."; }
 
@@ -76,4 +78,15 @@
 @media only screen and (max-width: 768px) {
 	#side-panel { width: 100%; }
 	#side-panel.contract { right: -100%; }
+	.grid-sizer,
+	.grid-item {
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 368px) {
+	.grid-sizer,
+	.grid-item {
+		width: 100%;
+	}
 }

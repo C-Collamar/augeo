@@ -10,3 +10,6 @@
 [submodule "global/vendor/PHPMailer"]
 	path = global/vendor/PHPMailer
 	url = https://github.com/PHPMailer/PHPMailer.git
+[submodule "global/vendor/masonry"]
+	path = global/vendor/masonry
+	url = https://github.com/desandro/masonry.git
