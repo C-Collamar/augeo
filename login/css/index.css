@@ -1,7 +1,11 @@
 body {
-    background-color: white;
+
     margin: 0;
     padding: 0;
+    background-image: url("http://localhost/augeo/login/bidding.png");
+     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .error_msg,.uname_error{
@@ -84,6 +88,15 @@ color: #66757f;
 margin-bottom: 5px;
 }
 
+.panel-login {
+   max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 2px solid rgba(0,0,0,0.1);
+box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+
+}
 
 
 .error_email {

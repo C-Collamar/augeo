@@ -49,5 +49,5 @@ function update_view(event, node) {
 }
 
 function handle_error(result, status, xhr) {
-	console.error(status, xhr);	
+	console.error(status, xhr);
 }

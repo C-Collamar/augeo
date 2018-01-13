@@ -55,9 +55,18 @@
  img{
   max-width:200px;
 }
-.show_hide{
+
+.edit{
+	font-size: 10px;
+}
+
+
+#profile,#accounta{
 	display: none;
 }
+
+
+
 
 @media only screen and (max-width: 768px) {
 	.border-right {

@@ -5,22 +5,14 @@ var treeStruct = [
 		state: { expanded: true, },
 		tags: ['available'],
 		nodes: [{
-			text: "Profile"
-
+			text: "Profile",
+          //  state: { selected: true }
 		}, {
 			text: "Account"
 		},{
 			text: "Privacy"
 		}
 		]
-	}, {
-		text: "Sucessful auctions",
-		selectable: false,
-		nodes: [{
-			text: "You as the bidder"
-		}, {
-			text: "You as the seller"
-		}]
 	}
 ];
 
@@ -32,24 +24,30 @@ tree.treeview({
 });
 
 function update_view(event, node) {
-	$.ajax({
-		url: "php/request_handler.php",
-		type: "GET",
-		data: { id: node.nodeId },
-		success: function(result) {
-			$("#html-code-here").html(result);
-		}
+    //alert(node.nodeId);
+           $("#accounta").hide();
+           $("#profile").hide();
+    if(node.nodeId == "1"){
+             $("#profile").show();
+             $("#accounta").hide();
 
-	});
+    }
+     else if(node.nodeId == "2"){
+        $("#profile").hide();
+        $("#accounta").show();
+
+
+    }
+    else{
+        alert(node.nodeId);
+    }
+
+
 }
 
 function handle_error(result, status, xhr) {
 	console.error(status, xhr);
 }
-
-
-
-
 
 
 
@@ -65,9 +63,9 @@ function handle_error(result, status, xhr) {
                 fd.append('file',files);
 
                 $.ajax({
-                    url:'upload.php',
+                    url:'php/upload.php',
                     type:'post',
-                    data:fd,sam,
+                    data:fd,
                     contentType: false,
                     processData: false,
                     success:function(response){
@@ -87,6 +85,7 @@ function handle_error(result, status, xhr) {
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
+                    alert($('#uname').val());
                     $('#img')
                         .attr('src', e.target.result);
                 };
@@ -95,25 +94,12 @@ function handle_error(result, status, xhr) {
             }
         }
 
-
-
-$(document).ready(function() {
-
-// hiding and showing
-//  $(".crt_form").hide();
-//  $(".profile").hide();
-    $(".show_hide").show();
-    $(".profile").show();
-
-
-  $('.show_hide').click(function(){
-  $(".profile").slideToggle();
- // $(".login_form").slideToggle();
-
-  });
-
-   });
-
+$(function () {
+            $('#datetimepicker10').datetimepicker({
+                viewMode: 'years',
+                format: 'MM/YYYY'
+            });
+        });
 
 
 

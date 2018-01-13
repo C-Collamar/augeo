@@ -15,16 +15,17 @@
 <body>
 <!-- Login form -->
 <div class="container login_form" align="center">
-
+<div class="panel-login">
      <h2>Login to AUGEO</h2>
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
 
-      <input type="text" class="input-group" name="uname" id="uname" placeholder="Enter Username" required>
-    </div>
+      <input type="text" class="form-control" name="uname" id="uname" placeholder="Enter Username" required>
+
+  </div>
     <div class="form-group">
 
-      <input type="password" class="input-group" name="pass" id="pass" placeholder="Enter Password" required>
+      <input type="password" class="form-control" name="pass" id="pass" placeholder="Enter Password" required>
        <div id ="error_msg" class="error_msg">
 </div>
     </div>
@@ -34,14 +35,16 @@
 <a href="#" class="show_hide">Sign Up</a><br />
   </form>
 </div>
+</div>
 
 
 
 
 <!-- Password Reset FOrm-->
 <div class="container email_d" align="center">
-
-     <h2>To reset your password, Enter your Email :</h2>
+<div class="panel-login">
+     <h3>Recover Account</h3>
+     <p>Enter your Email:</p>
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
       <input type="email" class="input-group" name="email" id="email" required placeholder="Enter Email">
@@ -51,22 +54,23 @@
     <input type="button" class="btn btn-default" name="send_mail" id="send_mail" value="send">
   </form>
 </div>
-
+</div>
 
 <!-- Create Form -->
 <div class="container crt_form" align="center">
-
+<div class="panel-login">
      <h2>Create a New Account</h2>
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
-      <input type="text" class="input-group" name="crt_uname" id="crt_uname" placeholder="Username" required>
-      <input type="password" class="input-group" name="crt_pass" id="crt_pass" placeholder="Password" required>
+      <input type="text" class="form-control" name="crt_uname" id="crt_uname" placeholder="Username" required>
+      <input type="password" class="form-control" name="crt_pass" id="crt_pass" placeholder="Password" required>
         <div id="uname_error" class="uname_error"></div>
 </div>
 
     <input type="button" name="crt_acc" id="crt_acc" value="Create account"><br>
      <a href="#" class="show_hide">Already have an account? Log in</a><br />
   </form>
+</div>
 </div>
 
 <!-- Email success -->
