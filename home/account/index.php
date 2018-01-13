@@ -27,12 +27,12 @@
 	<div class="well">
 <h2>Personal Information</h2>
 <h3>Profile Picture</h3>
-<img src="http://localhost/augeo/data/user/profile_img/BeanPants.jpg" id="img"><br>
+<img src="" id="img"><br>
 <a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
 <div id="collapse1" class="panel-collapse collapse">
       <ul class="list-group">
         <li class="list-group-item">  <input type="file" id="file" name="file" onchange="display_img(this);" />         </li>
-        <li class="list-group-item">   <input type="button" class="button" name="but_upload" value="Upload" id="but_upload"></li>
+        <li class="list-group-item">   <input type="button" name="but_upload" value="Upload" id="but_upload"></li>
 
       </ul>
       <div class="panel-footer"><input type="submit" name="submit_name" id="save" value="save" > </div>
@@ -50,7 +50,7 @@
 
     <div id="collapse2" class="panel-collapse collapse">
       <ul class="list-group">
-        <li class="list-group-item"> Fisrt name: <input class="form-control" type="text" name="uname" id="uname" value="austin" placeholder="First Name" > </li>
+        <li class="list-group-item"> Fisrt name: <input class="form-control" type="text" name="uname" id="uname" placeholder="First Name" > </li>
         <li class="list-group-item">Middle name: <input type="text" class="form-control" name="uname" id="mname" placeholder="Middle Name" > </li>
         <li class="list-group-item">Last name:   <input type="text" class="form-control" name="uname" id="lname" placeholder="Last Name" > </li>
       </ul>

@@ -52,12 +52,12 @@ function handle_error(result, status, xhr) {
 
 
 
-        $(document).ready(function(){
+         $(document).ready(function(){
 
             $("#but_upload").click(function(){
 
                 var fd = new FormData();
-                var sam = document.getElementById("test");
+
                 var files = $('#file')[0].files[0];
 
                 fd.append('file',files);
@@ -85,7 +85,6 @@ function handle_error(result, status, xhr) {
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    alert($('#uname').val());
                     $('#img')
                         .attr('src', e.target.result);
                 };
@@ -103,3 +102,20 @@ $(function () {
 
 
 
+$(document).ready(function() {
+ $.ajax({
+                    type: "POST",
+                    url: "php/request_handler.php",
+                    data: {
+                        uname: "sadads"
+                    },
+                    success: function(result) {
+                       alert(result);
+                       var content_info = JSON.parse(result);
+                       document.getElementById("uname").value = content_info.f_name;
+                       document.getElementById("mname").value = content_info.m_name;
+                       document.getElementById("lname").value = content_info.l_name;
+                       document.getElementById("img").src = content_info.profile_img;
+                    }
+               });
+      });
