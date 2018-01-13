@@ -10,6 +10,7 @@
 }
 
 #browse-content {
+	padding-left: 10px;
 	width: -webkit-calc(100% - 300px);
 	width: -moz-calc(100% - 300px);
 	width: calc(100% - 300px);
@@ -86,11 +87,27 @@
 	#side-panel.contract { right: -100%; }
 	.grid-sizer,
 	.grid-item {
+		width: 25%;
+	}
+}
+
+@media only screen and (max-width: 620px) {
+	#side-panel { width: 100%; }
+	#side-panel.contract { right: -100%; }
+	.grid-sizer,
+	.grid-item {
+		width: 33.33333%;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.grid-sizer,
+	.grid-item {
 		width: 50%;
 	}
 }
 
-@media only screen and (max-width: 368px) {
+@media only screen and (max-width: 330px) {
 	.grid-sizer,
 	.grid-item {
 		width: 100%;
