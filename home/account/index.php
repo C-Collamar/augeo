@@ -25,9 +25,9 @@
 
 <div id="profile">
 	<div class="well">
-
-Profile Picture:
-<img src="" id="img">
+<h2>Personal Information</h2>
+<h3>Profile Picture</h3>
+<img src="http://localhost/augeo/data/user/profile_img/BeanPants.jpg" id="img"><br>
 <a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
 <div id="collapse1" class="panel-collapse collapse">
       <ul class="list-group">
@@ -39,39 +39,66 @@ Profile Picture:
 </div>
 
 
+<hr>
 
 
-	</div>
 
-<div class="well">
 
-<p>Name: '.$f_name.' '.$m_name.' '.$l_name.' <t> <a class="edit" data-toggle="collapse" href="#collapse2">edit</a></p>
+
+<p><h3>Name</h3> <div id="fullname"> </div>
+	<a class="edit" data-toggle="collapse" href="#collapse2">edit</a></p>
 
     <div id="collapse2" class="panel-collapse collapse">
       <ul class="list-group">
-        <li class="list-group-item"> Fisrt name: <input class="uname" type="text" name="uname" value="austin" placeholder="First Name" >           </li>
-        <li class="list-group-item">Middle name: <input type="text" name="uname" placeholder="Middle Name" > </li>
-        <li class="list-group-item">Last name:   <input type="text" name="uname" placeholder="Last Name" > </li>
+        <li class="list-group-item"> Fisrt name: <input class="form-control" type="text" name="uname" id="uname" value="austin" placeholder="First Name" > </li>
+        <li class="list-group-item">Middle name: <input type="text" class="form-control" name="uname" id="mname" placeholder="Middle Name" > </li>
+        <li class="list-group-item">Last name:   <input type="text" class="form-control" name="uname" id="lname" placeholder="Last Name" > </li>
       </ul>
       <div class="panel-footer"><input type="submit" name="submit_name" id="save" value="save" > </div>
 </div>
 
-	</div>
+
+<hr>
+<h4>Birth Day</h4>
+
+
+<hr>
+
+<h4>Contact</h4>
+
+<hr>
+</div>
 
 
 </div>
-
-</div>
 </div>
 
 
 
-
+<!--ACCOUNT SIDEBAR-->
 <div class="col-sm-9">
 				<div class="container-fluid">
 
 <div id="accounta">
-askdasjdkl
+<div class="well">
+<h2>Login</h2>
+<h3>Change Password:</h3>
+
+<label for="current_pass">Enter Current Password</label><br>
+<input type="password" class="form-control" name="current_pass" id="current_pass"></br>
+<label for="new_pass1">Enter New Password</label><br>
+<input type="password" class="form-control" name="new_pass1" id="new_pass1" ></br>
+<label for="new_pass2">Re-enter New Password</label><br>
+<input type="password" class="form-control" name="new_pass2" id="new_pass2"></br>
+<hr>
+<input type="button" name="new_pass_btn" id="new_pass_btn" value="save">
+</div>
+
+
+<div class="well">
+Email:
+</div>
+
 </div>
 
 </div>
