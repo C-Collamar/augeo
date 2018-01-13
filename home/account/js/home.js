@@ -46,3 +46,74 @@ function update_view(event, node) {
 function handle_error(result, status, xhr) {
 	console.error(status, xhr);
 }
+
+
+
+
+
+
+
+
+        $(document).ready(function(){
+
+            $("#but_upload").click(function(){
+
+                var fd = new FormData();
+                var sam = document.getElementById("test");
+                var files = $('#file')[0].files[0];
+
+                fd.append('file',files);
+
+                $.ajax({
+                    url:'upload.php',
+                    type:'post',
+                    data:fd,sam,
+                    contentType: false,
+                    processData: false,
+                    success:function(response){
+
+                            alert(response);
+
+                    },
+                    error:function(response){
+                        alert('error : ' + JSON.stringify(response));
+                    }
+                });
+            });
+        });
+
+     function display_img(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+
+$(document).ready(function() {
+
+// hiding and showing
+//  $(".crt_form").hide();
+//  $(".profile").hide();
+    $(".show_hide").show();
+    $(".profile").show();
+
+
+  $('.show_hide').click(function(){
+  $(".profile").slideToggle();
+ // $(".login_form").slideToggle();
+
+  });
+
+   });
+
+
+
+

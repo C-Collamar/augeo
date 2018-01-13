@@ -52,6 +52,13 @@
 	margin: 0px 8px;
 }
 
+ img{
+  max-width:200px;
+}
+.show_hide{
+	display: none;
+}
+
 @media only screen and (max-width: 768px) {
 	.border-right {
 		border-right: none;
