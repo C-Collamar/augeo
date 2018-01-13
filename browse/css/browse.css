@@ -4,6 +4,11 @@
 #side-panel.contract { right: -300px; }
 .radio-inline { margin: 5px 0px 5px 0px; }
 
+#option-container {
+	padding: 10px;
+	text-align: right;
+}
+
 #browse-content {
 	width: -webkit-calc(100% - 300px);
 	width: -moz-calc(100% - 300px);
@@ -34,7 +39,7 @@
 .grid-item {
 	width: 20%;
 }
-  
+
 .grid-item {
 	float: left;
 	padding-bottom: 10px;
