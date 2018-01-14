@@ -55,11 +55,13 @@ function handle_error(result, status, xhr) {
          $(document).ready(function(){
 
             $("#but_upload").click(function(){
-
+            var username = document.getElementById("username").value;
                 var fd = new FormData();
 
                 var files = $('#file')[0].files[0];
-
+                var pic_name = $('#file').val();
+                 var extension = pic_name.split('.').pop().toUpperCase();
+                 if(extension == "JPG" || extension == "JPEG"){
                 fd.append('file',files);
 
                 $.ajax({
@@ -69,14 +71,30 @@ function handle_error(result, status, xhr) {
                     contentType: false,
                     processData: false,
                     success:function(response){
+                        if(response == "success"){
+                          $("#error_pic").css({color: 'green'});
+                          document.getElementById("error_pic").innerHTML = "Your Profile Pic has been updated";
+                        }
+                        else{
+                          $("#error_pic").css({color: 'red'});
+                         document.getElementById("error_pic").innerHTML = "There was a problem updating your profile pic, Please try again later";
+                        }
 
-                            alert(response);
 
                     },
                     error:function(response){
                         alert('error : ' + JSON.stringify(response));
                     }
                 });
+              }
+              else{
+                $("#error_pic").css({color: 'red'});
+               document.getElementById("error_pic").innerHTML = "Please Enter a valid picture (note: only JPG or JPEG format only!";
+
+
+              }
+
+
             });
         });
 
@@ -113,9 +131,10 @@ $(document).ready(function() {
                        var uname =  document.getElementById("uname").value = content_info.f_name;
                        var mname=  document.getElementById("mname").value = content_info.m_name;
                        var lname = document.getElementById("lname").value = content_info.l_name;
+                        document.getElementById("username").value = content_info.username;
                        document.getElementById("contact_no").value = content_info.contact_no;
                        document.getElementById("email").value = content_info.email;
-                       document.getElementById("fullname").innerHTML = uname + " " + mname + " "+ lname;
+                  //    var fullname = document.getElementById("fullname").innerHTML = uname + " " + mname + " "+ lname;
                        document.getElementById("img").src = content_info.profile_img;
                     }
                });

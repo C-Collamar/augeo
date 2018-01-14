@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Account</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
@@ -27,16 +27,18 @@
 <div id="profile">
 	<div class="well">
 <h2>Personal Information</h2>
-<h3>Profile Picture</h3>
+<hr>
+<label for="img">Profile pic</label><br>
 <img src="" id="img"><br>
 <a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
 <div id="collapse1" class="panel-collapse collapse">
       <ul class="list-group">
         <li class="list-group-item">  <input type="file" id="file" name="file" onchange="display_img(this);" />         </li>
-        <li class="list-group-item">   <input type="button" name="but_upload" value="Upload" id="but_upload"></li>
+
 
       </ul>
-      <div class="panel-footer"><input type="submit" name="submit_name" id="save" value="save" > </div>
+      <div id="error_pic"></div>
+    <div class="panel-footer">  <input type="button" name="but_upload" value="Save" id="but_upload"></div>
 </div>
 
 
@@ -46,28 +48,27 @@
 
 
 
-<p><h3>Name</h3> <div class="d-inline" id="fullname"> </div>
-	<a class="edit" data-toggle="collapse" href="#collapse2">edit</a></p>
+<h4>Name:</h4>
+        <label for="uname">First name</label>
+        <input class="form-control" type="text" name="uname" id="uname" placeholder="First Name" >
+         <label for="mname">Middle name</label>
+        <input type="text" class="form-control" name="uname" id="mname" placeholder="Middle Name" >
+        <label for="lname">Last name</label>
+        <input type="text" class="form-control" name="uname" id="lname" placeholder="Last Name" >
 
-    <div id="collapse2" class="panel-collapse collapse">
-      <ul class="list-group">
-        <li class="list-group-item"> Fisrt name: <input class="form-control" type="text" name="uname" id="uname" placeholder="First Name" > </li>
-        <li class="list-group-item">Middle name: <input type="text" class="form-control" name="uname" id="mname" placeholder="Middle Name" > </li>
-        <li class="list-group-item">Last name:   <input type="text" class="form-control" name="uname" id="lname" placeholder="Last Name" > </li>
-      </ul>
-      <div class="panel-footer"><input type="submit" name="submit_name" id="save" value="save" > </div>
-</div>
 
 
 <hr>
-<h4>Birth Day</h4>
-
+<label for="birthday">Birthday</label>
+<input type="date" class="form-control" name="birthday" id="birthday" placeholder="Birthday" >
 
 <hr>
 <label for="contact_no">contact</label>
 <input type="text" class="form-control" name="contact_no" id="contact_no">
-
 <hr>
+
+<input type="button" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
+
 </div>
 
 
@@ -101,6 +102,10 @@
 <label for="email">Email</label>
 <input type="email" class="form-control" name="email" id="email" >
 <input type="button" name="email_btn" id="email_btn" value="save">
+<hr>
+<label for="username">Username</label>
+    <input type="text" name="username" id="username">
+
 </div>
 
 </div>
