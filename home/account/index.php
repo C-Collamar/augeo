@@ -91,6 +91,7 @@
 <input type="password" class="form-control" name="new_pass1" id="new_pass1" ></br>
 <label for="new_pass2">Re-enter New Password</label><br>
 <input type="password" class="form-control" name="new_pass2" id="new_pass2"></br>
+<div id="error_new_pass"></div>
 <hr>
 <input type="button" name="new_pass_btn" id="new_pass_btn" value="save">
 </div>
@@ -99,6 +100,7 @@
 <div class="well">
 <label for="email">Email</label>
 <input type="email" class="form-control" name="email" id="email" >
+<input type="button" name="email_btn" id="email_btn" value="save">
 </div>
 
 </div>
