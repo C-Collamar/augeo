@@ -43,14 +43,9 @@ $('.show_hide2').click(function(){
                         crt_pass : $("#crt_pass").val()
                     },
                     success: function(result) {
-                        if(result == "sucess"){
-                         // window.location.assign("../home");
                           window.location.assign("../home");
-                      }
-                      else{
-                        document.getElementById("uname_error").innerHTML= result;
 
-                      }
+
                     }
 
 

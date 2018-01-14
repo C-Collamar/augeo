@@ -99,14 +99,22 @@
 
 
 <div class="well">
+<div class="row">
+<label for="username">Username:</label>
+<div id="username"></div>
+</div>
+
+<div>
+<hr>
+
+
 <label for="email">Email</label>
 <input type="email" class="form-control" name="email" id="email" >
-<input type="button" name="email_btn" id="email_btn" value="save">
-<hr>
-<label for="username">Username</label>
-    <input type="text" name="username" id="username">
 
-</div>
+<hr>
+<input type="button" name="email_btn" id="email_btn" value="Save Changes">
+
+</dvi>
 
 </div>
 

@@ -1,3 +1,4 @@
+// bootstrap tree
 var treeStruct = [
 	{
 		text: "Account Settings",
@@ -22,7 +23,7 @@ tree.treeview({
 	selectedBackColor: "#a0495e",
 	onNodeSelected: update_view
 });
-
+// show data when sidebar(node) is clicked ex. Profile
 function update_view(event, node) {
     //alert(node.nodeId);
            $("#accounta").hide();
@@ -51,7 +52,7 @@ function handle_error(result, status, xhr) {
 
 
 
-
+// uploading image and checking if file is valid
          $(document).ready(function(){
 
             $("#but_upload").click(function(){
@@ -97,7 +98,7 @@ function handle_error(result, status, xhr) {
 
             });
         });
-
+// displaying image when uploaded
      function display_img(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -110,13 +111,10 @@ function handle_error(result, status, xhr) {
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+// date picker
 
 
-
+// getting user's data from database
 $(document).ready(function() {
     var id = $("#account_id_session").val();
  $.ajax({
@@ -131,7 +129,7 @@ $(document).ready(function() {
                        var uname =  document.getElementById("uname").value = content_info.f_name;
                        var mname=  document.getElementById("mname").value = content_info.m_name;
                        var lname = document.getElementById("lname").value = content_info.l_name;
-                        document.getElementById("username").value = content_info.username;
+                        document.getElementById("username").innerHTML = content_info.username;
                        document.getElementById("contact_no").value = content_info.contact_no;
                        document.getElementById("email").value = content_info.email;
                   //    var fullname = document.getElementById("fullname").innerHTML = uname + " " + mname + " "+ lname;
@@ -139,7 +137,7 @@ $(document).ready(function() {
                     }
                });
 
-
+// updating password
    $("#new_pass_btn").click(function(){
     var pass_id = $("#account_id_session").val();
       if( ($("#current_pass").val() == "" && $("#new_pass1").val() == "" && $("#new_pass2") == "") ||   ($("#current_pass").val() == "" || $("#new_pass1").val() == "" || $("#new_pass2").val() == "")    ){
@@ -182,7 +180,7 @@ $(document).ready(function() {
 
  });
 
-
+//updating email
     $("#email_btn").click(function(){
       var id_email = $("#account_id_session").val();
 
