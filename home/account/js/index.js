@@ -38,7 +38,7 @@ function update_view(event, node) {
 
 
     }
-    else{
+    else if(node.nodeId == "3"){
         alert(node.nodeId);
     }
 
@@ -93,28 +93,29 @@ function handle_error(result, status, xhr) {
             }
         }
 
-$(function () {
-            $('#datetimepicker10').datetimepicker({
-                viewMode: 'years',
-                format: 'MM/YYYY'
-            });
-        });
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
 
 
 
 $(document).ready(function() {
+    var id = $("#account_id_session").val();
  $.ajax({
                     type: "POST",
-                    url: "php/request_handler.php",
+                    url: "php/index.php",
                     data: {
-                        uname: "sadads"
+                        id: id
                     },
                     success: function(result) {
-                       alert(result);
+                      // alert(result);
                        var content_info = JSON.parse(result);
-                       document.getElementById("uname").value = content_info.f_name;
-                       document.getElementById("mname").value = content_info.m_name;
-                       document.getElementById("lname").value = content_info.l_name;
+                       var uname =  document.getElementById("uname").value = content_info.f_name;
+                       var mname=  document.getElementById("mname").value = content_info.m_name;
+                       var lname = document.getElementById("lname").value = content_info.l_name;
+                       document.getElementById("contact_no").value = content_info.contact_no;
+                       document.getElementById("email").value = content_info.email;
+                       document.getElementById("fullname").innerHTML = uname + " " + mname + " "+ lname;
                        document.getElementById("img").src = content_info.profile_img;
                     }
                });

@@ -6,13 +6,14 @@
 	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
-	<link rel="stylesheet" href="css/home.css">
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html";
+    require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 	//require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 	 ?>
-
+<input type="hidden" name="account_id_session" id="account_id_session" value="<?php echo $account_id_session; ?>">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3">
@@ -45,7 +46,7 @@
 
 
 
-<p><h3>Name</h3> <div id="fullname"> </div>
+<p><h3>Name</h3> <div class="d-inline" id="fullname"> </div>
 	<a class="edit" data-toggle="collapse" href="#collapse2">edit</a></p>
 
     <div id="collapse2" class="panel-collapse collapse">
@@ -63,8 +64,8 @@
 
 
 <hr>
-
-<h4>Contact</h4>
+<label for="contact_no">contact</label>
+<input type="text" class="form-control" name="contact_no" id="contact_no">
 
 <hr>
 </div>
@@ -96,7 +97,8 @@
 
 
 <div class="well">
-Email:
+<label for="email">Email</label>
+<input type="email" class="form-control" name="email" id="email" >
 </div>
 
 </div>
@@ -116,7 +118,6 @@ Email:
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
-	<script src="js/view.js"></script>
-	<script src="js/home.js"></script>
+	<script src="js/index.js"></script>
 </body>
 </html>

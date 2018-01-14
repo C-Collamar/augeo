@@ -10,5 +10,8 @@ elseif(isset($_GET['logout'])) {
     unset($_SESSION['account_id']);
     session_destroy();
 }
+elseif (isset($_SESSION['account_id'])) {
+    $account_id_session = $_SESSION['account_id'];
+}
 
 ?>

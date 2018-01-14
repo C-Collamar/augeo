@@ -3,8 +3,8 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
 include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php");
 
 
-
-$sql = "SELECT * FROM augeo_user_end.user_account INNER JOIN  augeo_user_end.user ON augeo_user_end.user_account.account_id = augeo_user_end.user.account_id WHERE augeo_user_end.user_account.account_id =1";
+$id = $_POST['id'];
+$sql = "SELECT * FROM augeo_user_end.user_account INNER JOIN  augeo_user_end.user ON augeo_user_end.user_account.account_id = augeo_user_end.user.account_id WHERE augeo_user_end.user_account.account_id = '$id'";
 
 if($result = $conn->query($sql)) {
                     $row = $result->fetch_assoc();

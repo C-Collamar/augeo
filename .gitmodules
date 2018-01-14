@@ -13,3 +13,6 @@
 [submodule "global/vendor/masonry"]
 	path = global/vendor/masonry
 	url = https://github.com/desandro/masonry.git
+[submodule "global/vendor/braintree_php"]
+	path = global/vendor/braintree_php
+	url = https://github.com/braintree/braintree_php.git
