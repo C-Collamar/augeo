@@ -16,3 +16,6 @@
 [submodule "global/vendor/braintree_php"]
 	path = global/vendor/braintree_php
 	url = https://github.com/braintree/braintree_php.git
+[submodule "global/vendor/jquery-ui"]
+	path = global/vendor/jquery-ui
+	url = https://github.com/jquery/jquery-ui.git
