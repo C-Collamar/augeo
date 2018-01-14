@@ -1,3 +1,10 @@
+body {
+    background-image: url(http://localhost/augeo/global/img/logo.png);
+    background-size: 10%; /* size the background image at 100% like any responsive img tag */
+    background-position: center center;
+    background-repeat:no-repeat;
+ }
+
 #tree { user-select: none; }
 #tree a { text-decoration: none; }
 .row { padding: 10px; }
