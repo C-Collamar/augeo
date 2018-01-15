@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/browse.css">
 </head>
 <body>
-	<?php require "../global/php/topbar.html" ?>
+	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php"; ?>
 
 	<div id="option-container"><button class="btn btn-default" onclick="toggleOptionPanel()">Options</button></div>
 	<div id="browse-content" class="expand">
@@ -21,7 +21,7 @@
 					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-2</a>
@@ -36,7 +36,7 @@
 					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-1</a>
@@ -49,7 +49,7 @@
 					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-2</a>
@@ -64,7 +64,7 @@
 					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-1</a>
@@ -77,7 +77,7 @@
 					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-2</a>
@@ -92,7 +92,7 @@
 					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-1</a>
@@ -105,7 +105,7 @@
 					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-2</a>
@@ -120,7 +120,7 @@
 					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-1</a>
@@ -133,7 +133,7 @@
 					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-2</a>
@@ -148,7 +148,7 @@
 					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-1</a>
@@ -161,7 +161,7 @@
 					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-2</a>
@@ -176,7 +176,7 @@
 					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p> 
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
 						<div class="highest-bid">Php 5.00</div>
 						<div class="tag-list">
 							<a href="">tagname-1</a>

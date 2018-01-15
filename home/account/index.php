@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html";
+	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
     require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 	//require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 	 ?>

@@ -128,6 +128,10 @@ $('.show_hide2').click(function(){
                         if(result == "sucess"){
                           window.location.assign("../home");
                       }
+                      else if (result == "deactivated account") {
+                          window.location.assign("php/reactivate.php");
+
+                      }
                       else{
                         document.getElementById("error_msg").innerHTML= result;
 

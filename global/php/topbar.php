@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -18,7 +21,19 @@
                 <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
             </ul>
 
+
+<?php
+if(!isset($_SESSION['account_id'])) {
+echo '
             <ul class="nav navbar-nav navbar-right logged_in">
+                <li>
+                  <a class="" href="http://localhost/augeo/login/">Log in
+                    </a>
+                </li>
+            </ul>';
+        }
+        else{
+        echo ' <ul class="nav navbar-nav navbar-right logged_in">
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account
                         <span class="caret" style="margin-left: 10px;"></span>
@@ -29,16 +44,10 @@
                         <li><a href="http://localhost/augeo/global/php/session.php?logout=1">Logout</a></li>
                     </ul>
                 </li>
-            </ul>
-
-<!--
-            <ul class="nav navbar-nav navbar-right hide_show">
-                <li>
-                  <a href="http://localhost/augeo/login">Log In</a></li>
-            </ul>
-
--->
-        </div>
+            </ul>';
+    }
+?>
+     </div>
     </div>
 </nav>
  <script src="http://localhost/augeo/global/js/topbar.js"></script>

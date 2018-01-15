@@ -10,12 +10,22 @@ if(isset($_POST['uname']) && isset($_POST['pass'])){
      $password = encrypt(encode($_POST['pass']));
 
 // check if entered username and password is in the database
-$result = mysqli_query($conn,"SELECT augeo_user_end.user_account.username,augeo_user_end.user_account.password,augeo_user_end.user_account.account_id FrOm augeo_user_end.user_account where augeo_user_end.user_account.username = '$username' AND augeo_user_end.user_account.password = '$password' ");
+$result = mysqli_query($conn,"SELECT * FrOm augeo_user_end.user_account where augeo_user_end.user_account.username = '$username' AND augeo_user_end.user_account.password = '$password' ");
     if($row=mysqli_num_rows($result) == 1){
           $found = mysqli_fetch_array($result);
-           $account_id =  $found['account_id'];
-           echo "sucess";
-           $_SESSION['account_id'] = $account_id;
+
+          if($found['state'] == 1){
+               $account_id =  $found['account_id'];
+               $_SESSION['account_id'] = $account_id;
+              echo "sucess";
+          }
+          else{
+            echo "deactivated account";
+          }
+
+
+
+
         }
     else{
            echo "Incorrect Username or Password";

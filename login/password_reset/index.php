@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html");
+include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php");
  include("php/hide.php");
 if(!isset($_GET['aassmmss'])){
     header("LOcation: http://localhost/augeo/global/php/page_error.php");

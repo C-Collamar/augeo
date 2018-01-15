@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.html");
+<?php include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php");
 ?>
 
 <!DOCTYPE html>
