@@ -50,9 +50,68 @@ $result = mysqli_query($conn,"SELECT augeo_user_end.user_account.password FrOm a
         echo "failed";
     }
 }
-
+// updating profile
 elseif (isset($_POST['update_email']) && isset($_POST['id_email'])) {
+    $id = $_POST['id_email'];
+    $email = $_POST['update_email'];
+    $result = mysqli_query($conn,"SELECT augeo_user_end.user.email FrOm augeo_user_end.user where augeo_user_end.user.account_id <> '$id' AND augeo_user_end.user.email = '$email' ");
+    if(mysqli_num_rows($result) == 0){
+    mysqli_query($conn,"UPDATE augeo_user_end.user set  augeo_user_end.user.email = '$email' where augeo_user_end.user.account_id = '$id'");
     echo "success";
+    }
+    else{
+        echo "failed";
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+// updating profile section
+elseif (isset($_POST['fname']) && isset($_POST['mname']) && isset($_POST['lname']) && isset($_POST['bdate']) && isset($_POST['contact_no']) && isset($_POST['profile_id']) &&
+isset($_POST['zip_code']) && isset($_POST['full_address']) ) {
+
+    $fname = $_POST['fname'];
+    $mname = $_POST['mname'];
+    $lname = $_POST['lname'];
+    $bdate = $_POST['bdate'];
+    $contact_no = $_POST['contact_no'];
+    $zip_code = $_POST['zip_code'];
+    $full_address = $_POST['full_address'];
+    $id = $_POST['profile_id'];
+
+
+    if(mysqli_query($conn,"UPDATE augeo_user_end.user set  augeo_user_end.user.f_name = '$fname',augeo_user_end.user.m_name = '$mname',augeo_user_end.user.l_name = '$lname',
+  augeo_user_end.user.bdate = '$bdate',augeo_user_end.user.contact_no = '$contact_no',augeo_user_end.user.zip_code = '$zip_code',augeo_user_end.user.full_address = '$full_address'  where augeo_user_end.user.account_id = '$id'")){
+          echo "success";
+}
+else{
+    echo "failed";
+}
+    }
+// deactivating account
+//
+elseif(isset($_POST['deac_pass1']) && isset($_POST['deac_pass2']) && isset($_POST['deac_id'])) {
+    $password1 = encrypt(encode($_POST['deac_pass1']));
+    $id = $_POST['deac_id'];
+
+    $result = mysqli_query($conn,"SELECT augeo_user_end.user_account.password FrOm augeo_user_end.user_account where augeo_user_end.user_account.account_id = '$id' ");
+    $found = mysqli_fetch_array($result);
+    if($found['password'] == $password1){
+    mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.user_account.state = 0 where augeo_user_end.user_account.account_id = '$id'");
+    echo "success";
+    }
+    else{
+        echo "failed";
+    }
 }
 
 ?>

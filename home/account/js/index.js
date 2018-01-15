@@ -54,7 +54,6 @@ function handle_error(result, status, xhr) {
 
 // uploading image and checking if file is valid
          $(document).ready(function(){
-
             $("#but_upload").click(function(){
             var username = document.getElementById("username").value;
                 var fd = new FormData();
@@ -131,6 +130,9 @@ $(document).ready(function() {
                        var lname = document.getElementById("lname").value = content_info.l_name;
                         document.getElementById("username").innerHTML = content_info.username;
                        document.getElementById("contact_no").value = content_info.contact_no;
+                       document.getElementById("address").value = content_info.full_address;
+                       document.getElementById("zipcode").value = content_info.zip_code;
+                       document.getElementById("datepicker").value = content_info.bdate;
                        document.getElementById("email").value = content_info.email;
                   //    var fullname = document.getElementById("fullname").innerHTML = uname + " " + mname + " "+ lname;
                        document.getElementById("img").src = content_info.profile_img;
@@ -184,10 +186,13 @@ $(document).ready(function() {
     $("#email_btn").click(function(){
       var id_email = $("#account_id_session").val();
 
-      var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-     alert(filter.test($("#email")));
-
-
+    //  var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    // alert(filter.test($("#email")));
+if($("#email").val() == ""){
+                          $("#error_email").css({color: 'red'});
+                          document.getElementById("error_email").innerHTML = "Please Enter your Email";
+}
+else{
         $.ajax({
                     type: "POST",
                     url: "php/index.php",
@@ -196,14 +201,104 @@ $(document).ready(function() {
                         id_email : id_email
                     },
                     success: function(result) {
-                    alert(result);
+                      if(result == "success"){
+                         $("#error_email").css({color: 'green'});
+                          document.getElementById("error_email").innerHTML = "Your Email has been updated";
+                      }
+                      else{
+                        $("#error_email").css({color: 'red'});
+                          document.getElementById("error_email").innerHTML = "This Email is Already Taken.Please enter another one";
+                      }
 
 
                     }
 
 
                });
-
+}
        });
+//updating Profile
+        $("#save_changes_profile").click(function(){
+          if(  ($("#uname").val() == "" && $("#lname").val() == "" && $("#mname").val() == "" && $("#bdate").val() == "" && $("#address").val() == "" && $("#zip_code").val() == "") ||  $("#uname").val() == "" || $("#mname").val() == "" || $("#lname").val() == "" || $("#bdate").val() == "" || $("#address").val() == "" || $("#zip_code").val() == "" ){
+            $("#save_changes_profile_error").css({color: 'red'});
+            document.getElementById("save_changes_profile_error").innerHTML = "Please Fill Up the required fields";
+
+          }
+          else{
+            $.ajax({
+                  type: "POST",
+                  url: "php/index.php",
+                  data: {
+                    fname: $("#uname").val(),
+                    mname: $("#mname").val(),
+                    lname: $("#lname").val(),
+                    bdate: $("#datepicker").val(),
+                    contact_no: $("#contact_no").val(),
+                    full_address: $("#address").val(),
+                    zip_code: $("#zipcode").val(),
+                    profile_id: $("#account_id_session").val()
+
+                  },
+                  success: function(result){
+                    $("#save_changes_profile_error").css({color: 'green'});
+                    document.getElementById("save_changes_profile_error").innerHTML = "Your Profile has been Updated";
+                  }
+
+
+            });
+          }
+           });
 
       });
+
+
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      Format: "yy-mm-dd"
+    });
+  } );
+
+
+
+
+  function YNconfirm() {
+    if (window.confirm('Are you sure you want to Deactivate your Account?')){
+
+         if( ($("#deac_pass1").val() == "" && $("#deac_pass2").val() == "") || $("#deac_pass1").val() == "" || $("#deac_pass2").val() == "")    {
+                 $("#deactivate_error").css({color: 'red'});
+                document.getElementById("deactivate_error").innerHTML = "Please Fill up the form";
+              }
+                else if($("#deac_pass1").val().length < 8){
+                $("#deactivate_error").css({color: 'red'});
+                document.getElementById("deactivate_error").innerHTML = "Password Must be atleast 8 characters";
+              }
+              else if($("#deac_pass1").val() != $("#deac_pass2").val()){
+                $("#deactivate_error").css({color: 'red'});
+                document.getElementById("deactivate_error").innerHTML = "Password Must be the same";
+              }
+          else{
+              $.ajax({
+                  type: "POST",
+                  url: "php/index.php",
+                  data: {
+                    deac_pass1: $("#deac_pass1").val(),
+                    deac_pass2: $("#deac_pass2").val(),
+                    deac_id: $("#account_id_session").val()
+          },
+           success: function(result){
+            if (result == "success") {
+                window.location.assign("http://localhost/augeo/login/");
+            } else {
+              $("#deactivate_error").css({color: 'red'});
+                document.getElementById("deactivate_error").innerHTML = "The Password you entered is incorrect";
+
+            }
+           }
+ });
+
+    }
+}
+    else{
+
+      }
+};

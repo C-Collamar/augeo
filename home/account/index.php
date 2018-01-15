@@ -60,13 +60,20 @@
 
 <hr>
 <label for="birthday">Birthday</label>
-<input type="date" class="form-control" name="birthday" id="birthday" placeholder="Birthday" >
+<input type="date" class="form-control" name="birthday" id="datepicker" placeholder="Birthday" >
 
 <hr>
 <label for="contact_no">contact</label>
-<input type="text" class="form-control" name="contact_no" id="contact_no">
+<input type="number" class="form-control" name="contact_no" id="contact_no">
 <hr>
+<h4>Address</h4>
+<label for="contact_no">Full Address</label>
+<input type="text" class="form-control" name="address" id="address">
 
+<label for="contact_no">zipcode</label>
+<input type="text" class="form-control" name="zipcode" id="zipcode">
+<hr>
+<div id="save_changes_profile_error"></div>
 <input type="button" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
 
 </div>
@@ -110,7 +117,7 @@
 
 <label for="email">Email</label>
 <input type="email" class="form-control" name="email" id="email" >
-
+<div id="error_email"></div>
 <hr>
 <input type="button" name="email_btn" id="email_btn" value="Save Changes">
 
@@ -119,7 +126,30 @@
 </div>
 
 </div>
+<div class="well">
+    <label for="Deactivate_btn"> Deactivate Account</label><br>
+    <p>Deactivating your Account will disable your profile. Your information will not be viewed by other users. before proceeding please read about our policy
+    <a href="http://localhost/augeo/global/php/faq.html"> here </a><br></p>
+    <a class="deactivate_btn" data-toggle="collapse" href="#collapse3" name="deactivate_btn" id="deactivate_btn">Deactivate Account</a>
+    <div id="collapse3" class="panel-collapse collapse">
+
+      <ul class="list-group">
+        <li class="list-group-item">  Please Enter your Password to proceed      </li>
+        <label for="deac_pass1"> Password</label>
+        <li class="list-group-item">  <input type="password" name="deac_pass1" id="deac_pass1" class="form-control" />         </li>
+         <label for="deac_pass1">Re-enter Password</label>
+        <li class="list-group-item">  <input type="password" name="deac_pass2" id="deac_pass2" class="form-control" />         </li>
+        <div id="deactivate_error"></div>
+        <li class="list-group-item">  <input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());"/>         </li>
+
+
+      </ul>
+
+  </div>
 </div>
+</div>
+
+
 
 
 
