@@ -39,6 +39,13 @@ elseif(isset($_POST['crt_uname']) && isset($_POST['crt_pass'])) {
      $password = encrypt(encode($_POST['crt_pass']));
 //  $password = encrypt(encode($_POST['crt_pass']));
  if(mysqli_query($conn,"INSERT INTO augeo_user_end.user_account(account_id,username,password) VALUES ('','$username','$password') ")){
+
+    $result = mysqli_query($conn,"SELECT * From augeo_user_end.user_account where augeo_user_end.user_account.username = '$username' AND augeo_user_end.user_account.password = '$password' ");
+    $found = mysqli_fetch_array($result);
+    $user_id = $found['account_id'];
+    $account_id=$found['account_id'];
+    mysqli_query($conn,"INSERT INTO augeo_user_end.user(user_id,account_id) VALUES ('$user_id','$account_id')");
+    $_SESSION['account_id']=$found['account_id'];
       echo "success";
 }
 else{

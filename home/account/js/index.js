@@ -54,6 +54,12 @@ function handle_error(result, status, xhr) {
 
 // uploading image and checking if file is valid
          $(document).ready(function(){
+
+
+          if($('#new_user').val() == 1){
+  $("#myModal").modal('show');
+}
+
             $("#but_upload").click(function(){
             var username = document.getElementById("username").value;
                 var fd = new FormData();

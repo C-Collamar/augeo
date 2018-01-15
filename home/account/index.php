@@ -10,8 +10,11 @@
 </head>
 <body>
 	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
-    require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+    include $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 	//require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+if(isset($_GET['new'])){
+  echo '<input type="hidden" name="new_user" id="new_user" value="1">';
+}
 	 ?>
 <input type="hidden" name="account_id_session" id="account_id_session" value="<?php echo $account_id_session; ?>">
 	<div class="container-fluid">
@@ -160,9 +163,24 @@
 
 </div>
 </div>
-	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
-	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
-	<script src="js/index.js"></script>
+
+<div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">WELCOME TO AUGEO</h4>
+                </div>
+                <div class="modal-body">
+                    <h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+  <script src="js/index.js"></script>
 </html>
