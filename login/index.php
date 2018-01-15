@@ -1,4 +1,7 @@
 <?php include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php");
+if(isset($_SESSION['account_id'])){
+  header("location: ../home/account/");
+}
 ?>
 
 <!DOCTYPE html>
