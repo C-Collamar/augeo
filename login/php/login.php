@@ -20,6 +20,7 @@ $result = mysqli_query($conn,"SELECT * FrOm augeo_user_end.user_account where au
               echo "sucess";
           }
           else{
+            $_SESSION['deactivated_id'] = $found['account_id'];
             echo "deactivated account";
           }
 

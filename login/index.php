@@ -16,6 +16,12 @@ if(isset($_SESSION['account_id'])){
 <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 
 <body>
+<?php
+if(isset($_GET['activated'])){
+  echo '<input type="hidden" name="activated" id="activated" value="1">';
+}
+?>
+
 <!-- Login form -->
 <div class="container login_form" align="center">
 <div class="panel-login">
@@ -86,6 +92,20 @@ if(isset($_SESSION['account_id'])){
                 </div>
                 <div class="modal-body">
                     <h2 align="center"> Please check your Email to reset your password</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Activated Account-->
+    <div id="activated_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Account has been Activated!</h4>
+                </div>
+                <div class="modal-body">
+                    <h2 align="center"> To continue, Please login</h2>
                 </div>
             </div>
         </div>

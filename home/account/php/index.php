@@ -108,6 +108,8 @@ elseif(isset($_POST['deac_pass1']) && isset($_POST['deac_pass2']) && isset($_POS
     if($found['password'] == $password1){
     mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.user_account.state = 0 where augeo_user_end.user_account.account_id = '$id'");
     echo "success";
+    session_start();
+    session_destroy();
     }
     else{
         echo "failed";

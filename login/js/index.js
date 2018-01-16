@@ -1,5 +1,8 @@
 $(document).ready(function() {
+if($("#activated").val() == '1'){
+     $("#activated_modal").modal('show');
 
+}
 // hiding and showing
       $(".crt_form").hide();
       $(".show_hide").show();
@@ -127,7 +130,7 @@ $("#submit").click(function(){
                               window.location.assign("../home");
                       }
                            else if (result == "deactivated account") {
-                              window.location.assign("php/reactivate.php");
+                              window.location.assign("reactivate_account/");
 
                       }
                           else{

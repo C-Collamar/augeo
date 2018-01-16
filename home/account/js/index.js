@@ -293,7 +293,7 @@ else{
           },
            success: function(result){
             if (result == "success") {
-                window.location.assign("http://localhost/augeo/login/");
+                window.location.assign("../../login");
             } else {
               $("#deactivate_error").css({color: 'red'});
                 document.getElementById("deactivate_error").innerHTML = "The Password you entered is incorrect";
