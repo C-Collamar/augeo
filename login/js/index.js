@@ -127,7 +127,7 @@ $("#submit").click(function(){
                     },
               success: function(result) {
                           if(result == "sucess"){
-                              window.location.assign("../home");
+                              window.location.assign("../home/account");
                       }
                            else if (result == "deactivated account") {
                               window.location.assign("reactivate_account/");
