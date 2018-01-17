@@ -115,6 +115,9 @@ input[type=button]:hover {
 #deactivate{
   background-color: #f44336;
 }
+.size{
+  max-width: 680px;
+}
 
 @media only screen and (max-width: 768px) {
 	.border-right {

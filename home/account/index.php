@@ -28,7 +28,7 @@ if(isset($_GET['new'])){
 				<div class="container-fluid">
 
 <div id="profile">
-	<div class="well">
+	<div class="well size">
 <h2>Personal Information</h2>
 <hr>
 <label for="img">Profile pic</label><br>
