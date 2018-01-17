@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php");
+<?php
 if(isset($_SESSION['account_id'])){
   header("location: ../home/account/");
 }
@@ -11,9 +11,7 @@ if(isset($_SESSION['account_id'])){
 </head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/index.css" />
-<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
 <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 
 <body>
 <?php
@@ -23,20 +21,24 @@ if(isset($_GET['activated'])){
 ?>
 
 <!-- Login form -->
-<div class="container login_form" align="center">
+<div class="container login_form">
+  <div align="center">
+  <img src="http://localhost/augeo/global/img/logo.png" id="brand-logo1">
+   <h3>Sign in to Augeo</h3>
+   </div>
 <div class="panel-login">
-     <h2>Login to AUGEO</h2>
+
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
-
-      <input type="text" class="form-control" name="uname" id="uname" placeholder="Enter Username" required>
+      <label>Username</label>
+      <input type="text" class="form-control" name="uname" id="uname" required>
 
   </div>
     <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" name="pass" id="pass" required>
+        <span class="help-block" id ="error_msg"></span>
 
-      <input type="password" class="form-control" name="pass" id="pass" placeholder="Enter Password" required>
-       <div id ="error_msg" class="error_msg">
-</div>
     </div>
 
     <input type="button" class="btn btn-md" name="submit" id="submit" value="Login">
@@ -50,15 +52,19 @@ if(isset($_GET['activated'])){
 
 
 <!-- Password Reset FOrm-->
-<div class="container email_d" align="center">
+<div class="container email_d" >
+  <div align="center">
+   <img src="http://localhost/augeo/global/img/logo.png" id="brand-logo1">
+  <h3>Recover Account</h3>
+     </div>
 <div class="panel-login">
-     <h3>Recover Account</h3>
-     <p>Enter your Email:</p>
+
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
-      <input type="email" class="input-group" name="email" id="email" required placeholder="Enter Email">
-       <div id="error_email" class="error_email""><p></p>
-</div>
+      <label>Enter your Email</label>
+      <input type="email" class="input-group" name="email" id="email">
+       <span class="help-block" id ="error_email"></span>
+
     </div>
     <input type="button" class="btn btn-default" name="send_mail" id="send_mail" value="send">
   </form>
@@ -66,14 +72,20 @@ if(isset($_GET['activated'])){
 </div>
 
 <!-- Create Form -->
-<div class="container crt_form" align="center">
+<div class="container crt_form">
+  <div align="center">
+   <img src="http://localhost/augeo/global/img/logo.png" id="brand-logo1">
+   <h3>Create a New Account</h3>
+   </div>
 <div class="panel-login">
-     <h2>Create a New Account</h2>
+
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
-      <input type="text" class="form-control" name="crt_uname" id="crt_uname" placeholder="Username" required>
-      <input type="password" class="form-control" name="crt_pass" id="crt_pass" placeholder="Password" required>
-        <div id="uname_error" class="uname_error"></div>
+      <label>Username</label>
+      <input type="text" class="form-control" name="crt_uname" id="crt_uname"   required>
+      <label>Password</label>
+      <input type="password" class="form-control" name="crt_pass" id="crt_pass" required>
+   <span class="help-block" id="uname_error"></span>
 </div>
 
     <input type="button" name="crt_acc" id="crt_acc" value="Create account"><br>

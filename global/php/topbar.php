@@ -42,7 +42,7 @@ echo '
                     <ul class="dropdown-menu">
                         <li><a href="http://localhost/augeo/home/account">Account</a></li>
                         <li><a href="http://localhost/augeo/home/auctions/">Auctions</a></li>
-                        <li><a href="http://localhost/augeo/global/php/session.php?logout=1">Logout</a></li>
+                        <li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
                     </ul>
                 </li>
             </ul>';

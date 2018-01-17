@@ -105,6 +105,7 @@ $("#send_mail").click(function(){
                     },
               success: function(result) {
                           if(result == "failed"){
+                            $("#error_email").css({color: 'red'});
                                document.getElementById("error_email").innerHTML= "Email not Found";
                       }
                           else{
@@ -134,6 +135,7 @@ $("#submit").click(function(){
 
                       }
                           else{
+                            $("#error_msg").css({color: 'red'});
                              document.getElementById("error_msg").innerHTML= result;
 
                       }
