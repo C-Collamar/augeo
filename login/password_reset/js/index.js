@@ -6,8 +6,7 @@ $('#c_pass').on('blur', function(){
        $("input[type=submit]").css({backgroundColor: 'grey'});
        $("input[type=password]#c_pass").css({border: '1px solid red'});
        $("input[type=password]#c_pass").css({padding: '7px 7px 5px'});
-
-
+       $("#error_msg").css({color: 'red'});
        document.getElementById("error_msg").innerHTML = "Password Must be Atleast 8 characters long";
     }
     else{

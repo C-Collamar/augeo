@@ -10,7 +10,7 @@ if(isset($_SESSION['account_id'])){
     <title>login</title>
 </head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/index.css"/>
 <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 
 <body>
