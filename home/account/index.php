@@ -77,7 +77,7 @@ if(isset($_GET['new'])){
 <input type="text" class="form-control" name="zipcode" id="zipcode">
 <hr>
 <div id="save_changes_profile_error"></div>
-<input type="button" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
+<input type="button" class="form-control" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
 
 </div>
 
@@ -122,7 +122,7 @@ if(isset($_GET['new'])){
 <input type="email" class="form-control" name="email" id="email" >
 <div id="error_email"></div>
 <hr>
-<input type="button" name="email_btn" id="email_btn" value="Save Changes">
+<input type="button" class="form-control" name="email_btn" id="email_btn" value="Save Changes">
 
 </dvi>
 

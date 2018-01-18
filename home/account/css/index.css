@@ -85,7 +85,7 @@ input[type=button]{
     position: relative;
     text-align: center;
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: white;
     padding: 9px 18px;
@@ -95,7 +95,7 @@ input[type=button]{
     outline: 0;
     display: inline-block;
     margin-top: 5px;
-    width: 230px;
+    width: 150px;
 
 }
 input[type=button]:hover {
