@@ -111,7 +111,7 @@ if(isset($_GET['new'])){
 <div class="well">
 <div class="row">
 <label for="username">Username:</label>
-<div id="username"></div>
+<div id="username" class="username"></div>
 </div>
 
 <div>
@@ -169,7 +169,7 @@ if(isset($_GET['new'])){
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">WELCOME TO AUGEO</h4>
+                    <h4 class="modal-title" align="center">WELCOME TO AUGEO</h4>
                 </div>
                 <div class="modal-body">
                     <h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>

@@ -7,7 +7,7 @@ var treeStruct = [
 		tags: ['available'],
 		nodes: [{
 			text: "Profile",
-          //  state: { selected: true }
+            state: { selected: true }
 		}, {
 			text: "Account"
 		},{
@@ -27,7 +27,7 @@ tree.treeview({
 function update_view(event, node) {
     //alert(node.nodeId);
            $("#accounta").hide();
-           $("#profile").hide();
+
     if(node.nodeId == "1"){
              $("#profile").show();
              $("#accounta").hide();

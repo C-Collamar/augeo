@@ -69,10 +69,13 @@ body {
 }
 
 
-#profile,#accounta{
+#accounta{
 	display: none;
 }
+.username{
+  font-weight: bold;
 
+}
 
 input[type=button]{
     border-radius: 100px;
