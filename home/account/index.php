@@ -36,7 +36,7 @@ if(isset($_GET['new'])){
 <a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
 <div id="collapse1" class="panel-collapse collapse">
       <ul class="list-group">
-        <li class="list-group-item">  <input type="file" id="file" name="file" onchange="display_img(this);" />         </li>
+        <li class="list-group-item">  <input type="file" id="file" accept="image/x-jpg" name="file" onchange="display_img(this);" />         </li>
 
 
       </ul>
