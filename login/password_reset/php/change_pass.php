@@ -8,6 +8,7 @@ if(isset($_POST['n_pass'])  && isset($_POST['hidden']) ){
     $id = $_POST['hidden'];
 if(mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.user_account.password = '$password' where augeo_user_end.user_account.account_id = '$id'")){
     echo "sucess";
+    header("location: ../success/");
     }
     else{
         echo "failed";
