@@ -31,7 +31,7 @@ if(isset($_GET['new'])){
 	<div class="well size">
 <h2>Personal Information</h2>
 <hr>
-<label for="img">Profile pic</label><br>
+<label for="img">Profile picture</label><br>
 <img src="" id="img"><br>
 <a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
 <div id="collapse1" class="panel-collapse collapse">
