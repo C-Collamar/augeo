@@ -4,8 +4,8 @@
                 $.ajax({
                     url: "http://localhost/augeo/global/php/get_avatar.php",
                     success: function(result) {
-                        var a = 'http://localhost/augeo/data/user/profile_img/' + result;
-                        alert(a);
+                    $("#avatar").val() = result;
+                        alert($("#avatar").val());
                     }
                });
 

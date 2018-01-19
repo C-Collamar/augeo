@@ -13,6 +13,7 @@ $filename = $username.'.'.$extension[1];
 
 /* Upload file */
 if(move_uploaded_file($_FILES['file']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/augeo/data/user/profile_img/".$filename)){
+    $filename = "http://localhost/augeo/data/user/profile_img/".$filename;
 mysqli_query($conn,"UPDATE augeo_user_end.user set  augeo_user_end.user.profile_img = '$filename' where augeo_user_end.user.account_id = '$id'");
 echo "success";
 }else{
