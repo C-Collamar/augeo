@@ -17,7 +17,7 @@
 		if(isset($_GET['new'])){
 			echo '<input type="hidden" name="new_user" id="new_user" value="1">';
 		}
-	 ?>
+	?>
 	<input type="hidden" name="account_id_session" id="account_id_session" value="<?php echo $account_id_session; ?>">
 	<div class="container-fluid">
 		<div class="row">
@@ -156,6 +156,6 @@
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
-	<script src="js/index.js"></script>
+	<script src="js/account.js"></script>
 </body>
 </html>
