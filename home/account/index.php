@@ -68,10 +68,7 @@
 							<hr>
 							<div id="save_changes_profile_error"></div>
 							<input type="button" class="form-control" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
-
 						</div>
-
-
 					</div>
 				</div>
 
