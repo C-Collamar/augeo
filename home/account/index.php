@@ -6,15 +6,14 @@
 	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/account.css">
 </head>
 
 <body>
 	<?php
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
-		include $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 
-		//require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 		if(isset($_GET['new'])){
 			echo '<input type="hidden" name="new_user" id="new_user" value="1">';
 		}
@@ -30,13 +29,13 @@
 					<div id="profile">
 						<div class="well size">
 							<h2>Personal Information</h2><hr>
-							<label for="img">Profile picture</label><br>
-							<img src="" id="img"><br>
+							<label for="profile-img">Profile picture</label><br>
+							<img src="http://localhost/augeo/data/user/profile_img/0.png" id="profile-img"><br>
 							<a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
 							<div id="collapse1" class="panel-collapse collapse">
 								<ul class="list-group">
 									<li class="list-group-item">
-										<input type="file" id="file" accept="image/x-jpg" name="file" onchange="display_img(this);" />
+										<input type="file" id="file" accept="image/x-jpg" name="file" onchange="display_img(this);">
 									</li>
 								</ul>
 								<div id="error_pic"></div>
@@ -72,17 +71,13 @@
 					</div>
 				</div>
 
-
-
 				<!--ACCOUNT SIDEBAR-->
 				<div class="col-sm-9">
 					<div class="container-fluid">
-
 						<div id="accounta">
 							<div class="well">
 								<h2>Login</h2>
 								<h3>Change Password:</h3>
-
 								<label for="current_pass">Enter Current Password</label>
 								<br>
 								<input type="password" class="form-control" name="current_pass" id="current_pass">
@@ -99,90 +94,68 @@
 								<hr>
 								<input type="button" name="new_pass_btn" id="new_pass_btn" value="save">
 							</div>
-
-
 							<div class="well">
 								<div class="row">
 									<label for="username">Username:</label>
 									<div id="username" class="username"></div>
 								</div>
-
 								<div>
 									<hr>
-
-
 									<label for="email">Email</label>
 									<input type="email" class="form-control" name="email" id="email">
 									<div id="error_email"></div>
 									<hr>
 									<input type="button" class="form-control" name="email_btn" id="email_btn" value="Save Changes">
-
-									</dvi>
-
-								</div>
-
-							</div>
-							<div class="well">
-								<label for="Deactivate_btn"> Deactivate Account</label>
-								<br>
-								<p>Deactivating your Account will disable your profile. Your information will not be viewed by other users. before proceeding
-									please read about our policy
-									<a href="http://localhost/augeo/global/php/faq.html"> here </a>
-									<br>
-								</p>
-								<a class="deactivate_btn" data-toggle="collapse" href="#collapse3" name="deactivate_btn" id="deactivate_btn">Deactivate Account</a>
-								<div id="collapse3" class="panel-collapse collapse">
-
-									<ul class="list-group">
-										<li class="list-group-item"> Please Enter your Password to proceed </li>
-										<label for="deac_pass1"> Password</label>
-										<li class="list-group-item">
-											<input type="password" name="deac_pass1" id="deac_pass1" class="form-control" /> </li>
-										<label for="deac_pass1">Re-enter Password</label>
-										<li class="list-group-item">
-											<input type="password" name="deac_pass2" id="deac_pass2" class="form-control" /> </li>
-										<div id="deactivate_error"></div>
-										<li class="list-group-item">
-											<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());"
-											/> </li>
-
-
-									</ul>
-
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-
-
-
-
-
-					</div>
-				</div>
-
-				<div id="myModal" class="modal fade">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h4 class="modal-title" align="center">WELCOME TO AUGEO</h4>
-							</div>
-							<div class="modal-body">
-								<h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>
+						<div class="well">
+							<label for="Deactivate_btn"> Deactivate Account</label>
+							<br>
+							<p>Deactivating your Account will disable your profile. Your information will not be viewed by other users.
+							Before proceeding, please read about our policy<a href="http://localhost/augeo/global/php/faq.html"> here </a><br>
+							</p>
+							<a class="deactivate_btn" data-toggle="collapse" href="#collapse3" name="deactivate_btn" id="deactivate_btn">Deactivate Account</a>
+							<div id="collapse3" class="panel-collapse collapse">
+								<ul class="list-group">
+									<li class="list-group-item">Please Enter your Password to proceed</li>
+									<label for="deac_pass1"> Password</label>
+									<li class="list-group-item">
+										<input type="password" name="deac_pass1" id="deac_pass1" class="form-control" />
+									</li>
+									<label for="deac_pass1">Re-enter Password</label>
+									<li class="list-group-item">
+										<input type="password" name="deac_pass2" id="deac_pass2" class="form-control" />
+									</li>
+									<div id="deactivate_error"></div>
+									<li class="list-group-item">
+										<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());">
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div id="myModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" align="center">WELCOME TO AUGEO</h4>
+						</div>
+						<div class="modal-body">
+							<h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+	<script src="js/index.js"></script>
 </body>
-<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
-<script src="js/index.js"></script>
-
 </html>
