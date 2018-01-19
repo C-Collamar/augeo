@@ -100,7 +100,7 @@ if(isset($_GET['activated'])){
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Email Sent!</h4>
+                    <h4 class="modal-title" align="center">Email Sent!</h4>
                 </div>
                 <div class="modal-body">
                     <h2 align="center"> Please check your Email to reset your password</h2>
@@ -114,7 +114,7 @@ if(isset($_GET['activated'])){
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Account has been Activated!</h4>
+                    <h4 class="modal-title" align="center">Account has been Activated!</h4>
                 </div>
                 <div class="modal-body">
                     <h2 align="center"> To continue, Please login</h2>

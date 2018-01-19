@@ -1,13 +1,14 @@
- // check if user is logged in
+ // check if user if logged in
  window.onload = logged;
  function logged() {
+                // displaying avatar in topbar
                 $.ajax({
                     url: "http://localhost/augeo/global/php/get_avatar.php",
                     success: function(result) {
                    document.getElementById("avatar").src = result;
                     }
                });
-
+                // check if user is logged in
                 $.ajax({
                     url: "http://localhost/augeo/global/php/check_user.php",
                     success: function(result) {

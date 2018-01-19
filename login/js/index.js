@@ -60,7 +60,7 @@ $("#crt_acc").click(function(){
 // checking if username if available
 $("#crt_uname").blur(
       function (event) {
-        if($("#crt_uname").val() == ""){
+        if($("#crt_uname").val() == ""){    // check if field is empty
               $("#uname_error").css({color: 'red'});
               document.getElementById("uname_error").innerHTML= "Please Enter your desired Username";
                             }
