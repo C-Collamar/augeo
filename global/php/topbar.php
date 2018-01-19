@@ -13,13 +13,13 @@
         </div>
         <div class="collapse navbar-collapse" id="collapsable">
             <ul class="nav navbar-nav">
-                <li id="home_nav"><a href="http://localhost/augeo/home">HOME</a></li>
+                <li id="home_nav"><a href="http://localhost/augeo/">HOME</a></li>
                 <li id="browse_nav"><a href="http://localhost/augeo/browse">BROWSE</a></li>
                 <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
             </ul>
 
 
-
+<!--FOR USER NOT LOGGED IN-->
 <div id="user_not_logged">
             <ul class="nav navbar-nav navbar-right logged_in">
                 <li>
@@ -29,7 +29,7 @@
             </ul>
 </div>
 
-
+<!--FOR USER LOGGED IN-->
 <div id="user_logged">
          <ul class="nav navbar-nav navbar-right logged_in">
                 <li class="dropdown">

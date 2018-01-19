@@ -252,14 +252,6 @@ $(document).ready(function() {
       });
 
 
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      Format: "yy-mm-dd"
-    });
-  } );
-
-
-
 
         function YNconfirm() {
               if (window.confirm('Are you sure you want to Deactivate your Account?')){

@@ -12,7 +12,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 <body>
 
-
+augeo website home
 
 
 </body>
