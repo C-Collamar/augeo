@@ -18,3 +18,14 @@ body {
 .show_hide3 {
   display:none;
 }
+.avatar {
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    border-radius: 30%;
+}
+
+.null_user,.user{
+    display:none;
+
+}

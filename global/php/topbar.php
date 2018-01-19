@@ -35,13 +35,13 @@ echo '
         else{
         echo ' <ul class="nav navbar-nav navbar-right logged_in">
                 <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img src="" id="avatar" alt="Avatar" class="avatar">
                         <span class="caret" style="margin-left: 10px;"></span>
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="http://localhost/augeo/home/account">Account</a></li>
-                        <li><a href="http://localhost/augeo/home/auctions/">Auctions</a></li>
+                        <li><a href="http://localhost/augeo/home/account">My Account</a></li>
+                        <li><a href="http://localhost/augeo/home/auctions/">My Auctions</a></li>
                         <li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
                     </ul>
                 </li>
