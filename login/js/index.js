@@ -28,18 +28,19 @@ if($("#activated").val() == '1'){
 
   // for creating account
 $("#crt_acc").click(function(){
+  $(this).val("Creating Account..");
       if( ($("#crt_uname").val() == "" && $("#crt_pass").val() == "") ||   ($("#crt_uname").val() == "" || $("#crt_pass").val() == "")    ){
-
+              $("#crt_acc").val("Create Account");
             $("#uname_error").css({color: 'red'});
             document.getElementById("uname_error").innerHTML = "Please Fill up the form";
 }
       else if($("#crt_pass").val().length < 8){
-
+             $("#crt_acc").val("Create Account");
             $("#uname_error").css({color: 'red'});
             document.getElementById("uname_error").innerHTML = "Password Must be atleast 8 characters";
 }
       else{
-
+          $("#crt_acc").val("Creating Account...");
             $.ajax({
                   type: "POST",
                   url: "php/login.php",
@@ -97,6 +98,7 @@ $("#crt_uname").blur(
 
 //sending email
 $("#send_mail").click(function(){
+  $(this).val("Sending email...");
         $.ajax({
               type: "POST",
               url: "php/password_reset.php",
@@ -105,11 +107,14 @@ $("#send_mail").click(function(){
                     },
               success: function(result) {
                           if(result == "failed"){
+                            $('#send_mail').val("Send");
                             $("#error_email").css({color: 'red'});
                                document.getElementById("error_email").innerHTML= "Email not Found";
+
                       }
                           else{
                                 $("#myModal").modal('show');
+                                $('#send_mail').val("Send");
 
 
                       }
@@ -119,6 +124,7 @@ $("#send_mail").click(function(){
 
 // login
 $("#submit").click(function(){
+  $(this).val("logging in...");
         $.ajax({
               type: "POST",
               url: "php/login.php",
@@ -135,6 +141,7 @@ $("#submit").click(function(){
 
                       }
                           else{
+                             $("#submit").val("Login");
                             $("#error_msg").css({color: 'red'});
                              document.getElementById("error_msg").innerHTML= result;
 

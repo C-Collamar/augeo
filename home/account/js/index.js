@@ -60,6 +60,7 @@ $(document).ready(function(){
 }
 // uploading image
         $("#but_upload").click(function(){
+          $(this).val("Updating Profile Pic...");
                 var username = document.getElementById("username").value;
                 var fd = new FormData();
                 var files = $('#file')[0].files[0];
@@ -77,10 +78,12 @@ $(document).ready(function(){
                     processData: false,
                     success:function(response){
                         if(response == "success"){
+                          $("#but_upload").val("Save");
                             $("#error_pic").css({color: 'green'});
                             document.getElementById("error_pic").innerHTML = "Your Profile Pic has been updated";
                         }
                         else{
+                          $("#but_upload").val("Save");
                             $("#error_pic").css({color: 'red'});
                             document.getElementById("error_pic").innerHTML = "There was a problem updating your profile pic, Please try again later";
                         }
@@ -145,25 +148,26 @@ $(document).ready(function() {
 
 // updating password
         $("#new_pass_btn").click(function(){
+                    $(this).val("Saving...");
                     var pass_id = $("#account_id_session").val();
                     if( ($("#current_pass").val() == "" && $("#new_pass1").val() == "" && $("#new_pass2") == "") ||   ($("#current_pass").val() == "" || $("#new_pass1").val() == "" || $("#new_pass2").val() == "")    ){
-
+                             $("#new_pass_btn").val("Save");
                             $("#error_new_pass").css({color: 'red'});
                             document.getElementById("error_new_pass").innerHTML = "Please Fill up the form";
                     }
 
                     else if($("#new_pass1").val().length < 8){
-
+                            $("#new_pass_btn").val("Save");
                             $("#error_new_pass").css({color: 'red'});
                             document.getElementById("error_new_pass").innerHTML = "Password Must be atleast 8 characters";
                     }
                     else if($("#new_pass1").val() != $("#new_pass2").val()){
-
+                            $("#new_pass_btn").val("Save");
                             $("#error_new_pass").css({color: 'red'});
                             document.getElementById("error_new_pass").innerHTML = "Password Must be the same";
                     }
                     else{
-
+                            $("#new_pass_btn").val("Save");
                             $.ajax({
                                   type: "POST",
                                   url: "php/index.php",
@@ -188,15 +192,18 @@ $(document).ready(function() {
 
 //updating email
         $("#email_btn").click(function(){
+          $(this).val("Saving...");
             var id_email = $("#account_id_session").val();
 
     //  var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     // alert(filter.test($("#email")));
             if($("#email").val() == ""){
+               $("#email_btn").val("Save Changes");
                     $("#error_email").css({color: 'red'});
                     document.getElementById("error_email").innerHTML = "Please Enter your Email";
 }
             else{
+              $("#email_btn").val("Save Changes");
                     $.ajax({
                         type: "POST",
                         url: "php/index.php",
@@ -221,12 +228,15 @@ $(document).ready(function() {
 
 //updating Profile
         $("#save_changes_profile").click(function(){
+          $(this).val("Saving...");
                     if(  ($("#uname").val() == "" && $("#lname").val() == "" && $("#mname").val() == "" && $("#bdate").val() == "" && $("#address").val() == "" && $("#zip_code").val() == "") ||  $("#uname").val() == "" || $("#mname").val() == "" || $("#lname").val() == "" || $("#bdate").val() == "" || $("#address").val() == "" || $("#zip_code").val() == "" ){
+                            $("#save_changes_profile").val("Save Changes");
                             $("#save_changes_profile_error").css({color: 'red'});
                             document.getElementById("save_changes_profile_error").innerHTML = "Please Fill Up the required fields";
 
           }
                     else{
+                      $("#save_changes_profile").val("Save Changes");
                       $.ajax({
                           type: "POST",
                           url: "php/index.php",
@@ -254,17 +264,21 @@ $(document).ready(function() {
 
 
         function YNconfirm() {
+          $("#deactivate").val("deactivating...");
               if (window.confirm('Are you sure you want to Deactivate your Account?')){
 
                     if( ($("#deac_pass1").val() == "" && $("#deac_pass2").val() == "") || $("#deac_pass1").val() == "" || $("#deac_pass2").val() == "")    {
                           $("#deactivate_error").css({color: 'red'});
+                          $("#deactivate").val("Deactivate Account");
                           document.getElementById("deactivate_error").innerHTML = "Please Fill up the form";
                     }
                     else if($("#deac_pass1").val().length < 8){
+                          $("#deactivate").val("Deactivate Account");
                           $("#deactivate_error").css({color: 'red'});
                           document.getElementById("deactivate_error").innerHTML = "Password Must be atleast 8 characters";
                     }
                     else if($("#deac_pass1").val() != $("#deac_pass2").val()){
+                          $("#deactivate").val("Deactivate Account");
                           $("#deactivate_error").css({color: 'red'});
                           document.getElementById("deactivate_error").innerHTML = "Password Must be the same";
               }
@@ -282,6 +296,7 @@ $(document).ready(function() {
                               window.location.assign("../../login");
             }
                           else {
+                            $("#deactivate").val("Deactivate Account");
                               $("#deactivate_error").css({color: 'red'});
                               document.getElementById("deactivate_error").innerHTML = "The Password you entered is incorrect";
             }
@@ -291,6 +306,6 @@ $(document).ready(function() {
     }
 }
     else{
-
+          $("#deactivate").val("Deactivate Account");
       }
 };
