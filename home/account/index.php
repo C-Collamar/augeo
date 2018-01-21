@@ -27,30 +27,6 @@
 			</div>
 			<div class="col-sm-9">
 				<div class="container-fluid">
-<<<<<<< HEAD
-
-<div id="profile">
-	<div class="well size">
-<h2>Personal Information</h2>
-<hr>
-<label for="img">Profile picture</label><br>
-<img src="" id="img"><br>
-<a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
-<div id="collapse1" class="panel-collapse collapse">
-      <ul class="list-group">
-        <li class="list-group-item">  <input type="file" id="file" name="file" onchange="display_img(this);" />         </li>
-
-
-      </ul>
-      <div id="error_pic"></div>
-    <div class="panel-footer">  <input type="button" name="but_upload" value="Save" id="but_upload"></div>
-</div>
-
-
-<hr>
-
-
-=======
 					<div id="profile">
 						<div class="well size">
 							<h2>Personal Information</h2><hr>
@@ -172,7 +148,6 @@
 										<li class="list-group-item">
 											<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());"
 											/> </li>
->>>>>>> refs/remotes/origin/master
 
 
 									</ul>

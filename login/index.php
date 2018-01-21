@@ -84,34 +84,6 @@ if(isset($_SESSION['account_id'])){
 
 <!-- Email success -->
 <div id="myModal" class="modal fade">
-<<<<<<< HEAD
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" align="center">Email Sent!</h4>
-                </div>
-                <div class="modal-body">
-                    <h2 align="center"> Please check your Email to reset your password</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-<!--Activated Account-->
-    <div id="activated_modal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" align="center">Account has been Activated!</h4>
-                </div>
-                <div class="modal-body">
-                    <h2 align="center"> To continue, Please login</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-=======
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -124,7 +96,6 @@ if(isset($_SESSION['account_id'])){
 		</div>
 	</div>
 </div>
->>>>>>> refs/remotes/origin/master
 
 	<!--Activated Account-->
 	<div id="activated_modal" class="modal fade">

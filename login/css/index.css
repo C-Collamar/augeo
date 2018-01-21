@@ -28,7 +28,7 @@ input[type=text]:focus,input[type=password]:focus {
 }
 #brand-logo1 {
 height: 10%;
-width: 30%;
+width: 6%;
 margin-top: 30px;
 }
 
@@ -138,14 +138,4 @@ margin: 5px 10px 5px 0;
     #topbar1{
             margin-left: 20px;
         }
-}
-
-
-@media only screen and (min-device-width: 400px) {
-  #brand-logo1 {
-height: 10%;
-width: 6%;
-margin-top: 30px;
-}
-
 }

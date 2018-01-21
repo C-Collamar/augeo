@@ -8,12 +8,11 @@ $result = mysqli_query($conn,"SELECT augeo_user_end.user_account.username FrOm a
           $found = mysqli_fetch_array($result);
            $username =  $found['username'];
 
-$filename = $username.'.'.$extension[1];
+$filename = "../../data/user/profile_img/".$username.'.'.$extension[1];
 
 
 /* Upload file */
-if(move_uploaded_file($_FILES['file']['tmp_name'],$_SERVER['DOCUMENT_ROOT']."/augeo/data/user/profile_img/".$filename)){
-    $filename = "http://localhost/augeo/data/user/profile_img/".$filename;
+if(move_uploaded_file($_FILES['file']['tmp_name'],"../".$filename)){
 mysqli_query($conn,"UPDATE augeo_user_end.user set  augeo_user_end.user.profile_img = '$filename' where augeo_user_end.user.account_id = '$id'");
 echo "success";
 }else{

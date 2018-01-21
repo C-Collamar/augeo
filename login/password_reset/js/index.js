@@ -28,7 +28,7 @@ function validateForm() {
 
 }
 
-//load user and dislay its name
+//load user
 $(document).ready(function() {
                 $.ajax({
                     type: "POST",
