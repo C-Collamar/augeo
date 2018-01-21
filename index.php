@@ -1,5 +1,11 @@
 <?php
+session_start();
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
+// test: cookies
+// if cookies is set then user is always logged in
+if(isset($_COOKIE['account_id'])){
+        $_SESSION['account_id'] = $_COOKIE['account_id'];
+}
 ?>
 <!DOCTYPE html>
 <html>

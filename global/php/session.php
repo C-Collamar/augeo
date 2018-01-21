@@ -7,6 +7,8 @@ if(!isset($_SESSION['account_id'])){
 }
 
 elseif(isset($_GET['logout'])) {
+    $id = $_SESSION['account_id'];
+    setcookie("account_id", $id, time() - (86400 * 30), "/");
     header("Location: http://localhost/augeo/login");
     unset($_SESSION['account_id']);
     session_destroy();
@@ -23,6 +25,8 @@ if(!isset($_SESSION['account_id'])){
 }
 
 elseif(isset($_GET['logout'])) {
+    $id = $_SESSION['account_id'];
+    setcookie("account_id", $id, time() - (86400 * 30), "/");
     header("Location: http://localhost/augeo/login");
     unset($_SESSION['account_id']);
     session_destroy();

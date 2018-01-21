@@ -15,6 +15,7 @@ if(isset($_POST['uname']) && isset($_POST['pass'])){
 
 		if($found['state'] == 1){
 			$account_id = $found['account_id'];
+			setcookie("account_id", $account_id, time() + (86400 * 30), "/");
 			$_SESSION['account_id'] = $account_id;
 			echo "sucess";
 		}
