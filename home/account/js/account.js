@@ -1,20 +1,22 @@
 // tree heirarchy
-var treeStruct = [
-	{
-		text: "Account Settings",
-		selectable: false,
-		state: { expanded: true, },
-		tags: ['available'],
-		nodes: [{
-			text: "Profile",
-			state: { selected: true }
-		}, {
-			text: "Account"
-		}, {
-			text: "Privacy"
-		}]
-	}
-];
+var treeStruct = [{
+	text: "Account Settings",
+	selectable: false,
+	state: {
+		expanded: true,
+	},
+	tags: ['available'],
+	nodes: [{
+		text: "Profile",
+		state: {
+			selected: true
+		}
+	}, {
+		text: "Account"
+	}, {
+		text: "Privacy"
+	}]
+}];
 
 var tree = $('#tree');
 tree.treeview({
@@ -32,12 +34,10 @@ function update_view(event, node) {
 		$("#profile").show();
 		$("#accounta").hide();
 
-	}
-	else if (node.nodeId == "2") {
+	} else if (node.nodeId == "2") {
 		$("#profile").hide();
 		$("#accounta").show();
-	}
-	else if (node.nodeId == "3") {
+	} else if (node.nodeId == "3") {
 		alert(node.nodeId);
 	}
 }
@@ -46,8 +46,29 @@ function handle_error(result, status, xhr) {
 	console.error(status, xhr);
 }
 
+$('.pannable')
+	// mouse actions on pannable image
+	.on('mouseover', function() {
+		$(this).css({
+			'transform-origin': '50% 70% 0',
+			'transform': 'scale(1.1)'
+		});
+	})
+	.on('mouseout', function() {
+		$(this).css({
+			'transform': 'scale(1)',
+			'transform': 'translate(0, -25%)'
+		});
+	})
+	// .on('mousemove', function(e) {
+	// 	console.log((e.pageY - $(this).offset().top));
+		
+	// 	$(this).css({
+	// 		'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%'
+	// 	});
+	// })
 
-
+/*
 // uploading image and checking if file is valid
 $(document).ready(function () {
 	if ($('#new_user').val() == 1) {
@@ -279,3 +300,5 @@ function YNconfirm() {
 
 	}
 };
+
+*/

@@ -1,7 +1,91 @@
 #tree { user-select: none; }
 #tree a { text-decoration: none; }
-.row { padding: 10px; }
 
+.profile-content {
+	background-color: #f3f3f3;
+	border: 1px solid #ccc;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+#cover-photo-wrapper {
+	overflow: hidden;
+	max-height: 200px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#cover-photo {
+	width: 100%;
+	height: auto;
+	-ms-transform: translateY(-25%);
+	-moz-transform: translateY(-25%);
+	-webkit-transform: translateY(-25%);
+	transform: translateY(-25%);
+	transition: transform 0.3s ease-out;
+	z-index: 0;
+}
+
+#profile-img {
+	width: 200px;
+	height: auto;
+	border-radius: 50%;
+	position: relative;
+	margin-top: -120px;
+	margin-left: 15px;
+	z-index: 1;
+	display: inline-block;
+}
+
+#name {
+	font-size: 24px;
+}
+
+#profile-overview {
+	display: inline-block;
+	padding: 15px;
+}
+
+#augeo-user-since::before {
+	content: "Augeo user since ";
+}
+
+#augeo-user-since::before,
+#augeo-user-since {
+	font-size: 16px;
+	color: #555555;
+	margin-bottom: 10px;
+}
+
+#items-auctioned::before {
+	content: "Items auctioned: ";
+}
+
+#items-bid::before {
+	content: "Items bid: ";
+}
+
+#items-auctioned::before,
+#items-bid::before {
+	font-weight: bold;
+	color: #444444;
+}
+
+.hr-sect {
+	padding-top: 5px;
+}
+
+.profile-content > table {
+	margin: 15px;
+}
+
+.profile-content > table tr > th {
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/*
 #profile-img {
 	width: 200px;
 	height: auto;
@@ -60,10 +144,11 @@ input[type=button]:hover {
 #deactivate {
   background-color: #f44336;
 }
+*/
 
 @media only screen and (max-width: 768px) {
-	.border-right {
-		border-right: none;
-		padding-bottom: 20px;
+	#profile-img {
+		width: 150px;
+		margin-top: -95px;
 	}
 }
