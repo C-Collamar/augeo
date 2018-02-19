@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
+	<link rel="stylesheet" href="../../global/css/default.css">
 	<link rel="stylesheet" href="css/account.css">
 </head>
 
@@ -20,11 +21,63 @@
 	?>
 	<input type="hidden" name="account_id_session" id="account_id_session" value="<?php echo $account_id_session; ?>">
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row" style="padding-top: 15px">
+			<!-- LEFT SIDE -->
 			<div class="col-sm-3">
 				<div id="tree"></div>
 			</div>
+			<!-- RIGHT SIDE -->
 			<div class="col-sm-9">
+				<!-- PROFILE OVERVIEW -->
+				<div class="profile-content">
+					<div id="cover-photo-wrapper">
+						<img id="cover-photo" class="pannable" src="../../data/user/cover_photo/user_0.jpg" alt="Cover photo">
+					</div>
+					<img id="profile-img" src="../../data/user/profile_img/0.png" alt="Profile picture">
+					<div id="profile-overview">
+						<div id="name">Christian A. Collamar</div>
+						<div id="augeo-user-since">2 months</div>
+						<div id="items-auctioned">15</div>
+						<div id="items-bid">13</div>
+					</div>
+				</div>
+				<!-- BASIC INFORMATION -->
+				<div class="hr-sect">BASIC INFORMATION</div>
+				<div class="profile-content">
+					<table>
+						<tr>
+							<th>Age</th>
+							<td>19 years old</td>
+						</tr>
+						<tr>
+							<th>Birthday</th>
+							<td>April 3, 1998</td>
+						</tr>
+						<tr>
+							<th>Gender</th>
+							<td>Male</td>
+						</tr>
+					</table>
+				</div>
+				<!-- CONTACT INFORMATION -->
+				<div class="hr-sect">CONTACT INFORMATION</div>
+				<div class="profile-content">
+					<table>
+						<tr>
+							<th>Contact number</th>
+							<td>+63 9876543210</td>
+						</tr>
+						<tr>
+							<th>Address</th>
+							<td><a href="http://google.com/search?q=253+M.L.+Quezon+Street" target="_blank">253 M.L. Quezon Street</a></td>
+						</tr>
+						<tr>
+							<th>E-mail address</th>
+							<td><a href="mailto:christian.collamar@bicol-u.edu.ph">christian.collamar@bicol-u.edu.ph</a></td>
+						</tr>
+					</table>
+				</div>
+			<!--
 				<div id="profile">
 					<div class="well size">
 						<h2>Personal Information</h2><hr>
@@ -67,9 +120,9 @@
 						<div id="save_changes_profile_error"></div>
 						<input type="button" class="form-control" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
 					</div>
-				</div>
+				</div>-->
 
-				<!--ACCOUNT SIDEBAR-->
+				<!--ACCOUNT SIDEBAR--><!--
 				<div id="accounta">
 					<div class="well">
 						<h2>Login</h2>
@@ -129,8 +182,8 @@
 							</li>
 						</ul>
 					</div>
-				</div>
-			</div>
+				</div>-->
+			</div><!--
 			<div id="myModal" class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -144,7 +197,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	</div>
 
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
