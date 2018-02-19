@@ -15,6 +15,7 @@ if(isset($_POST['uname']) && isset($_POST['pass'])){
 
 		if($found['state'] == 1){
 			$account_id = $found['account_id'];
+			setcookie("account_id", $account_id, time() + (86400 * 30), "/");
 			$_SESSION['account_id'] = $account_id;
 			echo "sucess";
 		}
@@ -37,7 +38,7 @@ elseif(isset($_POST['crt_uname']) && isset($_POST['crt_pass'])){
 		$found = mysqli_fetch_array($result);
 		$user_id = $found['account_id'];
 		$account_id = $found['account_id'];
-		mysqli_query($conn,"INSERT INTO augeo_user_end.user(user_id,account_id,profile_img) VALUES ('$user_id','$account_id','../../data/user/profile_img/default_avatar.jpg')");
+		mysqli_query($conn,"INSERT INTO augeo_user_end.user(user_id,account_id,profile_img) VALUES ('$user_id','$account_id','http://localhost/augeo/data/user/profile_img/default_avatar.jpg')");
 		$_SESSION['account_id']=$found['account_id'];
 		echo "success";
 	}

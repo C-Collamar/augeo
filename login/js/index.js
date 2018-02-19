@@ -28,13 +28,16 @@ if($("#activated").val() == '1'){
 
   // for creating account
 $("#crt_acc").click(function(){
+      $(this).val("Creating Account...");
       if( ($("#crt_uname").val() == "" && $("#crt_pass").val() == "") ||   ($("#crt_uname").val() == "" || $("#crt_pass").val() == "")    ){
 
+            $("#crt_acc").val("Create Account");
             $("#uname_error").css({color: 'red'});
             document.getElementById("uname_error").innerHTML = "Please Fill up the form";
 }
       else if($("#crt_pass").val().length < 8){
 
+            $("#crt_acc").val("Create Account");
             $("#uname_error").css({color: 'red'});
             document.getElementById("uname_error").innerHTML = "Password Must be atleast 8 characters";
 }
@@ -97,6 +100,8 @@ $("#crt_uname").blur(
 
 //sending email
 $("#send_mail").click(function(){
+        $(this).val("Sending...");
+
         $.ajax({
               type: "POST",
               url: "php/password_reset.php",
@@ -104,6 +109,8 @@ $("#send_mail").click(function(){
                     email: $("#email").val()
                     },
               success: function(result) {
+                          $("#send_mail").val("Send");
+
                           if(result == "failed"){
                             $("#error_email").css({color: 'red'});
                                document.getElementById("error_email").innerHTML= "Email not Found";
@@ -119,6 +126,7 @@ $("#send_mail").click(function(){
 
 // login
 $("#submit").click(function(){
+        $(this).val("Loging in...");
         $.ajax({
               type: "POST",
               url: "php/login.php",
@@ -135,6 +143,7 @@ $("#submit").click(function(){
 
                       }
                           else{
+                            $("#submit").val("Login");
                             $("#error_msg").css({color: 'red'});
                              document.getElementById("error_msg").innerHTML= result;
 
