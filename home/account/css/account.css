@@ -47,7 +47,7 @@
 }
 
 #augeo-user-since::before {
-	content: "Augeo user since ";
+	content: "Augeo user for ";
 }
 
 #augeo-user-since::before,

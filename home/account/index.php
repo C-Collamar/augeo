@@ -65,15 +65,15 @@
 					<table>
 						<tr>
 							<th>Contact number</th>
-							<td>+639876543210</td>
+							<td>+63 9876543210</td>
 						</tr>
 						<tr>
 							<th>Address</th>
-							<td>253 M.L. Quezon Street</td>
+							<td><a href="http://google.com/search?q=253+M.L.+Quezon+Street" target="_blank">253 M.L. Quezon Street</a></td>
 						</tr>
 						<tr>
 							<th>E-mail address</th>
-							<td>christian.collamar@bicol-u.edu.ph</td>
+							<td><a href="mailto:christian.collamar@bicol-u.edu.ph">christian.collamar@bicol-u.edu.ph</a></td>
 						</tr>
 					</table>
 				</div>
