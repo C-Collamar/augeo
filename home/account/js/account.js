@@ -7,12 +7,12 @@ var treeStruct = [{
 	},
 	tags: ['available'],
 	nodes: [{
-		text: "Profile",
+		text: "Profile<span onclick='' class='edit-btn glyphicon glyphicon-pencil' title='Edit profile'></span>",
 		state: {
 			selected: true
 		}
 	}, {
-		text: "Account"
+		text: "Account<span onclick='' class='edit-btn glyphicon glyphicon-pencil' title='Edit account'></span>"
 	}, {
 		text: "Privacy"
 	}]

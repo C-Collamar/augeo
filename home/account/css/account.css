@@ -146,6 +146,15 @@ input[type=button]:hover {
 }
 */
 
+#tree .glyphicon-pencil {
+	float: right;
+	color: #494949;
+}
+
+#tree li.node-selected .glyphicon-pencil {
+	color: #ffffffa6;
+}
+
 @media only screen and (max-width: 768px) {
 	#profile-img {
 		width: 150px;
