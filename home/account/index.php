@@ -77,7 +77,7 @@
 						</tr>
 					</table>
 				</div>
-			<!--
+				<!--
 				<div id="profile">
 					<div class="well size">
 						<h2>Personal Information</h2><hr>
@@ -183,21 +183,8 @@
 						</ul>
 					</div>
 				</div>-->
-			</div><!--
-			<div id="myModal" class="modal fade">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title" align="center">WELCOME TO AUGEO</h4>
-						</div>
-						<div class="modal-body">
-							<h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>
-						</div>
-					</div>
-				</div>
 			</div>
-		</div>-->
+		</div>
 	</div>
 
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
