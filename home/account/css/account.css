@@ -1,5 +1,10 @@
-#tree { user-select: none; }
-#tree a { text-decoration: none; }
+#tree {
+	user-select: none;
+}
+
+#tree a {
+	text-decoration: none;
+}
 
 .profile-content {
 	background-color: #f3f3f3;
@@ -146,13 +151,8 @@ input[type=button]:hover {
 }
 */
 
-#tree .glyphicon-pencil {
-	float: right;
-	color: #494949;
-}
-
-#tree li.node-selected .glyphicon-pencil {
-	color: #debfc7;
+#profile-options {
+	padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {

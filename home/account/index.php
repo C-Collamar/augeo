@@ -28,6 +28,10 @@
 			</div>
 			<!-- RIGHT SIDE -->
 			<div class="col-sm-9">
+				<!-- PROFILE OPTIONS -->
+				<div id="profile-options">
+					<a href="edit" class="btn btn-default">Edit Profile</a>
+				</div>
 				<!-- PROFILE OVERVIEW -->
 				<div class="profile-content">
 					<div id="cover-photo-wrapper">
