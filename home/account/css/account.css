@@ -152,7 +152,7 @@ input[type=button]:hover {
 }
 
 #tree li.node-selected .glyphicon-pencil {
-	color: #ffffffa6;
+	color: #debfc7;
 }
 
 @media only screen and (max-width: 768px) {
