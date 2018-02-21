@@ -32,45 +32,48 @@
 			<div class="col-sm-9">
 				<div id="profile">
 					<div class="well size">
-						<h2>Edit Personal Information</h2><hr>
-						<label for="profile-img">Profile picture</label><br>
-						<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
-						<a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
-						<div id="collapse1" class="panel-collapse collapse">
-							<ul class="list-group">
-								<li class="list-group-item">
-									<input type="file" id="file" accept="image/x-jpg" name="file" onchange="display_img(this);">
-								</li>
-							</ul>
-							<div id="error_pic"></div>
-							<div class="panel-footer">
-								<input type="button" name="but_upload" value="Save" id="but_upload">
-							</div>
-						</div>
-						<hr>
-						<h4>Name</h4>
-						<label for="uname">First name</label>
-						<input class="form-control" type="text" name="uname" id="uname" value="<?php echo $user['f_name'] ?>">
-						<label for="mname">Middle name</label>
-						<input type="text" class="form-control" name="uname" id="mname" value="<?php echo $user['m_name'] ?>">
-						<label for="lname">Last name</label>
-						<input type="text" class="form-control" name="uname" id="lname" value="<?php echo $user['m_name'] ?>">
-						<hr>
-						<label for="birthday">Birthday</label>
-						<input type="date" class="form-control" name="birthday" id="datepicker">
-						<hr>
-						<label for="contact_no">contact</label>
-						<input type="text" class="form-control" name="contact_no" id="contact_no" value="<?php echo $user['contact_no'] ?>">
-						<hr>
-						<h4>Address</h4>
-						<label for="contact_no">Full Address</label>
-						<input type="text" class="form-control" name="address" id="address" value="<?php echo $user['full_address'] ?>">
+						<form action="php/update_profile.php" method="POST" enctype="multipart/form-data">
+							<h2>Edit Personal Information</h2><hr>
+							<label for="profile-img">Profile picture</label><br>
+							<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
+							<!-- <a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
+							<div id="collapse1" class="panel-collapse collapse">
+								<ul class="list-group">
+									<li class="list-group-item">
+										<input type="file" id="file" accept="image/x-jpg" name="file" onchange="display_img(this);">
+									</li>
+								</ul>
+								<div id="error_pic"></div>
+								<div class="panel-footer">
+									<input type="button" name="but_upload" value="Save" id="but_upload">
+								</div>
+							</div> -->
+							<input type="file" accept="image/x-jpg" name="profile_img">
+							<hr>
+							<h4>Name</h4>
+							<label for="uname">First name</label>
+							<input class="form-control" type="text" name="f_name" id="uname" value="<?php echo $user['f_name'] ?>">
+							<label for="mname">Middle name</label>
+							<input type="text" class="form-control" name="m_name" id="mname" value="<?php echo $user['m_name'] ?>">
+							<label for="lname">Last name</label>
+							<input type="text" class="form-control" name="l_name" id="lname" value="<?php echo $user['l_name'] ?>">
+							<hr>
+							<label for="birthday">Birthday</label>
+							<input type="date" class="form-control" name="birthday" id="datepicker" value="<?php echo $user['bdate']?>">
+							<hr>
+							<label for="contact_no">contact</label>
+							<input type="text" class="form-control" name="contact_no" id="contact_no" value="<?php echo $user['contact_no'] ?>">
+							<hr>
+							<h4>Address</h4>
+							<label for="contact_no">Full Address</label>
+							<input type="text" class="form-control" name="address" id="address" value="<?php echo $user['full_address'] ?>">
 
-						<label for="contact_no">zipcode</label>
-						<input type="number" class="form-control" name="zipcode" id="zipcode" value="<?php echo $user['zip_code'] ?>">
-						<hr>
-						<div id="save_changes_profile_error"></div>
-						<input type="button" class="form-control" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
+							<label for="contact_no">zipcode</label>
+							<input type="number" class="form-control" name="zipcode" id="zipcode" value="<?php echo $user['zip_code'] ?>">
+							<hr>
+							<div id="save_changes_profile_error"></div>
+							<input type="submit" class="btn-blue" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
+						</form>
 					</div>
 				</div>
 

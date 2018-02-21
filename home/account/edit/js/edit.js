@@ -196,34 +196,34 @@ $(document).ready(function () {
 			});
 		}
 	});
-	//updating Profile
-	$("#save_changes_profile").click(function () {
-		if (($("#uname").val() == "" && $("#lname").val() == "" && $("#mname").val() == "" && $("#bdate").val() == "" && $("#address").val() == "" && $("#zip_code").val() == "") || $("#uname").val() == "" || $("#mname").val() == "" || $("#lname").val() == "" || $("#bdate").val() == "" || $("#address").val() == "" || $("#zip_code").val() == "") {
-			$("#save_changes_profile_error").css({ color: 'red' });
-			document.getElementById("save_changes_profile_error").innerHTML = "Please Fill Up the required fields";
-		}
-		else {
-			$.ajax({
-				type: "POST",
-				url: "php/index.php",
-				data: {
-					fname: $("#uname").val(),
-					mname: $("#mname").val(),
-					lname: $("#lname").val(),
-					bdate: $("#datepicker").val(),
-					contact_no: $("#contact_no").val(),
-					full_address: $("#address").val(),
-					zip_code: $("#zipcode").val(),
-					profile_id: $("#account_id_session").val()
+	// //updating Profile
+	// $("#save_changes_profile").click(function () {
+	// 	if (($("#uname").val() == "" && $("#lname").val() == "" && $("#mname").val() == "" && $("#bdate").val() == "" && $("#address").val() == "" && $("#zip_code").val() == "") || $("#uname").val() == "" || $("#mname").val() == "" || $("#lname").val() == "" || $("#bdate").val() == "" || $("#address").val() == "" || $("#zip_code").val() == "") {
+	// 		$("#save_changes_profile_error").css({ color: 'red' });
+	// 		document.getElementById("save_changes_profile_error").innerHTML = "Please Fill Up the required fields";
+	// 	}
+	// 	else {
+	// 		$.ajax({
+	// 			type: "POST",
+	// 			url: "php/index.php",
+	// 			data: {
+	// 				fname: $("#uname").val(),
+	// 				mname: $("#mname").val(),
+	// 				lname: $("#lname").val(),
+	// 				bdate: $("#datepicker").val(),
+	// 				contact_no: $("#contact_no").val(),
+	// 				full_address: $("#address").val(),
+	// 				zip_code: $("#zipcode").val(),
+	// 				profile_id: $("#account_id_session").val()
 
-				},
-				success: function (result) {
-					$("#save_changes_profile_error").css({ color: 'green' });
-					document.getElementById("save_changes_profile_error").innerHTML = "Your Profile has been Updated";
-				}
-			});
-		}
-	});
+	// 			},
+	// 			success: function (result) {
+	// 				$("#save_changes_profile_error").css({ color: 'green' });
+	// 				document.getElementById("save_changes_profile_error").innerHTML = "Your Profile has been Updated";
+	// 			}
+	// 		});
+	// 	}
+	// });
 
 });
 

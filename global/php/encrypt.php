@@ -26,7 +26,6 @@ function encrypt($password) {
 
 function encode($string) {
     return htmlspecialchars($string, ENT_HTML5 | ENT_QUOTES);
-//  return htmlspecialchars(str_replace("\n", "<br/>", $string), ENT_HTML5 | ENT_QUOTES); //backup
 }
 
 //after retrieving encoded data from database

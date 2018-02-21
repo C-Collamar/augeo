@@ -37,7 +37,7 @@
 					<div id="cover-photo-wrapper">
 						<img id="cover-photo" class="pannable" src="../../data/user/cover_photo/0.jpg" alt="Cover photo">
 					</div>
-					<img id="profile-img" src="../../data/user/profile_img/0.png" alt="Profile picture">
+					<img id="profile-img" src="../../data/user/profile_img/1.jpg" alt="Profile picture">
 					<div id="profile-overview">
 						<div id="name">Christian A. Collamar</div>
 						<div id="augeo-user-since">2 months</div>
