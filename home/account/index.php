@@ -35,7 +35,7 @@
 				<!-- PROFILE OVERVIEW -->
 				<div class="profile-content">
 					<div id="cover-photo-wrapper">
-						<img id="cover-photo" class="pannable" src="../../data/user/cover_photo/user_0.jpg" alt="Cover photo">
+						<img id="cover-photo" class="pannable" src="../../data/user/cover_photo/0.jpg" alt="Cover photo">
 					</div>
 					<img id="profile-img" src="../../data/user/profile_img/0.png" alt="Profile picture">
 					<div id="profile-overview">

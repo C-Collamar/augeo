@@ -6,13 +6,18 @@
 	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
-	<link rel="stylesheet" href="css/edit_profile.css">
+	<link rel="stylesheet" href="css/edit.css">
 </head>
 
 <body>
 	<?php
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
+
+		//fetch all of user information
+		$result = mysqli_query($conn, "SELECT * FROM augeo_user_end.user WHERE account_id = ".$_SESSION['account_id']);
+		$user = mysqli_fetch_array($result);
 
 		if(isset($_GET['new'])){
 			echo '<input type="hidden" name="new_user" id="new_user" value="1">';
@@ -29,7 +34,7 @@
 					<div class="well size">
 						<h2>Edit Personal Information</h2><hr>
 						<label for="profile-img">Profile picture</label><br>
-						<img src="http://localhost/augeo/data/user/profile_img/0.png" id="profile-img"><br>
+						<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
 						<a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
 						<div id="collapse1" class="panel-collapse collapse">
 							<ul class="list-group">
@@ -45,24 +50,24 @@
 						<hr>
 						<h4>Name</h4>
 						<label for="uname">First name</label>
-						<input class="form-control" type="text" name="uname" id="uname" placeholder="First Name">
+						<input class="form-control" type="text" name="uname" id="uname" value="<?php echo $user['f_name'] ?>">
 						<label for="mname">Middle name</label>
-						<input type="text" class="form-control" name="uname" id="mname" placeholder="Middle Name">
+						<input type="text" class="form-control" name="uname" id="mname" value="<?php echo $user['m_name'] ?>">
 						<label for="lname">Last name</label>
-						<input type="text" class="form-control" name="uname" id="lname" placeholder="Last Name">
+						<input type="text" class="form-control" name="uname" id="lname" value="<?php echo $user['m_name'] ?>">
 						<hr>
 						<label for="birthday">Birthday</label>
-						<input type="date" class="form-control" name="birthday" id="datepicker" placeholder="Birthday">
+						<input type="date" class="form-control" name="birthday" id="datepicker">
 						<hr>
 						<label for="contact_no">contact</label>
-						<input type="number" class="form-control" name="contact_no" id="contact_no">
+						<input type="text" class="form-control" name="contact_no" id="contact_no" value="<?php echo $user['contact_no'] ?>">
 						<hr>
 						<h4>Address</h4>
 						<label for="contact_no">Full Address</label>
-						<input type="text" class="form-control" name="address" id="address">
+						<input type="text" class="form-control" name="address" id="address" value="<?php echo $user['full_address'] ?>">
 
 						<label for="contact_no">zipcode</label>
-						<input type="number" class="form-control" name="zipcode" id="zipcode">
+						<input type="number" class="form-control" name="zipcode" id="zipcode" value="<?php echo $user['zip_code'] ?>">
 						<hr>
 						<div id="save_changes_profile_error"></div>
 						<input type="button" class="form-control" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
@@ -70,7 +75,7 @@
 				</div>
 
 				<!--ACCOUNT SIDEBAR-->
-				<div id="accounta">
+				<div id="account" style="display: none;">
 					<div class="well">
 						<h2>Login</h2>
 						<h3>Change Password:</h3>
@@ -150,6 +155,6 @@
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
-	<script src="../js/account.js"></script>
+	<script src="js/edit.js"></script>
 </body>
 </html>
