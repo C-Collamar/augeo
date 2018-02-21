@@ -27,7 +27,7 @@
 			<div class="col-sm-9">
 				<div id="profile">
 					<div class="well size">
-						<h2>Personal Information</h2><hr>
+						<h2>Edit Personal Information</h2><hr>
 						<label for="profile-img">Profile picture</label><br>
 						<img src="http://localhost/augeo/data/user/profile_img/0.png" id="profile-img"><br>
 						<a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
@@ -43,7 +43,7 @@
 							</div>
 						</div>
 						<hr>
-						<h4>Name:</h4>
+						<h4>Name</h4>
 						<label for="uname">First name</label>
 						<input class="form-control" type="text" name="uname" id="uname" placeholder="First Name">
 						<label for="mname">Middle name</label>
@@ -62,7 +62,7 @@
 						<input type="text" class="form-control" name="address" id="address">
 
 						<label for="contact_no">zipcode</label>
-						<input type="text" class="form-control" name="zipcode" id="zipcode">
+						<input type="number" class="form-control" name="zipcode" id="zipcode">
 						<hr>
 						<div id="save_changes_profile_error"></div>
 						<input type="button" class="form-control" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
