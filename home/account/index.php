@@ -28,10 +28,14 @@
 			</div>
 			<!-- RIGHT SIDE -->
 			<div class="col-sm-9">
+				<!-- PROFILE OPTIONS -->
+				<div id="profile-options">
+					<a href="edit" class="btn btn-default">Edit Profile</a>
+				</div>
 				<!-- PROFILE OVERVIEW -->
 				<div class="profile-content">
 					<div id="cover-photo-wrapper">
-						<img id="cover-photo" class="pannable" src="../../data/user/cover_photo/user_0.jpg" alt="Cover photo">
+						<img id="cover-photo" class="pannable" src="../../data/user/cover_photo/0.jpg" alt="Cover photo">
 					</div>
 					<img id="profile-img" src="../../data/user/profile_img/0.png" alt="Profile picture">
 					<div id="profile-overview">
@@ -77,7 +81,7 @@
 						</tr>
 					</table>
 				</div>
-			<!--
+				<!--
 				<div id="profile">
 					<div class="well size">
 						<h2>Personal Information</h2><hr>
@@ -183,21 +187,8 @@
 						</ul>
 					</div>
 				</div>-->
-			</div><!--
-			<div id="myModal" class="modal fade">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title" align="center">WELCOME TO AUGEO</h4>
-						</div>
-						<div class="modal-body">
-							<h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>
-						</div>
-					</div>
-				</div>
 			</div>
-		</div>-->
+		</div>
 	</div>
 
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>

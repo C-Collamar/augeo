@@ -1,5 +1,10 @@
-#tree { user-select: none; }
-#tree a { text-decoration: none; }
+#tree {
+	user-select: none;
+}
+
+#tree a {
+	text-decoration: none;
+}
 
 .profile-content {
 	background-color: #f3f3f3;
@@ -145,6 +150,10 @@ input[type=button]:hover {
   background-color: #f44336;
 }
 */
+
+#profile-options {
+	padding-bottom: 10px;
+}
 
 @media only screen and (max-width: 768px) {
 	#profile-img {
