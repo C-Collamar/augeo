@@ -13,8 +13,6 @@ var treeStruct = [{
 		}
 	}, {
 		text: "Account"
-	}, {
-		text: "Privacy"
 	}]
 }];
 
@@ -34,8 +32,6 @@ function update_view(event, node) {
 	} else if (node.nodeId == "2") {
 		$("#profile").hide();
 		$("#account").show();
-	} else if (node.nodeId == "3") {
-		alert(node.nodeId);
 	}
 }
 

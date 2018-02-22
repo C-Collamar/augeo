@@ -55,35 +55,36 @@
 		}
 	?>
 	<input type="hidden" name="account_id_session" id="account_id_session" value="<?php echo $account_id_session; ?>">
-	<div class="container-fluid">
-		<div class="row" style="padding-top: 15px">
-			<!-- LEFT SIDE -->
-			<div class="col-sm-3">
-				<div id="tree"></div>
-			</div>
+	<div style="margin-top: 15px">
+		<!-- LEFT SIDE -->
+		<div id="tree-view">
+			<div id="tree"></div>
+		</div>
+		<div id="content-wrapper">
 			<!-- RIGHT SIDE -->
-			<div class="col-sm-9">
+			<div id="content">
 				<div id="profile">
 					<!-- PROFILE OPTIONS -->
-					<div id="profile-options">
-						<a href="edit/#profile" class="btn btn-default">Edit Profile</a>
+					<div style="padding-bottom: 10px">
+						<h4 style="display: inline">Profile Information</h4>
+						<a href="edit/#profile" style="margin-left: 10px">Edit</a>
 					</div>
 					<!-- PROFILE OVERVIEW -->
-					<div class="profile-content">
+					<div class="content-card">
 						<div id="cover-photo-wrapper">
-							<img id="cover-photo" class="pannable" src="<?php echo  'http://localhost/augeo/data/user/cover_photo/'.$cover_photo ?>" alt="Cover photo">
+							<img id="cover-photo" class="pannable" src="<?php echo 'http://localhost/augeo/data/user/cover_photo/'.$cover_photo ?>" alt="Cover photo">
 						</div>
-						<img id="profile-img" src="<?php echo  'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" alt="Profile picture">
+						<img id="profile-img" src="<?php echo 'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" alt="Profile picture">
 						<div id="profile-overview">
 							<div id="name"><?php echo $f_name.' '.substr($m_name, 0, 1).'. '.$l_name ?></div>
-							<div id="augeo-user-since"><i>a</i> months</div>
-							<div id="items-auctioned"><i>b</i></div>
-							<div id="items-bid"><i>c</i></div>
+							<div id="augeo-user-since"><i>?</i> months</div>
+							<div id="items-auctioned"><i>?</i></div>
+							<div id="items-bid"><i>?</i></div>
 						</div>
 					</div>
 					<!-- BASIC INFORMATION -->
 					<div class="hr-sect">BASIC INFORMATION</div>
-					<div class="profile-content">
+					<div class="content-card">
 						<table>
 							<tr>
 								<th>Age</th>
@@ -101,7 +102,7 @@
 					</div>
 					<!-- CONTACT INFORMATION -->
 					<div class="hr-sect">CONTACT INFORMATION</div>
-					<div class="profile-content">
+					<div class="content-card">
 						<table>
 							<tr>
 								<th>Contact number</th>
@@ -119,65 +120,24 @@
 					</div>
 				</div>
 
-				<!--ACCOUNT SIDEBAR-->
+				<!--ACCOUNT INFORMATION -->
 				<div id="account" style="display: none">
-					<div class="well">
-						<h2>Login</h2>
-						<h3>Change Password:</h3>
-						<label for="current_pass">Enter Current Password</label>
-						<br>
-						<input type="password" class="form-control" name="current_pass" id="current_pass">
-						</br>
-						<label for="new_pass1">Enter New Password</label>
-						<br>
-						<input type="password" class="form-control" name="new_pass1" id="new_pass1">
-						</br>
-						<label for="new_pass2">Re-enter New Password</label>
-						<br>
-						<input type="password" class="form-control" name="new_pass2" id="new_pass2">
-						</br>
-						<div id="error_new_pass"></div>
-						<hr>
-						<input type="button" name="new_pass_btn" id="new_pass_btn" value="save">
+					<!-- ACCOUNT OPTIONS -->
+					<div style="padding-bottom: 10px">
+						<h4 style="display: inline">Account Information</h4>
+						<a href="edit/#account" style="margin-left: 10px">Edit</a>
 					</div>
-					<div class="well">
-						<div class="row">
-							<label for="username">Username:</label>
-							<div id="username" class="username"></div>
-						</div>
-						<div>
-							<hr>
-							<label for="email">Email</label>
-							<input type="email" class="form-control" name="email" id="email">
-							<div id="error_email"></div>
-							<hr>
-							<input type="button" class="form-control" name="email_btn" id="email_btn" value="Save Changes">
-						</div>
-					</div>
-				</div>
-				<div class="well">
-					<label for="Deactivate_btn"> Deactivate Account</label>
-					<br>
-					<p>Deactivating your Account will disable your profile. Your information will not be viewed by other users.
-					Before proceeding, please read about our policy<a href="http://localhost/augeo/global/php/faq.html"> here </a><br>
-					</p>
-					<a class="deactivate_btn" data-toggle="collapse" href="#collapse3" name="deactivate_btn" id="deactivate_btn">Deactivate Account</a>
-					<div id="collapse3" class="panel-collapse collapse">
-						<ul class="list-group">
-							<li class="list-group-item">Please Enter your Password to proceed</li>
-							<label for="deac_pass1"> Password</label>
-							<li class="list-group-item">
-								<input type="password" name="deac_pass1" id="deac_pass1" class="form-control" />
-							</li>
-							<label for="deac_pass1">Re-enter Password</label>
-							<li class="list-group-item">
-								<input type="password" name="deac_pass2" id="deac_pass2" class="form-control" />
-							</li>
-							<div id="deactivate_error"></div>
-							<li class="list-group-item">
-								<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());">
-							</li>
-						</ul>
+					<div class="content-card">
+						<table>
+							<tr>
+								<th>Username</th>
+								<td><?php echo $username ?></td>
+							</tr>
+							<tr>
+								<th>Date joined</th>
+								<td>January 1, 1970</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>

@@ -13,8 +13,6 @@ var treeStruct = [{
 		}
 	}, {
 		text: "Account"
-	}, {
-		text: "Privacy"
 	}]
 }];
 
@@ -27,19 +25,16 @@ tree.treeview({
 
 // show data when a treeview node gets selected
 function update_view(event, node) {
-	if (node.nodeId == 1) {
+	if(node.nodeId == 1) {
 		$("#profile").show();
 		$("#account").hide();
 		window.location.hash = '#profile';
 		window.scrollTo(50, 0);
-	} else if (node.nodeId == 2) {
+	} else if(node.nodeId == 2) {
 		$("#profile").hide();
 		$("#account").show();
 		window.location.hash = '#account';
-	} else if (node.nodeId == 3) {
-		alert(node.nodeId);
 	}
-	window.scrollTo(50, 0);
 }
 
 function handle_error(result, status, xhr) {
@@ -93,9 +88,11 @@ $(document).ready(function () {
 $(document).ready(function () {
 	//only show the panel user wants to edit, whether profile or account information
 	if(window.location.hash) {
+		var map = { profile: 1, account: 2 }; //used for mapping hash values from URI to node values in treeview
 		var panel = $(window.location.hash);
 		if(panel) {
 			panel.show();
+			tree.treeview('selectNode', [ map[window.location.hash.substr(1)], { silent: true } ]);
 		}
 		else {
 			//if hash is unrecognized, default panel is shown

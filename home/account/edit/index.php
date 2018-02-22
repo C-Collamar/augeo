@@ -24,16 +24,17 @@
 		}
 	?>
 	<input type="hidden" name="account_id_session" id="account_id_session" value="<?php echo $account_id_session; ?>">
-	<div class="container-fluid">
-		<div class="row" style="padding-top: 15px" id="slider">
-			<div class="col-sm-3">
-				<div id="tree"></div>
-			</div>
-			<div class="col-sm-9">
+	<div style-"margin-top: 15px">
+		<!-- LEFT SIDE -->
+		<div id="tree-view">
+			<div id="tree"></div>
+		</div>
+		<div id="content-wrapper">
+			<div id="content">
 				<div id="profile">
 					<div class="well size">
 						<form action="php/update_profile.php" method="POST" enctype="multipart/form-data">
-							<h2>Edit Personal Information</h2><hr>
+							<h2>Edit Profile Information</h2><hr>
 							<label for="profile-img">Profile picture</label><br>
 							<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
 							<input type="file" accept="image/x-jpg" name="profile_img">
@@ -101,43 +102,47 @@
 							<input type="button" class="form-control" name="email_btn" id="email_btn" value="Save Changes">
 						</div>
 					</div>
-				</div>
-				<div class="well">
-					<label for="Deactivate_btn"> Deactivate Account</label>
-					<br>
-					<p>Deactivating your Account will disable your profile. Your information will not be viewed by other users.
-					Before proceeding, please read about our policy<a href="http://localhost/augeo/global/php/faq.html"> here </a><br>
-					</p>
-					<a class="deactivate_btn" data-toggle="collapse" href="#collapse3" name="deactivate_btn" id="deactivate_btn">Deactivate Account</a>
-					<div id="collapse3" class="panel-collapse collapse">
-						<ul class="list-group">
-							<li class="list-group-item">Please Enter your Password to proceed</li>
-							<label for="deac_pass1"> Password</label>
-							<li class="list-group-item">
-								<input type="password" name="deac_pass1" id="deac_pass1" class="form-control" />
-							</li>
-							<label for="deac_pass1">Re-enter Password</label>
-							<li class="list-group-item">
-								<input type="password" name="deac_pass2" id="deac_pass2" class="form-control" />
-							</li>
-							<div id="deactivate_error"></div>
-							<li class="list-group-item">
-								<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());">
-							</li>
-						</ul>
+					<!-- DEACTIVATION ZONE -->
+					<div class="hr-sect" style="color: #a53a41">DANGER ZONE</div>
+					<div class="well" style="padding: 15px">
+						<label for="Deactivate_btn"> Deactivate Account</label>
+						<br>
+						<p>
+							Deactivating your account will disable your access to this site. Your information however will be kept safe
+							with us and will not be viewed by other users. You can still activate your account whenever you want. For
+							further information, please read our guide <a href="http://localhost/augeo/global/php/faq.html">here</a>.
+						</p>
+						<a class="deactivate_btn" data-toggle="collapse" href="#collapse3" name="deactivate_btn" id="deactivate_btn">Deactivate Account</a>
+						<div id="collapse3" class="panel-collapse collapse">
+							<ul class="list-group">
+								<li class="list-group-item">Please Enter your Password to proceed</li>
+								<label for="deac_pass1"> Password</label>
+								<li class="list-group-item">
+									<input type="password" name="deac_pass1" id="deac_pass1" class="form-control" />
+								</li>
+								<label for="deac_pass1">Re-enter Password</label>
+								<li class="list-group-item">
+									<input type="password" name="deac_pass2" id="deac_pass2" class="form-control" />
+								</li>
+								<div id="deactivate_error"></div>
+								<li class="list-group-item">
+									<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());">
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div id="myModal" class="modal fade">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title" align="center">WELCOME TO AUGEO</h4>
-						</div>
-						<div class="modal-body">
-							<h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>
-						</div>
+		</div>
+		<div id="myModal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" align="center">WELCOME TO AUGEO</h4>
+					</div>
+					<div class="modal-body">
+						<h2 align="center"> You can update your profile here. Thank you for joining AUGEO!</h2>
 					</div>
 				</div>
 			</div>
