@@ -36,18 +36,6 @@
 							<h2>Edit Personal Information</h2><hr>
 							<label for="profile-img">Profile picture</label><br>
 							<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
-							<!-- <a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
-							<div id="collapse1" class="panel-collapse collapse">
-								<ul class="list-group">
-									<li class="list-group-item">
-										<input type="file" id="file" accept="image/x-jpg" name="file" onchange="display_img(this);">
-									</li>
-								</ul>
-								<div id="error_pic"></div>
-								<div class="panel-footer">
-									<input type="button" name="but_upload" value="Save" id="but_upload">
-								</div>
-							</div> -->
 							<input type="file" accept="image/x-jpg" name="profile_img">
 							<hr>
 							<h4>Name</h4>
@@ -59,7 +47,7 @@
 							<input type="text" class="form-control" name="l_name" id="lname" value="<?php echo $user['l_name'] ?>">
 							<hr>
 							<label for="birthday">Birthday</label>
-							<input type="date" class="form-control" name="birthday" id="datepicker" value="<?php echo $user['bdate']?>">
+							<input type="date" class="form-control" name="birthday" value="<?php echo $user['bdate']?>">
 							<hr>
 							<label for="contact_no">contact</label>
 							<input type="text" class="form-control" name="contact_no" id="contact_no" value="<?php echo $user['contact_no'] ?>">
@@ -73,6 +61,7 @@
 							<hr>
 							<div id="save_changes_profile_error"></div>
 							<input type="submit" class="btn-blue" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
+							<a href="../../account" class="cancel-btn">Cancel</a>
 						</form>
 					</div>
 				</div>
