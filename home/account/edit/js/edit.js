@@ -1,6 +1,6 @@
 // tree heirarchy
 var treeStruct = [{
-	text: "Account Settings",
+	text: "Edit",
 	selectable: false,
 	state: {
 		expanded: true,
@@ -30,12 +30,16 @@ function update_view(event, node) {
 	if (node.nodeId == 1) {
 		$("#profile").show();
 		$("#account").hide();
+		window.location.hash = '#profile';
+		window.scrollTo(50, 0);
 	} else if (node.nodeId == 2) {
 		$("#profile").hide();
 		$("#account").show();
+		window.location.hash = '#account';
 	} else if (node.nodeId == 3) {
 		alert(node.nodeId);
 	}
+	window.scrollTo(50, 0);
 }
 
 function handle_error(result, status, xhr) {
@@ -87,6 +91,22 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+	//only show the panel user wants to edit, whether profile or account information
+	if(window.location.hash) {
+		var panel = $(window.location.hash);
+		if(panel) {
+			panel.show();
+		}
+		else {
+			//if hash is unrecognized, default panel is shown
+			$('#profile').show();
+		}
+	}
+	//by default, profile is shown
+	else {
+		$('#profile').show();
+	}
+
 	// updating password
 	$("#new_pass_btn").click(function () {
 		var pass_id = $("#account_id_session").val();
@@ -123,7 +143,6 @@ $(document).ready(function () {
 				}
 			});
 		}
-
 	});
 
 	//updating email

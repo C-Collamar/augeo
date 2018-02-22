@@ -27,16 +27,13 @@ tree.treeview({
 
 // show data when sidebar(node) is clicked ex. Profile
 function update_view(event, node) {
-	//alert(node.nodeId);
-	$("#accounta").hide();
-
 	if (node.nodeId == "1") {
 		$("#profile").show();
-		$("#accounta").hide();
+		$("#account").hide();
 
 	} else if (node.nodeId == "2") {
 		$("#profile").hide();
-		$("#accounta").show();
+		$("#account").show();
 	} else if (node.nodeId == "3") {
 		alert(node.nodeId);
 	}
@@ -50,7 +47,7 @@ $('.pannable')
 	// mouse actions on pannable image
 	.on('mouseover', function() {
 		$(this).css({
-			'transform-origin': '50% 70% 0',
+			'transform-origin': '0% 0% 0',
 			'transform': 'scale(1.1)'
 		});
 	})
@@ -60,13 +57,11 @@ $('.pannable')
 			'transform': 'translate(0, -25%)'
 		});
 	})
-	// .on('mousemove', function(e) {
-	// 	console.log((e.pageY - $(this).offset().top));
-		
-	// 	$(this).css({
-	// 		'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%'
-	// 	});
-	// })
+	.on('mousemove', function(e) {
+		$(this).css({
+			'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%'
+		});
+	})
 
 /*
 // uploading image and checking if file is valid

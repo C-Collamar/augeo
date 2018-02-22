@@ -14,6 +14,41 @@
 	<?php
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
+
+		//get user profile and account information
+		$result = mysqli_query($conn,
+			"SELECT ".
+				"augeo_user_end.user.*, ".
+				"augeo_user_end.user_account.username ".
+			"FROM ".
+				"augeo_user_end.user, ".
+				"augeo_user_end.user_account ".
+			"WHERE ".
+				"augeo_user_end.user.account_id = augeo_user_end.user_account.account_id AND ".
+				"augeo_user_end.user.account_id = $account_id_session"
+		);
+
+		if($result) {
+			$user = mysqli_fetch_array($result);
+			$sex = $user['sex'] == 0? 'Male' : 'Female';
+			$email = decode($user['email']);
+			$f_name = decode($user['f_name']);
+			$m_name = decode($user['m_name']);
+			$l_name = decode($user['l_name']);
+			$username = decode($user['username']);
+			$zip_code = decode($user['zip_code']);
+			$contact_no = decode($user['contact_no']);
+			$profile_img = decode($user['profile_img']);
+			$cover_photo = decode($user['cover_photo']);
+			$full_address = decode($user['full_address']);
+			$age = (new DateTime())->diff(new DateTime($user['bdate']))->format('%y');
+		}
+		else {
+			die("Query error: ".mysqli_error($conn));
+		}
+
 
 		if(isset($_GET['new'])){
 			echo '<input type="hidden" name="new_user" id="new_user" value="1">';
@@ -28,106 +63,64 @@
 			</div>
 			<!-- RIGHT SIDE -->
 			<div class="col-sm-9">
-				<!-- PROFILE OPTIONS -->
-				<div id="profile-options">
-					<a href="edit" class="btn btn-default">Edit Profile</a>
-				</div>
-				<!-- PROFILE OVERVIEW -->
-				<div class="profile-content">
-					<div id="cover-photo-wrapper">
-						<img id="cover-photo" class="pannable" src="../../data/user/cover_photo/0.jpg" alt="Cover photo">
-					</div>
-					<img id="profile-img" src="../../data/user/profile_img/1.jpg" alt="Profile picture">
-					<div id="profile-overview">
-						<div id="name">Christian A. Collamar</div>
-						<div id="augeo-user-since">2 months</div>
-						<div id="items-auctioned">15</div>
-						<div id="items-bid">13</div>
-					</div>
-				</div>
-				<!-- BASIC INFORMATION -->
-				<div class="hr-sect">BASIC INFORMATION</div>
-				<div class="profile-content">
-					<table>
-						<tr>
-							<th>Age</th>
-							<td>19 years old</td>
-						</tr>
-						<tr>
-							<th>Birthday</th>
-							<td>April 3, 1998</td>
-						</tr>
-						<tr>
-							<th>Gender</th>
-							<td>Male</td>
-						</tr>
-					</table>
-				</div>
-				<!-- CONTACT INFORMATION -->
-				<div class="hr-sect">CONTACT INFORMATION</div>
-				<div class="profile-content">
-					<table>
-						<tr>
-							<th>Contact number</th>
-							<td>+63 9876543210</td>
-						</tr>
-						<tr>
-							<th>Address</th>
-							<td><a href="http://google.com/search?q=253+M.L.+Quezon+Street" target="_blank">253 M.L. Quezon Street</a></td>
-						</tr>
-						<tr>
-							<th>E-mail address</th>
-							<td><a href="mailto:christian.collamar@bicol-u.edu.ph">christian.collamar@bicol-u.edu.ph</a></td>
-						</tr>
-					</table>
-				</div>
-				<!--
 				<div id="profile">
-					<div class="well size">
-						<h2>Personal Information</h2><hr>
-						<label for="profile-img">Profile picture</label><br>
-						<img src="http://localhost/augeo/data/user/profile_img/0.png" id="profile-img"><br>
-						<a class="edit" data-toggle="collapse" href="#collapse1">edit</a>
-						<div id="collapse1" class="panel-collapse collapse">
-							<ul class="list-group">
-								<li class="list-group-item">
-									<input type="file" id="file" accept="image/x-jpg" name="file" onchange="display_img(this);">
-								</li>
-							</ul>
-							<div id="error_pic"></div>
-							<div class="panel-footer">
-								<input type="button" name="but_upload" value="Save" id="but_upload">
-							</div>
-						</div>
-						<hr>
-						<h4>Name:</h4>
-						<label for="uname">First name</label>
-						<input class="form-control" type="text" name="uname" id="uname" placeholder="First Name">
-						<label for="mname">Middle name</label>
-						<input type="text" class="form-control" name="uname" id="mname" placeholder="Middle Name">
-						<label for="lname">Last name</label>
-						<input type="text" class="form-control" name="uname" id="lname" placeholder="Last Name">
-						<hr>
-						<label for="birthday">Birthday</label>
-						<input type="date" class="form-control" name="birthday" id="datepicker" placeholder="Birthday">
-						<hr>
-						<label for="contact_no">contact</label>
-						<input type="number" class="form-control" name="contact_no" id="contact_no">
-						<hr>
-						<h4>Address</h4>
-						<label for="contact_no">Full Address</label>
-						<input type="text" class="form-control" name="address" id="address">
-
-						<label for="contact_no">zipcode</label>
-						<input type="text" class="form-control" name="zipcode" id="zipcode">
-						<hr>
-						<div id="save_changes_profile_error"></div>
-						<input type="button" class="form-control" name="save_changes_profile" id="save_changes_profile" value="Save Changes">
+					<!-- PROFILE OPTIONS -->
+					<div id="profile-options">
+						<a href="edit/#profile" class="btn btn-default">Edit Profile</a>
 					</div>
-				</div>-->
+					<!-- PROFILE OVERVIEW -->
+					<div class="profile-content">
+						<div id="cover-photo-wrapper">
+							<img id="cover-photo" class="pannable" src="<?php echo  'http://localhost/augeo/data/user/cover_photo/'.$cover_photo ?>" alt="Cover photo">
+						</div>
+						<img id="profile-img" src="<?php echo  'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" alt="Profile picture">
+						<div id="profile-overview">
+							<div id="name"><?php echo $f_name.' '.substr($m_name, 0, 1).'. '.$l_name ?></div>
+							<div id="augeo-user-since"><i>a</i> months</div>
+							<div id="items-auctioned"><i>b</i></div>
+							<div id="items-bid"><i>c</i></div>
+						</div>
+					</div>
+					<!-- BASIC INFORMATION -->
+					<div class="hr-sect">BASIC INFORMATION</div>
+					<div class="profile-content">
+						<table>
+							<tr>
+								<th>Age</th>
+								<td><?php echo $age ?> years old</td>
+							</tr>
+							<tr>
+								<th>Birthday</th>
+								<td><?php echo date('F j, Y', strtotime('1998-04-03')); ?></td>
+							</tr>
+							<tr>
+								<th>Gender</th>
+								<td><?php echo $sex ?></td>
+							</tr>
+						</table>
+					</div>
+					<!-- CONTACT INFORMATION -->
+					<div class="hr-sect">CONTACT INFORMATION</div>
+					<div class="profile-content">
+						<table>
+							<tr>
+								<th>Contact number</th>
+								<td><?php echo $contact_no ?></td>
+							</tr>
+							<tr>
+								<th>Address</th>
+								<td><a href="http://google.com/search?q=<?php echo str_replace(' ', '+', $full_address) ?>" target="_blank"><?php echo $full_address ?></a></td>
+							</tr>
+							<tr>
+								<th>E-mail address</th>
+								<td><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
 
-				<!--ACCOUNT SIDEBAR--><!--
-				<div id="accounta">
+				<!--ACCOUNT SIDEBAR-->
+				<div id="account" style="display: none">
 					<div class="well">
 						<h2>Login</h2>
 						<h3>Change Password:</h3>
@@ -186,7 +179,7 @@
 							</li>
 						</ul>
 					</div>
-				</div>-->
+				</div>
 			</div>
 		</div>
 	</div>

@@ -25,7 +25,7 @@
 	?>
 	<input type="hidden" name="account_id_session" id="account_id_session" value="<?php echo $account_id_session; ?>">
 	<div class="container-fluid">
-		<div class="row" style="padding-top: 15px">
+		<div class="row" style="padding-top: 15px" id="slider">
 			<div class="col-sm-3">
 				<div id="tree"></div>
 			</div>

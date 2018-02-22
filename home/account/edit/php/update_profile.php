@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$m_name = encode($_POST['m_name']);
 	$l_name = encode($_POST['l_name']);
 	$address = encode($_POST['address']);
+	$zip_code = encode($_POST['zipcode']);
 	$contact_no = encode($_POST['contact_no']);
 
 	$result = mysqli_query($conn,
@@ -46,6 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			"f_name = '$f_name', ".
 			"m_name = '$m_name', ".
 			"l_name = '$l_name', ".
+			"zip_code = $zip_code, ".
 			"contact_no = '$contact_no', ".
 			"full_address = '$address' ".
 		"WHERE account_id = ".$_SESSION['account_id']
