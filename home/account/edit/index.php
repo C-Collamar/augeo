@@ -37,7 +37,7 @@
 							<h2>Edit Profile Information</h2><hr>
 							<label for="profile-img">Profile picture</label><br>
 							<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
-							<input type="file" accept="image/x-jpg" name="profile_img">
+							<input type="file" accept="image/jpeg" name="profile_img">
 							<hr>
 							<h4>Name</h4>
 							<label for="uname">First name</label>
