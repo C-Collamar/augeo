@@ -1,3 +1,8 @@
+<?php
+	//used to determine if user has logged in
+	require_once $_SERVER['DOCUMENT_ROOT'].'/augeo/global/php/session.php';
+?>
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -17,31 +22,40 @@
                 <li id="browse_nav"><a href="http://localhost/augeo/browse">BROWSE</a></li>
                 <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
             </ul>
-			<!--FOR USER NOT LOGGED IN-->
-			<div id="user_not_logged">
-				<ul class="nav navbar-nav navbar-right logged_in">
-					<li>
-						<a class="" href="http://localhost/augeo/login/">Log in
-						</a>
-					</li>
-				</ul>
-			</div>
-			<!--FOR USER LOGGED IN-->
-			<div id="user_logged">
-					<ul class="nav navbar-nav navbar-right logged_in">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img src="" id="avatar" alt="Avatar" class="avatar">
-							<span class="caret" style="margin-left: 10px;"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="http://localhost/augeo/home/account">My Account</a></li>
-							<li><a href="http://localhost/augeo/home/auctions/">My Auctions</a></li>
-							<li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+			<?php
+				if(isset($account_id_session)) { //print HTML below if user is logged in
+					if(!isset($profile_img)) {
+						//get profile picture file name
+						require_once $_SERVER['DOCUMENT_ROOT'].'/augeo/global/php/connection.php';
+						$result = mysqli_query(
+							$conn,
+							"SELECT profile_img ".
+							"FROM augeo_user_end.user ".
+							"WHERE account_id = $account_id_session"
+						) or die("Query error: ".mysqli_error($conn));
+						$profile_img = mysqli_fetch_row($result)[0];
+					}
+			?>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<img src="<?php echo 'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" id="avatar" alt="Settings">
+						<span class="caret" style="margin-left: 10px;"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="http://localhost/augeo/home/account">My Account</a></li>
+						<li><a href="http://localhost/augeo/home/auctions/">My Auctions</a></li>
+						<li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
+					</ul>
+				</li>
+			</ul>
+			<?php } else { //otherwise print the HTML below ?>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="http://localhost/augeo/login/">Log in</a>
+				</li>
+			</ul>>
+			<?php } ?>
      	</div>
     </div>
 </nav>
- <script src="http://localhost/augeo/global/js/topbar.js"></script>

@@ -15,16 +15,9 @@ body {
 #brand-name {
 	padding: 0px 10px 0px 10px;
 }
-.show_hide3 {
-	display: none;
-}
-.avatar {
-	vertical-align: middle;
-	width: 22px;
-	height: 22px;
-	border-radius: 30%;
-}
 
-.null_user, .user {
-	display: none;
+#avatar {
+	width: auto;
+	height: 20px;
+	border-radius: 20%;
 }
