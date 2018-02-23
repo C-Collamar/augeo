@@ -22,6 +22,12 @@
                 <li id="browse_nav"><a href="http://localhost/augeo/browse">BROWSE</a></li>
                 <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
             </ul>
+			<form class="navbar-form navbar-left" action="/action_page.php">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
 			<?php
 				if(isset($account_id_session)) { //print HTML below if user is logged in
 					if(!isset($profile_img)) {
