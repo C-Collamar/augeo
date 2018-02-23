@@ -17,35 +17,31 @@
                 <li id="browse_nav"><a href="http://localhost/augeo/browse">BROWSE</a></li>
                 <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
             </ul>
-
-
-<!--FOR USER NOT LOGGED IN-->
-<div id="user_not_logged">
-            <ul class="nav navbar-nav navbar-right logged_in">
-                <li>
-                  <a class="" href="http://localhost/augeo/login/">Log in
-                    </a>
-                </li>
-            </ul>
-</div>
-
-<!--FOR USER LOGGED IN-->
-<div id="user_logged">
-         <ul class="nav navbar-nav navbar-right logged_in">
-                <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img src="" id="avatar" alt="Avatar" class="avatar">
-                        <span class="caret" style="margin-left: 10px;"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="http://localhost/augeo/home/account">My Account</a></li>
-                        <li><a href="http://localhost/augeo/home/auctions/">My Auctions</a></li>
-                        <li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
-                    </ul>
-                </li>
-            </ul>
-</div>
-     </div>
+			<!--FOR USER NOT LOGGED IN-->
+			<div id="user_not_logged">
+				<ul class="nav navbar-nav navbar-right logged_in">
+					<li>
+						<a class="" href="http://localhost/augeo/login/">Log in
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--FOR USER LOGGED IN-->
+			<div id="user_logged">
+					<ul class="nav navbar-nav navbar-right logged_in">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img src="" id="avatar" alt="Avatar" class="avatar">
+							<span class="caret" style="margin-left: 10px;"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="http://localhost/augeo/home/account">My Account</a></li>
+							<li><a href="http://localhost/augeo/home/auctions/">My Auctions</a></li>
+							<li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+     	</div>
     </div>
 </nav>
  <script src="http://localhost/augeo/global/js/topbar.js"></script>

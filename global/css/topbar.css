@@ -16,16 +16,15 @@ body {
 	padding: 0px 10px 0px 10px;
 }
 .show_hide3 {
-  display:none;
+	display: none;
 }
 .avatar {
-    vertical-align: middle;
-    width: 22px;
-    height: 22px;
-    border-radius: 30%;
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+	border-radius: 30%;
 }
 
-.null_user,.user{
-    display:none;
-
+.null_user, .user {
+	display: none;
 }
