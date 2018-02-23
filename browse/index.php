@@ -12,13 +12,13 @@
 	<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php"; ?>
 
 	<div id="option-container"><button class="btn btn-default" onclick="toggleOptionPanel()">Options</button></div>
-	<div id="browse-content" class="expand">
+	<div id="browse-content">
 		<div class="grid">
 			<div class="grid-sizer"></div>
 			<div class="gutter-sizer"></div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/items/0_0.jpg" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -33,7 +33,7 @@
 			</div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/profile_img/0.png" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -46,35 +46,7 @@
 			</div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
-					<div class="item-details">
-						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
-						<div class="highest-bid">Php 5.00</div>
-						<div class="tag-list">
-							<a href="">tagname-2</a>
-							<a href="">tagname-1</a>
-							<a href="">tagname-3</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="grid-item">
-				<div class="card">
-					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
-					<div class="item-details">
-						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
-						<div class="highest-bid">Php 5.00</div>
-						<div class="tag-list">
-							<a href="">tagname-1</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="grid-item">
-				<div class="card">
-					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/items/0_0.jpg" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -89,7 +61,7 @@
 			</div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/profile_img/0.png" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -102,35 +74,7 @@
 			</div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
-					<div class="item-details">
-						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
-						<div class="highest-bid">Php 5.00</div>
-						<div class="tag-list">
-							<a href="">tagname-2</a>
-							<a href="">tagname-1</a>
-							<a href="">tagname-3</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="grid-item">
-				<div class="card">
-					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
-					<div class="item-details">
-						<h4><b>XBox360</b></h4>
-						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
-						<div class="highest-bid">Php 5.00</div>
-						<div class="tag-list">
-							<a href="">tagname-1</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="grid-item">
-				<div class="card">
-					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/items/0_0.jpg" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -145,7 +89,7 @@
 			</div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/profile_img/0.png" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -158,7 +102,7 @@
 			</div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/items/0_0.jpg" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -173,7 +117,63 @@
 			</div>
 			<div class="grid-item">
 				<div class="card">
-					<img src="http://localhost/augeo/data/user/profile_img/0.png" alt="">
+					<!-- <img src="http://localhost/augeo/data/user/profile_img/0.png" alt=""> -->
+					<div class="item-details">
+						<h4><b>XBox360</b></h4>
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
+						<div class="highest-bid">Php 5.00</div>
+						<div class="tag-list">
+							<a href="">tagname-1</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-item">
+				<div class="card">
+					<!-- <img src="http://localhost/augeo/data/user/items/0_0.jpg" alt=""> -->
+					<div class="item-details">
+						<h4><b>XBox360</b></h4>
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
+						<div class="highest-bid">Php 5.00</div>
+						<div class="tag-list">
+							<a href="">tagname-2</a>
+							<a href="">tagname-1</a>
+							<a href="">tagname-3</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-item">
+				<div class="card">
+					<!-- <img src="http://localhost/augeo/data/user/profile_img/0.png" alt=""> -->
+					<div class="item-details">
+						<h4><b>XBox360</b></h4>
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
+						<div class="highest-bid">Php 5.00</div>
+						<div class="tag-list">
+							<a href="">tagname-1</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-item">
+				<div class="card">
+					<!-- <img src="http://localhost/augeo/data/user/items/0_0.jpg" alt=""> -->
+					<div class="item-details">
+						<h4><b>XBox360</b></h4>
+						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
+						<div class="highest-bid">Php 5.00</div>
+						<div class="tag-list">
+							<a href="">tagname-2</a>
+							<a href="">tagname-1</a>
+							<a href="">tagname-3</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid-item">
+				<div class="card">
+					<!-- <img src="http://localhost/augeo/data/user/profile_img/0.png" alt=""> -->
 					<div class="item-details">
 						<h4><b>XBox360</b></h4>
 						<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
@@ -186,7 +186,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="side-panel" class="contract">
+	<div id="side-panel">
 		<div style="margin-bottom: 10px;">
 			<button class="btn btn-default" onclick="toggleOptionPanel()">Close</button>
 		</div>
