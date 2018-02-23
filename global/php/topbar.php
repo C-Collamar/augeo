@@ -49,8 +49,8 @@
 						<span class="caret" style="margin-left: 10px;"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="http://localhost/augeo/home/account">My Account</a></li>
-						<li><a href="http://localhost/augeo/home/auctions/">My Auctions</a></li>
+						<li><a href="http://localhost/augeo/user/account">My Account</a></li>
+						<li><a href="http://localhost/augeo/user/auctions/">My Auctions</a></li>
 						<li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
 					</ul>
 				</li>
