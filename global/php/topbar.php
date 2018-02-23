@@ -22,11 +22,15 @@
                 <li id="browse_nav"><a href="http://localhost/augeo/browse">BROWSE</a></li>
                 <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
             </ul>
-			<form class="navbar-form navbar-left" action="/action_page.php">
-				<div class="form-group">
+			<form class="navbar-form navbar-left" action="">
+				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Search">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
 				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
 			<?php
 				if(isset($account_id_session)) { //print HTML below if user is logged in
@@ -49,8 +53,8 @@
 						<span class="caret" style="margin-left: 10px;"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="http://localhost/augeo/user/account">My Account</a></li>
-						<li><a href="http://localhost/augeo/user/auctions/">My Auctions</a></li>
+						<li><a href="http://localhost/augeo/home/account">My Account</a></li>
+						<li><a href="http://localhost/augeo/home/auctions/">My Auctions</a></li>
 						<li><a href="http://localhost/augeo/global/php/session.php?logout=1">Sign out</a></li>
 					</ul>
 				</li>
