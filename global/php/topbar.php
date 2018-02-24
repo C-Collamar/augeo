@@ -38,12 +38,8 @@
 			</ul>
 			<form class="nav navbar-nav navbar-form" action="">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
+					<input type="search" class="form-control" placeholder="Search">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
