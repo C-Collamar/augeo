@@ -17,21 +17,6 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="collapsable">
-            <ul class="nav navbar-nav">
-                <li id="home_nav"><a href="http://localhost/augeo/">HOME</a></li>
-                <li id="browse_nav"><a href="http://localhost/augeo/browse">BROWSE</a></li>
-                <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
-            </ul>
-			<form class="navbar-form navbar-left" action="">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
-				</div>
-			</form>
 			<?php
 				if(isset($account_id_session)) { //print HTML below if user is logged in
 					if(!isset($profile_img)) {
@@ -46,7 +31,25 @@
 						$profile_img = mysqli_fetch_row($result)[0];
 					}
 			?>
+			<ul class="nav navbar-nav">
+                <li id="home_nav"><a href="http://localhost/augeo/">HOME</a></li>
+                <li id="browse_nav"><a href="http://localhost/augeo/browse">BROWSE</a></li>
+                <li id="categ_nav"><a href="http://localhost/augeo/categories">CATEGORIES</a></li>
+			</ul>
+			<form class="nav navbar-nav navbar-form" action="">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
 			<ul class="nav navbar-nav navbar-right">
+				<li style="padding: 0px 15px">
+					<button id="add-item" class="btn btn-default navbar-btn">Add item</button>
+				</li>
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<img src="<?php echo 'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" id="avatar" alt="Settings">
@@ -64,8 +67,14 @@
 				<li>
 					<a href="http://localhost/augeo/login/">Log in</a>
 				</li>
-			</ul>>
+			</ul>
 			<?php } ?>
      	</div>
     </div>
 </nav>
+<script>
+	//redirect to page for adding new auction item if 'Add item' button is clicked
+	document.getElementById("add-item").onclick = function() {
+		window.location = "http://localhost/augeo/add-item/";
+	}
+</script>
