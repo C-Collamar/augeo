@@ -36,7 +36,7 @@ if(isset($_SESSION['account_id'])){
 					<input type="password" class="form-control" name="pass" id="pass" required>
 					<span class="help-block" id ="error_msg"></span>
 				</div>
-				<input type="button" class="btn btn-md" name="submit" id="submit" value="Login">
+				<input type="submit" class="btn btn-md" name="submit" id="submit" value="Login" onclick="return(login_submit());">
 				<div id="forgot_pass"><a href="#" class="show_hide2"> Forgot Password</a></div>
 				<a href="#" class="show_hide">Sign Up</a><br />
 			</form>
@@ -56,7 +56,7 @@ if(isset($_SESSION['account_id'])){
 					<input type="email" class="input-group" name="email" id="email">
 					<span class="help-block" id ="error_email"></span>
 				</div>
-				<input type="button" class="btn btn-default" name="send_mail" id="send_mail" value="send">
+				<input type="submit" class="btn btn-default" name="send_mail" id="send_mail" value="send" onclick="return(email_submit());">
 			</form>
 		</div>
 	</div>
@@ -76,7 +76,7 @@ if(isset($_SESSION['account_id'])){
 					<input type="password" class="form-control" name="crt_pass" id="crt_pass" required>
 					<span class="help-block" id="uname_error"></span>
 				</div>
-				<input type="button" name="crt_acc" id="crt_acc" value="Create account"><br>
+				<input type="submit" name="crt_acc" id="crt_acc" value="Create account" onclick="return(crt_submit());"><br>
 				<a href="#" class="show_hide">Already have an account? Log in</a><br>
 			</form>
 		</div>

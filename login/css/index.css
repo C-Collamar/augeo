@@ -32,7 +32,7 @@ width: 6%;
 margin-top: 30px;
 }
 
-input[type=button]{
+input[type=submit]{
     border-radius: 100px;
     box-shadow: none;
     cursor: pointer;
