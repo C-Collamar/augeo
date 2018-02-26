@@ -1,8 +1,6 @@
 body {
-
     margin: 0;
     padding: 0;
-
 }
 
 .error_msg,.uname_error{
@@ -27,8 +25,10 @@ input[type=text]:focus,input[type=password]:focus,input[type=email]:focus {
 
 }
 #brand-logo1 {
-height: 10%;
-width: 6%;
+  max-width: 10%;
+  max-height: :   12%;
+    height: auto;
+     width: : auto;
 margin-top: 30px;
 }
 
