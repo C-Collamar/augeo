@@ -1,6 +1,7 @@
 <?php
 session_start();
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
+require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 
 ?>
 <!DOCTYPE html>
@@ -14,21 +15,6 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
     <link href="css/index.css" rel="stylesheet">
   </head>
   <body>
-
-    <div class="page-content">
-    	<div class="row">
-		  <div class="col-md-2">
-		  	<div class="sidebar content-box" style="display: block;">
-                <ul class="nav">
-                    <!-- Main menu -->
-                    <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Upcoming Events</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-list"></i> Items</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-tasks"></i> Logs </a></li>
-                </ul>
-             </div>
-          </div>
           <div class="col-md-10">
             <div class="row">
                 <div class="col-md-6">
@@ -119,6 +105,6 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
 
         <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
