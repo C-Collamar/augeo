@@ -24,7 +24,7 @@ if($("#activated").val() == '1'){
   });
 
 
-// checking if username if available
+// checking if username is available
 $("#crt_uname").blur(
       function (event) {
         if($("#crt_uname").val() == ""){

@@ -1,31 +1,32 @@
 $(document).ready(function() {
-  $("#Username").blur(
+  $("#username").blur(
       function (event) {
-        if($("#username").val() == ""){
+        if($("#username").val() == "" || !$("input[name='account_type']:checked").val() ){
               $("#uname_error").css({color: 'red'});
-              document.getElementById("uname_error").innerHTML= "Please Enter your desired Username";
+              document.getElementById("uname_error").innerHTML= "Please Enter your desired Username and Select Account type";
                             }
         else{
               $.ajax({
               type: "POST",
               url: "php/index.php",
               data: {
-                uname: $("#username").val()
+                uname: $("#username").val(),
+                account_type: $("input[name=account_type]:checked").val()
                     },
               success: function(result) {
                             if(result == "Username's Available"){
                                     document.getElementById("uname_error").innerHTML= result;
                                     $("#uname_error").css({color: 'green'});
-                                    $("input[type=submit]#crt_acc").removeAttr("disabled");
-                                    $("input[type=submit]#crt_acc").css({backgroundColor: '#50a5e6'});
+                                    $("input[type=submit]#submit").removeAttr("disabled");
+                                    $("input[type=submit]#submit").css({backgroundColor: '#50a5e6'});
 
                                     }
                             else{
                                     document.getElementById("uname_error").innerHTML= result;
-                                    $("input[type=submit]#crt_acc").attr("disabled", "disabled");
+                                    $("input[type=submit]#submit").attr("disabled", "disabled");
                                     $("#uname_error").css({color: 'red'});
-                                    $("input[type=submit]#crt_acc").css({backgroundColor: 'grey'});
-                                  //$("input[type=button]#crt_acc").removeClass('input[type=button]:hover');
+                                    $("input[type=submit]#submit").css({backgroundColor: 'grey'});
+                                  //$("input[type=button]#username").removeClass('input[type=button]:hover');
 
 
                                     }
@@ -39,33 +40,36 @@ $(document).ready(function() {
      });
 
 
-function crt_submit(){
+function create_account(){
       var stat="";
-      $("#crt_acc").val("Creating Account...");
-      if( ($("#crt_uname").val() == "" && $("#crt_pass").val() == "") ||   ($("#crt_uname").val() == "" || $("#crt_pass").val() == "")    ){
-            $("#crt_acc").val("Create Account");
+      $("#submit").val("Creating Account...");
+      if( ($("#username").val() == "" && $("#password").val() == "") ||   ($("#username").val() == "" || $("#password").val() == "")  || $("#account_type").val() == "" || $('input[name=account_type]:checked').length == 0){
+            $("#submit").val("Create Account");
             $("#uname_error").css({color: 'red'});
             document.getElementById("uname_error").innerHTML = "Please Fill up the form";
             stat = false;
 }
-      else if($("#crt_pass").val().length < 8){
+      else if($("#password").val().length < 8){
 
-            $("#crt_acc").val("Create Account");
+            $("#submit").val("Create Account");
             $("#uname_error").css({color: 'red'});
             document.getElementById("uname_error").innerHTML = "Password Must be atleast 8 characters";
             stat = false;
 }
       else{
+
             $.ajax({
                   type: "POST",
-                  url: "php/login.php",
+                  url: "php/index.php",
                   data: {
-                        crt_uname: $("#crt_uname").val(),
-                        crt_pass : $("#crt_pass").val()
+                        account_type:  $("input[name=account_type]:checked").val(),
+                        username: $("#username").val(),
+                        password : $("#password").val()
                     },
                   success: function(result) {
+                    alert(result);
                        // window.location.assign("http://localhost/augeo/home/account/?new=1");
-                       window.location.assign("http://localhost/augeo/user/account/?new=1");
+                        document.getElementById("uname_error").innerHTML = "Account Created";
                         }
                     });
 
