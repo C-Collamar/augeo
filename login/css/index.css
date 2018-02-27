@@ -25,9 +25,13 @@ input[type=text]:focus,input[type=password]:focus,input[type=email]:focus {
 
 }
 #brand-logo1 {
-  max-width: 10%;
-  max-height: :   12%;
-    height: auto;
+  height: 10%;
+  width: 8%;
+  min-height: 15%;
+  min-width: : 15% ;
+  max-width: 30%;
+  max-height: :   30%;
+      height: auto;
      width: : auto;
 margin-top: 30px;
 }
