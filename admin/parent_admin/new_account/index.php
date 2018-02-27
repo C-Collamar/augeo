@@ -20,11 +20,6 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                 <div class="col-md-12 panel-warning">
                     <div class="content-box-header panel-heading">
                         <div class="panel-title ">CREATE NEW ACCOUNT</div>
-
-                        <div class="panel-options">
-                            <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                            <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-                        </div>
                     </div>
                     <div class="content-box-large box-with-header">
                         <form enctype="multipart/form-data" method="POST">
