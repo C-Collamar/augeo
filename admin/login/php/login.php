@@ -17,7 +17,15 @@ if(isset($_POST['uname']) && isset($_POST['pass'])){
 			$account_id = $found['account_id'];
 			setcookie("account_id", $account_id, time() + (86400 * 30), "/");
 			$_SESSION['account_id'] = $account_id;
-			echo "sucess";
+
+
+			$result1 = mysqli_query($conn,"SELECT role_id FrOm augeo_administration.admin where augeo_administration.admin.admin_id = '$account_id'");
+			$found1 = mysqli_fetch_array($result1);
+
+			if($found1['role_id'] == "1")
+				echo "sucess_parent";
+			else
+				echo "sucess_normal";
 		}
 		else{
 			$_SESSION['deactivated_id'] = $found['account_id'];

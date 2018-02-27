@@ -32,7 +32,9 @@
 						$profile_img = mysqli_fetch_row($result)[0];
 					}
 			?>
-
+            <ul class="nav navbar-nav">
+                <li id="home_nav"><a href="http://localhost/augeo/admin/">DASHBOARD</a></li>
+            </ul>
 			<form class="nav navbar-nav navbar-form" action="">
 				<div class="input-group">
 					<input type="search" class="form-control" placeholder="Search">
@@ -52,7 +54,7 @@
 						<span class="caret" style="margin-left: 10px;"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="http://localhost/augeo/user/account">My Account</a></li>
+						<li><a href="http://localhost/augeo/admin/account/">My Account</a></li>
 						<li><a href="http://localhost/augeo/admin/includes/php/session.php?logout=1">Sign out</a></li>
 					</ul>
 				</li>

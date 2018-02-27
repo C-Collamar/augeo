@@ -3,7 +3,7 @@
 if(session_status() == PHP_SESSION_NONE){
 session_start();
 if(!isset($_SESSION['account_id'])){
-    header("Location: http://localhost/augeo/login");
+    header("Location: http://localhost/augeo/admin/login");
 }
 
 elseif(isset($_GET['logout'])) {

@@ -38,9 +38,12 @@ function login_submit(){
                       pass : $("#pass").val()
                     },
               success: function(result) {
-                          if(result == "sucess"){
+                          if(result == "sucess_parent"){
                               window.location.assign("../parent_admin");
-                      }
+                          }
+                          else if(result == "sucess_normal"){
+                              window.location.assign("../normal_admin");
+                            }
                            else if (result == "deactivated account") {
                               window.location.assign("reactivate_account/");
 

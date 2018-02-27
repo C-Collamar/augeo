@@ -22,10 +22,10 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
                 <ul class="nav">
                     <!-- Main menu -->
                     <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href=""><i class="glyphicon glyphicon-calendar"></i> Upcoming Events</a></li>
-                    <li><a href=""><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>
-                    <li><a href=""><i class="glyphicon glyphicon-list"></i> Items</a></li>
-                    <li><a href=""><i class="glyphicon glyphicon-tasks"></i> Logs </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Upcoming Events</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-list"></i> Items</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-tasks"></i> Logs </a></li>
                 </ul>
              </div>
           </div>
