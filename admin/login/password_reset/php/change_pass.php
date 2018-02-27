@@ -6,7 +6,7 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php");
 if(isset($_POST['n_pass'])  && isset($_POST['hidden']) ){
    $password = encrypt(encode($_POST['n_pass']));
     $id = $_POST['hidden'];
-if(mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.user_account.password = '$password' where augeo_user_end.user_account.account_id = '$id'")){
+if(mysqli_query($conn,"UPDATE augeo_administration.admin_account set  augeo_administration.admin_account.password = '$password' where augeo_administration.admin_account.account_id = '$id'")){
     echo "sucess";
     }
     else{
@@ -19,7 +19,7 @@ if(mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.us
 elseif(isset($_POST['hidden'])) {
 $id = $_POST['hidden'];
 
-$result = mysqli_query($conn,"SELECT augeo_user_end.user_account.username,augeo_user_end.user_account.account_id FrOm augeo_user_end.user_account where augeo_user_end.user_account.account_id = '$id' ");
+$result = mysqli_query($conn,"SELECT augeo_administration.admin_account.username,augeo_administration.admin_account.account_id FrOm augeo_administration.admin_account where augeo_administration.admin_account.account_id = '$id' ");
     if($row=mysqli_num_rows($result) == 1){
           $found = mysqli_fetch_array($result);
            $username =  $found['username'];

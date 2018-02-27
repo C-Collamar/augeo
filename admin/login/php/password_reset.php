@@ -6,7 +6,7 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
 $send_to = $_POST['email'];
 $bol = 0;
 // check if entered email is in the database
-$result = mysqli_query($conn,"SELECT augeo_user_end.user.email,augeo_user_end.user.account_id FROm augeo_user_end.user where augeo_user_end.user.email = '$send_to' ");
+$result = mysqli_query($conn,"SELECT augeo_administration.admin.email,augeo_administration.admin.account_id FROm augeo_administration.admin where augeo_administration.admin.email = '$send_to' ");
     if($row=mysqli_num_rows($result) == 1){
             $found = mysqli_fetch_array($result);
             $bol = 1;
@@ -62,7 +62,7 @@ $mail->SMTPOptions = array(
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Change Password';
     $mail->Body    = '<h1> AUGEO WEBSITE</h1><br>
-                    <p> to Change password, click <a href="http://localhost/augeo/login/password_reset/?aassmmss='.$account_id.'"> here </a>
+                    <p> to Change password, click <a href="http://localhost/augeo/admin/login/password_reset/?aassmmss='.$account_id.'"> here </a>
 
     ';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
