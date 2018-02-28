@@ -17,8 +17,7 @@ $(document).ready(function(){
     }
   });
 
-// for table
-$('#example').dataTable();
+
 /*
  $.ajax({
               type: "POST",
