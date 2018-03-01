@@ -35,13 +35,14 @@
             <ul class="nav navbar-nav">
                 <li id="home_nav"><a href="http://localhost/augeo/admin/">DASHBOARD</a></li>
             </ul>
+            <!--
 			<form class="nav navbar-nav navbar-form" action="">
 				<div class="input-group">
 					<input type="search" class="form-control" placeholder="Search">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
 				</div>
 			</form>
-
+                -->
 			<ul class="nav navbar-nav navbar-right">
                 <!--
 				<li style="padding: 0px 15px">

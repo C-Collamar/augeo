@@ -18,20 +18,21 @@ $(document).ready(function(){
   });
 
 
-/*
+
+
  $.ajax({
               type: "POST",
               url: "php/index.php",
               success: function(result) {
-                alert(result);
-                var content_info = JSON.parse(result);
-                alert(content_info[0]);
+
+              document.getElementById("data_customer").innerHTML = result;
+             //   alert(content_info[0]);
 
                            //     document.getElementById("data_customer").innerHTML=result;
                                   }
                              });
-                             */
 
+/*
               var request = new XMLHttpRequest();
               request.open('GET', 'php/index.php', true);
 
@@ -49,7 +50,36 @@ $(document).ready(function(){
                  }
 
               request.send();
-
+*/
 });
 
 
+function test(search) {
+    if (search.length == 0) {
+      var data = "";
+       $.ajax({
+              type: "POST",
+              url: "php/index.php",
+              data: {
+                    search: data
+                    },
+              success: function(result) {
+
+              document.getElementById("data_customer").innerHTML = result;
+                                  }
+                             });
+    }
+     else {
+         $.ajax({
+              type: "POST",
+              url: "php/index.php",
+              data: {
+                    search: search
+                    },
+              success: function(result) {
+
+              document.getElementById("data_customer").innerHTML = result;
+                                  }
+                             });
+    }
+}
