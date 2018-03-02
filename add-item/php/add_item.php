@@ -8,7 +8,7 @@ set_error_handler(function($errno, $errstr) {
 });
 
 function reportQueryError($err_msg, $query) {
-    echo 'Query: '.$query.'\n';
+    echo 'Query: '.$query.'. ';
     trigger_error($err_msg);
 }
 
@@ -111,14 +111,19 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     $query = substr($query, 0, -1);
     $conn->query($query) or reportQueryError(mysqli_error($conn), $query);
 
-    //5. Save item images to server
+    //5. Save item images to server and save image path to database
     $target_dir = $_SERVER['DOCUMENT_ROOT'].'/augeo/data/user/items/';
+    $query = "INSERT INTO augeo_user_end.item_img(item_id, img_path) VALUES ";
 
     foreach($_FILES['imgFiles']['tmp_name'] as $key => $tmp_name) {
         $target_file = $target_dir.basename($_FILES['imgFiles']['name'][$key]);
         $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        move_uploaded_file($_FILES["imgFiles"]["tmp_name"][$key], $target_dir.$item_id.'_'.$key.'.'.$fileType);
+        $filename = $item_id.'_'.$key.'.'.$fileType;
+        move_uploaded_file($_FILES["imgFiles"]["tmp_name"][$key], $target_dir.$filename);
+        $query .= "($item_id, 'http://localhost/augeo/data/user/items/$filename'),";
     }
+    $query = substr($query, 0, -1);
+    $conn->query($query) or reportQueryError(mysqli_error($conn), $query);
 
     //return success
     header('Content-Type: application/json; charset=UTF-8');
