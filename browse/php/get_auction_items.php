@@ -6,25 +6,30 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
 //get items' ID, name and desciption, timestamp, one image filename, and highest bid price
+/**
+ * PROCESS:
+ * 0. Get all item IDs with their title, description, timestamp, initial price, and one image filepath
+ * 1. Get highest bid for items with bids
+**/
 $query =
     'SELECT '.
         'item.item_id, '.
         'item.name, '.
         'item.description, '.
         'item.timestamp, '.
-        'img_path, '.
-        'amount '.
+        'initial_price, '.
+        'img_path '.
     'FROM '.
         'augeo_user_end.item, '.
-        'augeo_application.bid, '.
         'augeo_user_end.item_img '.
     'WHERE '.
-        'item.item_id = item_img.item_id AND '.
-        'item.item_id = bid.item_id AND '.
-        'state = 0 '.
+        'state = 0 AND '.
+        'item.item_id = item_img.item_id '.
     'GROUP BY item.item_id '.
-    'ORDER BY item.item_id, amount '.
+    'ORDER BY item.item_id '.
     'LIMIT 10';
+
+exit($query);
 
 if(!($result = $conn->query($query))) {
     header("HTTP/1.1 500 Internal Server Error");
