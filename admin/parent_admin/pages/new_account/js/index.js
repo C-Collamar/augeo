@@ -67,8 +67,9 @@ function create_account(){
                         password : $("#password").val()
                     },
                   success: function(result) {
-                    alert(result);
                        // window.location.assign("http://localhost/augeo/home/account/?new=1");
+                        $("#submit").val("Create Account");
+                        $("#uname_error").css({color: 'green'});
                         document.getElementById("uname_error").innerHTML = "Account Created";
                         }
                     });

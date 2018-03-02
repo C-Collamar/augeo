@@ -36,9 +36,8 @@ else{
             <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="http://localhost/augeo/admin/parent_admin"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Upcoming Events</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>
+                    <li class="current"><a href="http://localhost/augeo/admin/normal_admin"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                    <li><a href="http://localhost/augeo/admin/normal_admin/pages/statistics"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-list"></i> Items</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-tasks"></i> Reports </a></li>
                 </ul>

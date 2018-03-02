@@ -2,6 +2,11 @@
 session_start();
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
+if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
+    if($_SESSION['account_type'] == "2")
+        header("Location: ../normal_admin");
+}
+
 
 ?>
 <!DOCTYPE html>

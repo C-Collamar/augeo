@@ -26,7 +26,7 @@
 						$result = mysqli_query(
 							$conn,
 							"SELECT profile_img ".
-							"FROM augeo_user_end.user ".
+							"FROM augeo_administration.admin ".
 							"WHERE account_id = $account_id_session"
 						) or die("Query error: ".mysqli_error($conn));
 						$profile_img = mysqli_fetch_row($result)[0];
@@ -51,7 +51,7 @@
                 -->
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<img src="<?php echo 'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" id="avatar" alt="Settings">
+						<img src="<?php echo ''.$profile_img ?>" id="avatar" alt="Settings">
 						<span class="caret" style="margin-left: 10px;"></span>
 					</a>
 					<ul class="dropdown-menu">
