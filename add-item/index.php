@@ -17,37 +17,34 @@
                 <div class="panel-heading">Item Information</div>
                 <div class="panel-body">
                     <!-- TITLE -->
-                    <div class="form-group container-fluid no-lr-padding">
+                    <div class="form-group container-fluid">
                         <label class="control-label col-sm-1" for="title">Title:</label>
-                        <div class="col-sm-11">
-                            <input type="text" class="form-control" id="title">
+                        <div class="col-sm-11" style="padding-right: 0px">
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Give a concise heading for the item">
                         </div>
                     </div>
                     <!-- DESCRIPTION -->
                     <div class="form-group container-fluid">
                         <label class="control-label" for="description">Description:</label>
-                        <textarea class="form-control" id="description"></textarea>
+                        <textarea name="description" class="form-control" id="description" placeholder="Describe the item in detail"></textarea>
                     </div>
                     <!-- IMAGES -->
 					<div class="hr-sect">UPLOAD IMAGES</div>
                     <div id="img-section">
-                        <button type="button" class="btn btn-default">Upload image</button>
-                        <div id="img-container" style="padding-top: 5px">
-                            <div class="img-object">
-                                <div class="options-bar-wrapper">
-                                    <button type="button" class="option-bar">Unload</button>
-                                </div>
-                                <img src="http://localhost/augeo/data/user/profile_img/1.jpg" alt="">
-                            </div>
-                        </div>
+                        <button type="button" class="btn btn-default" onclick="document.getElementById('item-img').click()">Upload image</button>
+                        <input type="file" accept="image/jpeg" name="imgFiles[]" id="item-img" multiple>
+                        <div id="img-container" style="padding-top: 5px"></div>
                     </div>
                     <!-- TAGS -->
 					<div class="hr-sect">TAGGING</div>
-                    <div class="form-group container-fluid no-lr-padding">
+                    <div class="form-group container-fluid">
                         <label class="control-label col-sm-1" for="tag-list">Tags:</label>
-                        <div class="col-sm-11">
-                            <input type="text" class="form-control" id="tag-list" placeholder="Enter one or more tag names">
-                            <p class="note" style="padding-top: 5px"></p>
+                        <div class="col-sm-11" style="padding-right: 0px">
+                            <input type="text" name="tags" class="form-control" id="tag-list" placeholder="Enter one or more tag names">
+                            <p class="note">
+                                Spaces will automatically be converted into hyphens.<br>Programmer's note: I'm planning on using
+                                selectize.js for tagging. As of now, input tags wil be submitted in plain text separated by commas.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -59,10 +56,10 @@
                 <div class="panel-body">
                     <!-- INITIAL PRICE -->
                     <div class="form-group container-fluid">
-                        <label class="control-label" for="description">Starting price:</label>
+                        <label class="control-label" for="description">Base price:</label>
                         <div class="input-group">
                             <span class="input-group-addon">&#8369;</span>
-                            <input type="number" class="form-control" name="initial-price">
+                            <input type="number" class="form-control" id="initial-price" name="initial-price" placeholder="Set the item's starting price">
                         </div>
                     </div>
                     <!-- BID INTERVAL -->
@@ -70,14 +67,14 @@
                         <label class="control-label" for="description">Bid interval:</label>
                         <div class="input-group">
                             <span class="input-group-addon">&#8369;</span>
-                            <input type="number" class="form-control" name="bid-interval">
+                            <input type="number" class="form-control" id="bid-interval" name="bid-interval" placeholder="Set the minimum incremental step">
                         </div>
                     </div>
                 </div>
             </div>
             <!-- BLOCKED USERS -->
-            <div class="panel panel-default" id="additional-rules" onclick="invert_chevron()">
-                <div class="panel-heading" data-toggle="collapse" href="#block-list">
+            <div class="panel panel-default" id="additional-rules">
+                <div class="panel-heading" data-toggle="collapse" id="rules-heading" href="#block-list">
                     <span>Additional Rules</span>
                     <i id="chevron-icon" class="glyphicon glyphicon-chevron-down" style="float: right"></i>
                 </div>
@@ -120,7 +117,7 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="apply-blocking-bidders" checked>Block users in this list
+                                <input type="checkbox" name="block-bidders" checked>Block users in this list
                             </label>
                         </div>
                     </div>
@@ -142,5 +139,6 @@
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/input_handler.js"></script>
+    <script src="js/add_item.js"></script>
 </body>
 </html>

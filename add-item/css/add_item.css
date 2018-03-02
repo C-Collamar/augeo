@@ -31,25 +31,28 @@ label.control-label.col-sm-1 > .glyphicon {
 textarea {
     min-width: 100%;
     max-width: 100%;
+    min-height: 100px;
 }
 
 #img-section {
     margin: 10px;
 }
 
+#item-img {
+    display: none;
+}
+
 .img-object {
     display: inline-block;
     position: relative;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
 }
 
 .img-object > img {
     width: 200px;
     height: auto;
     transition: 0.2s;
-}
-
-.img-object:hover > img {
-    opacity: 0.6;
 }
 
 .options-bar-wrapper {
@@ -91,17 +94,10 @@ input[name=initial-price], input[name=bid-interval] {
     transition: background-color 0.2s;
 }
 
-.rotate-180 {
-    transition: transform 0.3s;
-    transform: -webkit-rotate(180deg);
-    transform: -moz-rotate(180deg);
-    transform: -o-rotate(180deg);
-    transform: rotate(180deg);
-}
-
-.note::after {
+.note {
     color: #999999;
-    content: "Spaces will automatically be converted into hyphens.";
+    padding-top: 5px;
+    user-select: none;
 }
 
 @media only screen and (max-width: 922px) {
