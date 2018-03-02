@@ -1,10 +1,4 @@
 $(window).ready(function() {
-    $('#title').val('Sample Title');
-    $('#description').val('Sample description');
-    $('#tag-list').val('tag1,tag2,tag3');
-    $('#initial-price').val(9);
-    $('#bid-interval').val(3);
-
     $('form').submit(function(event) {
         event.preventDefault(); //prevent form's default action
         var formData = new FormData(this);
