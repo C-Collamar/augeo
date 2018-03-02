@@ -30,13 +30,14 @@ function displayItems(data, textStatus, xhr) {
     for(var i = 0; i < data.length; ++i) {
         var card = document.createElement('div');
         var descClass = (data[i].description.length > 100)? 'overflow' : '';
+        var a = '';
         card.className = 'grid-item';
         card.innerHTML =
             '<div class="card" onclick="alert(\'item_id: \' + ' + data[i].item_id + ')">' +
                 '<img src="' + data[i].img_path + '" alt="">' +
                 '<div class="item-details">' +
                     '<h4><b>' + data[i].name + '</b></h4>' +
-                    '<p class="item-description ' + descClass + '">' + data[i].description.trim() + '</p>' +
+                    '<p class="item-description ' + descClass + '">' + data[i].description.trim().replace('\n', '<br>') + '</p>' +
                     '<div class="highest-bid">Php ' + data[i].amount + '</div>' +
                     '<div class="tag-list"></div>' +
                 '</div>' +
