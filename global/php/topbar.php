@@ -44,7 +44,7 @@
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li style="padding: 0px 15px">
-					<button id="add-item" class="btn btn-default navbar-btn">Add item</button>
+					<button id="add-item" class="btn btn-default navbar-btn" onclick="window.location = 'http://localhost/augeo/item/add/'">Add item</button>
 				</li>
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -68,9 +68,3 @@
      	</div>
     </div>
 </nav>
-<script>
-	//redirect to page for adding new auction item if 'Add item' button is clicked
-	document.getElementById("add-item").onclick = function() {
-		window.location = "http://localhost/augeo/add-item/";
-	}
-</script>
