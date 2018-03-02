@@ -26,7 +26,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
      * 2. Get the all tag IDs of the item to be inserted
      * 3. Insert item, and get its ID
      * 4. Associate inserted item with its tags
-     * 5. Insert item images
+     * 5. Save item to server and insert item path
     **/
 
     //0: if there is no file uploaded
@@ -113,7 +113,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
     //5. Save item images to server
     $target_dir = $_SERVER['DOCUMENT_ROOT'].'/augeo/data/user/items/';
-    
+
     foreach($_FILES['imgFiles']['tmp_name'] as $key => $tmp_name) {
         $target_file = $target_dir.basename($_FILES['imgFiles']['name'][$key]);
         $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

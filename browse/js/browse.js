@@ -32,7 +32,7 @@ function displayItems(data, textStatus, xhr) {
 		card.className = 'grid-item';
 		card.innerHTML =
 			'<div class="card" onclick="alert(\'item_id: \' + ' + data[i].item_id + ')">' +
-				'<img src="http://localhost/augeo/data/user/items/' + data[i].img_path + '" alt="">' +
+				'<img src="' + data[i].img_path + '" alt="">' +
 				'<div class="item-details">' +
 					'<h4><b>' + data[i].name + '</b></h4>' +
 					'<p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>' +
