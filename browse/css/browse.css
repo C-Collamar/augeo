@@ -42,7 +42,7 @@ select {
 
 .item-details { padding: 10px; }
 
-.item-description.overflow { content: "..."; }
+.item-description.overflow::after { content: "..."; }
 
 .highest-bid::before {
     content: "Highest bid: ";
