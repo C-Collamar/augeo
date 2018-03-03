@@ -1,6 +1,7 @@
 <?php
 session_start();
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
+$link = "http://localhost/augeo/admin/normal_admin";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 
 if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){

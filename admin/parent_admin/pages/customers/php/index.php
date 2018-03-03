@@ -145,13 +145,13 @@ if(isset($_POST['page'])){
         $numPage = ceil($numArticles[0] / $per_page); // Total number of page
 
         // We build the article list
-        $articleList = '';
-        $articleList= '
+        $list = '';
+        $list= '
 
               ';
 
         while( $result = $select->fetch() ) {
-            $articleList .= '<tr class="gradeU">
+            $list .= '<tr class="gradeU">
                 <td>'.$result->account_id.'</td>
                 <td><a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$result->account_id.'">'.$result->username.'</a></td>
                 <td>'.$result->f_name.' '.$result->m_name.' '.$result->l_name.'</td>
@@ -161,7 +161,7 @@ if(isset($_POST['page'])){
         }
 
         // We send back the total number of page and the article list
-        $dataBack = array('numPage' => $numPage, 'articleList' => $articleList);
+        $dataBack = array('numPage' => $numPage, 'list' => $list);
         $dataBack = json_encode($dataBack);
 
         echo $dataBack;

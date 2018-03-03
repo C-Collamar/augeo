@@ -1,5 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
+$link = "http://localhost/augeo/admin/parent_admin/pages/customers/info/";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 ?>
 <!DOCTYPE html>
@@ -12,11 +13,11 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link href="css/index.css" rel="stylesheet">
 <body>
-<input type="hidden" name="id" id="id" value="<?php echo $_GET['account_id']; ?>">
-<div class="col-md-10">
-<div class="row">
-                        <div class="col-md-12">
-                            <div class="content-box-header">
+        <input type="hidden" name="id" id="id" value="<?php echo $_GET['account_id']; ?>">
+        <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="content-box-header">
                                 <div class="panel-title">Profile Information</div>
 
                                 <div class="panel-options">

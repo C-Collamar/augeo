@@ -1,5 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
+$link = "http://localhost/augeo/admin/parent_admin/pages/admins/info/";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 ?>
 <!DOCTYPE html>

@@ -62,7 +62,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         var page = this.id; // Page number is the id of the 'a' element
         var pagination = ''; // Init pagination
 
-        $('#articleArea').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
+        $('#data_customer').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
         var data = {page: page, per_page: 10,search: data_customer}; // Create JSON which will be sent via Ajax
         // We set up the per_page var at 4. You may change to any number you need.
 
@@ -73,7 +73,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
             dataType: 'json', // Json format
             timeout: 3000,
             success: function(data) {
-                $('#articleArea').html(data.articleList); // We update the articleArea DIV with the article list
+                $('#data_customer').html(data.list); // We update the data_customer DIV with the article list
 
                 // Pagination system
                 if (page == 1) pagination += '<div class="cell_disabled"><span>First</span></div><div class="cell_disabled"><span>Previous</span></div>';
@@ -110,7 +110,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         var page = this.id; // Page number is the id of the 'a' element
         var pagination = ''; // Init pagination
 
-        $('#articleArea').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
+        $('#data_customer').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
         var data = {page: page, per_page: 10, search: search}; // Create JSON which will be sent via Ajax
         // We set up the per_page var at 4. You may change to any number you need.
 
@@ -121,7 +121,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
             dataType: 'json', // Json format
             timeout: 3000,
             success: function(data) {
-                $('#articleArea').html(data.articleList); // We update the articleArea DIV with the article list
+                $('#data_customer').html(data.list); // We update the data_customer DIV with the article list
 
                 // Pagination system
                 if (page == 1) pagination += '<div class="cell_disabled"><span>First</span></div><div class="cell_disabled"><span>Previous</span></div>';
@@ -165,7 +165,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
     var page = this.id; // Page number is the id of the 'a' element
     var pagination = ''; // Init pagination
 
-    $('#articleArea').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
+    $('#data_customer').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
     var data = {page: page, per_page: 10}; // Create JSON which will be sent via Ajax
         // We set up the per_page var at 4. You may change to any number you need.
 
@@ -176,7 +176,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         dataType: 'json', // Json format
         timeout: 3000,
         success: function(data) {
-            $('#articleArea').html(data.articleList); // We update the articleArea DIV with the article list
+            $('#data_customer').html(data.list); // We update the data_customer DIV with the article list
 
                 // Pagination system
             if (page == 1) pagination += '<div class="cell_disabled"><span>First</span></div><div class="cell_disabled"><span>Previous</span></div>';

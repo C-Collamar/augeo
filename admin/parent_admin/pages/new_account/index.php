@@ -1,6 +1,7 @@
 <?php
 session_start();
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
+$link = "http://localhost/augeo/admin/parent_admin/pages/new_account/";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 
 ?>

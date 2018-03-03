@@ -1,6 +1,7 @@
 <?php
 session_start();
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
+$link = "http://localhost/augeo/admin/parent_admin/pages/customers/";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
 ?>
@@ -46,7 +47,7 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
         </div>
        </div>
        <div class="panel-body">
-                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-responsive" id="example">
                   <thead>
                     <tr>
                       <th>Account Id</th>
@@ -56,7 +57,7 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
                       <th>Email</th>
                   </tr>
                 </thead>
-            <tbody id="articleArea">
+            <tbody id="data_customer">
 </tbody>
 
 </table>
