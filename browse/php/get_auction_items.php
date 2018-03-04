@@ -5,25 +5,41 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
-//get items' ID, name and desciption, timestamp, one image filename, and highest bid price
+/**
+ * PROCESS:
+ * 0. Get highest bid if item has bids
+ * 1. Get all item info
+ * 2. Replace item column `initial_price` with highest bid amount if item has bids
+**/
+
+//0. Get highest bid amount of bidded items
+$query =
+"SELECT item.item_id, amount ".
+"FROM ".
+    "augeo_application.bid, ".
+    "augeo_user_end.item ".
+"WHERE ".
+    "item.item_id = bid.item_id ".
+"ORDER BY item.item_id";
+$bids = $conn->query($query);
+
+//1. Get item IDs with their title, description, timestamp, initial price, and one image filepath
 $query =
     'SELECT '.
         'item.item_id, '.
         'item.name, '.
-        'item.description, '.
+        'LEFT(item.description, 101) AS description, '. //add 1 to determine if description overflows
         'item.timestamp, '.
-        'img_path, '.
-        'amount '.
+        'initial_price, '.
+        'img_path '.
     'FROM '.
         'augeo_user_end.item, '.
-        'augeo_application.bid, '.
         'augeo_user_end.item_img '.
     'WHERE '.
-        'item.item_id = item_img.item_id AND '.
-        'item.item_id = bid.item_id AND '.
-        'state = 0 '.
+        'state = 0 AND '.
+        'item.item_id = item_img.item_id '.
     'GROUP BY item.item_id '.
-    'ORDER BY item.item_id, amount '.
+    'ORDER BY item.item_id '.
     'LIMIT 10';
 
 if(!($result = $conn->query($query))) {
@@ -32,18 +48,28 @@ if(!($result = $conn->query($query))) {
     exit();
 }
 
-//for each items, get all of its tags by first determining all IDs
-//so that querying will be done in one batch for faster retrieval
+//check if there are no items
+if(mysqli_num_rows($result) == 0) {
+    header('Content-Type: text/html; charset=UTF-8');
+    exit();
+}
+
+//for each items, get all of its tags by first determining all IDs so that
+//querying will be done in one batch for one-time data retrieval
 $item_list = array();
 $itemID_list = '';
 
 while($row = $result->fetch_assoc()) {
+    $bid = $bids->fetch_assoc();
+    $row['amount'] = sprintf('%.2f', $row['initial_price']);
+    unset($row['initial_price']);
+    if($bid['item_id'] == $row['item_id']) {
+        $row['amount'] = $bid['amount'];
+    }
     array_push($item_list, $row);
     $itemID_list .= $row['item_id'].',';
 }
-
 $itemID_list = substr($itemID_list, 0, -1);
-
 $query =
     "SELECT ".
         "tag_name, ".
