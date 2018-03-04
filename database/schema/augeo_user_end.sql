@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2018 at 04:12 PM
+-- Generation Time: Mar 04, 2018 at 06:07 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -99,12 +99,14 @@ CREATE TABLE `user` (
   `f_name` varchar(255) NOT NULL,
   `m_name` varchar(255) NOT NULL,
   `l_name` varchar(255) NOT NULL,
+  `sex` tinyint(1) NOT NULL COMMENT '0 for male; 1 otherwise',
   `bdate` date NOT NULL,
   `zip_code` varchar(255) NOT NULL,
   `full_address` varchar(255) NOT NULL,
   `contact_no` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `profile_img` varchar(255) DEFAULT NULL
+  `profile_img` varchar(255) DEFAULT NULL,
+  `cover_photo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -158,7 +160,8 @@ ALTER TABLE `item_img`
 -- Indexes for table `tag`
 --
 ALTER TABLE `tag`
-  ADD PRIMARY KEY (`tag_id`);
+  ADD PRIMARY KEY (`tag_id`),
+  ADD UNIQUE KEY `tag_name` (`tag_name`);
 
 --
 -- Indexes for table `user`
@@ -188,17 +191,17 @@ ALTER TABLE `blocklist`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `item_img`
 --
 ALTER TABLE `item_img`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `user`
 --

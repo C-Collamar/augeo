@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2018 at 03:20 PM
+-- Generation Time: Mar 04, 2018 at 06:06 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -32,7 +32,7 @@ CREATE TABLE `bid` (
   `bid_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
-  `amount` int(11) NOT NULL,
+  `amount` decimal(12,2) NOT NULL COMMENT 'in Philippine Peso',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -132,8 +132,8 @@ ALTER TABLE `deal`
 --
 ALTER TABLE `tagged_item`
   ADD PRIMARY KEY (`tagged_item_id`),
-  ADD KEY `item_id` (`item_id`),
-  ADD KEY `tag_id` (`tag_id`);
+  ADD KEY `tag_id` (`tag_id`),
+  ADD KEY `item_id` (`item_id`);
 
 --
 -- Indexes for table `user_logtime`
@@ -158,7 +158,7 @@ ALTER TABLE `viewed_tag`
 -- AUTO_INCREMENT for table `bid`
 --
 ALTER TABLE `bid`
-  MODIFY `bid_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bid_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `blocked_bidder`
 --
@@ -173,7 +173,7 @@ ALTER TABLE `deal`
 -- AUTO_INCREMENT for table `tagged_item`
 --
 ALTER TABLE `tagged_item`
-  MODIFY `tagged_item_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tagged_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `user_logtime`
 --
@@ -212,8 +212,8 @@ ALTER TABLE `deal`
 -- Constraints for table `tagged_item`
 --
 ALTER TABLE `tagged_item`
-  ADD CONSTRAINT `tagged_item_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `augeo_user_end`.`item` (`item_id`),
-  ADD CONSTRAINT `tagged_item_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `augeo_user_end`.`tag` (`tag_id`);
+  ADD CONSTRAINT `tagged_item_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `augeo_user_end`.`tag` (`tag_id`),
+  ADD CONSTRAINT `tagged_item_ibfk_3` FOREIGN KEY (`item_id`) REFERENCES `augeo_user_end`.`item` (`item_id`);
 
 --
 -- Constraints for table `user_logtime`

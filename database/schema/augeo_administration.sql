@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2018 at 03:20 PM
+-- Generation Time: Mar 04, 2018 at 06:11 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -80,14 +80,6 @@ CREATE TABLE `admin_role` (
   `role_label` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `admin_role`
---
-
-INSERT INTO `admin_role` (`role_id`, `role_label`) VALUES
-(1, 'MASTER'),
-(2, 'NORMAL');
-
 -- --------------------------------------------------------
 
 --
@@ -101,57 +93,6 @@ CREATE TABLE `error_log` (
   `details` text NOT NULL,
   `date_issued` date NOT NULL,
   `date_resolved` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `item`
---
-
-CREATE TABLE `item` (
-  `item_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `initial_price` int(11) NOT NULL,
-  `bid_interval` int(11) NOT NULL,
-  `view_count` int(11) NOT NULL DEFAULT '0',
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `state` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1 if sold; 0 otherwise'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
-  `account_id` int(11) NOT NULL,
-  `f_name` varchar(255) NOT NULL,
-  `m_name` varchar(255) NOT NULL,
-  `l_name` varchar(255) NOT NULL,
-  `bdate` date NOT NULL,
-  `zip_code` varchar(255) NOT NULL,
-  `full_address` varchar(255) NOT NULL,
-  `contact_no` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `profile_img` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_account`
---
-
-CREATE TABLE `user_account` (
-  `account_id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `state` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0 if deactivated; 1 otherwise'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -196,28 +137,6 @@ ALTER TABLE `error_log`
   ADD KEY `error_log_ibfk_1` (`client_id`);
 
 --
--- Indexes for table `item`
---
-ALTER TABLE `item`
-  ADD PRIMARY KEY (`item_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `account_id` (`account_id`);
-
---
--- Indexes for table `user_account`
---
-ALTER TABLE `user_account`
-  ADD PRIMARY KEY (`account_id`),
-  ADD UNIQUE KEY `unique_username` (`username`),
-  ADD UNIQUE KEY `unique_password` (`password`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -247,21 +166,6 @@ ALTER TABLE `admin_role`
 ALTER TABLE `error_log`
   MODIFY `error_id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `item`
---
-ALTER TABLE `item`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_account`
---
-ALTER TABLE `user_account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- Constraints for dumped tables
 --
 
@@ -283,18 +187,6 @@ ALTER TABLE `admin_log`
 --
 ALTER TABLE `error_log`
   ADD CONSTRAINT `error_log_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `augeo_user_end`.`user` (`user_id`);
-
---
--- Constraints for table `item`
---
-ALTER TABLE `item`
-  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `user_account` (`account_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
