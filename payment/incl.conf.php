@@ -12,8 +12,6 @@
 	define("BT_JAVASCRIPT_CLIENT", 'https://js.braintreegateway.com/web/3.11.0/js/client.min.js');
 	define("BT_JAVASCRIPT_PAYPAL", 'https://js.braintreegateway.com/web/3.11.0/js/paypal-checkout.min.js');
 	define("PP_CHECKOUT", 'https://www.paypalobjects.com/api/checkout.js');
-
 	define("BRAINTREE_PHP_SDK", '../global/vendor/braintree_php/lib/Braintree.php');
-
 	define("CHANNEL", 'PP-DemoPortal-EC_BT-php');
 ?>
