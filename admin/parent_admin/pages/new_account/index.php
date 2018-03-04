@@ -17,6 +17,10 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
   </head>
   <body>
           <div class="col-md-10">
+                <ol class="breadcrumb">
+                    <li><a href="http://localhost/augeo/admin">Dashboard</a></li>
+                    <li class="active">New Account</li>
+                </ol>
             <div class="row">
                 <div class="col-md-12 panel-warning">
                     <div class="content-box-header panel-heading">

@@ -13,15 +13,15 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link href="css/index.css" rel="stylesheet">
 <body>
-    <ol class="breadcrumb">
-        <li><a href="http://localhost/augeo/admin">Dashboard</a></li>
-        <li><a href="http://localhost/augeo/admin/parent_admin/pages/customers">Customers</a></li>
-        <li class="active">Info</li>
-    </ol>
 
     <input type="hidden" name="id" id="id" value="<?php echo $_GET['account_id']; ?>">
     <div class="col-md-10">
             <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="http://localhost/augeo/admin">Dashboard</a></li>
+                    <li><a href="http://localhost/augeo/admin/parent_admin/pages/customers">Customers</a></li>
+                    <li class="active">Info</li>
+                </ol>
                 <div class="col-md-12">
                     <div class="content-box-header">
                             <div class="panel-title">Profile Information</div>
