@@ -1,0 +1,47 @@
+#title {
+    font-size: x-large;
+    text-align: center;
+}
+
+#item-images::before {
+    content: "Images";
+    display: block;
+    color: #777777;
+    font-style: italic;
+}
+#item-images > img {
+    width: 220px;
+    height: auto;
+}
+
+#description::before {
+    content: "Description";
+    color: #777777;
+    display: block;
+    font-style: italic;
+}
+
+.tag-list::before {
+    content: "Tags: ";
+    font-style: italic;
+    margin-right: 5px;
+}
+
+.tag-list {
+    line-height: 180%;
+    margin-top: 10px;
+}
+
+.tag-list > a {
+    display: inline-block;
+    background-color: #4286f4;
+    color: white;
+    padding: 3px 5px;
+    margin: 0 2px;
+    transition: background-color 0.3s;
+}
+
+.tag-list > a:hover {
+    text-decoration: none;
+    background-color: #699ef5;
+}

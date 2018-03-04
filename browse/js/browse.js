@@ -33,7 +33,7 @@ function displayItems(data, textStatus, xhr) {
         var a = '';
         card.className = 'grid-item';
         card.innerHTML =
-            '<div class="card" onclick="alert(\'item_id: \' + ' + data[i].item_id + ')">' +
+            '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
                 '<img src="' + data[i].img_path + '" alt="">' +
                 '<div class="item-details">' +
                     '<h4><b>' + data[i].name + '</b></h4>' +
@@ -63,4 +63,8 @@ function displayItems(data, textStatus, xhr) {
 function handleError(xhr, textStatus, errThrown) {
     alert("An error occured. See console for details.");
     console.log(xhr.responseText);
+}
+
+function viewItem(id) {
+    window.location = 'http://localhost/augeo/item/view/?id=' + id;
 }
