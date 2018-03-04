@@ -20,6 +20,10 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
 
   </head>
   <body>
+    <ol class="breadcrumb">
+    <li><a href="http://localhost/augeo/admin">Dashboard</a></li>
+    <li class="active">Admins</li>
+  </ol>
           <div class="col-md-10">
             <div class="row">
                <div class="content-box-large">
