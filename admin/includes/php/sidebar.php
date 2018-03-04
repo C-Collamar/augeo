@@ -1,5 +1,7 @@
-
 <?php
+// Sidebar for the admin
+// 1 = Parent Admin
+// 2 = normal admin
 
 if($_SESSION['account_type'] == 1){
     echo ' <div class="page-content">

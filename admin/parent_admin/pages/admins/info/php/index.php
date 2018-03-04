@@ -26,14 +26,8 @@ if(isset($_POST['id'])){
                             '"username": "'.decode($row['username']).'", '.
                             '"full_address": "'.decode($row['full_address']).'" '.
                     '}';
-
-
         }
-
 }
-
-
-
 
 
 if(isset($_POST['page'])){
@@ -50,13 +44,13 @@ if(isset($_POST['page'])){
         $numPage = ceil($numArticles[0] / $per_page); // Total number of page
 
         // We build the article list
-        $articleList = '';
-        $articleList= '
+        $data = '';
+        $data= '
 
               ';
 
         while( $result = $select->fetch() ) {
-            $articleList .= '<tr class="gradeU">
+            $data .= '<tr class="gradeU">
                 <td>'.$result->log_id.'</td>
                 <td>'.$result->details.'</td>
                 <td>'.$result->timestamp.'</td>
@@ -64,14 +58,10 @@ if(isset($_POST['page'])){
         }
 
         // We send back the total number of page and the article list
-        $dataBack = array('numPage' => $numPage, 'articleList' => $articleList);
+        $dataBack = array('numPage' => $numPage, 'data' => $data);
         $dataBack = json_encode($dataBack);
 
         echo $dataBack;
 }
-
-
-
-
 
 ?>

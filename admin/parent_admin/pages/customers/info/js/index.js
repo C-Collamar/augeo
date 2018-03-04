@@ -1,19 +1,18 @@
 $(document).ready(function(){
+    $(".submenu > a").click(function(e) {
+        e.preventDefault();
+        var $li = $(this).parent("li");
+        var $ul = $(this).next("ul");
 
-
-  $(".submenu > a").click(function(e) {
-    e.preventDefault();
-    var $li = $(this).parent("li");
-    var $ul = $(this).next("ul");
-
-    if($li.hasClass("open")) {
-      $ul.slideUp(350);
-      $li.removeClass("open");
-    } else {
-      $(".nav > li > ul").slideUp(350);
-      $(".nav > li").removeClass("open");
-      $ul.slideDown(350);
-      $li.addClass("open");
+        if($li.hasClass("open")) {
+            $ul.slideUp(350);
+            $li.removeClass("open");
+        }
+        else {
+            $(".nav > li > ul").slideUp(350);
+            $(".nav > li").removeClass("open");
+            $ul.slideDown(350);
+            $li.addClass("open");
     }
   });
 
@@ -27,7 +26,7 @@ $(document).ready(function(){
                 id: $("#id").val()
               },
               success: function(result) {
-                var content_info = JSON.parse(result);
+                  var content_info = JSON.parse(result);
 
                   document.getElementById("account_id").innerHTML = content_info.account_id;
                   document.getElementById("username").innerHTML = content_info.username;
@@ -43,7 +42,3 @@ $(document).ready(function(){
                              });
 
 });
-
-
-
-

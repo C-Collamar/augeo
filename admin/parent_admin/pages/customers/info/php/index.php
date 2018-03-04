@@ -25,11 +25,7 @@ if(isset($_POST['id'])){
                             '"username": "'.decode($row['username']).'", '.
                             '"full_address": "'.decode($row['full_address']).'" '.
                     '}';
-
-
         }
-
 }
-
 
 ?>

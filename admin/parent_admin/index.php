@@ -7,45 +7,38 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
     if($_SESSION['account_type'] == "2")
         header("Location: ../normal_admin");
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <head>
+        <title>Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
-    <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
-    <link href="css/index.css" rel="stylesheet">
-  </head>
-  <body>
-          <div class="col-md-10">
-            <div class="row">
-<div class="col-md-12 panel-warning">
-                    <div class="content-box-header panel-heading">
-                        <div class="panel-title ">Visits And Users Signup</div>
+        <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+<body>
 
-                        <div class="panel-options">
-                            <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                            <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-                        </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-12 panel-warning">
+                <div class="content-box-header panel-heading">
+                    <div class="panel-title ">Visits And Users Signup</div>
+
+                    <div class="panel-options">
+                        <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                        <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
                     </div>
+                </div>
                     <div class="content-box-large box-with-header">
                         <div class="panel-body">
                             <div id="hero-graph" style="height: 230px;"></div>
                         </div>
-                        <br /><br />
+                        <br/><br/>
                     </div>
-                </div>
-
-
-
-
-
-
-
+            </div>
 
 		  </div>
 		</div>

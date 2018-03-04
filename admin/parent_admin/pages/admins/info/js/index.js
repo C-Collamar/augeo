@@ -1,24 +1,20 @@
 $(document).ready(function(){
+    $(".submenu > a").click(function(e) {
+        e.preventDefault();
+        var $li = $(this).parent("li");
+        var $ul = $(this).next("ul");
 
-
-  $(".submenu > a").click(function(e) {
-    e.preventDefault();
-    var $li = $(this).parent("li");
-    var $ul = $(this).next("ul");
-
-    if($li.hasClass("open")) {
-      $ul.slideUp(350);
-      $li.removeClass("open");
-    } else {
-      $(".nav > li > ul").slideUp(350);
-      $(".nav > li").removeClass("open");
-      $ul.slideDown(350);
-      $li.addClass("open");
-    }
-  });
-
-
-
+        if($li.hasClass("open")) {
+          $ul.slideUp(350);
+          $li.removeClass("open");
+        }
+        else {
+          $(".nav > li > ul").slideUp(350);
+          $(".nav > li").removeClass("open");
+          $ul.slideDown(350);
+          $li.addClass("open");
+        }
+    });
 
    $.ajax({
               type: "POST",
@@ -27,7 +23,7 @@ $(document).ready(function(){
                 id: $("#id").val()
               },
               success: function(result) {
-                var content_info = JSON.parse(result);
+                  var content_info = JSON.parse(result);
 
                   document.getElementById("account_id").innerHTML = content_info.account_id;
                   document.getElementById("username").innerHTML = content_info.username;
@@ -39,9 +35,8 @@ $(document).ready(function(){
                   document.getElementById("contact_no").innerHTML = content_info.contact_no;
                   document.getElementById("email").innerHTML = content_info.email;
 
-                                  }
-                             });
-
+              }
+    });
 });
 
 
@@ -49,13 +44,14 @@ $(document).ready(function(){
 
 $('document').ready(function() {
     $("#pagination a").trigger('click'); // When page is loaded we trigger a click
-    });
+});
+
 
 $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element of the pagination div
     var idd = $("#id").val();
     var page = this.id; // Page number is the id of the 'a' element
     var pagination = ''; // Init pagination
-    $('#articleArea').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
+    $('#data_info').html('<img src="design/loader-small.gif" alt="" />'); // Display a processing icon
     var data = {page: page, per_page: 10, idd: idd}; // Create JSON which will be sent via Ajax
         // We set up the per_page var at 4. You may change to any number you need.
 
@@ -67,7 +63,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         timeout: 3000,
         success: function(data) {
 
-            $('#articleArea').html(data.articleList); // We update the articleArea DIV with the article list
+            $('#data_info').html(data.data); // We update the data_info DIV with the article list
 
                 // Pagination system
             if (page == 1) pagination += '<div class="cell_disabled"><span>First</span></div><div class="cell_disabled"><span>Previous</span></div>';
@@ -95,6 +91,3 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         });
         return false;
     });
-
-
-

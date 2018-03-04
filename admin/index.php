@@ -1,4 +1,5 @@
 <?php
+// redirect admin
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/session.php";
 if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
     if($_SESSION['account_type'] == "1")
@@ -6,6 +7,5 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
     else
         header("Location: normal_admin");
 }
-else
-    echo "sad";
+
 ?>
