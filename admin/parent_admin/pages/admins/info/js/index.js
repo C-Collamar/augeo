@@ -91,3 +91,98 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         });
         return false;
     });
+
+
+
+
+var modalConfirm = function(callback){
+
+  $("#ban-account").on("click", function(){
+    $("#ban-modal").modal('show');
+  });
+
+  $("#ban-yes").on("click", function(){
+    callback(true);
+    $("#ban-modal").modal('hide');
+  });
+
+  $("#ban-no").on("click", function(){
+    callback(false);
+    $("#ban-modal").modal('hide');
+  });
+};
+
+modalConfirm(function(confirm){
+  if(confirm){
+
+       $.ajax({
+              type: "POST",
+              url: "php/index.php",
+              data: {
+                    id_ban: $("#id").val()
+                    },
+              success: function(result) {
+                  window.location.href = "index.php?msg=1&account_id="+$("#id").val();
+
+
+
+                    }
+               });
+
+
+  }else{
+    //Acciones si el usuario no confirma
+    $("#result").html("NO CONFIRMADO");
+  }
+});
+
+
+
+var modalConfirm = function(callback){
+
+  $("#delete-account").on("click", function(){
+    $("#delete-modal").modal('show');
+  });
+
+  $("#delete-yes").on("click", function(){
+    callback(true);
+    $("#delete-modal").modal('hide');
+  });
+
+  $("#delete-no").on("click", function(){
+    callback(false);
+    $("#delete-modal").modal('hide');
+  });
+};
+
+modalConfirm(function(confirm){
+  if(confirm){
+
+       $.ajax({
+              type: "POST",
+              url: "php/index.php",
+              data: {
+                    id_del: $("#id").val()
+                    },
+              success: function(result) {
+
+                       window.location = "../?msg=success";
+
+
+                    }
+               });
+
+
+  }else{
+    //Acciones si el usuario no confirma
+    $("#result").html("NO CONFIRMADO");
+  }
+});
+
+
+
+if(document.body.contains(document.getElementById("notif-container"))) {
+    window.setTimeout(function() {
+        document.getElementById("notif-container").classList.remove("show-notif");
+    }, 5000);
+}

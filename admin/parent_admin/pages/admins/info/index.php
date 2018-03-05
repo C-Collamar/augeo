@@ -106,17 +106,70 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
               </div>
 
               <div class="content-box-large box-with-header">
-                  <label>Deactivate Account<br> Deactivating this Account wil something something</label><br>
-                  <input type="submit" name="deactivate" id="deactivate" value="Deactivate Account"><br><br>
+                   <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="ban-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ban This Account</h4>
+      </div>
+      <div class="modal-body">
+          <h4>Banning this account will prevent its user from logging in to this website.<br> <b> PROCEED WITH CAUTION</b></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="ban-yes">Confirm</button>
+        <button type="button" class="btn btn-primary" id="ban-no">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-                  <label>Delete Account<br>Deleting this Account wil something something</label><br>
-                  <input type="submit" name="delete" id="delete" value="Delete Account">
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="delete-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete This Account</h4>
+      </div>
+      <div class="modal-body">
+          <h4>Deleting this account remove all of its data including transactions,items and everything.<br> <b> PROCEED WITH CAUTION</b></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="delete-yes">Confirm</button>
+        <button type="button" class="btn btn-primary" id="delete-no">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                    <button class="btn btn-default" id="ban-account">Ban Account</button><br>
+                    <h3>OR</h3>
+                    <button class="btn btn-default" id="delete-account">Delete Account</button><br>
               </div>
           </div>
 
       </div>
   </div>
+<?php
+            if(isset($_GET['msg'])){
+            $img_path = "";
+            $message = "";
+            $class = "";
+                $class = "show-notif";
+                $img_path = "http://localhost/augeo/global/img/check-icon.png";
 
+                    $message = "Account Has Been Banned";
+
+            echo('
+                <div class="notif '.$class.'" id="notif-container">
+                    <div class="notif-img">
+                        <img id="notif-img" src="'.$img_path.'" />
+                    </div>
+                    <div class="notif-content" id="notif-content">'.$message.'</div>
+                </div>
+            ');
+        }
+        ?>
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>

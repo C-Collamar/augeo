@@ -136,7 +136,7 @@ modalConfirm(function(confirm){
                     id_ban: $("#id").val()
                     },
               success: function(result) {
-                          alert(result);
+                          window.location.href = "index.php?msg=1&account_id=" + $("#id").val();
 
 
                     }
@@ -178,7 +178,7 @@ modalConfirm(function(confirm){
                     id_del: $("#id").val()
                     },
               success: function(result) {
-                       window.location = "../";
+                        window.location.href = "../index.php?msg=1";
 
 
                     }
@@ -190,3 +190,9 @@ modalConfirm(function(confirm){
     $("#result").html("NO CONFIRMADO");
   }
 });
+
+ if(document.body.contains(document.getElementById("notif-container"))) {
+    window.setTimeout(function() {
+        document.getElementById("notif-container").classList.remove("show-notif");
+    }, 5000);
+}

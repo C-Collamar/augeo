@@ -82,7 +82,24 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
 </div>
 </div>
 </div>
-
+<?php
+ if(isset($_GET['msg'])){
+            $img_path = "";
+            $message = "";
+            $class = "";
+                $class = "show-notif";
+                $img_path = "http://localhost/augeo/global/img/check-icon.png";
+                    $message = "Account successfully deleted.";
+            echo('
+                <div class="notif '.$class.'" id="notif-container">
+                    <div class="notif-img">
+                        <img id="notif-img" src="'.$img_path.'" />
+                    </div>
+                    <div class="notif-content" id="notif-content">'.$message.'</div>
+                </div>
+            ');
+        }
+        ?>
 
 
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>

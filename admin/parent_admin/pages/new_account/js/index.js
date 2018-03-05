@@ -70,7 +70,7 @@ function create_account(){
                        // window.location.assign("http://localhost/augeo/home/account/?new=1");
                         $("#submit").val("Create Account");
                         $("#uname_error").css({color: 'green'});
-                        document.getElementById("uname_error").innerHTML = "Account Created";
+                        window.location.href = "index.php?msg=1";
                         }
                     });
 
@@ -79,3 +79,9 @@ function create_account(){
           if(!stat)
               return false;
                               }
+
+    if(document.body.contains(document.getElementById("notif-container"))) {
+    window.setTimeout(function() {
+        document.getElementById("notif-container").classList.remove("show-notif");
+    }, 5000);
+}
