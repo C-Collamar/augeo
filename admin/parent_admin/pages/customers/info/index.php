@@ -105,10 +105,10 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                     </div>
                     </div>
                 <div class="content-box-large box-with-header">
-                    <label>Ban This Account</label>
+                    <label>Ban This Account</label><br>
                     <input type="submit" name="deactivate" id="deactivate" value="Deactivate Account"><br><br>
 
-                    <label>Delete Account</label>
+                    <label>Delete Account</label><br>
                     <input type="submit" name="delete" id="delete" value="Delete Account">
                 </div>
                 </div>
