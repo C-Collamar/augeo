@@ -26,7 +26,9 @@ if(isset($_POST['uname']) && isset($_POST['pass'])){
 				echo "sucess_parent";
 			else
 				echo "sucess_normal";
-
+		}
+		elseif($found['state'] == 2){
+			echo "banned account";
 		}
 		else{
 			$_SESSION['deactivated_id'] = $found['account_id'];

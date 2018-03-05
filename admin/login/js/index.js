@@ -44,10 +44,12 @@ function login_submit(){
                           else if(result == "sucess_normal"){
                               window.location.assign("../normal_admin");
                             }
-                           else if (result == "deactivated account") {
+                          else if(result == "deactivated account") {
                               window.location.assign("reactivate_account/");
-
-                      }
+                            }
+                          else if(result == "banned account") {
+                              window.location.assign("banned_account/");
+                          }
                           else{
 
                             $("#submit").val("Login");

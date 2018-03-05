@@ -77,11 +77,13 @@ function login_submit(){
               success: function(result) {
                           if(result == "sucess"){
                               window.location.assign("../user/account");
-                      }
+                          }
                            else if (result == "deactivated account") {
                               window.location.assign("reactivate_account/");
-
-                      }
+                          }
+                          else if (result == "banned account") {
+                            window.location.assign("banned_account/");
+                          }
                           else{
 
                             $("#submit").val("Login");
