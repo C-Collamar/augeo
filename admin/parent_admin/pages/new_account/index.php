@@ -14,6 +14,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
         <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link href="../../css/index.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
   </head>
   <body>
           <div class="col-md-10">
@@ -59,7 +60,28 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
         </div>
     </div>
 
-        <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
+
+<?php
+        if(isset($_GET['msg'])){
+            $img_path = "";
+            $message = "";
+            $class = "";
+                $class = "show-notif";
+                $img_path = "http://localhost/augeo/global/img/check-icon.png";
+                    $message = "Account successfully created.";
+            echo('
+                <div class="notif '.$class.'" id="notif-container">
+                    <div class="notif-img">
+                        <img id="notif-img" src="'.$img_path.'" />
+                    </div>
+                    <div class="notif-content" id="notif-content">'.$message.'</div>
+                </div>
+            ');
+        }
+        ?>
+
+
+    <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
     <script src="../../js/index.js"></script>

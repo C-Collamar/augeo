@@ -51,7 +51,6 @@ if(isset($_POST['page'])){
 
         while( $result = $select->fetch() ) {
             $data .= '<tr class="gradeU">
-                <td>'.$result->log_id.'</td>
                 <td>'.$result->details.'</td>
                 <td>'.$result->timestamp.'</td>
               </tr>';
@@ -62,6 +61,18 @@ if(isset($_POST['page'])){
         $dataBack = json_encode($dataBack);
 
         echo $dataBack;
+}
+
+if(isset($_POST['id_ban'])){
+        $id = $_POST['id_ban'];
+        mysqli_query($conn,"UPDATE augeo_administration.admin_account SET state = '2' WHERE augeo_administration.admin_account.account_id = $id");
+        echo "success";
+}
+
+if(isset($_POST['id_del'])){
+        $id = $_POST['id_del'];
+        mysqli_query($conn,"DELETE FROM augeo_administration.admin_account WHERE augeo_administration.admin_account.account_id= $id");
+        echo mysqli_error($conn);
 }
 
 ?>

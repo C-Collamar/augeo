@@ -47,7 +47,7 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
         <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-         <link rel="stylesheet" href="http://localhost/augeo/admin/vendors/morris/morris.css">
+    <link rel="stylesheet" href="http://localhost/augeo/admin/vendors/morris/morris.css">
       <script src="http://localhost/augeo/admin/vendors/raphael-min.js"></script>
           <script src="http://localhost/augeo/admin/vendors/morris/morris.min.js"></script>
           <script src="js/index.js"></script>
