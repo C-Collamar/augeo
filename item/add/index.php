@@ -20,19 +20,19 @@
                     <div class="form-group container-fluid">
                         <label class="control-label col-sm-1" for="title">Title:</label>
                         <div class="col-sm-11" style="padding-right: 0px">
-                            <input type="text" name="title" class="form-control" id="title" placeholder="Give a concise heading for the item">
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Give a concise heading for the item" required>
                         </div>
                     </div>
                     <!-- DESCRIPTION -->
                     <div class="form-group container-fluid">
                         <label class="control-label" for="description">Description:</label>
-                        <textarea name="description" class="form-control" id="description" placeholder="Describe the item in detail"></textarea>
+                        <textarea name="description" class="form-control" id="description" placeholder="Describe the item in detail" required></textarea>
                     </div>
                     <!-- IMAGES -->
-					<div class="hr-sect">UPLOAD IMAGES</div>
+					<div class="hr-sect">IMAGES</div>
                     <div id="img-section">
-                        <button type="button" class="btn btn-default" onclick="document.getElementById('item-img').click()">Upload image</button>
-                        <input type="file" accept="image/jpeg" name="imgFiles[]" id="item-img" multiple>
+                        <button type="button" id="addImgBtn" class="btn btn-default" onclick="document.getElementById('item-img').click()">Upload image</button>
+                        <input type="file" accept="image/jpeg" name="imgFiles[]" id="item-img" multiple required>
                         <div id="img-container" style="padding-top: 5px"></div>
                     </div>
                     <!-- TAGS -->
@@ -40,7 +40,7 @@
                     <div class="form-group container-fluid">
                         <label class="control-label col-sm-1" for="tag-list">Tags:</label>
                         <div class="col-sm-11" style="padding-right: 0px">
-                            <input type="text" name="tags" class="form-control" id="tag-list" placeholder="Enter one or more tag names">
+                            <input type="text" name="tags" class="form-control" id="tag-list" placeholder="Enter one or more tag names" required>
                             <p class="note">
                                 Spaces will automatically be converted into hyphens.<br>Programmer's note: I'm planning on using
                                 selectize.js for tagging. As of now, input tags wil be submitted in plain text separated by commas.
@@ -59,7 +59,7 @@
                         <label class="control-label" for="description">Base price:</label>
                         <div class="input-group">
                             <span class="input-group-addon">&#8369;</span>
-                            <input type="number" class="form-control" id="initial-price" name="initial-price" placeholder="Set the item's starting price">
+                            <input type="number" min="1" class="form-control" id="initial-price" name="initial-price" placeholder="Set the item's starting price" required>
                         </div>
                     </div>
                     <!-- BID INTERVAL -->
@@ -67,7 +67,7 @@
                         <label class="control-label" for="description">Bid interval:</label>
                         <div class="input-group">
                             <span class="input-group-addon">&#8369;</span>
-                            <input type="number" class="form-control" id="bid-interval" name="bid-interval" placeholder="Set the minimum incremental step">
+                            <input type="number" min="1" class="form-control" id="bid-interval" name="bid-interval" placeholder="Set the minimum incremental step" required>
                         </div>
                     </div>
                 </div>
