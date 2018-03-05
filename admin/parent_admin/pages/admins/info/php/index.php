@@ -51,7 +51,6 @@ if(isset($_POST['page'])){
 
         while( $result = $select->fetch() ) {
             $data .= '<tr class="gradeU">
-                <td>'.$result->log_id.'</td>
                 <td>'.$result->details.'</td>
                 <td>'.$result->timestamp.'</td>
               </tr>';

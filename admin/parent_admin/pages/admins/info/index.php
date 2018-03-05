@@ -79,7 +79,6 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                       <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
                           <thead>
                               <tr>
-                                  <th>Log Id</th>
                                   <th>Details</th>
                                   <th>Time</th>
                               </tr>

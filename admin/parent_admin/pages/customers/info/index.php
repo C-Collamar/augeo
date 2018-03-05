@@ -72,6 +72,12 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                 </div>
                 <div class="content-box-large box-with-header">
 
+                    <div id="data_transaction"></div>
+                    <br>
+                    <div id="pagination">
+                        <div><a href="#" id="1"></a></div>
+                    </div>
+
                 </div>
                 </div>
 
@@ -99,7 +105,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                     </div>
                     </div>
                 <div class="content-box-large box-with-header">
-                    <label>Deactivate Account</label>
+                    <label>Ban This Account</label>
                     <input type="submit" name="deactivate" id="deactivate" value="Deactivate Account"><br><br>
 
                     <label>Delete Account</label>
