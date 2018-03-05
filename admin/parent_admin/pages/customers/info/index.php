@@ -105,11 +105,51 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                     </div>
                     </div>
                 <div class="content-box-large box-with-header">
-                    <label>Ban This Account</label><br>
-                    <input type="submit" name="deactivate" id="deactivate" value="Deactivate Account"><br><br>
 
-                    <label>Delete Account</label><br>
-                    <input type="submit" name="delete" id="delete" value="Delete Account">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="ban-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ban This Account</h4>
+      </div>
+      <div class="modal-body">
+          <h4>Banning this account will prevent its user from logging in to this website.<br> <b> PROCEED WITH CAUTION</b></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="ban-yes">Confirm</button>
+        <button type="button" class="btn btn-primary" id="ban-no">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="delete-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete This Account</h4>
+      </div>
+      <div class="modal-body">
+          <h4>Deleting this account remove all of its data including transactions,items and everything.<br> <b> PROCEED WITH CAUTION</b></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="delete-yes">Confirm</button>
+        <button type="button" class="btn btn-primary" id="delete-no">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                    <button class="btn btn-default" id="ban-account">Ban Account</button><br>
+                    <h3>OR</h3>
+                    <button class="btn btn-default" id="delete-account">Delete Account</button><br>
+
+
+
+
+
                 </div>
                 </div>
 

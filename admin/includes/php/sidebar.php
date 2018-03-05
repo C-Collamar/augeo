@@ -19,7 +19,6 @@ if($_SESSION['account_type'] == 1){
 
 echo '
                     <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Upcoming Events</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-list"></i> Items</a></li>
                     ';
                     if($link == "http://localhost/augeo/admin/parent_admin/pages/transactions")

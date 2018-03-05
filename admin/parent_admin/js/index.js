@@ -17,18 +17,6 @@ $(document).ready(function(){
 
 });
 
-
-
-$(function () {
-    $('.min-chart#chart-sales').easyPieChart({
-        barColor: "#4caf50",
-        onStep: function (from, to, percent) {
-            $(this.el).find('.percent').text(Math.round(percent));
-        }
-    });
-});
-
-
 var tax_data = [
     {"period": "2013-04", "visits": 2407, "signups": 660},
     {"period": "2013-03", "visits": 3351, "signups": 729},

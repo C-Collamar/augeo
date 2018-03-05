@@ -93,4 +93,17 @@ if(isset($_POST['bid'])){
 
         echo $dataBack;
 }
+
+
+if(isset($_POST['id_ban'])){
+        $id = $_POST['id_ban'];
+        mysqli_query($conn,"UPDATE augeo_user_end.user_account SET state = '2' WHERE augeo_user_end.user_account.account_id = $id");
+        echo "success";
+}
+
+if(isset($_POST['id_del'])){
+        $id = $_POST['id_del'];
+        mysqli_query($conn,"DELETE FROM augeo_user_end.user_account WHERE augeo_user_end.user_account.account_id = $id");
+        echo mysqli_error($conn);
+}
 ?>
