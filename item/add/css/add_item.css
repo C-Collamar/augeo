@@ -36,10 +36,16 @@ textarea {
 
 #img-section {
     margin: 10px;
+    position: relative;
 }
 
 #item-img {
-    display: none;
+    width: 128.4px;
+    height: 32px;
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    z-index: -1;
 }
 
 .img-object {

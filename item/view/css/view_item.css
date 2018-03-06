@@ -12,6 +12,7 @@
 #item-images > img {
     width: 220px;
     height: auto;
+    margin: 5px;
 }
 
 #description::before {
