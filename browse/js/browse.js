@@ -26,7 +26,6 @@ function displayItems(data, textStatus, xhr) {
     var container = document.getElementById('browse-items');
     var fragment = document.createDocumentFragment();
     var items = [];
-    console.log(data);
     for(var i = 0; i < data.length; ++i) {
         var card = document.createElement('div');
         var descClass = (data[i].description.length > 100)? 'overflow' : '';
