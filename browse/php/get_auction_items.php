@@ -61,10 +61,15 @@ $itemID_list = '';
 
 while($row = $result->fetch_assoc()) {
     $bid = $bids->fetch_assoc();
-    $row['amount'] = sprintf('%.2f', $row['initial_price']);
-    unset($row['initial_price']);
+    //decode string data
+    $row['name'] = decode($row['name']);
+    $row['img_path'] = decode($row['img_path']);
+    $row['description'] = decode($row['description']);
+
+    //if item has hishest bid, replace initial price data
     if($bid['item_id'] == $row['item_id']) {
-        $row['amount'] = $bid['amount'];
+        $row['highest_bid'] = $bid['amount'];
+        unset($row['initial_price']);
     }
     array_push($item_list, $row);
     $itemID_list .= $row['item_id'].',';

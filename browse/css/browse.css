@@ -49,6 +49,11 @@ select {
     font-weight: bold;
 }
 
+.initial-price::before {
+    content: "Initial price: ";
+    font-weight: bold;
+}
+
 .tag-list { line-height: 180%; }
 
 .tag-list::before {
