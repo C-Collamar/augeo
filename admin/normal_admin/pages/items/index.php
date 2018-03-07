@@ -21,14 +21,14 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 
                 <div class="col-md-12">
                     <div class="content-box-header">
-                        <div class="panel-title">Data Representation</div>
+                        <div class="panel-title">Total Numbers of Items</div>
                     <div class="panel-options">
                         <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
                         <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
                     </div>
                 </div>
                 <div class="content-box-large box-with-header">
-
+                        <div id="hero-area-item" style="height: 230px;"></div>
                     <br>
 
 
@@ -54,7 +54,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
         <table class="table-responsive table table-striped" id="example">
             <thead>
                 <tr>
-                    <th>Item Image</th>
+                    <th>Item</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>

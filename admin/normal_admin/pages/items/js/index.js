@@ -16,6 +16,35 @@ $(document).ready(function(){
     }
   });
 
+
+  $.ajax({
+        type: "POST",
+        url: "php/index.php",
+        data: {
+          item_count: ""
+        },
+        success: function(result) {
+          var content_info = JSON.parse(result);
+
+          Morris.Area({
+          element: 'hero-area-item',
+          data: [
+              {period: '2018', Items: 0},
+              {period: '2019', Items: content_info.total}
+          ],
+          xkey: 'period',
+          ykeys: ['Items'],
+          labels: ['Items'],
+          lineWidth: 2,
+          hideHover: 'auto',
+          lineColors: ["red"]
+        });
+
+        }
+    });
+
+
+
 });
 
 

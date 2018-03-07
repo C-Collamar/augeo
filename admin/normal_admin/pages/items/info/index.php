@@ -97,7 +97,7 @@ function display404() {
         <div class="col-sm-9">
              <ol class="breadcrumb">
                 <li><a href="http://localhost/augeo/admin">Dashboard</a></li>
-                <li><a href="http://localhost/augeo/admin/normal_admin/pages/items">Items</a></li>
+                <li><a href="http://localhost/augeo/admin/parent_admin/pages/items">Items</a></li>
                 <li class="active">Info</li>
             </ol>
             <div class="well">

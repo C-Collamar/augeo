@@ -30,11 +30,18 @@ if(isset($_POST['page'])){
               ';
 
         while( $result = $select->fetch() ) {
+            if($result->state == 1)
+                $state = "Active";
+            elseif ($result->state == 2)
+                $state = "Banned";
+            else
+                $state = "Deactivated";
+
             $list .= '<tr class="gradeU">
                 <td>'.$result->account_id.'</td>
                 <td><a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$result->account_id.'">'.$result->username.'</a></td>
                 <td>'.$result->f_name.' '.$result->m_name.' '.$result->l_name.'</td>
-                <td>'.$result->state.'</td>
+                <td>'.$state.'</td>
                 <td class="center">'.$result->email.'</td>
               </tr>';
         }

@@ -60,10 +60,6 @@ else{
                    else
                        echo '<li><a href="http://localhost/augeo/admin/normal_admin"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>';
 
-                    if( $link == "http://localhost/augeo/admin/normal_admin/pages/statistics/")
-                      echo '<li class="current"><a href="http://localhost/augeo/admin/normal_admin/pages/statistics"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>';
-                    else
-                      echo '<li><a href="http://localhost/augeo/admin/normal_admin/pages/statistics"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>';
 
                     if($link == "http://localhost/augeo/admin/normal_admin/pages/items")
                       echo '<li class="current"><a href="http://localhost/augeo/admin/normal_admin/pages/items"><i class="glyphicon glyphicon-list"></i> Items</a></li>';
