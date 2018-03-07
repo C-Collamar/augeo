@@ -20,14 +20,14 @@
 		//get user profile and account information
 		$result = mysqli_query($conn,
 			"SELECT ".
-				"augeo_user_end.user.*, ".
-				"augeo_user_end.user_account.username ".
+				"augeo_administration.admin.*, ".
+				"augeo_administration.admin_account.username ".
 			"FROM ".
-				"augeo_user_end.user, ".
-				"augeo_user_end.user_account ".
+				"augeo_administration.admin, ".
+				"augeo_administration.admin_account ".
 			"WHERE ".
-				"augeo_user_end.user.account_id = augeo_user_end.user_account.account_id AND ".
-				"augeo_user_end.user.account_id = $account_id_session"
+				"augeo_administration.admin.account_id = augeo_administration.admin_account.account_id AND ".
+				"augeo_administration.admin.admin_id = $account_id_session"
 		);
 
 		if($result) {
@@ -43,6 +43,12 @@
 			$profile_img = decode($user['profile_img']);
 			$cover_photo = decode($user['cover_photo']);
 			$full_address = decode($user['full_address']);
+			$role = decode($user['role_id']);
+			if($role == 1)
+				$role = "Parent Admin";
+			else
+				$role = "Normal Admin";
+
 			$age = (new DateTime())->diff(new DateTime($user['bdate']))->format('%y');
 		}
 		else {
@@ -72,14 +78,13 @@
 					<!-- PROFILE OVERVIEW -->
 					<div class="content-card">
 						<div id="cover-photo-wrapper">
-							<img id="cover-photo" class="pannable" src="<?php echo 'http://localhost/augeo/data/user/cover_photo/'.$cover_photo ?>" alt="Cover photo">
+							<img id="cover-photo" class="pannable" src="<?php echo $cover_photo ?>" alt="Cover photo">
 						</div>
-						<img id="profile-img" src="<?php echo 'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" alt="Profile picture">
+						<img id="profile-img" src="<?php echo $profile_img ?>" alt="Profile picture">
 						<div id="profile-overview">
 							<div id="name"><?php echo $f_name.' '.substr($m_name, 0, 1).'. '.$l_name ?></div>
-							<div id="augeo-user-since"><i>?</i> months</div>
-							<div id="items-auctioned"><i>?</i></div>
-							<div id="items-bid"><i>?</i></div>
+							<div><i><?php echo $role; ?></i></div>
+
 						</div>
 					</div>
 					<!-- BASIC INFORMATION -->

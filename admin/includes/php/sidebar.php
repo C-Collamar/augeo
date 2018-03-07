@@ -55,9 +55,8 @@ else{
                 <ul class="nav">
                     <!-- Main menu -->
                     ';
-                    if($link == "http://localhost/augeo/admin/normal_admin"){
+                    if($link == "http://localhost/augeo/admin/normal_admin")
                       echo '<li class="current"><a href="http://localhost/augeo/admin/normal_admin"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>';
-                  }
                    else
                        echo '<li><a href="http://localhost/augeo/admin/normal_admin"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>';
 
@@ -65,8 +64,12 @@ else{
                       echo '<li class="current"><a href="http://localhost/augeo/admin/normal_admin/pages/statistics"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>';
                     else
                       echo '<li><a href="http://localhost/augeo/admin/normal_admin/pages/statistics"><i class="glyphicon glyphicon-stats"></i> Statistics</a></li>';
-        echo '
-                    <li><a href="#"><i class="glyphicon glyphicon-list"></i> Items</a></li>
+
+                    if($link == "http://localhost/augeo/admin/normal_admin/pages/items")
+                      echo '<li class="current"><a href="http://localhost/augeo/admin/normal_admin/pages/items"><i class="glyphicon glyphicon-list"></i> Items</a></li>';
+                    else
+                      echo '<li><a href="http://localhost/augeo/admin/normal_admin/pages/items"><i class="glyphicon glyphicon-list"></i> Items</a></li>';
+                    echo '
                     <li><a href="#"><i class="glyphicon glyphicon-tasks"></i> Reports </a></li>
                 </ul>
              </div>

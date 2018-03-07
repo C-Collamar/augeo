@@ -4,19 +4,19 @@
 	<title>Edit Profile</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
+	<link rel="stylesheet" href="http://localhost/augeo/admin/includes/css/topbar.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 	<link rel="stylesheet" href="css/edit.css">
 </head>
 
 <body>
 	<?php
-		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
-		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/session.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 
 		//fetch all of user information
-		$result = mysqli_query($conn, "SELECT * FROM augeo_user_end.user WHERE account_id = ".$_SESSION['account_id']);
+		$result = mysqli_query($conn, "SELECT * FROM augeo_administration.admin WHERE account_id = ".$_SESSION['admin_id']);
 		$user = mysqli_fetch_array($result);
 
 		if(isset($_GET['new'])){
@@ -36,7 +36,7 @@
 						<form action="php/update_profile.php" method="POST" enctype="multipart/form-data">
 							<h2>Edit Profile Information</h2><hr>
 							<label for="profile-img">Profile picture</label><br>
-							<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
+							<img src="<?php echo $user['profile_img'] ?>" id="profile-img"><br>
 							<input type="file" accept="image/jpeg" name="profile_img">
 							<hr>
 							<h4>Name</h4>
