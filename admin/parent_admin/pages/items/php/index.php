@@ -42,4 +42,19 @@ if(isset($_POST['page'])){
 
         echo $dataBack;
 }
+
+ elseif (isset($_POST['item_count'])) {
+
+    $sql = "SELECT COUNT(*) as total_item FROM augeo_user_end.item";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    '{ '.
+                            '"total": '.$row['total_item'].' '.
+                    '}';
+    }
+
+ }
 ?>

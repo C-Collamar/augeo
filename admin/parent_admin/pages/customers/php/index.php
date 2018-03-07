@@ -72,4 +72,20 @@ elseif (isset($_POST['active'])) {
                     '}';
     }
  }
+
+
+ elseif (isset($_POST['count'])) {
+
+    $sql = "SELECT COUNT(*) as total_customer FROM augeo_user_end.user_account";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    '{ '.
+                            '"total": '.$row['total_customer'].' '.
+                    '}';
+    }
+
+ }
 ?>

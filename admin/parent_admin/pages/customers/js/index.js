@@ -40,6 +40,36 @@ $(document).ready(function(){
 
         }
     });
+
+
+     $.ajax({
+        type: "POST",
+        url: "php/index.php",
+        data: {
+          count: ""
+        },
+        success: function(result) {
+          var content_info = JSON.parse(result);
+          var total_num = content_info.active + content_info.inactive;
+          var active = content_info.active / total_num *100;
+          var inactive = content_info.inactive / total_num *100;
+
+          Morris.Area({
+          element: 'hero-area',
+          data: [
+              {period: '2018', Users: 0},
+              {period: '2019', Users: content_info.total}
+          ],
+          xkey: 'period',
+          ykeys: ['Users'],
+          labels: ['Users'],
+          lineWidth: 2,
+          hideHover: 'auto',
+          lineColors: ["#81d5d9"]
+        });
+
+        }
+    });
 });
 
 
@@ -201,21 +231,3 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
     }, 5000);
 }
 
-
-
-
-
-
-Morris.Area({
-    element: 'hero-area',
-    data: [
-        {period: '2018', Users: 2666},
-        {period: '2019', Users: 8432}
-    ],
-    xkey: 'period',
-    ykeys: ['Users'],
-    labels: ['Users'],
-    lineWidth: 2,
-    hideHover: 'auto',
-    lineColors: ["#81d5d9"]
-  });

@@ -16,6 +16,41 @@ $(document).ready(function(){
     }
   });
 
+
+
+$.ajax({
+        type: "POST",
+        url: "php/index.php",
+        data: {
+          transactions: ""
+        },
+        success: function(result) {
+          var content_info = JSON.parse(result);
+
+var data = [
+      { y: '2018', a: 0, b: 0},
+      { y: '2019', a: content_info.successful, b: content_info.pending}
+    ],
+    config = {
+      data: data,
+      xkey: 'y',
+      ykeys: ['a', 'b'],
+      labels: ['Successful Transactions', 'Pending Transactions'],
+      fillOpacity: 0.6,
+      hideHover: 'auto',
+      behaveLikeLine: true,
+      resize: true,
+      pointFillColors:['#ffffff'],
+      pointStrokeColors: ['black'],
+      lineColors:['gray','red']
+  };
+config.element = 'area-chart';
+Morris.Area(config);
+
+        }
+    });
+
+
 });
 
 
@@ -69,22 +104,3 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
 
 
 
-var data = [
-      { y: '2014', a: 50, b: 90},
-      { y: '2015', a: 160, b: 95}
-    ],
-    config = {
-      data: data,
-      xkey: 'y',
-      ykeys: ['a', 'b'],
-      labels: ['Successful Transactions', 'Pending Transactions'],
-      fillOpacity: 0.6,
-      hideHover: 'auto',
-      behaveLikeLine: true,
-      resize: true,
-      pointFillColors:['#ffffff'],
-      pointStrokeColors: ['black'],
-      lineColors:['gray','red']
-  };
-config.element = 'area-chart';
-Morris.Area(config);

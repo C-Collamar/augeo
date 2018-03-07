@@ -82,6 +82,34 @@ elseif (isset($_POST['active'])) {
 
  }
 
+elseif (isset($_POST['count'])) {
+
+    $sql = "SELECT COUNT(*) as total_admin FROM augeo_administration.admin WHERE augeo_administration.admin.role_id = '1'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    '{ '.
+                            '"super": '.$row['total_admin'].', '.
+                    '';
+    }
+
+
+    $sql = "SELECT COUNT(*) as total_admin FROM augeo_administration.admin WHERE augeo_administration.admin.role_id = '2'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    ''.
+                            '"normal": '.$row['total_admin'].' '.
+                    '}';
+    }
+
+
+ }
+
 /*
 echo '
 
