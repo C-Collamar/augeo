@@ -63,6 +63,7 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
                                 <th>Username</th>
                                 <th>Full Name</th>
                                 <th>State</th>
+                                 <th>Admin Type</th>
                                 <th>Email</th>
                             </tr>
                         </thead>

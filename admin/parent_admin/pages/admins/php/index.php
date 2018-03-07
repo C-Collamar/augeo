@@ -31,11 +31,18 @@ if(isset($_POST['page'])){
             $state = "Activated";
           else
             $state = "Banned";
+
+          if($result->role_id == 1)
+            $role = "SUPER";
+          else
+            $role = "NORMAL";
+
             $data .= '<tr class="gradeU">
                 <td>'.$result->account_id.'</td>
                 <td><a href="http://localhost/augeo/admin/parent_admin/pages/admins/info/?account_id='.$result->account_id.'">'.$result->username.'</a></td>
                 <td>'.$result->f_name.' '.$result->m_name.' '.$result->l_name.'</td>
                 <td>'.$state.'</td>
+                <td>'.$role.'</td>
                 <td class="center">'.$result->email.'</td>
               </tr>';
         }
