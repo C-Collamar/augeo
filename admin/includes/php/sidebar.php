@@ -19,8 +19,12 @@ if($_SESSION['account_type'] == 1){
 
 echo '
                     <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Upcoming Events</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-list"></i> Items</a></li>
                     ';
+                    if($link == "http://localhost/augeo/admin/parent_admin/pages/items")
+                      echo ' <li class="current"><a href="http://localhost/augeo/admin/parent_admin/pages/items"><i class="glyphicon glyphicon-list"></i> Items</a></li>';
+                    else
+                       echo '<li><a href="http://localhost/augeo/admin/parent_admin/pages/Items"><i class="glyphicon glyphicon-list"></i> Items</a></li>';
+
                     if($link == "http://localhost/augeo/admin/parent_admin/pages/transactions")
                       echo '<li class="current"><a href="http://localhost/augeo/admin/parent_admin/pages/transactions"><i class="glyphicon glyphicon-list"></i> Transactions</a></li>';
                     else
