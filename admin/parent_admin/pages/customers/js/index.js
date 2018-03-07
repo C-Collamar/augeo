@@ -200,3 +200,22 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         document.getElementById("notif-container").classList.remove("show-notif");
     }, 5000);
 }
+
+
+
+
+
+
+Morris.Area({
+    element: 'hero-area',
+    data: [
+        {period: '2018', Users: 2666},
+        {period: '2019', Users: 8432}
+    ],
+    xkey: 'period',
+    ykeys: ['Users'],
+    labels: ['Users'],
+    lineWidth: 2,
+    hideHover: 'auto',
+    lineColors: ["#81d5d9"]
+  });

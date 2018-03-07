@@ -27,7 +27,7 @@ if(isset($_POST['page'])){
 
 
             $list .= '<tr class="gradeU">
-                <td><a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$result->item_id.'"><img src="'.$result->img_path.'" width="8%" height="8%" class="img-rounded"></a></td>
+                <td><a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$result->item_id.'"><img src="'.$result->img_path.'" width="50px" height="50px"></a></td>
                 <td>'.$result->name.'</td>
                 <td>'.$result->description.'</td>
                 <td>'.$result->initial_price.'</td>

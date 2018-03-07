@@ -54,7 +54,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
         <table class="table-responsive table table-striped" id="example">
             <thead>
                 <tr>
-                    <th>Item Image</th>
+                    <th>Item</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>

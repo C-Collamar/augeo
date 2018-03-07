@@ -202,3 +202,18 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         document.getElementById("notif-container").classList.remove("show-notif");
     }, 5000);
 }
+
+Morris.Bar({
+    element: 'hero-bar',
+    data: [
+        {admin: 'Super Admin', number: 136},
+        {admin: 'Normal Admin', number: 1037}
+    ],
+    xkey: 'admin',
+    ykeys: ['number'],
+    labels: ['number'],
+    barRatio: 0.4,
+    xLabelMargin: 10,
+    hideHover: 'auto',
+    barColors: ["#3d88ba"]
+});
