@@ -42,13 +42,13 @@ $mail->SMTPOptions = array(
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
 
-    $mail->Username = 'albayartworks@gmail.com';                 // SMTP username
-    $mail->Password = 'albayp@55w0rd';                           // SMTP password
+    $mail->Username = 'augeowebsite@gmail.com';                 // SMTP username
+    $mail->Password = 'augeop@55w0rd';                           // SMTP password
     $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 465;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('albayartworks@gmail.com', 'AUGEO');
+    $mail->setFrom('augeowebsite@gmail.com', 'AUGEO');
     $mail->addAddress($send_to);     // Add a recipient
  //   $mail->addAddress('ellen@example.com');               // Name is optional
    // $mail->addCC('cc@example.com');
