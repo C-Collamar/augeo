@@ -38,6 +38,9 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
                         <div class="col-md-3">
                             <div id="hero-donut2" style="height: 230px;"></div>
                         </div>
+                            <div class="col-md-9">
+                        <div id="hero-area" style="height: 230px;"></div>
+                </div>
                     </div>
                 </div>
             </div>

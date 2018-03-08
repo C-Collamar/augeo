@@ -18,7 +18,42 @@ if(isset($_COOKIE['account_id'])){
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 <body>
 
-augeo website home
+<table class="table table-striped table-condensed voc_list ">
+
+<thead>
+<tr>
+<th style="width:15%;"></th>
+<th style="width:50%;">Bezeichnung</th>
+<th style="width:10%;">Zeitraum</th>
+<th style="width:25%;">Ort</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr class="listview">
+<td>
+<a href="xy" title="">
+<img src="data/user/items/1_0.jpg" class="img-responsive voc_list_preview_img" alt="" title="" width="30%"></a>
+</td>
+
+<td>
+<a href="xy" title="">
+<h3 class="nomargin_top">ABC</h3>
+</a>
+</td>
+
+<td>
+555
+</td>
+
+<td>
+XYZ
+</td>
+
+</tbody>
+
+</table>
 
 
 </body>

@@ -17,38 +17,32 @@ $(document).ready(function(){
   });
 
 
-
-$.ajax({
+  $.ajax({
         type: "POST",
         url: "php/index.php",
         data: {
-          transactions: ""
+          item_count: ""
         },
         success: function(result) {
           var content_info = JSON.parse(result);
 
-var data = [
-      { y: '2018', a: 0, b: 0},
-      { y: '2019', a: content_info.successful, b: content_info.pending}
-    ],
-    config = {
-      data: data,
-      xkey: 'y',
-      ykeys: ['a', 'b'],
-      labels: ['Successful Transactions', 'Pending Transactions'],
-      fillOpacity: 0.6,
-      hideHover: 'auto',
-      behaveLikeLine: true,
-      resize: true,
-      pointFillColors:['#ffffff'],
-      pointStrokeColors: ['black'],
-      lineColors:['gray','red']
-  };
-config.element = 'area-chart';
-Morris.Area(config);
+          Morris.Area({
+          element: 'hero-area-item',
+          data: [
+              {period: '2018', Items: 0},
+              {period: '2019', Items: content_info.total}
+          ],
+          xkey: 'period',
+          ykeys: ['Items'],
+          labels: ['Items'],
+          lineWidth: 2,
+          hideHover: 'auto',
+          lineColors: ["red"]
+        });
 
         }
     });
+
 
 
 });
@@ -72,7 +66,7 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         dataType: 'json', // Json format
         timeout: 3000,
         success: function(data) {
-            $('#data_transaction').html(data.list); // We update the data_customer DIV with the article list
+            $('#data_items').html(data.list); // We update the data_customer DIV with the article list
 
                 // Pagination system
             if (page == 1) pagination += '<div class="cell_disabled"><span>First</span></div><div class="cell_disabled"><span>Previous</span></div>';
@@ -95,12 +89,9 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
                 $('#pagination').html(pagination); // We update the pagination DIV
                 },
             error: function() {
+                alert(data);
             }
         });
         return false;
     });
-
-
-
-
 

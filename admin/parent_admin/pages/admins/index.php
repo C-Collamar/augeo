@@ -38,6 +38,9 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
                     <div class="row">
                         <div class="col-md-3">
                             <div id="hero-donut2" style="height: 230px;"></div>
+                        </div><t>
+                        <div class="col-md-6">
+                            <div id="hero-bar" style="height: 230px;"></div>
                         </div>
                     </div>
                 </div>
@@ -63,6 +66,7 @@ include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
                                 <th>Username</th>
                                 <th>Full Name</th>
                                 <th>State</th>
+                                 <th>Admin Type</th>
                                 <th>Email</th>
                             </tr>
                         </thead>

@@ -66,4 +66,28 @@ if(isset($_POST['page'])){
 
         echo $dataBack;
 }
+
+elseif (isset($_POST['transactions'])) {
+    $sql = "SELECT COUNT(*) as deal FROM augeo_application.deal WHERE augeo_application.deal.confirmation = '1'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    '{ '.
+                            '"successful": '.$row['deal'].', '.
+                    '';
+    }
+
+     $sql = "SELECT COUNT(*) as deal FROM augeo_application.deal WHERE augeo_application.deal.confirmation = '0'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    ''.
+                            '"pending": '.$row['deal'].' '.
+                    '}';
+    }
+}
 ?>

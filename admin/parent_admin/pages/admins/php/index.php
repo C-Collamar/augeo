@@ -31,11 +31,18 @@ if(isset($_POST['page'])){
             $state = "Activated";
           else
             $state = "Banned";
+
+          if($result->role_id == 1)
+            $role = "SUPER";
+          else
+            $role = "NORMAL";
+
             $data .= '<tr class="gradeU">
                 <td>'.$result->account_id.'</td>
                 <td><a href="http://localhost/augeo/admin/parent_admin/pages/admins/info/?account_id='.$result->account_id.'">'.$result->username.'</a></td>
                 <td>'.$result->f_name.' '.$result->m_name.' '.$result->l_name.'</td>
                 <td>'.$state.'</td>
+                <td>'.$role.'</td>
                 <td class="center">'.$result->email.'</td>
               </tr>';
         }
@@ -69,6 +76,34 @@ elseif (isset($_POST['active'])) {
         echo
                     ''.
                             '"inactive": '.$row['total_customer'].'.00 '.
+                    '}';
+    }
+
+
+ }
+
+elseif (isset($_POST['count'])) {
+
+    $sql = "SELECT COUNT(*) as total_admin FROM augeo_administration.admin WHERE augeo_administration.admin.role_id = '1'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    '{ '.
+                            '"super": '.$row['total_admin'].', '.
+                    '';
+    }
+
+
+    $sql = "SELECT COUNT(*) as total_admin FROM augeo_administration.admin WHERE augeo_administration.admin.role_id = '2'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    ''.
+                            '"normal": '.$row['total_admin'].' '.
                     '}';
     }
 

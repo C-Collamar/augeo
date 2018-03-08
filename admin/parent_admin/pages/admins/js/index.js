@@ -39,6 +39,34 @@ $(document).ready(function(){
                 });
               }
     });
+
+     $.ajax({
+              type: "POST",
+              url: "php/index.php",
+              data: {
+                count: ""
+              },
+              success: function(result) {
+                  var content_info = JSON.parse(result);
+
+                  Morris.Bar({
+                    element: 'hero-bar',
+                    data: [
+                        {admin: 'Super Admin', number: content_info.super},
+                        {admin: 'Normal Admin', number: content_info.normal}
+                    ],
+                    xkey: 'admin',
+                    ykeys: ['number'],
+                    labels: ['number'],
+                    barRatio: 0.4,
+                    xLabelMargin: 10,
+                    hideHover: 'auto',
+                    barColors: ["#3d88ba"]
+});
+
+
+              }
+    });
 });
 
 
@@ -202,3 +230,4 @@ $('#pagination').on('click', 'a', function(e) { // When click on a 'a' element o
         document.getElementById("notif-container").classList.remove("show-notif");
     }, 5000);
 }
+
