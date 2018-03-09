@@ -17,7 +17,7 @@
 <h2>Banned Account</h2>
 </div>
 <div class="panel-login">
-<label for="activate">Your Account has been banned, for more information visit <a>faq</a> </label><br>
+<label for="activate">Your Account has been banned, for more information visit <a href="http://localhost/augeo/help_page">faq</a> </label><br>
 </div>
     </div>
 
