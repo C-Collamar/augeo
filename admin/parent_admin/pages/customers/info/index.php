@@ -35,29 +35,32 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                         <label>Account Id:</label>
                         <div id="account_id"></div>
 
-                        <label>Profile Pic:</label>
-                        <div id="profile_pic"> </div></br> <br>
+                       <h4>Profile Picture:</h4>
+                        <img id="img" height="200px"></br> <br>
 
-                        <label>Username:</label>
-                        <div id="username"> </div><br>
+                       <h4>Account Id:</h4>
+                  <div id="account_id"></div>
 
-                        <label>Full Name:</label>
-                        <div id="full_name"> </div><br>
+                  <h4>Username</h4>
+                  <div id="username"> </div><br>
 
-                        <label>Birthday:</label>
-                        <div id="bday"></div><br>
+                  <h4>Full Name:</h4>
+                  <div id="full_name"> </div><br>
 
-                        <label>Zip Code:</label>
-                        <div id="zipcode"> </div><br>
+                  <h4>Birthday:</h4>
+                  <div id="bday"></div><br>
 
-                        <label>Full Address:</label>
-                        <div id="full_address"> </div><br>
+                  <h4>Zip Code:</h4>
+                  <div id="zipcode"> </div><br>
 
-                        <label>Contact number:</label>
-                        <div id="contact_no"> </div><br>
+                  <h4>Full Address:</h4>
+                  <div id="full_address"> </div><br>
 
-                        <label>Email:</label>
-                        <div id="email"> </div><br>
+                  <h4>Contact number:</h4>
+                  <div id="contact_no"> </div><br>
+
+                  <h4>Email:</h4>
+                  <div id="email"> </div><br>
                             <br /><br />
                     </div>
                 </div>
@@ -81,17 +84,41 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                 </div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="content-box-header">
-                        <div class="panel-title">Items</div>
-                    <div class="panel-options">
-                        <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                        <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-                    </div>
-                </div>
-                <div class="content-box-large box-with-header">
 
-                </div>
+                <div class="col-md-12">
+                     <div class="content-box-large">
+        <div class="panel-heading">
+            <div class="panel-title"><b>Items</b></div>
+        </div>
+
+    <div class="nav navbar-nav navbar-form">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" onkeyup="test(this.value)" name="search" id="search">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table-responsive table table-striped" id="example">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Views</th>
+                </tr>
+            </thead>
+
+            <tbody id="data_items"></tbody>
+
+        </table>
+
+    <div id="pagination">
+        <div><a href="#" id="1"></a></div>
+    </div>
+</div>
+</div>
                 </div>
 
 

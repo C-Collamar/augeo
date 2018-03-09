@@ -106,4 +106,45 @@ if(isset($_POST['id_del'])){
         mysqli_query($conn,"DELETE FROM augeo_user_end.user_account WHERE augeo_user_end.user_account.account_id = $id");
         echo mysqli_error($conn);
 }
+
+
+
+
+if(isset($_POST['item'])){
+        $item = $_POST['item'];
+        $page = $_POST['page']; // Current page number
+        $per_page = $_POST['per_page']; // Articles per page
+        if ($page != 1) $start = ($page-1) * $per_page;
+        else $start=0;
+
+        $select = $bdd->query("SELECT * FROM augeo_user_end.item INNER JOIN  augeo_user_end.item_img ON augeo_user_end.item_img.item_id  = augeo_user_end.item.item_id INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id  WHERE augeo_user_end.item.user_id = $item LIMIT $start ,$per_page"); // Select article list from $start
+        $select->setFetchMode(PDO::FETCH_OBJ);
+        $numArticles = $bdd->query('SELECT count(item_id) FROM augeo_user_end.item ')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
+
+        $numPage = ceil($numArticles[0] / $per_page); // Total number of page
+
+        // We build the article list
+        $list = '';
+        $list= '
+
+              ';
+
+        while( $result = $select->fetch() ) {
+
+
+            $list .= '<tr class="gradeU">
+                <td><a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$result->item_id.'"><img src="'.$result->img_path.'" width="50px" height="50px"></a></td>
+                <td>'.$result->name.'</td>
+                <td>'.$result->description.'</td>
+                <td>'.$result->initial_price.'</td>
+                <td class="center">'.$result->view_count.'</td>
+              </tr>';
+        }
+
+        // We send back the total number of page and the article list
+        $dataBack = array('numPage' => $numPage, 'list' => $list);
+        $dataBack = json_encode($dataBack);
+
+        echo $dataBack;
+}
 ?>

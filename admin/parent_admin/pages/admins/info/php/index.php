@@ -10,6 +10,10 @@ if(isset($_POST['id'])){
 
         if($result = $conn->query($sql)) {
             $row = $result->fetch_assoc();
+            if($row['role_id'] == 1)
+                $role = "SUPER ADMIN";
+            else
+                $role ="NORMAL ADMIN";
                 echo
                     '{ '.
                             '"account_id": "'.decode($row['account_id']).'", '.
@@ -22,6 +26,8 @@ if(isset($_POST['id'])){
                             '"profile_img": "'.decode($row['profile_img']).'", '.
 
                             '"bdate": "'.decode($row['bdate']).'", '.
+                              '"role": "'.decode($role).'", '.
+
                             '"zip_code": "'.decode($row['zip_code']).'", '.
                             '"username": "'.decode($row['username']).'", '.
                             '"full_address": "'.decode($row['full_address']).'" '.

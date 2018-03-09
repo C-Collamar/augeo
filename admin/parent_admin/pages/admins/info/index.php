@@ -37,32 +37,39 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
               </div>
 
               <div class="content-box-large box-with-header">
-                  <label>Account Id:</label>
+
+                   <h4>Admin Type:</h4>
+                  <div id="role"></div>
+
+                  <h4>Profile Picture:</h4>
+                  <img id="img" height="200px"></br> <br>
+
+                  <h4>Account Id:</h4>
                   <div id="account_id"></div>
 
-                  <label>Profile Pic:</label>
-                  <div id="profile_pic"> </div></br> <br>
-
-                  <label>Username:</label>
+                  <h4>Username</h4>
                   <div id="username"> </div><br>
 
-                  <label>Full Name:</label>
+                  <h4>Full Name:</h4>
                   <div id="full_name"> </div><br>
 
-                  <label>Birthday:</label>
+                  <h4>Birthday:</h4>
                   <div id="bday"></div><br>
 
-                  <label>Zip Code:</label>
+                  <h4>Zip Code:</h4>
                   <div id="zipcode"> </div><br>
 
-                  <label>Full Address:</label>
+                  <h4>Full Address:</h4>
                   <div id="full_address"> </div><br>
 
-                  <label>Contact number:</label>
+                  <h4>Contact number:</h4>
                   <div id="contact_no"> </div><br>
 
-                  <label>Email:</label>
+                  <h4>Email:</h4>
                   <div id="email"> </div><br>
+
+
+
 
                   <br /><br />
                   </div>
