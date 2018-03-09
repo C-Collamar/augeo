@@ -3,6 +3,14 @@
 }
 
 #imgCarousel {
+    height: 400px;
+    background-color: #353839;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
 }
 
 #bid-amount {
@@ -85,4 +93,10 @@
 
 .bid-date {
     text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+    #imgCarousel {
+        height: initial;
+    }
 }

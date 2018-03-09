@@ -93,7 +93,7 @@ function display404() {
     ?>
     <div class="container" style="padding-top: 20px">
         <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-5" style="position: relative">
                 <div id="imgCarousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#imgCarousel" data-slide-to="0" class="active"></li>
@@ -104,10 +104,9 @@ function display404() {
                             <img src="http://localhost/augeo/data/user/items/17_0.jpg">
                         </div>
                         <div class="item">
-                            <img src="http://localhost/augeo/data/user/items/19_0.jpg">
+                            <img src="http://localhost/augeo/data/user/items/17_1.jpg">
                         </div>
                     </div>
-                    <!-- Left and right controls -->
                     <a class="left carousel-control" href="#imgCarousel" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                         <span class="sr-only">Previous</span>
@@ -134,22 +133,21 @@ function display404() {
                         <p id="bid-instruction">Enter your bid amount. Bid interval for this item is <span class="nowrap">Php 5.00</span>. The minimum input bid is currently at <span class="nowrap">Php 280.00</span>. <a href="#">Learn more.</a></p>
                         <div class="input-group">
                             <label for="bid-amount" class="input-group-addon">Your bid</label>
-                            <input id="bid-amount" type="number" class="form-control" name="bid-amount" placeholder="Please enter your bid" step="5" min="280" value="280" required>
+                            <input id="bid-amount" type="number" class="form-control" name="bid-amount" placeholder="Please enter your bid (must be greater or equal to 280)" step="5" min="280" required>
                         </div>
                         <div style="padding: 10px; text-align: center">
+                            <div id="paypal-button"></div>
                             <button type="submit" class="btn btn-success">Bid</button>
                             <button type="button" id="bid-cancel" class="btn btn-default" data-toggle="collapse" data-target="#bid-sect">Cancel</button>
                         </div>
                     </form>
                 </div>
                 <div id="description">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est inventore quam culpa. Optio asperiores ex sint cum voluptate quidem ipsam, enim reiciendis eaque dolorem dolore aspernatur voluptatibus, eum quaerat!
-                        Voluptas odit numquam deserunt iure commodi libero ut omnis iusto optio possimus laborum labore quae, dolorum nulla culpa repellendus beatae eos molestias eveniet quidem consequuntur quis aut tempora. Qui, labore.
-                        Distinctio facilis, sequi provident in voluptates, rerum tempora, mollitia dolore maiores tenetur at ex fugiat similique officia vero minima nulla accusamus sed magni ducimus voluptatum possimus eos. Commodi, numquam vitae.
-                        Sequi, mollitia eum laborum necessitatibus omnis ducimus nam, nihil doloremque sit inventore et ipsum numquam incidunt rerum. Eaque repellat iste, id, veritatis quae itaque, inventore libero commodi sed fugiat error.
-                        Tenetur numquam assumenda vero sunt, quam adipisci porro ipsa doloremque corrupti necessitatibus veniam, fugiat vitae voluptate tempore mollitia dolores molestias impedit quaerat dolorem architecto? Magnam libero beatae provident harum corporis.
-                    </p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est inventore quam culpa. Optio asperiores ex sint cum voluptate quidem ipsam, enim reiciendis eaque dolorem dolore aspernatur voluptatibus, eum quaerat!
+                    Voluptas odit numquam deserunt iure commodi libero ut omnis iusto optio possimus laborum labore quae, dolorum nulla culpa repellendus beatae eos molestias eveniet quidem consequuntur quis aut tempora. Qui, labore.
+                    Distinctio facilis, sequi provident in voluptates, rerum tempora, mollitia dolore maiores tenetur at ex fugiat similique officia vero minima nulla accusamus sed magni ducimus voluptatum possimus eos. Commodi, numquam vitae.
+                    Sequi, mollitia eum laborum necessitatibus omnis ducimus nam, nihil doloremque sit inventore et ipsum numquam incidunt rerum. Eaque repellat iste, id, veritatis quae itaque, inventore libero commodi sed fugiat error.
+                    Tenetur numquam assumenda vero sunt, quam adipisci porro ipsa doloremque corrupti necessitatibus veniam, fugiat vitae voluptate tempore mollitia dolores molestias impedit quaerat dolorem architecto? Magnam libero beatae provident harum corporis.
                 </div>
             </div>
         </div>
