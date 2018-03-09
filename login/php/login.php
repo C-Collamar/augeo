@@ -18,6 +18,7 @@ if(isset($_POST['uname']) && isset($_POST['pass'])){
 			setcookie("account_id", $account_id, time() + (86400 * 30), "/");
 			$_SESSION['account_id'] = $account_id;
 			mysqli_query($conn,"INSERT INTO augeo_application.user_logtime(user_id) VALUES ('$account_id') ");
+			$_SESSION['log_id'] = mysqli_insert_id($conn);
 			echo "sucess";
 		}
 		elseif ($found['state'] == 2) {
@@ -45,6 +46,7 @@ elseif(isset($_POST['crt_uname']) && isset($_POST['crt_pass'])){
 		mysqli_query($conn,"INSERT INTO augeo_user_end.user(user_id,account_id,profile_img,cover_photo) VALUES ('$user_id','$account_id','http://localhost/augeo/data/user/profile_img/default_avatar.jpg','http://localhost/augeo/data/user/cover_photo/1.jpg')");
 		$_SESSION['account_id']=$found['account_id'];
 		mysqli_query($conn,"INSERT INTO augeo_application.user_logtime(user_id) VALUES ('$account_id') ");
+		$_SESSION['log_id'] = mysqli_insert_id($conn);
 		echo "success";
 	}
 	else{
