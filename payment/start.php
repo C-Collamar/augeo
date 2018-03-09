@@ -8,7 +8,7 @@ $paypal = new PayPal($config);
 $result = $paypal->call(
   array(
     'actionType'  => 'PAY',
-    'currencyCode'  => 'USD',
+    'currencyCode'  => 'PHP',
     'feesPayer'  => 'EACHRECEIVER',
     'memo'  => 'Order number #123',
 
