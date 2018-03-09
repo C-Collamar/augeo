@@ -136,4 +136,29 @@ elseif (isset($_POST['count_admin'])) {
     }
 
  }
+
+
+ elseif (isset($_POST['visit_count'])) {
+
+    $sql = "SELECT COUNT(*) as total_visit FROM augeo_application.user_logtime";
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    '{ '.
+                            '"visit": '.$row['total_visit'].', '.
+                    '';
+    }
+
+     $sql = "SELECT COUNT(*) as total_signup FROM augeo_user_end.user_account";
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    ''.
+                            '"signup": '.$row['total_signup'].' '.
+                    '}';
+    }
+
+ }
 ?>
