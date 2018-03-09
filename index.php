@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if(isset($_SESSION['account_id'])) {
+    $account_id_session = $_SESSION['account_id'];
+}
+
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
 // test: cookies
 // if cookies is set then user is always logged in
@@ -18,42 +23,7 @@ if(isset($_COOKIE['account_id'])){
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 <body>
 
-<table class="table table-striped table-condensed voc_list ">
-
-<thead>
-<tr>
-<th style="width:15%;"></th>
-<th style="width:50%;">Bezeichnung</th>
-<th style="width:10%;">Zeitraum</th>
-<th style="width:25%;">Ort</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr class="listview">
-<td>
-<a href="xy" title="">
-<img src="data/user/items/1_0.jpg" class="img-responsive voc_list_preview_img" alt="" title="" width="30%"></a>
-</td>
-
-<td>
-<a href="xy" title="">
-<h3 class="nomargin_top">ABC</h3>
-</a>
-</td>
-
-<td>
-555
-</td>
-
-<td>
-XYZ
-</td>
-
-</tbody>
-
-</table>
+<!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_now_accepting_pp_2line_w.png" border="0" alt="Now Accepting PayPal"></a><div style="text-align:center"></div></td></tr></table><!-- PayPal Logo -->
 
 
 </body>

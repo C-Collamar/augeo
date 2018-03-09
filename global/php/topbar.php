@@ -1,6 +1,6 @@
 <?php
 	//used to determine if user has logged in
-	require_once $_SERVER['DOCUMENT_ROOT'].'/augeo/global/php/session.php';
+//	require_once $_SERVER['DOCUMENT_ROOT'].'/augeo/global/php/session.php';
 ?>
 
 <nav class="navbar navbar-default navbar-fixed-top">
