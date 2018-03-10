@@ -5,6 +5,11 @@ $link = "http://localhost/augeo/admin/parent_admin/pages/items";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
+if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
+    if($_SESSION['account_type'] == "2")
+        header("Location: http://localhost/augeo/admin/");
+}
+
 function display404() {
     exit(
     '<style>'.

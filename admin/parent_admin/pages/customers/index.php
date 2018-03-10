@@ -4,6 +4,11 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
 $link = "http://localhost/augeo/admin/parent_admin/pages/customers/";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
+
+if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
+    if($_SESSION['account_type'] == "2")
+        header("Location: http://localhost/augeo/admin/");
+}
 ?>
 
 <!DOCTYPE html>
