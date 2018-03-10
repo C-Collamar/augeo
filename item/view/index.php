@@ -175,7 +175,7 @@ function display404() {
                         <button id="bid-sect-toggler" class="btn btn-success" data-toggle="collapse" data-target="#bid-sect">Bid</button>
                     </div>
                 </div>
-                <div id="bid-sect" class="panel panel-default" style="margin-top: 20px">
+                <div id="bid-sect" class="collapse panel panel-default" style="margin-top: 20px">
                     <div class="panel-heading">INSTUCTIONS</div>
                     <form id="bid-form" class="panel-body">
                         <p id="bid-instruction">
