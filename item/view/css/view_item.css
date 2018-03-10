@@ -3,6 +3,32 @@
 }
 
 #imgCarousel {
+    min-height: 400px;
+    background-color: #353839;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+}
+
+#imgCarousel .item > img {
+    margin: auto auto;
+}
+
+#taglist > .tag {
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 2.5px;
+    background-color: #4286f4;
+    transition: background-color 0.3s;
+}
+
+#taglist > .tag:hover {
+    text-decoration: none;
+    background-color: #699ef5;
 }
 
 #bid-amount {
@@ -35,6 +61,8 @@
 
 #description {
     margin-top: 20px;
+    resize: vertical;
+    overflow: auto;
 }
 
 #bid-instruction {
@@ -46,43 +74,89 @@
 }
 
 #description::before { content: "DESCRIPTION"; }
+#taglist::before { content: "TAGS: "; }
 #details::before { content: "DETAILS"; }
-#history::before { content: "BID HISTORY" }
 
 #description::before,
-#details::before,
-#history::before {
+#details::before {
     display: block;
 }
 
 ::before { color: #777777; }
 
-.timeline-card {
-    padding-left: 10px;
-    padding-right: 10px;
+#history-sect > .panel-body {
+    max-height: 200px;
+    overflow: auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
-.start-sprite,
-.connector-sprite,
-.end-sprite {
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 36.67px;
-    height: 36.67px;
+#history-table {
+    display: table;
 }
 
-.start-sprite { background-image: url("http://localhost/augeo/item/view/img/sprite_0.png"); }
-.connector-sprite { background-image: url("http://localhost/augeo/item/view/img/sprite_1.png"); }
-.end-sprite { background-image: url("http://localhost/augeo/item/view/img/sprite_2.png"); }
+.bid-history-row {
+    display: table-row;
+    margin: 0px;
+    padding: 0px;
+}
+
+#history-table > div > div {
+    display: table-cell;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+}
+
+.start-node {
+    height: 18px;
+    width: 18px;
+    background-color: #f69206;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 8px 12px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.node {
+    height: 23px;
+    width: 23px;
+    border: 4px solid #f69206;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 8px 10px;
+}
+
+.node > div {
+    height: 23px;
+    width: 4px;
+    background-color: #f69206;
+    margin: 15px auto 0px auto;
+}
+
+.bid-history-row.new .node {
+    border: 4px solid #4286f4;
+}
+
+.bid-history-row.new .node > div {
+    background: linear-gradient(#4286f4, #f69206);
+}
 
 .bidder::before {
     content: "bid by ";
 }
 
 .bid-amount::after {
-    content: "\2014";
+    content: "\00a0\2014\00a0";
 }
 
 .bid-date {
     text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+    #imgCarousel {
+        min-height: initial;
+    }
 }
