@@ -60,6 +60,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
                     <th>Price</th>
                     <th>Owner</th>
                     <th>Views</th>
+                    <th>State</th>
                 </tr>
             </thead>
 
@@ -77,7 +78,23 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 
             </div>
         </div>
-
+ <?php if(isset($_GET['msg'])){
+            $img_path = "";
+            $message = "";
+            $class = "";
+                $class = "show-notif";
+                $img_path = "http://localhost/augeo/global/img/check-icon.png";
+                    $message = "Item successfully Modified.";
+            echo('
+                <div class="notif '.$class.'" id="notif-container">
+                    <div class="notif-img">
+                        <img id="notif-img" src="'.$img_path.'" />
+                    </div>
+                    <div class="notif-content" id="notif-content">'.$message.'</div>
+                </div>
+            ');
+        }
+        ?>
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
             <link rel="stylesheet" href="http://localhost/augeo/admin/vendors/morris/morris.css">

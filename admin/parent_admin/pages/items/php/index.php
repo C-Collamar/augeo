@@ -24,7 +24,12 @@ if(isset($_POST['page'])){
               ';
 
         while( $result = $select->fetch() ) {
-
+            if($result->state == 1)
+                $state = "SOLD";
+            elseif ($result->state == 2)
+                $state = "BANNED";
+            else
+                $state = "AVAILABLE";
 
             $list .= '<tr class="gradeU">
                 <td><a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$result->item_id.'"><img src="'.$result->img_path.'" width="50px" height="50px"></a></td>
@@ -33,6 +38,7 @@ if(isset($_POST['page'])){
                 <td>'.$result->initial_price.'</td>
                 <td class="center">'.$result->f_name.' '.$result->m_name.' '.$result->l_name.'</td>
                 <td class="center">'.$result->view_count.'</td>
+                <td class="center">'.$state.'</td>
               </tr>';
         }
 
