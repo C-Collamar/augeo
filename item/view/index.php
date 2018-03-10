@@ -40,6 +40,7 @@ function display404() {
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/css/std_notif.css">
     <link rel="stylesheet" href="css/view_item.css">
 </head>
 <body>
@@ -64,14 +65,22 @@ function display404() {
                 "augeo_user_end.user ".
             "WHERE ".
                 "user.user_id = item.user_id AND ".
-                "item.item_id = $item_id";
+                "item.item_id = $item_id AND ".
+                "item.state = 0";
         $item_info = $conn->query($query) or die('ERROR: '.mysqli_error($conn).'<br>'.'QUERY: '.$query);
 
         if(mysqli_num_rows($item_info) <= 0) {
             display404();
         }
         else {
-            $item = $item_info->fetch_assoc();
+            $item_info = $item_info->fetch_assoc();
+            $seller_fname = decode($item_info['f_name']);
+            $seller_mname = decode($item_info['m_name']);
+            $seller_lname = decode($item_info['l_name']);
+            $seller_email = decode($item_info['email']);
+            $seller_profile_img = decode($item_info['profile_img']);
+            $item_name = decode($item_info['name']);
+            $item_descr = decode($item_info['description']);
         }
 
         //get item tag(s)
@@ -85,27 +94,66 @@ function display404() {
             "WHERE ".
                 "tag.tag_id = tagged_item.tag_id AND ".
                 "tagged_item.item_id = $item_id";
-        $tags = $conn->query($query) or die('ERROR: '.mysqli_error($conn).'<br>'.'QUERY: '.$query);
+        $db_tags = $conn->query($query) or die('ERROR: '.mysqli_error($conn).'<br>'.'QUERY: '.$query);
 
         //get item image(s)
         $query = "SELECT img_path FROM augeo_user_end.item_img WHERE item_id = $item_id";
-        $img_paths = $conn->query($query) or die('ERROR: '.mysqli_error($conn).'<br>'.'QUERY: '.$query);
+        $db_img_paths = $conn->query($query) or die('ERROR: '.mysqli_error($conn).'<br>'.'QUERY: '.$query);
+        $img_path = array();
+        while($path = $db_img_paths->fetch_assoc()) {
+            array_push($img_path, decode($path['img_path']));
+        }
+
+        //get item bids
+        $query =
+            "SELECT ".
+                "bid.timestamp, ".
+                "bid.amount, ".
+                "user_account.username ".
+            "FROM ".
+                "augeo_application.bid, ".
+                "augeo_user_end.user, ".
+                "augeo_user_end.user_account ".
+            "WHERE ".
+                "bid.item_id = $item_id AND ".
+                "bid.user_id = user.user_id AND ".
+                "user.account_id = user_account.account_id ".
+            "ORDER BY bid.timestamp DESC";
+        $db_bids = $conn->query($query) or die('ERROR: '.mysqli_error($conn).'<br>'.'QUERY: '.$query);
+        $bid_info = array();
+        while($bid = $db_bids->fetch_assoc()) {
+            array_push($bid_info, $bid);
+        }
+
+        //item's current amount
+        $curr_amount = sprintf("%.2f", ((count($bid_info) == 0)? $item_info['initial_price']: $bid_info[0]['amount']));
+        $step_count = $item_info['bid_interval'];
+        $min_bid = sprintf("%.2f", $curr_amount + $step_count);
     ?>
+    <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['account_id'] ?>">
+    <input type="hidden" id="item_id" name="item_id" value="<?php echo $item_id ?>">
     <div class="container" style="padding-top: 20px">
         <div class="row">
             <div class="col-sm-5" style="position: relative">
                 <div id="imgCarousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#imgCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#imgCarousel" data-slide-to="1"></li>
+                    <?php
+                    $len = count($img_path);
+                    $active_class = ' class="active"';
+                    for($count = 0; $len--; ++$count) {
+                        echo '<li data-target="#imgCarousel" data-slide-to="'.$count.'"'.$active_class.'></li>';
+                        $active_class = '';
+                    }
+                    ?>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="http://localhost/augeo/data/user/items/17_0.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="http://localhost/augeo/data/user/items/17_1.jpg">
-                        </div>
+                        <?php
+                        $class = ' active';
+                        foreach($img_path as $path) {
+                            echo '<div class="item'.$class.'"><img class="pannable" src="'.$path.'"></div>';
+                            $class = '';
+                        }
+                        ?>
                     </div>
                     <a class="left carousel-control" href="#imgCarousel" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -118,22 +166,28 @@ function display404() {
                 </div>
             </div>
             <div class="col-sm-7">
-                <div id="title">Sample Item Name</div>
+                <div id="title"><?php echo $item_name; ?></div>
                 <div style="text-align: center">
                     <div style="display: inline-block">
-                        <span id="amount-label">Current amount</span><span id="amount">Php 275.00</span>
+                        <span id="amount-label">Current amount</span><span id="amount">Php <?php echo $curr_amount; ?></span>
                     </div>
                     <div style="display: inline-block">
                         <button id="bid-sect-toggler" class="btn btn-success" data-toggle="collapse" data-target="#bid-sect">Bid</button>
                     </div>
                 </div>
-                <div id="bid-sect" class="collapse panel panel-default" style="margin-top: 20px">
+                <div id="bid-sect" class="panel panel-default" style="margin-top: 20px">
                     <div class="panel-heading">INSTUCTIONS</div>
-                    <form action="" class="panel-body">
-                        <p id="bid-instruction">Enter your bid amount. Bid interval for this item is <span class="nowrap">Php 5.00</span>. The minimum input bid is currently at <span class="nowrap">Php 280.00</span>. <a href="#">Learn more.</a></p>
+                    <form id="bid-form" class="panel-body">
+                        <p id="bid-instruction">
+                            Enter your bid amount. This item has incremental bid interval set to <span class="nowrap">
+                            Php <?php echo $step_count.'.00' ?></span>. The minimum input bid currently starts at <span class="nowrap">
+                            Php <?php echo $min_bid; ?></span>. <a href="#">Learn more.</a>
+                        </p>
                         <div class="input-group">
                             <label for="bid-amount" class="input-group-addon">Your bid</label>
-                            <input id="bid-amount" type="number" class="form-control" name="bid-amount" placeholder="Please enter your bid (must be greater or equal to 280)" step="5" min="280" required>
+                            <input id="bid-amount" type="number" class="form-control" name="bid-amount"
+                            placeholder="Your bid must be greater or equal to Php <?php echo $min_bid ?>"
+                            min="<?php echo $min_bid ?>" required>
                         </div>
                         <div style="padding: 10px; text-align: center">
                             <div id="paypal-button"></div>
@@ -142,15 +196,10 @@ function display404() {
                         </div>
                     </form>
                 </div>
-                <div id="description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est inventore quam culpa. Optio asperiores ex sint cum voluptate quidem ipsam, enim reiciendis eaque dolorem dolore aspernatur voluptatibus, eum quaerat!
-                    Voluptas odit numquam deserunt iure commodi libero ut omnis iusto optio possimus laborum labore quae, dolorum nulla culpa repellendus beatae eos molestias eveniet quidem consequuntur quis aut tempora. Qui, labore.
-                    Distinctio facilis, sequi provident in voluptates, rerum tempora, mollitia dolore maiores tenetur at ex fugiat similique officia vero minima nulla accusamus sed magni ducimus voluptatum possimus eos. Commodi, numquam vitae.
-                    Sequi, mollitia eum laborum necessitatibus omnis ducimus nam, nihil doloremque sit inventore et ipsum numquam incidunt rerum. Eaque repellat iste, id, veritatis quae itaque, inventore libero commodi sed fugiat error.
-                    Tenetur numquam assumenda vero sunt, quam adipisci porro ipsa doloremque corrupti necessitatibus veniam, fugiat vitae voluptate tempore mollitia dolores molestias impedit quaerat dolorem architecto? Magnam libero beatae provident harum corporis.
-                </div>
+                <div id="description"><?php echo $item_descr; ?></div>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-sm-6">
                 <div id="details">
@@ -158,49 +207,68 @@ function display404() {
                         <tbody>
                             <tr>
                                 <th>Seller</th>
-                                <td>John Doe</td>
+                                <td><?php echo $seller_fname; ?></td>
                             </tr>
                             <tr>
                                 <th>Initial price</th>
-                                <td>Php 175.00</td>
+                                <td>Php <?php echo sprintf("%.2f", $item_info['initial_price']); ?></td>
                             </tr>
                             <tr>
                                 <th>Upload date</th>
-                                <td>January 1, 1970</td>
+                                <td><?php echo date("F j, Y", strtotime($item_info['timestamp'])); ?></td>
                             </tr>
                             <tr>
                                 <th>View count</th>
-                                <td>528 times</td>
+                                <td><?php echo $item_info['view_count']; ?> times</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="col-sm-6">
-                <div id="history">
-                    <div class="timeline-card">
-                        <table>
-                            <tr>
-                                <td><div class="bid-date">June 12, 2018</div></td>
-                                <td><div class="end-sprite"></div></td>
-                                <td><div class="bid-amount">Php 275.00</div></td>
-                                <td><div class="bidder"><a href="#">c-collamar</a></div></td>
-                            </tr>
-                            <tr>
-                                <td><div class="bid-date">June 10, 2018</div></td>
-                                <td><div class="connector-sprite"></div></td>
-                                <td><div class="bid-amount">Php 240.00</div></td>
-                                <td><div class="bidder"><a href="#">AustinZuniga</a></div></td>
-                            </tr>
-                            <tr>
-                                <td><div class="bid-date">December 27, 2017</div></td>
-                                <td><div class="start-sprite"></div></td>
-                                <td><div class="bid-amount">Php 206.00</div></td>
-                                <td><div class="bidder"><a href="#">userm83x</a></div></td>
-                            </tr>
-                        </table>
+                <div id="history-sect" class="panel panel-default">
+                    <div class="panel-heading">HISTORY</div>
+                    <div class="panel-body">
+                        <div id="history-table">
+                            <?php
+                            $num_row = mysqli_num_rows($db_bids);
+
+                            foreach($bid_info as $bid) {
+                                $bid_date = date("M j, Y", strtotime($bid['timestamp']));
+                                $bid_amount = sprintf("%.2f", $bid['amount']);
+                                $bidder = decode($bid['username']);
+                                echo(
+                                '<div class="bid-history-row">'.
+                                    '<div><div class="bid-date">'.$bid_date.'</div></div>'.
+                                    '<div><div class="node"><div></div></div></div>'.
+                                    '<div><div class="bid-amount">Php '.$bid_amount.'</div></div>'.
+                                    '<div><div class="bidder"><a href="http://localhost/augeo/users/'.$bidder.'">'.$bidder.'</a></div></div>'.
+                                '</div>'
+                                );
+                            }
+
+                            echo(
+                            '<div class="bid-history-row">'.
+                                '<div><div class="bid-date">'.date("M j, Y", strtotime($item_info['timestamp'])).'</div></div>'.
+                                '<div><div class="start-node"></div></div>'.
+                                '<div><div class="bid-amount">Php '.sprintf("%.2f", $item_info['initial_price']).'</div></div>'.
+                                '<div style="color: #777777">Base price</div>'.
+                            '</div>'
+                            );
+                            ?>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div id="taglist">
+                <?php
+                while($tag = $db_tags->fetch_assoc()) {
+                    echo '<a href="#" class="tag">'.decode($tag['tag_name']).'</a>';
+                }
+                ?>
             </div>
         </div>
     </div>
