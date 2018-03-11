@@ -122,7 +122,7 @@ $(document).ready(function () {
 		else {
 			$.ajax({
 				type: "POST",
-				url: "php/index.php",
+				url: "php/update_profile.php",
 				data: {
 					old_pass: $("#current_pass").val(),
 					new_pass: $("#new_pass1").val(),
@@ -155,7 +155,7 @@ $(document).ready(function () {
 		else {
 			$.ajax({
 				type: "POST",
-				url: "php/index.php",
+				url: "php/update_profile.php",
 				data: {
 					update_email: $("#email").val(),
 					id_email: id_email
@@ -192,15 +192,16 @@ function YNconfirm() {
 		else {
 			$.ajax({
 				type: "POST",
-				url: "php/index.php",
+				url: "php/update_profile.php",
 				data: {
 					deac_pass1: $("#deac_pass1").val(),
 					deac_pass2: $("#deac_pass2").val(),
 					deac_id: $("#account_id_session").val()
 				},
 				success: function (result) {
+					alert(result);
 					if (result == "success") {
-						window.location.assign("../../login");
+						window.location.assign("../../../login");
 					} else {
 						$("#deactivate_error").css({ color: 'red' });
 						document.getElementById("deactivate_error").innerHTML = "The Password you entered is incorrect";

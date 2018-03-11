@@ -11,12 +11,12 @@
 
 <body>
 	<?php
-		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 
 		//fetch all of user information
-		$result = mysqli_query($conn, "SELECT * FROM augeo_user_end.user WHERE account_id = ".$_SESSION['account_id']);
+		$result = mysqli_query($conn, "SELECT * FROM augeo_user_end.user,augeo_user_end.user_account WHERE augeo_user_end.user.account_id = augeo_user_end.user_account.account_id AND augeo_user_end.user.account_id = ".$_SESSION['account_id']);
 		$user = mysqli_fetch_array($result);
 
 		if(isset($_GET['new'])){
@@ -36,7 +36,8 @@
 						<form action="php/update_profile.php" method="POST" enctype="multipart/form-data">
 							<h2>Edit Profile Information</h2><hr>
 							<label for="profile-img">Profile picture</label><br>
-							<img src="http://localhost/augeo/data/user/profile_img/<?php echo $user['profile_img'] ?>" id="profile-img"><br>
+							<img src="<?php echo $user['profile_img'] ?>" id="profile-img"><br>
+							<input type="hidden" name="update_profile" id="update_profile" value="<?php echo $account_id_session; ?>">
 							<input type="file" accept="image/jpeg" name="profile_img">
 							<hr>
 							<h4>Name</h4>
@@ -86,20 +87,16 @@
 						</br>
 						<div id="error_new_pass"></div>
 						<hr>
-						<input type="button" name="new_pass_btn" id="new_pass_btn" value="save">
+						<input type="button" class="btn-blue" name="new_pass_btn" id="new_pass_btn" value="save">
 					</div>
 					<div class="well">
-						<div class="row">
-							<label for="username">Username:</label>
-							<div id="username" class="username"></div>
-						</div>
 						<div>
 							<hr>
 							<label for="email">Email</label>
-							<input type="email" class="form-control" name="email" id="email">
+							<input type="email" class="form-control" name="email" id="email" value="<?php echo $user['email']; ?>">
 							<div id="error_email"></div>
 							<hr>
-							<input type="button" class="form-control" name="email_btn" id="email_btn" value="Save Changes">
+							<input type="button" class="btn-blue" name="email_btn" id="email_btn" value="Save Changes">
 						</div>
 					</div>
 					<!-- DEACTIVATION ZONE -->
@@ -126,7 +123,7 @@
 								</li>
 								<div id="deactivate_error"></div>
 								<li class="list-group-item">
-									<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="deactivate" onclick="return(YNconfirm());">
+									<input type="button" name="deactivate" id="deactivate" value="Deactivate Account" class="btn btn-danger" onclick="return(YNconfirm());">
 								</li>
 							</ul>
 						</div>

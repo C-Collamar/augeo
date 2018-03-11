@@ -4,7 +4,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if(isset($_POST['update_profile'])) {
 	//upload image file
 	if(isset($_POST['profile_img'])) {
 		$target_dir = $_SERVER['DOCUMENT_ROOT'].'/augeo/data/user/profile_img/';
@@ -59,6 +59,63 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	header('Location: ../../../account/');
 	exit();
+}
+
+
+elseif (isset($_POST['old_pass'])  && isset($_POST['new_pass']) && isset($_POST['pass_id']) ) {
+    $id = $_POST['pass_id'];
+    $old_password = encrypt(encode($_POST['old_pass']));
+    $new_password =encrypt(encode($_POST['new_pass']));
+
+$result = mysqli_query($conn,"SELECT augeo_user_end.user_account.password FrOm augeo_user_end.user_account where augeo_user_end.user_account.account_id = '$id' ");
+    $found = mysqli_fetch_array($result);
+    if($found['password'] == $old_password){
+    mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.user_account.password = '$new_password' where augeo_user_end.user_account.account_id = '$id'");
+    echo "success";
+    }
+    else{
+        echo "failed";
+    }
+}
+// updating profile
+elseif (isset($_POST['update_email']) && isset($_POST['id_email'])) {
+    $id = $_POST['id_email'];
+    $email = $_POST['update_email'];
+    $result = mysqli_query($conn,"SELECT augeo_user_end.user.email FrOm augeo_user_end.user where augeo_user_end.user.account_id <> '$id' AND augeo_user_end.user.email = '$email' ");
+    if(mysqli_num_rows($result) == 0){
+    mysqli_query($conn,"UPDATE augeo_user_end.user set  augeo_user_end.user.email = '$email' where augeo_user_end.user.account_id = '$id'");
+    echo "success";
+    }
+    else{
+        echo "failed";
+    }
+
+
+
+
+
+
+}
+
+
+
+// deactivating account
+//
+elseif(isset($_POST['deac_pass1']) && isset($_POST['deac_pass2']) && isset($_POST['deac_id'])) {
+    $password1 = encrypt(encode($_POST['deac_pass1']));
+    $id = $_POST['deac_id'];
+
+    $result = mysqli_query($conn,"SELECT augeo_user_end.user_account.password FrOm augeo_user_end.user_account where augeo_user_end.user_account.account_id = '$id' ");
+    $found = mysqli_fetch_array($result);
+    if($found['password'] == $password1){
+    mysqli_query($conn,"UPDATE augeo_user_end.user_account set  augeo_user_end.user_account.state = 0 where augeo_user_end.user_account.account_id = '$id'");
+    echo "success";
+    unset($_SESSION['account_id']);
+    session_destroy();
+    }
+    else{
+        echo "failed";
+    }
 }
 
 ?>

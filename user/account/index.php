@@ -12,8 +12,8 @@
 
 <body>
 	<?php
-		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 		require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 
@@ -72,9 +72,9 @@
 					<!-- PROFILE OVERVIEW -->
 					<div class="content-card">
 						<div id="cover-photo-wrapper">
-							<img id="cover-photo" class="pannable" src="<?php echo 'http://localhost/augeo/data/user/cover_photo/'.$cover_photo ?>" alt="Cover photo">
+							<img id="cover-photo" class="pannable" src="<?php echo $cover_photo ?>" alt="Cover photo">
 						</div>
-						<img id="profile-img" src="<?php echo 'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" alt="Profile picture">
+						<img id="profile-img" src="<?php echo $profile_img ?>" alt="Profile picture">
 						<div id="profile-overview">
 							<div id="name"><?php echo $f_name.' '.substr($m_name, 0, 1).'. '.$l_name ?></div>
 							<div id="augeo-user-since"><i>?</i> months</div>
