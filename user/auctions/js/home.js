@@ -22,7 +22,7 @@ var treeStruct = [
 		text: "Statistics"
 	}
 ];
-$(document).ready(function() {
+
 
 	var tree = $('#tree');
 	tree.treeview({
@@ -32,7 +32,6 @@ $(document).ready(function() {
 
 });
 
-  });
 function update_view(event, node) {
 	$.ajax({
 		url: "php/request_handler.php",
@@ -54,7 +53,16 @@ function handle_error(result, status, xhr) {
 
 
 $(document).ready(function() {
-
+	$.ajax({
+		url: "php/request_handler.php",
+		type: "GET",
+		data: { node_id: 1,id: $("#id").val() },
+		success: function (response){
+			document.getElementById('items').innerHTML = response;
+		}
+		,
+		error: handle_error
+	});
 
 	  });
 

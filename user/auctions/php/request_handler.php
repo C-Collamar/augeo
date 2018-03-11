@@ -55,6 +55,9 @@ if($amount['bid_amount'] == "")
         </a><br>';
 }
 }
+else{
+    echo '<h1 align="center">No Items</h1>';
+}
 }
 
 
@@ -118,6 +121,9 @@ if($amount['bid_amount'] == "")
 
 }
 }
+else{
+    echo '<h1 align="center">No Items</h1>';
+}
 }
 
 elseif($_GET['node_id'] == 4) {
@@ -148,7 +154,7 @@ $amount_user = $result123->fetch_assoc();
 if($amount['bid_amount'] == "")
     $amount['bid_amount'] = 0;
 
-   echo  '<a class="row card-item" href="http://localhost/augeo/item/view/?id='.$item_id.'">
+   echo  '<a class="row card-item" href="http://localhost/augeo/user/auctions/info/?id='.$item_id.'">
                         <div class="col-sm-7 border-right">
                             <div class="media">
                                 <div class="media-left">
@@ -178,6 +184,9 @@ if($amount['bid_amount'] == "")
 
 
 }
+}
+else{
+    echo '<h1 align="center">No Items</h1>';
 }
 }
 
@@ -232,6 +241,9 @@ elseif($_GET['node_id'] == 5){
             </a><br>';
     }
     }
+    else{
+    echo '<h1 align="center">No Items</h1>';
+}
     }
 
 if(isset($_POST['id'])){
