@@ -1,3 +1,0 @@
-[submodule "includes/paypal"]
-	path = includes/paypal
-	url = https://github.com/commercefactory/paypal-adaptive-payments-wrapper-php.git
