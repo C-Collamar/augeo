@@ -23,7 +23,7 @@ $deal_id = $row['deal_id'];
 $img_path = $row['img_path'];
 $name = $row['name'];
 if($row['confirmation'] == 1)
-    header("Location: payment/?deal_id=$deal_id&item_id=$item_id");
+    header("Location: payment/?deal_id=$deal_id&id=$item_id");
 ?>
 
 

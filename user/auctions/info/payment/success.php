@@ -14,6 +14,10 @@ $result = $paypal->call(
 
 if ($result['responseEnvelope']['ack'] == "Success" && $result['status'] == "COMPLETED") {
   echo 'Payment completed';
+
 } else {
   echo 'Handle payment execution failure';
 }
+
+
+  header("Location: http://localhost/augeo/user/auctions/");
