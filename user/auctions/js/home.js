@@ -29,6 +29,7 @@ $(document).ready(function() {
 	data: treeStruct,
 	selectedBackColor: "#a0495e",
 	onNodeSelected: update_view
+
 });
 
   });
