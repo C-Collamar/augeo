@@ -175,7 +175,7 @@ function display404() {
                 <div style="text-align: center">
 
                     <div style="display: inline-block">
-                         <a href='./start.php?deal_id=<?php echo $deal_id; ?>'><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /></a>
+                         <a href='./start.php?deal_id=<?php echo $deal_id; ?>&'><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /></a>
                     </div>
                 </div>
             </div>
