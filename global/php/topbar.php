@@ -48,7 +48,7 @@
 				</li>
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<img src="<?php echo 'http://localhost/augeo/data/user/profile_img/'.$profile_img ?>" id="avatar" alt="Settings">
+						<img src="<?php echo $profile_img ?>" id="avatar" alt="Settings">
 						<span class="caret" style="margin-left: 10px;"></span>
 					</a>
 					<ul class="dropdown-menu">

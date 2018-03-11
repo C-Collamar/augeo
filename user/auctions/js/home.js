@@ -19,35 +19,50 @@ var treeStruct = [
 			text: "You as the seller"
 		}]
 	}, {
-		text: "Unsucessful auctions",
-		selectable: false,
-		nodes: [{
-			text: "You as the bidder"
-		}, {
-			text: "You as the seller"
-		}]
-	}, {
 		text: "Statistics"
 	}
 ];
+$(document).ready(function() {
 
-var tree = $('#tree');
-tree.treeview({
+	var tree = $('#tree');
+	tree.treeview({
 	data: treeStruct,
 	selectedBackColor: "#a0495e",
 	onNodeSelected: update_view
 });
 
+  });
 function update_view(event, node) {
 	$.ajax({
 		url: "php/request_handler.php",
 		type: "GET",
-		data: { id: node.nodeId },
-		success: display_content,
+		data: { node_id: node.nodeId,id: $("#id").val() },
+		success: function (response){
+			document.getElementById('items').innerHTML = response;
+		}
+		,
 		error: handle_error
 	});
+//	alert(node.nodeId);
 }
 
 function handle_error(result, status, xhr) {
 	console.error(status, xhr);
+}
+
+
+
+$(document).ready(function() {
+
+
+	  });
+
+
+
+function validate(form) {
+
+    if(confirm("Are you sure you want to end this Auction?"))
+    var a=1;
+  else
+    return false;
 }
