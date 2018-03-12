@@ -23,22 +23,29 @@ function fetchItems() {
 }
 
 function displayItems(data, textStatus, xhr) {
-    console.log(data);
     var container = document.getElementById('browse-items');
     var fragment = document.createDocumentFragment();
     var items = [];
     for(var i = 0; i < data.length; ++i) {
         var card = document.createElement('div');
         var descClass = (data[i].description.length > 100)? 'overflow' : '';
-        var a = '';
+        var amount, amountClass;
+        if(data[i].initial_price == null) {
+            amount = parseFloat(data[i].highest_bid).toFixed(2);
+            amountClass = 'highest-bid';
+        }
+        else {
+            amount = parseFloat(data[i].initial_price).toFixed(2);
+            amountClass = 'initial-price';
+        }
         card.className = 'grid-item';
         card.innerHTML =
             '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
-                '<img src="' + data[i].img_path + '" alt="">' +
+                '<img src="' + data[i].img_path + '">' +
                 '<div class="item-details">' +
                     '<h4><b>' + data[i].name + '</b></h4>' +
-                    '<p class="item-description ' + descClass + '">' + data[i].description.trim().replace('\n', '<br>') + '</p>' +
-                    '<div class="highest-bid">Php ' + data[i].amount + '</div>' +
+                    '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
+                    '<div class="' + amountClass + '">Php ' + amount + '</div>' +
                     '<div class="tag-list"></div>' +
                 '</div>' +
             '</div>';

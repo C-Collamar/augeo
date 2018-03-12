@@ -9,18 +9,18 @@ $(window).ready(function() {
 
         $.ajax({
             url: 'php/add_item.php',
-            type: 'POST',
+            type: 'post',
             data: formData,
             contentType: false,
             processData: false,
-            // dataType: 'json',
+            dataType: 'json',
             success: function(data, textStatus, xhr) {
                 if(data.error) {
                     alert('An error occured. See console for details.');
                     console.log(data.error);
                     return;
                 }
-                window.location = 'http://localhost/augeo/browse/?item=' + data;
+                window.location = 'http://localhost/augeo/item/view/?id=' + data;
             },
             error: function(data, textStatus, xhr) {
                 alert('An internal error occured. See console for details.');

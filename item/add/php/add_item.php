@@ -26,7 +26,8 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
      * 2. Get the all tag IDs of the item to be inserted
      * 3. Insert item, and get its ID
      * 4. Associate inserted item with its tags
-     * 5. Save item to server and insert item path
+     * 5. Block bidders for the item
+     * 6. Save item to server and insert item path
     **/
 
     //0: if there is no file uploaded
@@ -111,7 +112,17 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     $query = substr($query, 0, -1);
     $conn->query($query) or reportQueryError(mysqli_error($conn), $query);
 
-    //5. Save item images to server and save image path to database
+    //5. Block bidders for the item
+    if($_POST['apply-blocking'] == 'on') {
+        $query = "INSERT INTO augeo_application.blocked_bidder(item_id, user_id) VALUES";
+        foreach($_POST['blocked'] as $user_id) {
+            $query .= '('.$item_id.','.encode($user_id).'),';
+        }
+        $query = substr($query, 0, -1);
+        $conn->query($conn) or reportQueryError(mysqli_error($conn), $query);
+    }
+
+    //6. Save item images to server and save image path to database
     $target_dir = $_SERVER['DOCUMENT_ROOT'].'/augeo/data/user/items/';
     $query = "INSERT INTO augeo_user_end.item_img(item_id, img_path) VALUES ";
 

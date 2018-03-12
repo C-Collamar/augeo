@@ -4,6 +4,7 @@
 <title>Add Item</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/vendor/selectize.js/dist/css/selectize.default.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link rel="stylesheet" href="css/add_item.css">
@@ -32,7 +33,7 @@
 					<div class="hr-sect">IMAGES</div>
                     <div id="img-section">
                         <button type="button" id="addImgBtn" class="btn btn-default" onclick="document.getElementById('item-img').click()">Upload image</button>
-                        <input type="file" accept="image/jpeg" name="imgFiles[]" id="item-img" multiple required>
+                        <input tabindex="-1" type="file" accept="image/jpeg" name="imgFiles[]" id="item-img" multiple required>
                         <div id="img-container" style="padding-top: 5px"></div>
                     </div>
                     <!-- TAGS -->
@@ -40,11 +41,8 @@
                     <div class="form-group container-fluid">
                         <label class="control-label col-sm-1" for="tag-list">Tags:</label>
                         <div class="col-sm-11" style="padding-right: 0px">
-                            <input type="text" name="tags" class="form-control" id="tag-list" placeholder="Enter one or more tag names" required>
-                            <p class="note">
-                                Spaces will automatically be converted into hyphens.<br>Programmer's note: I'm planning on using
-                                selectize.js for tagging. As of now, input tags wil be submitted in plain text separated by commas.
-                            </p>
+                            <input type="text" name="tags" id="tag-list" required>
+                            <p class="note">Enter tags related to the item. Note that spaces will automatically be converted into hyphens.</p>
                         </div>
                     </div>
                 </div>
@@ -78,47 +76,18 @@
                     <span>Additional Rules</span>
                     <i id="chevron-icon" class="glyphicon glyphicon-chevron-down" style="float: right"></i>
                 </div>
-                <div class="panel-collapse collapse" id="block-list">
+                <div class="panel-collapse" id="block-list">
                     <div class="panel-body">
                         <div class="form-group container-fluid">
-                            <label class="control-label" for="description">Users to block for this item:</label>
+                            <label class="control-label" for="select">User to block:</label>
                             <div class="input-group">
-                                <input class="form-control" placeholder="Search user">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                <select name="select" id="username-selectize"></select>
+                                <span class="input-group-addon"><div id="search-user-icon" class="glyphicon glyphicon-search"></div></span>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mary</td>
-                                        <td>Moe</td>
-                                        <td>mary@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>July</td>
-                                        <td>Dooley</td>
-                                        <td>july@example.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="block-bidders" checked>Block users in this list
-                            </label>
+                        <div id="blocked-bidders"></div>
+                        <div class="checkbox" style="margin: 10px 0px">
+                            <label><input type="checkbox" name="apply-blocking" checked>Apply rules</label>
                         </div>
                     </div>
                 </div>
@@ -138,6 +107,7 @@
 
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://localhost/augeo/global/vendor/selectize.js/dist/js/standalone/selectize.min.js"></script>
     <script src="js/input_handler.js"></script>
     <script src="js/add_item.js"></script>
 </body>
