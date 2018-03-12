@@ -22,3 +22,6 @@
 [submodule "global/vendor/selectize.js"]
 	path = global/vendor/selectize.js
 	url = https://github.com/selectize/selectize.js.git
+[submodule "global/vendor/simplemde-markdown-editor"]
+	path = global/vendor/simplemde-markdown-editor
+	url = https://github.com/sparksuite/simplemde-markdown-editor.git
