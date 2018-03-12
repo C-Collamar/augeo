@@ -47,12 +47,15 @@ $(window).ready(function() {
         searchField: 'username',
         onType: function(value) {
             if(value == '') {
-                this.clearOptions();
+                this.close();
+            }
+        },
+        onDropdownOpen: function($dropdown) {
+            if(!this.lastQuery.length) {
                 this.close();
             }
         },
         load: function(query, callback) {
-            this.clearOptions();
             var term = query.trim();
             if(term == '') {
                 callback();
@@ -85,6 +88,7 @@ $(window).ready(function() {
         },
         render: {
             item: function(item, escape) {
+                console.log('Will render item');
                 var table = document.getElementById('blocked-bidders');
                 var row = document.createElement('div');
                 $(row).hide();
@@ -187,13 +191,11 @@ function suggest_names(term) {
 }
 
 function removeRow(elem, val) {
-/*  var index = suggest_user$[0].selectize.items.indexOf(val);
+    var index = suggest_user$[0].selectize.items.indexOf(val);
     if(index > -1) {
         suggest_user$[0].selectize.items.splice(index, 1);
     }
     suggest_user$[0].selectize.removeItem(val, false);
-*/
-    suggest_user$[0].selectize.clear();
     var row = elem.parentElement;
     $(row).slideUp('fast', function() { $(this).remove(); });
 }
