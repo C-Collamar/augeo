@@ -9,7 +9,7 @@ $(window).ready(function() {
 
         $.ajax({
             url: 'php/add_item.php',
-            type: 'POST',
+            type: 'post',
             data: formData,
             contentType: false,
             processData: false,
