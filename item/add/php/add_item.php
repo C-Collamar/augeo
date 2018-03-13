@@ -1,15 +1,10 @@
 <?php
 
-//custom error handlers
-set_error_handler(function($errno, $errstr) {
-    header("HTTP/1.1 500 Internal Server Error");
-    header('Content-Type: text/html; charset=UTF-8');
-    exit("ERROR: [$errno] $errstr.");
-});
-
 function reportQueryError($err_msg, $query) {
-    echo 'Query: '.$query.'. ';
-    trigger_error($err_msg);
+    header($_SERVER['SERVER_PROTOCOL']." 500 Internal Server Error");
+    header('Content-Type: text/html; charset=UTF-8');
+    echo 'Error: '.$err_msg.PHP_EOL.'Query: '.$query;
+    exit();
 }
 
 //Objective: insert new item for auction to the database and redirect to the uploaded item page
@@ -32,7 +27,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
     //0: if there is no file uploaded
     if($_FILES['imgFiles']['tmp_name'][0] == '') {
-        exit(trigger_error("Upload at least one file."));
+        header('HTTP/1.1 400 Bad Request');
+        header('Content-Type: text/html; charset=UTF-8');
+        exit('Upload at least one image file');
     }
     
     //trim and convert tags to lowercase
@@ -119,7 +116,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
             $query .= '('.$item_id.','.encode($user_id).'),';
         }
         $query = substr($query, 0, -1);
-        $conn->query($conn) or reportQueryError(mysqli_error($conn), $query);
+        $conn->query($query) or reportQueryError(mysqli_error($conn), $query);
     }
 
     //6. Save item images to server and save image path to database
@@ -137,9 +134,13 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     $conn->query($query) or reportQueryError(mysqli_error($conn), $query);
 
     //return success
+    header($_SERVER['SERVER_PROTOCOL']." 200 OK");
     header('Content-Type: application/json; charset=UTF-8');
     exit(json_encode($item_id));
 }
-else trigger_error("Invalid access.");
+else {
+    header($_SERVER['SERVER_PROTOCOL']." 403 Forbidden");
+    exit();
+}
 
 ?>
