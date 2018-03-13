@@ -1,6 +1,12 @@
 <?php
-	//used to determine if user has logged in
-//	require_once $_SERVER['DOCUMENT_ROOT'].'/augeo/global/php/session.php';
+
+if(session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+if(isset($_SESSION['account_id'])) {
+    $account_id_session = $_SESSION['account_id'];
+}
+
 ?>
 
 <nav class="navbar navbar-default navbar-fixed-top">

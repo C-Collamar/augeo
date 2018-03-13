@@ -1,3 +1,5 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php"; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
