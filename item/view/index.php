@@ -279,6 +279,7 @@ function display404() {
 
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://localhost/augeo/global/vendor/marked/marked.min.js"></script>
     <script src="js/view_item.js"></script>
 </body>
 </html>
