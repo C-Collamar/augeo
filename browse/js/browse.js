@@ -6,7 +6,7 @@ window.onload = function() {
         columnWidth: '.grid-sizer',
         percentPosition: true,
         horizontalOrder: true,
-        gutter: 10
+        gutter: 0
     });
 
     fetchItems();
@@ -40,13 +40,15 @@ function displayItems(data, textStatus, xhr) {
         }
         card.className = 'grid-item';
         card.innerHTML =
-            '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
-                '<img src="' + data[i].img_path + '">' +
-                '<div class="item-details">' +
-                    '<h4><b>' + data[i].name + '</b></h4>' +
-                    '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
-                    '<div class="' + amountClass + '">Php ' + amount + '</div>' +
-                    '<div class="tag-list"></div>' +
+            '<div style="padding: 5px;">' +
+                '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
+                    '<img src="' + data[i].img_path + '">' +
+                    '<div class="item-details">' +
+                        '<h4><b>' + data[i].name + '</b></h4>' +
+                        '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
+                        '<div class="' + amountClass + '">Php ' + amount + '</div>' +
+                        '<div class="tag-list"></div>' +
+                    '</div>' +
                 '</div>' +
             '</div>';
 
