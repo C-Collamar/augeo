@@ -88,7 +88,6 @@ $(window).ready(function() {
         },
         render: {
             item: function(item, escape) {
-                console.log('Will render item');
                 var table = document.getElementById('blocked-bidders');
                 var row = document.createElement('div');
                 $(row).hide();
@@ -198,4 +197,17 @@ function removeRow(elem, val) {
     suggest_user$[0].selectize.removeItem(val, false);
     var row = elem.parentElement;
     $(row).slideUp('fast', function() { $(this).remove(); });
+}
+
+function useEditor(userWants) {
+    if(userWants) {
+        editor = new SimpleMDE({
+            element: document.getElementById('description'),
+            promptURLs: true
+        });
+    }
+    else {
+        editor.toTextArea();
+        editor = null;
+    }
 }

@@ -2,6 +2,7 @@ $(window).ready(function() {
     $('form').submit(function(event) {
         event.preventDefault(); //prevent form's default action
         var formData = new FormData(this);
+
         var imgFiles = document.getElementById('item-img').files;
         for(var i = 0; i < imgFiles.length; ++i) {
             formData.append('imgFiles[' + i + ']', imgFiles[i]);
