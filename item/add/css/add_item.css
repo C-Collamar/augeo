@@ -28,10 +28,69 @@ label.control-label.col-sm-1 > .glyphicon {
     padding-right: 10px;
 }
 
-textarea {
+#description {
     min-width: 100%;
     max-width: 100%;
-    min-height: 100px;
+    min-height: 371px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 17px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(19px);
+    -ms-transform: translateX(19px);
+    transform: translateX(19px);
+}
+
+.slider.round {
+    border-radius: 17px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+label[for="advanced-editor-mode"] {
+    padding-right: 10px;
 }
 
 #img-section {
@@ -100,10 +159,79 @@ input[name=initial-price], input[name=bid-interval] {
     transition: background-color 0.2s;
 }
 
+#additional-rules .panel-footer {
+    padding-top: 5px;
+}
+
 .note {
     color: #999999;
     padding-top: 5px;
     user-select: none;
+}
+
+.loading-icon {
+    height: 15px;
+    width: 15px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+    border: 3px solid #dddddd;
+    border-top: 3px solid #3498db;
+    background-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+span.label {
+    color: #777777;
+    font-weight: lighter;
+    padding-right: 10px;
+}
+
+span.label::before { content: "@"; }
+
+#blocked-bidders {
+    width: 100%;
+}
+
+.user-row {
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+}
+
+.name, .username {
+    display: inline-block;
+    /* padding: 8px 0px; */
+}
+
+.user-row > .username::before { content: "@"; }
+.user-row > .username::before, .user-row > .username::after { font-style: normal; }
+.user-row > .username {
+    font-style: italic;
+    padding-left: 0px;
+    color: #777777;
+}
+
+.remove-icon {
+    position: absolute;
+    right: 0px;
+    display: inline-block;
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-transition: opacity 0.1s linear;
+    -moz-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear;
+}
+.user-row:hover .remove-icon {
+    visibility: visible;
+    opacity: 1;
 }
 
 @media only screen and (max-width: 922px) {

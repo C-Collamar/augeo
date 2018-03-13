@@ -1,6 +1,9 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
+session_start();
+if(isset($_SESSION['account'])) {
+    $account_id_session = $_SESSION['account_id'];
+}
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
