@@ -25,3 +25,6 @@
 [submodule "global/vendor/simplemde-markdown-editor"]
 	path = global/vendor/simplemde-markdown-editor
 	url = https://github.com/sparksuite/simplemde-markdown-editor.git
+[submodule "global/vendor/marked"]
+	path = global/vendor/marked
+	url = https://github.com/markedjs/marked.git
