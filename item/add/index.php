@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/selectize.js/dist/css/selectize.default.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/vendor/simplemde-markdown-editor/dist/simplemde.min.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link rel="stylesheet" href="css/add_item.css">
@@ -28,6 +29,15 @@
                     <div class="form-group container-fluid">
                         <label class="control-label" for="description">Description:</label>
                         <textarea name="description" class="form-control" id="description" placeholder="Describe the item in detail" required></textarea>
+                        <div style="display: table; float: right; padding: 10px;">
+                            <div style="display: table-row">
+                                <label for="advanced-editor-mode" style="display: table-cell; vertical-align: middle">Show advanced editor</label>
+                                <label class="switch" style="display: table-cell; vertical-align: middle">
+                                    <input type="checkbox" id="advanced-editor-mode" onchange="useEditor(this.checked)">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <!-- IMAGES -->
 					<div class="hr-sect">IMAGES</div>
@@ -76,19 +86,21 @@
                     <span>Additional Rules</span>
                     <i id="chevron-icon" class="glyphicon glyphicon-chevron-down" style="float: right"></i>
                 </div>
-                <div class="panel-collapse" id="block-list">
+                <div class="panel-collapse in" id="block-list">
                     <div class="panel-body">
                         <div class="form-group container-fluid">
-                            <label class="control-label" for="select">User to block:</label>
+                            <label class="control-label" for="select">Blocked list:</label>
                             <div class="input-group">
                                 <select name="select" id="username-selectize"></select>
                                 <span class="input-group-addon"><div id="search-user-icon" class="glyphicon glyphicon-search"></div></span>
                             </div>
                         </div>
                         <div id="blocked-bidders"></div>
-                        <div class="checkbox" style="margin: 10px 0px">
-                            <label><input type="checkbox" name="apply-blocking" checked>Apply rules</label>
-                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="apply-blocking" checked>Apply rules</label>
                     </div>
                 </div>
             </div>
@@ -108,6 +120,7 @@
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/selectize.js/dist/js/standalone/selectize.min.js"></script>
+    <script src="http://localhost/augeo/global/vendor/simplemde-markdown-editor/dist/simplemde.min.js"></script>
     <script src="js/input_handler.js"></script>
     <script src="js/add_item.js"></script>
 </body>
