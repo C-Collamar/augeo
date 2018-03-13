@@ -14,16 +14,14 @@
     require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php";
     require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 
-$item_id = $_GET['id'];
-$sql = "SELECT * FROM augeo_application.bid,augeo_application.deal,augeo_user_end.item,augeo_user_end.item_img WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id AND  augeo_user_end.item_img.item_id = augeo_user_end.item.item_id AND augeo_application.bid.item_id = $item_id";
+$bid_id = $_GET['id'];
+$sql = "SELECT * FROM augeo_application.bid,augeo_application.deal,augeo_user_end.user WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id  AND augeo_application.bid.user_id = augeo_user_end.user.user_id AND augeo_application.deal.bid_id = $bid_id";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$due_date =  $row['due_date'];
 $deal_id = $row['deal_id'];
-$img_path = $row['img_path'];
-$name = $row['name'];
-if($row['confirmation'] == 1)
-    header("Location: payment/?deal_id=$deal_id&id=$item_id");
+$full_name = $row['f_name'].' '.$row['m_name'].' '.$row['l_name'];
+$confirmation = $row['confirmation'];
+
 ?>
 
 
@@ -37,19 +35,15 @@ if($row['confirmation'] == 1)
 
                 <div class="container-fluid">
                 <div class="well">
-                    <h3>NOTICE TO AUCTION WINNERS </h3><br><br>
-                    <p><h4>     Your Item <?php echo $name; ?>,</h4><br>
+                    <h1>Transaction #<?php echo $deal_id; ?> </h1>
+                    <p><h3> Status: Paid </h3><br>
 
-                    <img src="<?php echo $img_path; ?>">
-
+        
+                    <h4>Item has been paid. </h4>
 
                     </p><br><br>
-                    <h4>You must confirm this purchase before <?php echo $due_date ?>. Failure to respond will void your Order</h4>
-                    <form action="php/index.php" method="POST">
-                    <input type="hidden" name="deal" id="deal" value="<?php echo $deal_id; ?>">
-                    <input type="hidden" name="item_id" id="item_id" value="<?php echo $item_id; ?>">
-                    <input type="submit" class="btn btn-primary" name="confim" id="confirm" value="Confirm Order">
-                    </form>
+                    <h4> </h4>
+
                 </div>
 
 

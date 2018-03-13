@@ -1,0 +1,128 @@
+#tree { user-select: none; }
+#tree a { text-decoration: none; }
+
+#tree-view,
+#content-wrapper {
+	position: absolute;
+	top: 55px;
+	left: 0px;
+	overflow-y: auto;
+}
+
+#tree-view {
+	position: absolute;
+	width: 300px;
+	padding: 10px;
+	z-index: 1;
+}
+
+#content-wrapper {
+	text-align: right;
+	right: 0px;
+	bottom: 0px;
+}
+
+#content {
+	width: -webkit-calc(100% - 300px);
+	width: -moz-calc(100% - 300px);
+	width: calc(100% - 300px);
+	display: inline-block;
+	padding: 10px;
+	text-align: left;
+}
+
+.content-card {
+	background-color: #fafafa;
+	border: 1px solid #eeeeee;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+#cover-photo-wrapper {
+	overflow: hidden;
+	max-height: 200px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#cover-photo {
+	width: 100%;
+	height: auto;
+	-ms-transform: translateY(-25%);
+	-moz-transform: translateY(-25%);
+	-webkit-transform: translateY(-25%);
+	transform: translateY(-25%);
+	transition: transform 0.3s ease-out;
+	z-index: 0;
+}
+
+#profile-img {
+	width: 200px;
+	height: auto;
+	border-radius: 50%;
+	position: relative;
+	margin-top: -180px;
+	margin-left: 15px;
+	z-index: 1;
+	display: inline-block;
+}
+
+#name {
+	font-size: 24px;
+}
+
+#profile-overview {
+	display: inline-block;
+	padding: 15px;
+}
+
+#augeo-user-since::before {
+	content: "Augeo user for ";
+}
+
+#augeo-user-since::before,
+#augeo-user-since {
+	font-size: 16px;
+	color: #555555;
+	margin-bottom: 10px;
+}
+
+#items-auctioned::before {
+	content: "Items auctioned: ";
+}
+
+#items-bid::before {
+	content: "Items bid: ";
+}
+
+#items-auctioned::before,
+#items-bid::before {
+	font-weight: bold;
+	color: #444444;
+}
+
+.hr-sect {
+	padding-top: 5px;
+}
+
+.content-card > table {
+	margin: 15px;
+}
+
+.content-card > table tr > th {
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+@media only screen and (max-width: 820px) {
+	#profile-img {
+		width: 150px;
+		margin-top: -95px;
+	}
+	#tree-view, #content-wrapper, #content {
+		width: 100%;
+		float: none;
+		position: initial;
+	}
+}
