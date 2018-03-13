@@ -67,7 +67,9 @@ if(isset($_SESSION['account_id'])) {
 			<?php } else { //otherwise print the HTML below ?>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="http://localhost/augeo/login/">Log in</a>
+					<a href="http://localhost/augeo/login/"><span class="glyphicon glyphicon-log-in"></span>
+					<span style="padding-left: 5px">Log in</span>
+					</a>
 				</li>
 			</ul>
 			<?php } ?>

@@ -1,8 +1,15 @@
 <?php
-session_start();
-if(isset($_SESSION['account_id'])){
-	header("Location: http://localhost/augeo");
+
+if(session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
+
+if(isset($_SESSION['account_id'])) {
+    header($_SERVER['SERVER_PROTOCOL']." 302 Found");
+	header("Location: http://localhost/augeo");
+	exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +22,15 @@ if(isset($_SESSION['account_id'])){
 </head>
 <body>
 	<?php
-		if(isset($_GET['activated'])){
-			echo '<input type="hidden" name="activated" id="activated" value="1">';
-		}
+	if(isset($_GET['activated'])) {
+		echo '<input type="hidden" name="activated" id="activated" value="1">';
+	}
+	$redir_link = 'http://localhost/augeo/user/account';
+	if(isset($_GET['redir'])) {
+		$redir_link = $_GET['redir'];
+		unset($_GET['redir']);
+	}
+	echo '<input type="hidden" id="redir_link" value="'.$redir_link.'">';
 	?>
 
 	<!-- Login form -->

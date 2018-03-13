@@ -1,8 +1,11 @@
 <?php
-session_start();
-include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
-include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php");
 
+if(session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
 if(isset($_POST['uname']) && isset($_POST['pass'])){
 	$username = encode($_POST['uname']);

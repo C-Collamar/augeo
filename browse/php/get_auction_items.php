@@ -1,9 +1,8 @@
 <?php
 
 //Objective: retrieve basic information on items in auction
-require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
-require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
-require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
 /**
  * PROCESS:

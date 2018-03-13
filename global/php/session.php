@@ -1,12 +1,12 @@
 <?php
-
 if(session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 if(!isset($_SESSION['account_id'])) {
+    $redir_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     header($_SERVER['SERVER_PROTOCOL']." 302 Found");
-    header("Location: http://localhost/augeo/login");
+    header("Location: http://localhost/augeo/login?redir=".$redir_link);
     exit();
 }
 elseif(isset($_GET['logout'])) {
@@ -17,10 +17,10 @@ elseif(isset($_GET['logout'])) {
     $date = date_create();
     $date = date_format($date, 'Y-m-d H:i:s');
     mysqli_query($conn,"UPDATE augeo_application.user_logtime set augeo_application.user_logtime.logout_time = '$date' WHERE logtime_id = '$log_id'");
-    echo mysqli_error($conn);
-    header("Location: http://localhost/augeo/login");
     unset($_SESSION['account_id']);
     session_destroy();
+    header("Location: http://localhost/augeo/login");
+    exit();
 }
 elseif(isset($_SESSION['account_id'])) {
     $account_id_session = $_SESSION['account_id'];
