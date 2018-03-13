@@ -19,5 +19,5 @@ if ($result['responseEnvelope']['ack'] == "Success" && $result['status'] == "COM
   echo 'Handle payment execution failure';
 }
 
-
-  header("Location: http://localhost/augeo/user/auctions/");
+$deal_id = $GET['deal_id'];
+  header("Location: http://localhost/augeo/user/auctions/info_winnner/success_transac.php?id=$deal_id");

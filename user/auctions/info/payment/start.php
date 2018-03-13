@@ -33,7 +33,7 @@ $result = $paypal->call(
     'memo'  => 'Order number #'.$deal_no,
 
     'cancelUrl' => ' /cancel.php',
-    'returnUrl' => ' /success.php',
+    'returnUrl' => ' /success.php?id='.$deal_no,
 
     'receiverList' => array(
       'receiver' => array(
