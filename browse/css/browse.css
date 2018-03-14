@@ -23,16 +23,14 @@ select {
     padding: 5px;
 }
 
-.grid-sizer,
-.grid-item {
-    width: 25%;
-    /* border: 5px solid black; */
+.grid {
+    margin: 0px auto;
 }
 
 .grid-item {
+    width: 300px;
     float: left;
     cursor: pointer;
-    margin-bottom: 10px;
 }
 
 .grid-item img {
@@ -76,7 +74,7 @@ select {
     background-color: #699ef5;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .grid-sizer,
     .grid-item {
         width: 25%;
@@ -102,4 +100,4 @@ select {
     .grid-item {
         width: 100%;
     }
-}
+} */
