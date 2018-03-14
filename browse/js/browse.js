@@ -1,15 +1,28 @@
 window.onload = function() {
     $('#browse_nav').addClass('active');
 
-    grid = new Masonry(document.querySelector('.grid'), {
+    $grid = $('.grid').masonry({
         itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true,
+        columnWidth: 300,
+        fitWidth: true,
         horizontalOrder: true,
-        gutter: 0
+        gutter: 10
     });
 
     fetchItems();
+
+    $('#browse-options').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'php/get_auction_items.php',
+            type: 'get',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: displayItems,
+            error: handleError
+        });
+
+    });
 };
 
 function fetchItems() {
@@ -18,37 +31,44 @@ function fetchItems() {
         type: 'get',
         dataType: 'json',
         success: displayItems,
-        error: handleError
+        error: handleError,
+        beforeSend: function() {
+            document.getElementById('loader').innerHTML =
+            '<div class="loader-icon"></div><span class="loader-msg">Loading items</span>';
+        },
+        complete: function() {
+            document.getElementById('loader').innerHTML = '';
+        }
     });
 }
 
 function displayItems(data, textStatus, xhr) {
     var container = document.getElementById('browse-items');
+    $grid.masonry('remove', $grid.find('.grid-item'));
+    $grid.masonry('layout');
     var fragment = document.createDocumentFragment();
     var items = [];
     for(var i = 0; i < data.length; ++i) {
         var card = document.createElement('div');
         var descClass = (data[i].description.length > 100)? 'overflow' : '';
         var amount, amountClass;
-        if(data[i].initial_price == null) {
-            amount = parseFloat(data[i].highest_bid).toFixed(2);
-            amountClass = 'highest-bid';
-        }
-        else {
+        if(data[i].amount == null) {
             amount = parseFloat(data[i].initial_price).toFixed(2);
             amountClass = 'initial-price';
         }
+        else {
+            amount = parseFloat(data[i].amount).toFixed(2);
+            amountClass = 'highest-bid';
+        }
         card.className = 'grid-item';
         card.innerHTML =
-            '<div style="padding: 5px;">' +
-                '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
-                    '<img src="' + data[i].img_path + '">' +
-                    '<div class="item-details">' +
-                        '<h4><b>' + data[i].name + '</b></h4>' +
-                        '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
-                        '<div class="' + amountClass + '">Php ' + amount + '</div>' +
-                        '<div class="tag-list"></div>' +
-                    '</div>' +
+            '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
+                '<img src="' + data[i].img_path + '">' +
+                '<div class="item-details">' +
+                    '<h4><b>' + data[i].name + '</b></h4>' +
+                    '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
+                    '<div class="' + amountClass + '">Php ' + amount + '</div>' +
+                    '<div class="tag-list"></div>' +
                 '</div>' +
             '</div>';
 
@@ -66,7 +86,7 @@ function displayItems(data, textStatus, xhr) {
     }
 
     container.appendChild(fragment); //append elements to container
-    grid.appended(items);
+    $grid.append(items).masonry('appended', items);
 }
 
 function handleError(xhr, textStatus, errThrown) {

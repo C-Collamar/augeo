@@ -11,36 +11,30 @@
 <body>
     <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php"; ?>
 
+    <div id="loader"></div>
     <form id="browse-options">
-        <!-- Filter by, Order, Order by -->
-        <div>
-            <span>Filter:</span>
-            <select name="" id="">
-                <option value="">None</option>
-                <option value="">Item name</option>
-                <option value="">Tag name</option>
-            </select>
-        </div>
+        <!-- Order, Order by -->
         <div>
             <span>Order by:</span>
-            <select name="" id="">
-                <option value="">Item name</option>
-                <option value="">Date of upload</option>
+            <select name="order-by" id="">
+                <option value="cheap price">Item amount</option>
+                <option value="upload date">Date of upload</option>
+                <option value="item name">Item name</option>
+                <option value="popularity">Popularity</option>
             </select>
         </div>
         <div>
             <span>Ordering:</span>
-            <select name="" id="">
-                <option value="">Ascending</option>
-                <option value="">Descending</option>
+            <select name="ordering" id="">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-success">Go</button>
+        <button type="submit" class="btn btn-success" name="filter">Go</button>
     </form>
     <div style="width: 100%">
         <div class="grid" id="browse-items">
             <div class="grid-sizer"></div>
-            <div class="gutter-sizer"></div>
         </div>
     </div>
 
