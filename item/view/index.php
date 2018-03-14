@@ -180,10 +180,13 @@ function display404() {
                     <div style="display: inline-block">
                         <span id="amount-label">Current amount</span><span id="amount">Php <?php echo $curr_amount; ?></span>
                     </div>
+                    <?php if(!isset($account_id_session) || isset($account_id_session) && $account_id_session != $item_info['user_id']) { ?>
                     <div style="display: inline-block">
                         <button id="bid-sect-toggler" class="btn btn-success" data-toggle="collapse" data-target="#bid-sect">Bid</button>
                     </div>
+                    <?php } ?>
                 </div>
+                <?php if(isset($account_id_session) && $account_id_session != $item_info['user_id']) { ?>
                 <div id="bid-sect" class="collapse panel panel-default" style="margin-top: 20px">
                     <div class="panel-heading">INSTUCTIONS</div>
                     <form id="bid-form" class="panel-body">
@@ -205,6 +208,17 @@ function display404() {
                         </div>
                     </form>
                 </div>
+                <?php } elseif(!isset($account_id_session)) {
+                    $redir_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                    $anchor_tag = '<a href="http://localhost/augeo/login/?redir='.$redir_link.'">sign in</a>';
+                ?>
+                <div id="bid-sect" class="collapse panel panel-default" style="margin-top: 20px">
+                    <div class="panel-heading">BEFORE BIDDING</div>
+                    <div class="panel-body">
+                        <p>To participate, you must first <?php echo $anchor_tag; ?>.</p>
+                    </div>
+                </div>
+                <?php } ?>
                 <div id="description"><?php echo $item_descr; ?></div>
             </div>
         </div>
