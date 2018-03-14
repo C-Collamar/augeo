@@ -15,7 +15,6 @@
 
     <div id="loader"></div>
     <form id="browse-options">
-        <!-- Order, Order by -->
         <div>
             <span>Order by:</span>
             <select name="order-by" id="">
@@ -39,30 +38,10 @@
             <div class="grid-sizer"></div>
         </div>
     </div>
-
+    <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/masonry/dist/masonry.pkgd.js"></script>
     <script src="js/browse.js"></script>
-    <!-- TEMPLATE -->
-    <!--
-        <div class="grid-item">
-            <div class="card">
-                <img src="http://localhost/augeo/data/user/items/0_0.jpg" alt="">
-                <div class="item-details">
-                    <h4><b>XBox360</b></h4>
-                    <p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus, sapiente...</p>
-                    <div class="highest-bid">Php 5.00</div>
-                    <div class="tag-list">
-                        <a href="">tagname-2</a>
-                        <a href="">tagname-1</a>
-                        <a href="">tagname-3</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    -->
-    <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
 </body>
 </html>

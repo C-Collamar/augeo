@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/css/footer.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
 	<link rel="stylesheet" href="../../global/css/default.css">
 	<link rel="stylesheet" href="css/account.css">
@@ -141,9 +143,9 @@
 					</div>
 				</div>
 			</div>
+			<?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
 		</div>
 	</div>
-
 	<script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
