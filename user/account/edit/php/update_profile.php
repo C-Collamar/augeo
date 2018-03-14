@@ -6,7 +6,7 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
 if(isset($_POST['update_profile'])) {
 	//upload image file
-	if(isset($_POST['profile_img'])) {
+	if(isset($_FILES['profile_img'])) {
 		$target_dir = $_SERVER['DOCUMENT_ROOT'].'/augeo/data/user/profile_img/';
 		$target_file = $target_dir.basename($_FILES['profile_img']['name']);
 		$uploadOk = true;
@@ -21,7 +21,6 @@ if(isset($_POST['update_profile'])) {
 		// Check if image file is a actual image or fake image
 		$check = getimagesize($_FILES["profile_img"]["tmp_name"]);
 		if($check === false) {
-			$_SESSION['message'] += 'Uploaded image is empty. ';
 			$uploadOk = false;
 		}
 
@@ -32,6 +31,9 @@ if(isset($_POST['update_profile'])) {
 		else {
 			$_SESSION['message'] += 'Profile image is not modified.';
 		}
+	}
+	else {
+		exit(print_r($_FILES));
 	}
 
 	$f_name = encode($_POST['f_name']);
@@ -53,8 +55,8 @@ if(isset($_POST['update_profile'])) {
 		"WHERE account_id = ".$_SESSION['account_id']
 	);
 
-	if(mysqli_affected_rows($conn) != 1) {
-		$_SESSION['message'] += 'A query error occured.';
+	if(!$result) {
+		exit(mysqli_error($conn));
 	}
 
 	header('Location: ../../../account/');
