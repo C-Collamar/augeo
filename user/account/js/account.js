@@ -55,7 +55,7 @@ $('.pannable')
 	})
 	.on('mousemove', function(e) {
 		$(this).css({
-			'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%'
+			'transform-origin': (((e.pageX - $(this).offset().left) / 1.1) / $(this).width()) * 100 + '% ' + (((e.pageY - $(this).offset().top) / 1.1) / $(this).height()) * 100 + '%'
 		});
 	})
 
