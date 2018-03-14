@@ -5,7 +5,8 @@ window.onload = function() {
         itemSelector: '.grid-item',
         columnWidth: 300,
         fitWidth: true,
-        horizontalOrder: true
+        horizontalOrder: true,
+        gutter: 10
     });
 
     fetchItems();
@@ -30,7 +31,14 @@ function fetchItems() {
         type: 'get',
         dataType: 'json',
         success: displayItems,
-        error: handleError
+        error: handleError,
+        beforeSend: function() {
+            document.getElementById('loader').innerHTML =
+            '<div class="loader-icon"></div><span class="loader-msg">Loading items</span>';
+        },
+        complete: function() {
+            document.getElementById('loader').innerHTML = '';
+        }
     });
 }
 
@@ -54,15 +62,13 @@ function displayItems(data, textStatus, xhr) {
         }
         card.className = 'grid-item';
         card.innerHTML =
-            '<div style="padding: 5px;">' +
-                '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
-                    '<img src="' + data[i].img_path + '">' +
-                    '<div class="item-details">' +
-                        '<h4><b>' + data[i].name + '</b></h4>' +
-                        '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
-                        '<div class="' + amountClass + '">Php ' + amount + '</div>' +
-                        '<div class="tag-list"></div>' +
-                    '</div>' +
+            '<div class="card" onclick="viewItem(' + data[i].item_id + ')">' +
+                '<img src="' + data[i].img_path + '">' +
+                '<div class="item-details">' +
+                    '<h4><b>' + data[i].name + '</b></h4>' +
+                    '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
+                    '<div class="' + amountClass + '">Php ' + amount + '</div>' +
+                    '<div class="tag-list"></div>' +
                 '</div>' +
             '</div>';
 

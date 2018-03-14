@@ -11,6 +11,7 @@
 <body>
     <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/topbar.php"; ?>
 
+    <div id="loader"></div>
     <form id="browse-options">
         <!-- Order, Order by -->
         <div>
@@ -34,7 +35,6 @@
     <div style="width: 100%">
         <div class="grid" id="browse-items">
             <div class="grid-sizer"></div>
-            <div class="gutter-sizer"></div>
         </div>
     </div>
 
