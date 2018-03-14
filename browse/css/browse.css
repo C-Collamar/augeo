@@ -23,7 +23,6 @@ select {
     padding: 5px;
 }
 
-.gutter-sizer { width: 1%; }
 .grid-sizer,
 .grid-item {
     width: 25%;

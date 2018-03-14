@@ -10,6 +10,19 @@ window.onload = function() {
     });
 
     fetchItems();
+
+    $('#browse-options').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'php/get_auction_items.php',
+            type: 'get',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: displayItems,
+            error: handleError
+        });
+
+    });
 };
 
 function fetchItems() {
@@ -24,6 +37,10 @@ function fetchItems() {
 
 function displayItems(data, textStatus, xhr) {
     var container = document.getElementById('browse-items');
+    while(container.firstChild) {
+        grid.remove(container.firstElementChild);
+        container.removeChild(container.firstChild);
+    }
     var fragment = document.createDocumentFragment();
     var items = [];
     for(var i = 0; i < data.length; ++i) {
