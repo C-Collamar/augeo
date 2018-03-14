@@ -9,7 +9,7 @@
 
 .your-bid::before {
 	display: block;
-	content: "Your bid current: ";
+	content: "Your bid: ";
 }
 
 .highest-bid::before {
