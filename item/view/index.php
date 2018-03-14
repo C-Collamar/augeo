@@ -238,6 +238,10 @@ function display404() {
                                 <td>Php <?php echo sprintf("%.2f", $item_info['initial_price']); ?></td>
                             </tr>
                             <tr>
+                                <th>Bid interval</th>
+                                <td>Php <?php echo sprintf("%.2f", $item_info['bid_interval']); ?></td>
+                            </tr>
+                            <tr>
                                 <th>Upload date</th>
                                 <td><?php echo date("F j, Y", strtotime($item_info['timestamp'])); ?></td>
                             </tr>
