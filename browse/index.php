@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/css/footer.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link rel="stylesheet" href="css/browse.css">
 </head>
@@ -61,5 +63,6 @@
             </div>
         </div>
     -->
+    <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
 </body>
 </html>

@@ -2,7 +2,7 @@
     <div class="footer-left">
         <div>
             <img src="http://localhost/augeo/global/img/logo.png" alt="augeo logo">
-            <span>AUGEO<span style="font-style:italic">Web Service</span>
+            <span>AUGEO<span style="font-style:italic">Web Service</span></span>
         </div>
         <p class="footer-links">
             <a href="#">Home</a> &#x2027;
