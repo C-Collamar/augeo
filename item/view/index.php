@@ -61,14 +61,17 @@ function display404() {
                 "item.*, ".
                 "user.user_id, ".
                 "f_name, ".
-                "m_name, ".
+                "LEFT(m_name, 1) AS mi, ".
                 "l_name, ".
                 "email, ".
-                "profile_img ".
+                "profile_img, ".
+                "user_account.username ".
             "FROM ".
                 "augeo_user_end.item, ".
-                "augeo_user_end.user ".
+                "augeo_user_end.user, ".
+                "augeo_user_end.user_account ".
             "WHERE ".
+                "user_account.account_id = user.account_id AND ".
                 "user.user_id = item.user_id AND ".
                 "item.item_id = $item_id AND ".
                 "item.state = 0";
@@ -80,9 +83,10 @@ function display404() {
         else {
             $item_info = $item_info->fetch_assoc();
             $seller_fname = decode($item_info['f_name']);
-            $seller_mname = decode($item_info['m_name']);
+            $seller_mi = decode($item_info['mi']);
             $seller_lname = decode($item_info['l_name']);
             $seller_email = decode($item_info['email']);
+            $seller_username = decode($item_info['username']);
             $seller_profile_img = decode($item_info['profile_img']);
             $item_name = decode($item_info['name']);
             $item_descr = decode($item_info['description']);
@@ -184,9 +188,9 @@ function display404() {
                     <div class="panel-heading">INSTUCTIONS</div>
                     <form id="bid-form" class="panel-body">
                         <p id="bid-instruction">
-                            Enter your bid amount. This item has incremental bid interval set to <span class="nowrap">
-                            Php <?php echo $step_count.'.00' ?></span>. The minimum input bid currently starts at <span class="nowrap">
-                            Php <?php echo $min_bid; ?></span>. <a href="#">Learn more.</a>
+                            This item has incremental bid interval set to Php <span id="step-count"><?php echo $step_count.'.00.' ?></span>
+                            Minimum input bid currently starts at <span class="nowrap" id="min-bid">Php <?php echo $min_bid; ?></span>.
+                            <a href="#">Learn more.</a>
                         </p>
                         <div class="input-group">
                             <label for="bid-amount" class="input-group-addon">Your bid</label>
@@ -212,7 +216,8 @@ function display404() {
                         <tbody>
                             <tr>
                                 <th>Seller</th>
-                                <td><?php echo $seller_fname; ?></td>
+                                <td>
+                                <?php echo '<a href="http://localhost/augeo/user/?'.$seller_username.'" target="_blank">'.$seller_fname.' '.$seller_mi.' '.$seller_lname; ?></a></td>
                             </tr>
                             <tr>
                                 <th>Initial price</th>

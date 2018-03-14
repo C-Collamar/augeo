@@ -47,6 +47,7 @@ $('#bid-form').on('submit', function(e) {
         },
         success: function(bid_info, textStatus, xhr) {
             updateBidHistory(bid_info);
+            updatePageInfo(bid_info);
             notifySuccess();
         },
         error: function(xhr, textStatus, errThrown) {
@@ -69,6 +70,19 @@ function updateBidHistory(bid) {
 
     var table = document.getElementById('history-table');
     table.insertBefore(bid_row, table.firstElementChild);
+}
+
+function updatePageInfo(bid) {
+    var step_count = parseFloat(document.getElementById('step-count').innerHTML.trim());
+    var curr_amount = (parseFloat(bid.amount) + step_count).toFixed(2);
+    var next_amount = parseFloat(curr_amount + step_count).toFixed(2);
+    document.getElementById('min-bid').innerHTML = 'Php ' + curr_amount;
+    document.getElementById('amount').innerHTML = 'Php ' + curr_amount;
+    var input_bid = document.getElementById('bid-amount');
+    input_bid.placeholder = 'Your bid must be greater or equal to Php ' + next_amount;
+    input_bid.min = next_amount;
+    input_bid.value = '';
+    input_bid.blur();
 }
 
 function notifySuccess() {
