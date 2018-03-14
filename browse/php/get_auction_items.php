@@ -13,7 +13,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 //set the default item retrieval preference
 //(defaults to enlisting 10 items in ascending order by item's current amount or initial price)
 $ordering = 'ASC';
-$order_by = 'IF(bid.amount, bid.amount, item.initial_price)';
+$order_by = 'IF(bid.amount, MAX(bid.amount), item.initial_price)';
 $limit = '10';
 
 if(isset($_GET['order-by'], $_GET['ordering'])) {
@@ -37,7 +37,7 @@ $q_item =
     'item.view_count, '.
     'item.timestamp, '.
     'item.initial_price, '.
-    'bid.amount '.
+    'MAX(bid.amount) AS amount '.
 'FROM '.
     'augeo_user_end.item_img, '.
     'augeo_user_end.item LEFT JOIN augeo_application.bid ON item.item_id = bid.item_id '.

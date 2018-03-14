@@ -24,26 +24,26 @@ var treeStruct = [
 ];
 
 
-	var tree = $('#tree');
-	tree.treeview({
+var tree = $('#tree');
+tree.treeview({
 	data: treeStruct,
 	selectedBackColor: "#a0495e",
 	onNodeSelected: update_view
-
 });
 
 function update_view(event, node) {
 	$.ajax({
 		url: "php/request_handler.php",
 		type: "GET",
-		data: { node_id: node.nodeId,id: $("#id").val() },
+		data: {
+			node_id: node.nodeId,
+			id: $("#id").val()
+		},
 		success: function (response){
 			document.getElementById('items').innerHTML = response;
-		}
-		,
+		},
 		error: handle_error
 	});
-//	alert(node.nodeId);
 }
 
 function handle_error(result, status, xhr) {
@@ -56,22 +56,24 @@ $(document).ready(function() {
 	$.ajax({
 		url: "php/request_handler.php",
 		type: "GET",
-		data: { node_id: 1,id: $("#id").val() },
+		data: {
+			node_id: 1,
+			id: $("#id").val()
+		},
 		success: function (response){
 			document.getElementById('items').innerHTML = response;
-		}
-		,
+		},
 		error: handle_error
 	});
-
-	  });
+});
 
 
 
 function validate(form) {
-
-    if(confirm("Are you sure you want to end this Auction?"))
-    var a=1;
-  else
-    return false;
+    if(confirm("Are you sure you want to end this Auction?")) {
+		var a=1;
+	}
+	else {
+		return false;
+	}
 }

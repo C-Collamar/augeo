@@ -43,6 +43,7 @@ function fetchItems() {
 }
 
 function displayItems(data, textStatus, xhr) {
+    console.log(data);
     var container = document.getElementById('browse-items');
     $grid.masonry('remove', $grid.find('.grid-item'));
     $grid.masonry('layout');
