@@ -4,6 +4,7 @@
     <title>Auctions Info</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/css/footer.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link rel="stylesheet" href="css/home.css">
@@ -119,7 +120,9 @@ $subtotal = $amount - $tax;
 
 
     </div>
+</div>
 
+    <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
