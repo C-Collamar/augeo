@@ -9,6 +9,7 @@ $deal_no = $_GET['deal_id'];
 $sql = "SELECT * FROM augeo_application.bid,augeo_application.deal,augeo_user_end.item,augeo_user_end.item_img WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id AND  augeo_user_end.item_img.item_id = augeo_user_end.item.item_id AND augeo_application.deal.deal_id = $deal_no";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+// COMPUTATION 5%
 $amount = $row['amount'];
 $percent = $amount * .05;
 $amount = $amount - $percent;
@@ -33,7 +34,7 @@ $result = $paypal->call(
     'memo'  => 'Order number #'.$deal_no,
 
     'cancelUrl' => ' /cancel.php',
-    'returnUrl' => ' /success.php?id='.$deal_no,
+    'returnUrl' => ' /success.php?id='.$deal_no. '',
 
     'receiverList' => array(
       'receiver' => array(

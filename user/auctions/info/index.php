@@ -24,6 +24,8 @@ $img_path = $row['img_path'];
 $name = $row['name'];
 if($row['confirmation'] == 1)
     header("Location: payment/?deal_id=$deal_id&id=$item_id");
+elseif($row['confirmation'] == 2)
+    header("Location: ../info_winner/success_transac.php?id=$deal_id");
 ?>
 
 
