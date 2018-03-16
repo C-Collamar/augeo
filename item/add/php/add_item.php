@@ -110,7 +110,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     $conn->query($query) or reportQueryError(mysqli_error($conn), $query);
 
     //5. Block bidders for the item
-    if($_POST['apply-blocking'] == 'on') {
+    if(isset($_POST['apply-blocking']) && $_POST['apply-blocking'] == 'on') {
         $query = "INSERT INTO augeo_application.blocked_bidder(item_id, user_id) VALUES";
         foreach($_POST['blocked'] as $user_id) {
             $query .= '('.$item_id.','.encode($user_id).'),';
