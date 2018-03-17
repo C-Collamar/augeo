@@ -61,6 +61,7 @@ function displayItems(data, textStatus, xhr) {
     var fragment = document.createDocumentFragment();
     var items = [];
     for(var i = 0; i < data.length; ++i) {
+        console.log(data[i].description.length);
         var card = document.createElement('div');
         var descClass = (data[i].description.length > 100)? 'overflow' : '';
         var amount, amountClass;
@@ -78,7 +79,7 @@ function displayItems(data, textStatus, xhr) {
                 '<img src="' + data[i].img_path + '">' +
                 '<div class="item-details">' +
                     '<h4><b>' + data[i].name + '</b></h4>' +
-                    '<p class="item-description ' + descClass + '">' + data[i].description.replace('\n', '<br>') + '</p>' +
+                    '<div class="item-description ' + descClass + '">' + marked(data[i].description) + '</div>' +
                     '<div class="' + amountClass + '">Php ' + amount + '</div>' +
                     '<div class="tag-list"></div>' +
                 '</div>' +

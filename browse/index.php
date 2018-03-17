@@ -40,6 +40,7 @@
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/masonry/dist/masonry.pkgd.js"></script>
+    <script src="http://localhost/augeo/global/vendor/marked/marked.min.js"></script>
     <script src="js/browse.js"></script>
 </body>
 </html>

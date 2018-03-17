@@ -33,7 +33,7 @@ $q_item =
     'item.item_id, '.
     'item_img.img_path, '.
     'item.name, '.
-    'item.description, '.
+    'LEFT(item.description, 101) AS description, '.
     'item.initial_price, '.
     'item.view_count, '.
     'item.timestamp, '.
