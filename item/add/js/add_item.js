@@ -16,6 +16,8 @@ $(window).ready(function() {
             processData: false,
             dataType: 'json',
             success: function(data, textStatus, xhr) {
+                console.log(data);
+                return;
                 if(data.error) {
                     alert('An error occured. See console for details.');
                     console.log(data.error);
@@ -25,7 +27,7 @@ $(window).ready(function() {
             },
             error: function(data, textStatus, xhr) {
                 alert('An internal error occured. See console for details.');
-                console.log(data.responseText, xhr);
+                console.log(data.responseText);
             }
         });
     });
