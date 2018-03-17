@@ -3,14 +3,19 @@ window.onload = function() {
     description.innerHTML = marked(description.innerHTML);
 
     var bid_sectToggler = document.getElementById('bid-sect-toggler');
-    bid_sectToggler.addEventListener('click', function() {
-        this.style.display = 'none';
-    });
+    if(bid_sectToggler) {
+        bid_sectToggler.addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+    }
 
-    document.getElementById('bid-cancel').addEventListener('click', function() {
-        bid_sectToggler.style.display = 'initial';
-        document.getElementById('bid-amount').value = '';
-    });
+    var bid_cancel = document.getElementById('bid-cancel');
+    if(bid_cancel) {
+        bid_cancel.addEventListener('click', function() {
+            bid_sectToggler.style.display = 'initial';
+            document.getElementById('bid-amount').value = '';
+        });
+    }
 
     $('.pannable')
 	// mouse actions on pannable image
