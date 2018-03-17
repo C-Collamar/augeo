@@ -102,7 +102,7 @@
                 </div>
                 <div class="panel-footer">
                     <div class="checkbox">
-                        <label><input type="checkbox" name="apply-blocking" checked>Apply rules</label>
+                        <label><input type="checkbox" name="apply-blocking">Apply rules</label>
                     </div>
                 </div>
             </div>
