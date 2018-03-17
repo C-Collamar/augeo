@@ -26,10 +26,12 @@ if(isset($_POST['page'])){
         while( $result = $select->fetch() ) {
             if($result->confirmation == 0)
                 $confirmation = "Not Yet Confirmed by the User";
-            else
+            elseif ($result->confirmation == 1) 
                 $confirmation = "Already Confirmed by the User";
-
-            $list .= '<a class="row card-item">
+            else
+                  $confirmation = "PAID";
+              
+            $list .= '<a href="http://localhost/augeo/admin/parent_admin/pages/transactions/success_transac.php?id='.$result->deal_id.'" class="row card-item">
                         <div class="col-sm-7 border-right">
                             <div class="media">
                                 <div class="media-left">
