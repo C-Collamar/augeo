@@ -1,6 +1,8 @@
 window.onload = function() {
     $('#browse_nav').addClass('active');
 
+    //possible improvement: iniialize masonry layot later only after attaching element
+    //to DOM
     $grid = $('.grid').masonry({
         itemSelector: '.grid-item',
         columnWidth: 300,
@@ -43,7 +45,16 @@ function fetchItems() {
 }
 
 function displayItems(data, textStatus, xhr) {
-    console.log(data);
+    if(data[0] == undefined) {
+        document.getElementById('browse-items').innerHTML =
+        '<div id="empty-result">' +
+            '<img src="http://localhost/augeo/global/img/google-plus-jingle.gif">' +
+            '<h3>Looks like there\'s nothing yet to see</h3>' +
+            '<h5>Please come back again at a later time.</h5>' +
+        '</div>';
+        $grid.masonry('destroy');
+        return;
+    }
     var container = document.getElementById('browse-items');
     $grid.masonry('remove', $grid.find('.grid-item'));
     $grid.masonry('layout');

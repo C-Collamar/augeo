@@ -34,9 +34,7 @@
         <button type="submit" class="btn btn-success" name="filter">Go</button>
     </form>
     <div style="width: 100%">
-        <div class="grid" id="browse-items">
-            <div class="grid-sizer"></div>
-        </div>
+        <div class="grid" id="browse-items"></div>
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>

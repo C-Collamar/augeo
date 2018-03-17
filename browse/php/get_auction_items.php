@@ -1,6 +1,7 @@
 <?php
 
 //Objective: retrieve basic information on items in auction
+require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/session.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
@@ -48,11 +49,9 @@ $q_item =
     'item.item_id '.
 'ORDER BY '.$order_by.' '.$ordering.' LIMIT '.$limit;
 $result = $conn->query($q_item);
-
 //check if there are no items
 if(mysqli_num_rows($result) == 0) {
-    header($_SERVER['SERVER_PROTOCOL']." 205 Reset Content");
-    exit();
+    exit('{}');
 }
 
 //for each items, get all of its tags by first determining all IDs so that
@@ -86,7 +85,7 @@ $q_tag =
 if(!($result = $conn->query($q_tag))) {
     header("HTTP/1.1 500 Internal Server Error");
     header('Content-Type: text/html; charset=UTF-8');
-    exit();
+    exit(mysqli_error($conn));
 }
 
 //add tag information retrieved to the items retrieved in the first query

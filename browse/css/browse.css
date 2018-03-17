@@ -104,3 +104,16 @@ div[id="loader"] {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+#empty-result {
+    margin-top: 80px;
+}
+
+#empty-result > * {
+    display: block;
+    text-align: center;
+}
+
+#empty-result > img {
+    margin: 0px auto;
+}
