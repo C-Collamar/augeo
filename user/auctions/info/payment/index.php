@@ -38,6 +38,7 @@ function display404() {
 <title>View Item</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/css/footer.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/std_notif.css">
@@ -175,7 +176,7 @@ function display404() {
                 <div style="text-align: center">
 
                     <div style="display: inline-block">
-                         <a href='./start.php?deal_id=<?php echo $deal_id; ?>&'><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /></a>
+                         <a href='./start.php?deal_id=<?php echo $deal_id; ?>'><img src="http://localhost/augeo/global/img/buy-logo-large.png" alt="Check out with PayPal" /></a>
                     </div>
                 </div>
             </div>
@@ -254,7 +255,7 @@ function display404() {
         </div>
     </div>
     <?php } else display404(); ?>
-
+       <?php require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/view_item.js"></script>
