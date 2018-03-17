@@ -11,7 +11,6 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php";
 
 //authenticate request
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo print_r($_POST);
     /**
      * PROCESS:
      * 0. Check if there are no files uploaded
@@ -137,9 +136,6 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
         //commit transaction
         $conn->query('COMMIT TRANSACTION');
-
-        //end try block and start the catch block
-        $conn->query('END TRY');
     }
     catch(Exception $e) {
         $conn->query('ROLLBACK TRANSACTION');
@@ -149,7 +145,6 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
         exit($e->getMessage());
     }
 
-    $conn->query('COMMIT');
     $conn->query('SET AUTOCOMMIT = 1');
 
     //return success
