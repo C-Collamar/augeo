@@ -11,9 +11,9 @@ if(isset($_POST['page'])){
         if ($page != 1) $start = ($page-1) * $per_page;
         else $start=0;
 
-        $select = $bdd->query("SELECT * FROM augeo_application.deal INNER JOIN  augeo_application.bid ON augeo_application.deal.bid_id = augeo_application.bid.bid_id INNER JOIN augeo_user_end.item ON augeo_application.bid.item_id = augeo_user_end.item.item_id INNER JOIN augeo_user_end.item_img on augeo_user_end.item_img.item_id = augeo_user_end.item.item_id INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id LIMIT $start ,$per_page"); // Select article list from $start
+        $select = $bdd->query("SELECT * FROM augeo_application.deal INNER JOIN  augeo_application.bid ON augeo_application.deal.bid_id = augeo_application.bid.bid_id INNER JOIN augeo_user_end.item ON augeo_application.bid.item_id = augeo_user_end.item.item_id INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id LIMIT $start ,$per_page"); // Select article list from $start
         $select->setFetchMode(PDO::FETCH_OBJ);
-        $numArticles = $bdd->query('SELECT count(deal_id) FROM augeo_application.deal INNER JOIN  augeo_application.bid ON augeo_application.deal.bid_id = augeo_application.bid.bid_id INNER JOIN augeo_user_end.item ON augeo_application.bid.item_id = augeo_user_end.item.item_id INNER JOIN augeo_user_end.item_img on augeo_user_end.item_img.item_id = augeo_user_end.item.item_id')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
+        $numArticles = $bdd->query('SELECT count(deal_id) FROM augeo_application.deal INNER JOIN  augeo_application.bid ON augeo_application.deal.bid_id = augeo_application.bid.bid_id INNER JOIN augeo_user_end.item ON augeo_application.bid.item_id = augeo_user_end.item.item_id')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
 
         $numPage = ceil($numArticles[0] / $per_page); // Total number of page
 
@@ -24,6 +24,12 @@ if(isset($_POST['page'])){
               ';
 
         while( $result = $select->fetch() ) {
+            $item_id = $result->item_id;
+            $select1 = $bdd->query("SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id"); // Select article list from $start
+            $select1->setFetchMode(PDO::FETCH_OBJ);
+            while($result1 = $select1->fetch() ) {
+                $image = $result1->img_path;
+            }
             if($result->confirmation == 0)
                 $confirmation = "Not Yet Confirmed by the User";
             elseif ($result->confirmation == 1) 
@@ -35,7 +41,7 @@ if(isset($_POST['page'])){
                         <div class="col-sm-7 border-right">
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="'.$result->img_path.'" class="media-object item-img" title="Sample item description.">
+                                    <img src="'.$image.'" class="media-object item-img" title="Sample item description.">
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">'.$result->name.'</h4>
