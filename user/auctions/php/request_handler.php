@@ -4,13 +4,19 @@ require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php";
 // FOR "ITEM YOU SELL IN AUCTION" SIDEBAR
 if($_GET['node_id'] == 1){
     $id = $_GET['id'];
-    $sql = "SELECT * FROM augeo_user_end.item INNER JOIN  augeo_user_end.item_img ON augeo_user_end.item_img.item_id  = augeo_user_end.item.item_id INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id  WHERE augeo_user_end.item.user_id = $id AND augeo_user_end.item.state = 0";
+    $sql = "SELECT * FROM augeo_user_end.item INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id  WHERE augeo_user_end.item.user_id = $id AND augeo_user_end.item.state = 0";
     $result = $conn->query($sql);
 
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
         $item_id = $row['item_id'];
+        // for image
+        $sql4 = "SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id";
+        $result4 = $conn->query($sql4);
+         while($row_img = $result4->fetch_assoc()) {
+            $row_img1 = $row_img['img_path'];
+         }
         $sql1 = "SELECT COUNT(bid_id) as bid_num FROM augeo_application.bid WHERE augeo_application.bid.item_id = $item_id";
         $result1 = $conn->query($sql1);
         $bidders = $result1->fetch_assoc();
@@ -32,8 +38,12 @@ if($_GET['node_id'] == 1){
                     <div class="col-sm-7 border-right">
                         <div class="media">
                             <div class="media-left">
-                                <img src="'.$row['img_path'].'"
+                           
+                                <img src="'.$row_img1.'"
                                     class="media-object item-img" title="'.$row['description'].'">
+
+
+                               
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Item name: '.$row['name'].'</h4>
@@ -68,12 +78,19 @@ if($_GET['node_id'] == 1){
 elseif($_GET['node_id'] == 2) {
     $id = $_GET['id'];
 
-    $sql = "SELECT DISTINCT augeo_application.bid.user_id,augeo_user_end.item.item_id,augeo_user_end.item.name,augeo_user_end.user.f_name,augeo_user_end.user.m_name,augeo_user_end.user.l_name,augeo_user_end.item_img.img_path FROM augeo_application.bid,augeo_user_end.item,augeo_user_end.user,augeo_user_end.item_img WHERE augeo_user_end.item.item_id = augeo_application.bid.item_id AND augeo_user_end.item_img.item_id = augeo_user_end.item.item_id AND augeo_user_end.user.user_id = augeo_user_end.item.user_id AND augeo_application.bid.user_id = $id AND augeo_user_end.item.state = 0";
+    $sql = "SELECT DISTINCT augeo_application.bid.user_id,augeo_user_end.item.item_id,augeo_user_end.item.name,augeo_user_end.user.f_name,augeo_user_end.user.m_name,augeo_user_end.user.l_name FROM augeo_application.bid,augeo_user_end.item,augeo_user_end.user WHERE augeo_user_end.item.item_id = augeo_application.bid.item_id AND augeo_user_end.user.user_id = augeo_user_end.item.user_id AND augeo_application.bid.user_id = $id AND augeo_user_end.item.state = 0";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $item_id = $row['item_id'];
+            // for image
+            $sql4 = "SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id";
+        $result4 = $conn->query($sql4);
+         while($row_img = $result4->fetch_assoc()) {
+            $row_img1 = $row_img['img_path'];
+         }
+
             $sql1 = "SELECT COUNT(bid_id) as bid_num FROM augeo_application.bid WHERE augeo_application.bid.item_id = $item_id";
             $result1 = $conn->query($sql1);
             $bidders = $result1->fetch_assoc();
@@ -93,7 +110,7 @@ elseif($_GET['node_id'] == 2) {
                                     <div class="col-sm-7 border-right">
                                         <div class="media">
                                             <div class="media-left">
-                                                <img src="'.$row['img_path'].'" class="media-object item-img" title="Sample item description.">
+                                                <img src="'.$row_img1.'" class="media-object item-img" title="Sample item description.">
                                             </div>
                                             <div class="media-body">
                                                 <h4 class="media-heading">'.$row['name'].'</h4>
@@ -127,12 +144,18 @@ elseif($_GET['node_id'] == 2) {
 elseif($_GET['node_id'] == 4) {
     $id = $_GET['id'];
 
-    $sql = "SELECT DISTINCT augeo_application.deal.deal_id,augeo_application.bid.user_id,augeo_application.bid.item_id, augeo_user_end.item.name,augeo_user_end.item_img.img_path FROM augeo_application.bid,augeo_application.deal,augeo_user_end.item,augeo_user_end.item_img,augeo_user_end.user WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id AND augeo_application.bid.item_id = augeo_user_end.item.item_id AND augeo_user_end.item_img.item_id = augeo_user_end.item.item_id AND augeo_application.bid.user_id = $id";
+    $sql = "SELECT DISTINCT augeo_application.deal.deal_id,augeo_application.bid.user_id,augeo_application.bid.item_id, augeo_user_end.item.name FROM augeo_application.bid,augeo_application.deal,augeo_user_end.item,augeo_user_end.user WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id AND augeo_application.bid.item_id = augeo_user_end.item.item_id AND augeo_application.bid.user_id = $id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $item_id = $row['item_id'];
+            // for image
+            $sql4 = "SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id";
+            $result4 = $conn->query($sql4);
+            while($row_img = $result4->fetch_assoc()) {
+                $row_img1 = $row_img['img_path'];
+            }
 
             $sql1 = "SELECT COUNT(bid_id) as bid_num FROM augeo_application.bid WHERE augeo_application.bid.item_id = $item_id";
             $result1 = $conn->query($sql1);
@@ -157,7 +180,7 @@ elseif($_GET['node_id'] == 4) {
                                     <div class="col-sm-7 border-right">
                                         <div class="media">
                                             <div class="media-left">
-                                                <img src="'.$row['img_path'].'" class="media-object item-img" title="Sample item description.">
+                                                <img src="'.$row_img1.'" class="media-object item-img" title="Sample item description.">
                                             </div>
                                             <div class="media-body">
                                                 <h4 class="media-heading">'.$row['name'].'</h4>
@@ -191,15 +214,24 @@ elseif($_GET['node_id'] == 4) {
 elseif($_GET['node_id'] == 5){
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM augeo_user_end.item INNER JOIN  augeo_user_end.item_img ON augeo_user_end.item_img.item_id  = augeo_user_end.item.item_id INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id  WHERE augeo_user_end.item.user_id = $id AND augeo_user_end.item.state = 1";
+    $sql = "SELECT * FROM augeo_user_end.item INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id  WHERE augeo_user_end.item.user_id = $id AND augeo_user_end.item.state = 1";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
         $item_id = $row['item_id'];
+
+        // for image
+        $sql4 = "SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id";
+        $result4 = $conn->query($sql4);
+         while($row_img = $result4->fetch_assoc()) {
+            $row_img1 = $row_img['img_path'];
+         }
+
         $sql1 = "SELECT COUNT(bid_id) as bid_num FROM augeo_application.bid WHERE augeo_application.bid.item_id = $item_id";
         $result1 = $conn->query($sql1);
         $bidders = $result1->fetch_assoc();
+
         $sql12 = "SELECT MAX(amount) as bid_amount,bid_id FROM augeo_application.bid WHERE augeo_application.bid.item_id = $item_id";
         $result12 = $conn->query($sql12);
         $amount = $result12->fetch_assoc();
@@ -216,7 +248,7 @@ elseif($_GET['node_id'] == 5){
                     <div class="col-sm-7 border-right">
                         <div class="media">
                             <div class="media-left">
-                                <img src="'.$row['img_path'].'"
+                                <img src="'.$row_img1.'"
                                     class="media-object item-img" title="'.$row['description'].'">
                             </div>
                             <div class="media-body">
