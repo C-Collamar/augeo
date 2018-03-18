@@ -179,7 +179,13 @@ function display404() {
                 <div id="title"><?php echo $item_name; ?></div>
                 <div style="text-align: center">
                     <div style="display: inline-block">
-                        <span id="amount-label">Current amount</span><span id="amount">Php <?php echo $curr_amount; ?></span>
+                        <span id="amount-label" style="vertical-align: middle">Current amount</span><!--
+                    --><span id="amount" style="vertical-align: middle">Php <?php echo $curr_amount; ?></span>
+                        <?php
+                        if(isset($account_id_session) && $account_id_session == $item_info['user_id']) {
+                            echo '<button class="btn btn-green" style="vertical-align: middle">End auction</button>';
+                        }
+                        ?>
                     </div>
                     <?php if(!isset($account_id_session) || isset($account_id_session) && $account_id_session != $item_info['user_id']) { ?>
                     <div style="display: inline-block">

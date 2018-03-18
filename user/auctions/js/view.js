@@ -51,7 +51,6 @@ function display_active_seller_items(item_list, container) {
                 '</div>' +
                 '<div class="col-xs-6 options">' +
                     '<a class="btn btn-green" href="http://localhost/augeo/item/view/?id=' + id + '">View item</a>' +
-                    '<button class="btn btn-red">Remove</button>' +
                 '</div>' +
             '</div>' +
         '</div>';
