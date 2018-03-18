@@ -1,77 +1,103 @@
-var treeStruct = [
-	{
-		text: "Pending items in auction",
-		selectable: false,
-		state: { expanded: true, },
-		tags: ['available'],
-		nodes: [{
-			text: "Items you sell for auction",
-			state: { selected: true }
-		}, {
-			text: "Items you participate in bidding"
-		}]
-	}, {
-		text: "Sucessful auctions",
-		selectable: false,
-		nodes: [{
-			text: "You as the bidder"
-		}, {
-			text: "You as the seller"
-		}]
-	}, {
-		text: "Statistics"
-	}
-];
+$(document).ready(function() {
+	//get 'Items you sell for auction' info by default on page load
+	get_active_seller_items(document.getElementById('items'));
 
-
-var tree = $('#tree');
-tree.treeview({
-	data: treeStruct,
-	selectedBackColor: "#a0495e",
-	onNodeSelected: update_view
+	//initialize treeview
+	$('#tree').treeview({
+		data: [
+			{
+				text: "Pending items in auction",
+				selectable: false,
+				state: { expanded: true, },
+				tags: ['available'],
+				nodes: [{
+					text: "Items you sell for auction",
+					state: { selected: true }
+				}, {
+					text: "Items you participate in bidding"
+				}]
+			}, {
+				text: "Sucessful auctions",
+				selectable: false,
+				nodes: [{
+					text: "You as the bidder"
+				}, {
+					text: "You as the seller"
+				}]
+			}, {
+				text: "Statistics"
+			}
+		],
+		selectedBackColor: "#a0495e",
+		onNodeSelected: update_view
+	});
 });
 
 function update_view(event, node) {
+	var container = document.getElementById('items');
+	while(container.firstChild) {
+		container.removeChild(container.firstChild);
+	}
+
+	switch(node.nodeId) {
+		case 1:
+			get_active_seller_items(container);
+			break;
+		case 2:
+			get_active_bidded_items(container);
+			break;
+		case 3:
+			get_user_bid_history(container);
+			break;
+		default:
+			break;
+	}
+}
+
+function get_active_seller_items(container) {
 	$.ajax({
-		url: "php/request_handler.php",
+		url: "php/active_seller_items.php",
 		type: "GET",
-		data: {
-			node_id: node.nodeId,
-			id: $("#id").val()
+		dataType: 'json',
+		success: function (item_list, status, xhr) {
+			display_active_seller_items(item_list, container);
 		},
-		success: function (response){
-			document.getElementById('items').innerHTML = response;
+		error: handle_error
+	});
+}
+
+function get_active_bidded_items(container) {
+	$.ajax({
+		url: "php/active_bidded_items.php",
+		type: "GET",
+		dataType: 'json',
+		success: function (item_list, status, xhr) {
+			display_active_bidded_items(item_list, container);
+		},
+		error: handle_error
+	});
+}
+
+function get_user_bid_history(container) {
+	$.ajax({
+		url: "php/user_bid_history.php",
+		type: "GET",
+		dataType: 'json',
+		success: function (item_list, status, xhr) {
+			display_user_bid_history(item_list, container);
 		},
 		error: handle_error
 	});
 }
 
 function handle_error(result, status, xhr) {
-	console.error(status, xhr);
+	alert('An error has occured. See console for details.');
+	console.error(result.responseText);
 }
-
-
-
-$(document).ready(function() {
-	$.ajax({
-		url: "php/request_handler.php",
-		type: "GET",
-		data: {
-			node_id: 1,
-			id: $("#id").val()
-		},
-		success: function (response){
-			document.getElementById('items').innerHTML = response;
-		},
-		error: handle_error
-	});
-});
-
-
 
 function validate(form) {
     if(confirm("Are you sure you want to end this Auction?")) {
-		var a=1;
+		var a = 1;
 	}
 	else {
 		return false;
