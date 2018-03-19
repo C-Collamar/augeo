@@ -44,6 +44,7 @@ function display404() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/augeo/global/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/topbar.css">
+    <link rel="stylesheet" href="http://localhost/augeo/global/css/footer.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/default.css">
     <link rel="stylesheet" href="http://localhost/augeo/global/css/std_notif.css">
     <link rel="stylesheet" href="css/view_item.css">
@@ -178,7 +179,46 @@ function display404() {
                 <div id="title"><?php echo $item_name; ?></div>
                 <div style="text-align: center">
                     <div style="display: inline-block">
-                        <span id="amount-label">Current amount</span><span id="amount">Php <?php echo $curr_amount; ?></span>
+                        <span id="amount-label" style="vertical-align: middle">Current amount</span><!--
+                    --><span id="amount" style="vertical-align: middle">Php <?php echo $curr_amount; ?></span>
+                        <?php if(isset($account_id_session) && $account_id_session == $item_info['user_id']) { ?>
+                        <button class="btn btn-green" style="vertical-align: middle" data-toggle="modal" data-target="#confirm-end-modal" <?php if(!count($bid_info)) echo 'disabled' ?>>End auction</button>
+                        <button class="btn btn-red" style="vertical-align: middle" data-toggle="modal" data-target="#confirm-remove-modal">Remove item</button>
+                        <div id="confirm-end-modal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Confirmation</h4>
+                                    </div>
+                                    <div class="modal-body" style="text-align: left">
+                                        Are you sure you want to end this item's auction at Php <?php echo $curr_amount ?>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-success" onclick="end_auction()">End</button>
+                                        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="confirm-remove-modal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Confirmation</h4>
+                                    </div>
+                                    <div class="modal-body" style="text-align: left">
+                                        Are you sure you want to remove this item?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-danger" onclick="remove_item()">Remove</button>
+                                        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
                     </div>
                     <?php if(!isset($account_id_session) || isset($account_id_session) && $account_id_session != $item_info['user_id']) { ?>
                     <div style="display: inline-block">
@@ -301,7 +341,7 @@ function display404() {
         </div>
     </div>
     <?php } else display404(); ?>
-
+    <?php require_once $_SERVER['DOCUMENT_ROOT']."/augeo/global/php/footer.php"; ?>
     <script src="http://localhost/augeo/global/vendor/jquery/dist/jquery.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://localhost/augeo/global/vendor/marked/marked.min.js"></script>

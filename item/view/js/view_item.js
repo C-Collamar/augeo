@@ -57,7 +57,7 @@ $('#bid-form').on('submit', function(e) {
         },
         error: function(xhr, textStatus, errThrown) {
             alert("An error occured. See console for details.");
-            console.log(xhr.responseText)
+            console.log(xhr.responseText);
         }
     });
 });
@@ -113,4 +113,34 @@ function notifySuccess() {
         notif_container.classList.remove("show-notif");
         notif_container.parentElement.removeChild(notif_container);
     }, 5000);
+}
+
+function end_auction() {
+    $.ajax({
+        url: 'php/end_item_auction.php',
+        type: 'post',
+        data: { item_id: document.getElementById('item_id').value },
+        success: function(response, textStatus, xhr) {
+            window.location.assign('http://localhost/augeo/user/auctions/#sold-items');
+        },
+        error: function(xhr, textStatus, errThrown) {
+            alert("An error occured. See console for details.");
+            console.log(xhr.responseText);
+        }
+    });
+}
+
+function remove_item() {
+    $.ajax({
+        url: 'php/remove_item.php',
+        type: 'post',
+        data: { item_id: document.getElementById('item_id').value },
+        success: function(response, textStatus, xhr) {
+            window.location.assign('http://localhost/augeo/user/auctions/#auction-items');
+        },
+        error: function(xhr, textStatus, errThrown) {
+            alert("An error occured. See console for details.");
+            console.log(xhr.responseText);
+        }
+    });
 }

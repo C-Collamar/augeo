@@ -1,11 +1,20 @@
 #tree { user-select: none; }
 #tree a { text-decoration: none; }
+
+#items > a:hover {
+    text-decoration: none;
+    color: initial;
+}
+
 .row { padding: 10px; }
 .no-padding { padding: 0px; }
 .border-right { border-right: 1px solid #aaa; }
 .item-img { width: 60px; }
 .item-seller::before { content: "Seller: "; }
-.bidders-participated::before { content: "Bidders participated: "; }
+
+.bidders-participated::before { content: "Number of bids: "; }
+
+.view-count::before { content: "Views: "; }
 
 .your-bid::before {
 	display: block;
@@ -26,7 +35,7 @@
 	display: block;
 	color: black;
 	border: 1px solid #c6c6c6;
-	transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .card-item:hover {
@@ -52,6 +61,55 @@
 	margin: 0px 8px;
 }
 
+.vcenter-children {
+    display: flex;
+    align-items: center;
+}
+
+.options > button, .options > a {
+    margin: 5px;
+    width: 100%;
+}
+
+div.no-higher-bidder-icon {
+    background: url('http://localhost/augeo/global/img/happy-sun.png');
+    width: 60px;
+    height: 60px;
+    margin: 0px auto 5px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.no-bids-icon {
+    background: url('http://localhost/augeo/global/img/google-plus-jingle.gif');
+    width: 60px;
+    height: 60px;
+    margin: 0px auto 5px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+span.no-higher-bidder-msg,
+span.no-bids-msg {
+    text-align: center;
+    color: #777777;
+}
+
+#empty-result {
+    margin-top: 80px;
+}
+
+#empty-result > * {
+    display: block;
+    text-align: center;
+}
+
+#empty-result > img {
+    margin: 0px auto;
+}
+
 @media only screen and (max-width: 768px) {
 	.border-right {
 		border-right: none;
@@ -60,13 +118,10 @@
 }
 
 #pagination div { display: inline-block; margin-right: 5px; margin-top: 5px }
-        #pagination .cell a { border-radius: 3px; font-size: 11px; color: #333; padding: 8px; text-decoration:none; border: 1px solid #d3d3d3; background-color: #f8f8f8; }
-        #pagination .cell a:hover { border: 1px solid #c6c6c6; background-color: #f0f0f0;  }
-        #pagination .cell_active span { border-radius: 3px; font-size: 11px; color: #333; padding: 8px; border: 1px solid #c6c6c6; background-color: #e9e9e9; }
-        #pagination .cell_disabled span { border-radius: 3px; font-size: 11px; color: #777777; padding: 8px; border: 1px solid #dddddd; background-color: #ffffff; }
-
-
-
+#pagination .cell a { border-radius: 3px; font-size: 11px; color: #333; padding: 8px; text-decoration:none; border: 1px solid #d3d3d3; background-color: #f8f8f8; }
+#pagination .cell a:hover { border: 1px solid #c6c6c6; background-color: #f0f0f0;  }
+#pagination .cell_active span { border-radius: 3px; font-size: 11px; color: #333; padding: 8px; border: 1px solid #c6c6c6; background-color: #e9e9e9; }
+#pagination .cell_disabled span { border-radius: 3px; font-size: 11px; color: #777777; padding: 8px; border: 1px solid #dddddd; background-color: #ffffff; }
 
  .notif-img img {
     height: 40px;
