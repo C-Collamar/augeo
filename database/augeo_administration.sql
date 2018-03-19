@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2018 at 06:11 PM
+-- Generation Time: Mar 19, 2018 at 12:29 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -40,8 +40,18 @@ CREATE TABLE `admin` (
   `full_address` varchar(255) NOT NULL,
   `contact_no` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `profile_img` varchar(255) DEFAULT NULL
+  `profile_img` varchar(255) DEFAULT NULL,
+  `sex` tinyint(4) NOT NULL,
+  `cover_photo` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `account_id`, `role_id`, `f_name`, `m_name`, `l_name`, `bdate`, `zip_code`, `full_address`, `contact_no`, `email`, `profile_img`, `sex`, `cover_photo`) VALUES
+(1, 1, 1, 'Austin', 'Earl', 'Zuniga', '1998-03-14', '4501', 'Rizal St. Legazpi, Albay', '09876543210', 'sample@email.com', 'http://localhost/augeo/data/user/profile_img/1.jpg', 0, 'http://localhost/augeo/data/user/cover_photo/1.jpg'),
+(2, 2, 2, '', '', '', '0000-00-00', '', '', NULL, '', 'http://localhost/augeo/data/user/profile_img/default_avatar.jpg', 0, 'http://localhost/augeo/data/user/cover_photo/1.jpg');
 
 -- --------------------------------------------------------
 
@@ -55,6 +65,14 @@ CREATE TABLE `admin_account` (
   `password` varchar(255) NOT NULL,
   `state` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0 if deactivated; 1 otherwise'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_account`
+--
+
+INSERT INTO `admin_account` (`account_id`, `username`, `password`, `state`) VALUES
+(1, 'admin0', 'f78b23d991e1824fabcd6ef5d3fc2c03', 1),
+(2, 'admin1', '87f5e873e4cc3ebaed6f289303417020', 1);
 
 -- --------------------------------------------------------
 
@@ -79,6 +97,14 @@ CREATE TABLE `admin_role` (
   `role_id` int(11) NOT NULL,
   `role_label` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_role`
+--
+
+INSERT INTO `admin_role` (`role_id`, `role_label`) VALUES
+(1, 'MASTER'),
+(2, 'NORMAL');
 
 -- --------------------------------------------------------
 
@@ -144,12 +170,12 @@ ALTER TABLE `error_log`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `admin_account`
 --
 ALTER TABLE `admin_account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `admin_log`
 --
