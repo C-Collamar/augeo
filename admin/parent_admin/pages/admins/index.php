@@ -67,7 +67,6 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
                         <thead>
                             <tr>
-                                <th>Account Id</th>
                                 <th>Username</th>
                                 <th>Full Name</th>
                                 <th>State</th>

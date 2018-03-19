@@ -25,11 +25,10 @@ $(document).ready(function(){
               success: function(result) {
                   var content_info = JSON.parse(result);
 
-                //  document.getElementById("account_id").innerHTML = content_info.account_id;
+                
                   document.getElementById("username").innerHTML = content_info.username;
                   document.getElementById("full_name").innerHTML = content_info.f_name + " " + content_info.m_name + " " + content_info.l_name;
                   document.getElementById("bday").innerHTML = content_info.bdate;
-                  document.getElementById("account_id").innerHTML = content_info.account_id;
                   document.getElementById("zipcode").innerHTML = content_info.zip_code;
                   document.getElementById("full_address").innerHTML = content_info.full_address;
                   document.getElementById("contact_no").innerHTML = content_info.contact_no;

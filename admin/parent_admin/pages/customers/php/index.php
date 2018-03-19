@@ -38,7 +38,6 @@ if(isset($_POST['page'])){
                 $state = "Deactivated";
 
             $list .= '<tr class="gradeU">
-                <td>'.$result->account_id.'</td>
                 <td><a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$result->account_id.'">'.$result->username.'</a></td>
                 <td>'.$result->f_name.' '.$result->m_name.' '.$result->l_name.'</td>
                 <td>'.$state.'</td>

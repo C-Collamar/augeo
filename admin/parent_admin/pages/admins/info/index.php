@@ -38,35 +38,61 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
 
               <div class="content-box-large box-with-header">
 
-                   <h4>Admin Type:</h4>
-                  <div id="role"></div>
+                 <h2 class="page-header"><div id="role"></div></h2>
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="text-center">
+              <img id="img" class="avatar img-circle img-thumbnail" alt="avatar">
+            </div>
+          </div>
+          <!-- edit form column -->
+          <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+            <h3>Personal info</h3>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Username:</label>
+                <div class="col-lg-8">
+                 <div class="well well-sm"> <div id="username"></div></div>
+              </div>
+            </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Full name:</label>
+                <div class="col-lg-8">
+                 <div class="well well-sm"> <div id="full_name"></div></div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Birthday:</label>
+                <div class="col-lg-8">
+                  <div class="well well-sm"><div id="bday"></div></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Zipcode:</label>
+                <div class="col-lg-8">
+                  <div class="well well-sm"><div id="zipcode"></div></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Full Address:</label>
+                <div class="col-lg-8">
+                  <div class="well well-sm"><div id="full_address"></div></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Contact Number:</label>
+                <div class="col-md-8">
+                  <div class="well well-sm"><div id="contact_no"></div></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Email:</label>
+                <div class="col-md-8">
+                  <div class="well well-sm"><div id="email"></div></div>
+                </div>
+              </div>
+      </div>    
+    </div>
 
-                  <h4>Profile Picture:</h4>
-                  <img id="img" height="200px"></br> <br>
-
-                  <h4>Account Id:</h4>
-                  <div id="account_id"></div>
-
-                  <h4>Username</h4>
-                  <div id="username"> </div><br>
-
-                  <h4>Full Name:</h4>
-                  <div id="full_name"> </div><br>
-
-                  <h4>Birthday:</h4>
-                  <div id="bday"></div><br>
-
-                  <h4>Zip Code:</h4>
-                  <div id="zipcode"> </div><br>
-
-                  <h4>Full Address:</h4>
-                  <div id="full_address"> </div><br>
-
-                  <h4>Contact number:</h4>
-                  <div id="contact_no"> </div><br>
-
-                  <h4>Email:</h4>
-                  <div id="email"> </div><br>
 
 
 

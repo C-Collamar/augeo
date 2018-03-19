@@ -16,7 +16,7 @@ if(isset($_POST['id'])){
                 $role ="NORMAL ADMIN";
                 echo
                     '{ '.
-                            '"account_id": "'.decode($row['account_id']).'", '.
+                            
                             '"f_name": "'.decode($row['f_name']).'", '.
                             '"m_name": "'.decode($row['m_name']).'", '.
                             '"l_name": "'.decode($row['l_name']).'", '.
@@ -54,14 +54,19 @@ if(isset($_POST['page'])){
         $data= '
 
               ';
-
+        if($select->fetchColumn() < 1){
+        $data .= '<tr class="gradeU">
+                <td>no account activity</td>
+              </tr>';
+         }
+         else{   
         while( $result = $select->fetch() ) {
             $data .= '<tr class="gradeU">
                 <td>'.$result->details.'</td>
                 <td>'.$result->timestamp.'</td>
               </tr>';
         }
-
+}
         // We send back the total number of page and the article list
         $dataBack = array('numPage' => $numPage, 'data' => $data);
         $dataBack = json_encode($dataBack);

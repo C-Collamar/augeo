@@ -13,18 +13,19 @@ if(isset($_POST['id'])){
             $row = $result->fetch_assoc();
                 echo
                     '{ '.
-                            '"account_id": "'.decode($row['account_id']).'", '.
+                           '"username": "'.decode($row['username']).'", '.
                             '"f_name": "'.decode($row['f_name']).'", '.
                             '"m_name": "'.decode($row['m_name']).'", '.
                             '"l_name": "'.decode($row['l_name']).'", '.
+                            '"bdate": "'.decode($row['bdate']).'", '.
 
                             '"contact_no": "'.decode($row['contact_no']).'", '.
                             '"email": "'.decode($row['email']).'", '.
                             '"profile_img": "'.decode($row['profile_img']).'", '.
 
-                            '"bdate": "'.decode($row['bdate']).'", '.
+                          
                             '"zip_code": "'.decode($row['zip_code']).'", '.
-                            '"username": "'.decode($row['username']).'", '.
+                            
                             '"full_address": "'.decode($row['full_address']).'" '.
                     '}';
         }
@@ -62,7 +63,7 @@ if(isset($_POST['bid'])){
             else
                 $confirmation = "Already Confirmed by the User";
 
-            $list .= '<a class="row card-item">
+            $list .= '<a href="http://localhost/augeo/admin/parent_admin/pages/transactions/success_transac.php?id='.$result->deal_id.'" class="row card-item">
                         <div class="col-sm-7 border-right">
                             <div class="media">
                                 <div class="media-left">
