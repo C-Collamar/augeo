@@ -11,8 +11,11 @@ if(isset($_POST['page'])){
         if ($page != 1) $start = ($page-1) * $per_page;
         else $start=0;
 
-        $select = $bdd->query("SELECT * FROM augeo_user_end.item INNER JOIN  augeo_user_end.item_img ON augeo_user_end.item_img.item_id  = augeo_user_end.item.item_id INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id LIMIT $start ,$per_page"); // Select article list from $start
+        $select = $bdd->query("SELECT * FROM augeo_user_end.item INNER JOIN augeo_user_end.user ON augeo_user_end.item.user_id = augeo_user_end.user.user_id LIMIT $start ,$per_page"); // Select article list from $start
         $select->setFetchMode(PDO::FETCH_OBJ);
+
+        
+
         $numArticles = $bdd->query('SELECT count(item_id) FROM augeo_user_end.item ')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
 
         $numPage = ceil($numArticles[0] / $per_page); // Total number of page
@@ -24,6 +27,13 @@ if(isset($_POST['page'])){
               ';
 
         while( $result = $select->fetch() ) {
+            $item_id = $result->item_id;
+            $select1 = $bdd->query("SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id"); // Select article list from $start
+            $select1->setFetchMode(PDO::FETCH_OBJ);
+            while($result1 = $select1->fetch() ) {
+                $image = $result1->img_path;
+            }
+
             if($result->state == 1)
                 $state = "SOLD";
             elseif ($result->state == 2)
@@ -32,7 +42,7 @@ if(isset($_POST['page'])){
                 $state = "AVAILABLE";
 
             $list .= '<tr class="gradeU">
-                <td><a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$result->item_id.'"><img src="'.$result->img_path.'" width="50px" height="50px"></a></td>
+                <td><a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$result->item_id.'"><img src="'.$image.'" width="50px" height="50px"></a></td>
                 <td>'.$result->name.'</td>
                 <td>'.$result->description.'</td>
                 <td>'.$result->initial_price.'</td>

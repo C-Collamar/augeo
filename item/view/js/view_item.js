@@ -129,3 +129,18 @@ function end_auction() {
         }
     });
 }
+
+function remove_item() {
+    $.ajax({
+        url: 'php/remove_item.php',
+        type: 'post',
+        data: { item_id: document.getElementById('item_id').value },
+        success: function(response, textStatus, xhr) {
+            window.location.assign('http://localhost/augeo/user/auctions/#auction-items');
+        },
+        error: function(xhr, textStatus, errThrown) {
+            alert("An error occured. See console for details.");
+            console.log(xhr.responseText);
+        }
+    });
+}

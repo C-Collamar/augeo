@@ -182,8 +182,9 @@ function display404() {
                         <span id="amount-label" style="vertical-align: middle">Current amount</span><!--
                     --><span id="amount" style="vertical-align: middle">Php <?php echo $curr_amount; ?></span>
                         <?php if(isset($account_id_session) && $account_id_session == $item_info['user_id']) { ?>
-                        <button class="btn btn-green" style="vertical-align: middle" data-toggle="modal" data-target="#confirm-modal">End auction</button>
-                        <div id="confirm-modal" class="modal fade" role="dialog">
+                        <button class="btn btn-green" style="vertical-align: middle" data-toggle="modal" data-target="#confirm-end-modal" <?php if(!count($bid_info)) echo 'disabled' ?>>End auction</button>
+                        <button class="btn btn-red" style="vertical-align: middle" data-toggle="modal" data-target="#confirm-remove-modal">Remove item</button>
+                        <div id="confirm-end-modal" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -194,7 +195,24 @@ function display404() {
                                         Are you sure you want to end this item's auction at Php <?php echo $curr_amount ?>?
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn btn-default" onclick="end_auction()">End</button>
+                                        <button class="btn btn-success" onclick="end_auction()">End</button>
+                                        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="confirm-remove-modal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Confirmation</h4>
+                                    </div>
+                                    <div class="modal-body" style="text-align: left">
+                                        Are you sure you want to remove this item?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-danger" onclick="remove_item()">Remove</button>
                                         <button class="btn btn-default" data-dismiss="modal">Cancel</button>
                                     </div>
                                 </div>

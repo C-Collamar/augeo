@@ -127,8 +127,83 @@ function display_active_bidded_items(item_list, container) {
     }
 }
 
-function display_user_bid_history(container) {
-    
+function display_items_won(item_list, container) {
+    if(item_list.length == 0 || !item_list[0].user_id) {
+        container.innerHTML =
+        '<div id="empty-result">' +
+            '<img src="http://localhost/augeo/global/img/google-plus-jingle.gif">' +
+            '<h3>Looks like there\'s nothing to see yet</h3>' +
+            '<h5>Items that you\'ve won though bidding are listed here</h5>' +
+        '</div>';
+        return;
+    }
+
+    console.log(item_list);
+    for(var i = 0; i < item_list.length; ++i) {
+        var item = document.createElement('div');
+        item.innerHTML =
+        '<div class="row card-item vcenter-children">' +
+            '<div class="col-sm-7 border-right">' +
+                '<div class="media">' +
+                    '<div class="media-left media-middle">' +
+                        '<img src="' + item_list[i].img_path + '" class="media-object item-img">' +
+                    '</div>' +
+                    '<div class="media-body">' +
+                        '<h4 class="media-heading">' + item_list[i].name + '</h4>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-sm-4 text-center">' +
+                '<div><small>Acquired for</small></div>' +
+                '<div><h4>&#8369; ' + item_list[i].amount + '</h4></div>' +
+                '<div><small>by <a href="http://localhost/augeo/user/?id=' + item_list[i].user_id + '">' + 
+                    item_list[i].seller +
+                '</a></small></div>' +
+                '<div><small>' + item_list[i].date + '</small></div>' +
+            '</div>' +
+            '<div class="col-sm-1 text-center">' +
+                '<a href="http://localhost/augeo/user/auctions/info/?id=' + item_list[i].item_id + '">Confirm</a>' +
+            '</div>' +
+        '</div>';
+        container.appendChild(item);
+    }
+}
+
+function display_items_sold(item_list, container) {
+    if(item_list.length == 0 || item_list[0].name == '') {
+        container.innerHTML =
+        '<div id="empty-result">' +
+            '<img src="http://localhost/augeo/global/img/google-plus-jingle.gif">' +
+            '<h3>Looks like there\'s nothing to see yet</h3>' +
+            '<h5>Items you\'ve successfully sold are listed here</h5>' +
+        '</div>';
+        return;
+    }else 
+
+    for(var i = 0; i < item_list.length; ++i) {
+        var item = document.createElement('div');
+
+        item.innerHTML =
+        '<div class="row card-item vcenter-children">' +
+            '<div class="col-sm-8 border-right">' +
+                '<div class="media">' +
+                    '<div class="media-left media-middle">' +
+                        '<img src="' + item_list[i].img_path + '" class="media-object item-img">' +
+                    '</div>' +
+                    '<div class="media-body">' +
+                        '<h4 class="media-heading">' + item_list[i].name + '</h4>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-sm-4 text-center">' +
+                '<div><small>Sold for</small></div>' +
+                '<div><h4>&#8369; ' + item_list[i].amount + '</h4></div>' +
+                '<div><small>' + item_list[i].date + '</small></div>' +
+            '</div>' +
+        '</div>';
+        
+        container.appendChild(item);
+    }
 }
 
 /*

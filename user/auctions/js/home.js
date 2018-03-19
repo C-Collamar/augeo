@@ -24,9 +24,9 @@ $(document).ready(function() {
 				}, {
 					text: "You as the seller"
 				}]
-			}, {
+			}/*, {
 				text: "Statistics"
-			}
+			}*/
 		],
 		selectedBackColor: "#a0495e",
 		onNodeSelected: update_view
@@ -46,8 +46,11 @@ function update_view(event, node) {
 		case 2:
 			get_active_bidded_items(container);
 			break;
-		case 3:
-			get_user_bid_history(container);
+		case 4:
+			get_items_won(container);
+			break;
+		case 5:
+			get_items_sold(container);
 			break;
 		default:
 			break;
@@ -78,13 +81,25 @@ function get_active_bidded_items(container) {
 	});
 }
 
-function get_user_bid_history(container) {
+function get_items_won(container) {
 	$.ajax({
-		url: "php/user_bid_history.php",
+		url: "php/get_items_won.php",
 		type: "GET",
 		dataType: 'json',
 		success: function (item_list, status, xhr) {
-			display_user_bid_history(item_list, container);
+			display_items_won(item_list, container);
+		},
+		error: handle_error
+	});
+}
+
+function get_items_sold(container) {
+	$.ajax({
+		url: "php/get_items_sold.php",
+		type: "GET",
+		dataType: 'json',
+		success: function(item_list, status, xhr) {
+			display_items_sold(item_list, container);
 		},
 		error: handle_error
 	});
