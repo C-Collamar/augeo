@@ -18,11 +18,11 @@ if(isset($_COOKIE['account_id'])){
 
 
 
-$sql = "SELECT * FROM augeo_user_end.item ORDER BY augeo_user_end.item.initial_price DESC LIMIt 10";
+$sql = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 ORDER BY augeo_user_end.item.initial_price DESC LIMIt 10";
 $result = $conn->query($sql);
 
 
-$sql1 = "SELECT * FROM augeo_user_end.item LIMIt 10";
+$sql1 = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 LIMIt 10";
 $result1 = $conn->query($sql1);
 
 
@@ -125,8 +125,8 @@ $result1 = $conn->query($sql1);
 													<div class="product-box">
 														<span class="sale_tag"></span>
 														<p><a href="item/view/?id='.$row['item_id'].'"><img src="'.$item_img.'" alt="" height="10px" width="200px"></a></p>
-														<a href="product_detail.html" class="title">'.$row['name'].'</a><br/>
-                                                        <a href="products.html" class="category">'.$row['description'].'</a>
+														<a href="#" class="title">'.$row['name'].'</a><br/>
+                                                        <a href="#" class="category">'.$row['description'].'</a>
 														<p class="price">Php '.$row['initial_price'].'</p>
 													</div>
 												</li>';
@@ -165,8 +165,8 @@ $result1 = $conn->query($sql1);
                                                     <div class="product-box">
                                                         <span class="sale_tag"></span>
                                                         <p><a href="item/view/?id='.$row1['item_id'].'"><img src="'.$item_img1.'" alt="" height="10px" width="200px"></a></p>
-                                                        <a href="product_detail.html" class="title">'.$row1['name'].'</a><br/>
-                                                        <a href="products.html" class="category">'.$row1['description'].'</a>
+                                                        <a href="#" class="title">'.$row1['name'].'</a><br/>
+                                                        <a href="#" class="category">'.$row1['description'].'</a>
                                                         <p class="price">Php '.$row1['initial_price'].'</p>
                                                     </div>
                                                 </li>';
