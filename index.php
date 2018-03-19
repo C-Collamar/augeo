@@ -18,19 +18,11 @@ if(isset($_COOKIE['account_id'])){
 
 
 
-<<<<<<< HEAD
-$sql = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 ORDER BY augeo_user_end.item.initial_price DESC LIMIt 10";
-$result = $conn->query($sql);
-
-
-$sql1 = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 LIMIt 10";
-=======
 $sql = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 ORDER BY augeo_user_end.item.initial_price DESC LIMIt 4";
 $result = $conn->query($sql);
 
 
 $sql1 = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 LIMIt 4";
->>>>>>> experimental
 $result1 = $conn->query($sql1);
 
 
