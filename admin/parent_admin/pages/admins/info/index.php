@@ -157,6 +157,25 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
   </div>
 </div>
 
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="unban-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ban This Account</h4>
+      </div>
+      <div class="modal-body">
+          <h4>Banning this account will prevent its user from logging in to this website.<br> <b> PROCEED WITH CAUTION</b></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="unban-yes">Confirm</button>
+        <button type="button" class="btn btn-primary" id="unban-no">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="delete-modal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -174,8 +193,17 @@ require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
     </div>
   </div>
 </div>
+<?php
+ $id = $_GET['account_id'];
+        $sql = "SELECT * FROM augeo_administration.admin_account WHERE augeo_administration.admin_account.account_id = '$id'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
 
-                    <button class="btn btn-default" id="ban-account">Ban Account</button><br>
+        if($row['state'] == 1)
+          echo '<button class="btn btn-default" id="ban-account">Ban Account</button><br>';
+        else
+          echo '<button class="btn btn-default" id="unban-account">UnBan Account</button><br>';
+?>
                     <h3>OR</h3>
                     <button class="btn btn-default" id="delete-account">Delete Account</button><br>
               </div>

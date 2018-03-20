@@ -152,4 +152,41 @@ if(isset($_POST['admin1'])){
         echo $dataBack;
 }
 
+
+if(isset($_POST['transactions'])){
+    $page = $_POST['page']; // Current page number
+        $per_page = $_POST['per_page']; // Articles per page
+        if ($page != 1) $start = ($page-1) * $per_page;
+        else $start=0;
+
+        $select = $bdd->query("SELECT * FROM augeo_application.bid, augeo_application.deal,augeo_user_end.user WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id AND augeo_user_end.user.user_id = augeo_application.bid.user_id AND augeo_application.deal.confirmation = 2 LIMIT $start ,$per_page"); // Select article list from $start
+        $select->setFetchMode(PDO::FETCH_OBJ);
+        $numArticles = $bdd->query('SELECT count(deal_id) FROM augeo_application.bid, augeo_application.deal,augeo_user_end.user WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id AND augeo_user_end.user.user_id = augeo_application.bid.user_id AND augeo_application.deal.confirmation = 2')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
+
+        $numPage = ceil($numArticles[0] / $per_page); // Total number of page
+
+        // We build the article list
+        $list = '';
+        $list= '
+
+              ';
+
+        while( $result = $select->fetch() ) {
+            $percent =  $result->amount * .05;
+
+            $list .= '<tr class="gradeU">
+                <td>'.$result->f_name.' '.$result->m_name.' '.$result->l_name.'</td>
+                <td><a href="http://localhost/augeo/admin/parent_admin/pages/transactions/success_transac.php?id='.$result->deal_id.'"> '.$result->deal_id.'</a></td>
+                <td>Php '.$percent.'.00</td>
+                <td>'.$result->timestamp.'</td>
+              </tr>';
+        }
+
+        // We send back the total number of page and the article list
+        $dataBack = array('numPage' => $numPage, 'list' => $list);
+        $dataBack = json_encode($dataBack);
+
+        echo $dataBack;
+}
+
 ?>

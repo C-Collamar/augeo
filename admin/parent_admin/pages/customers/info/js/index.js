@@ -207,6 +207,56 @@ modalConfirm(function(confirm){
 
 
 
+
+var modalConfirm = function(callback){
+
+  $("#unban-account").on("click", function(){
+    $("#unban-modal").modal('show');
+  });
+
+  $("#unban-yes").on("click", function(){
+    callback(true);
+    $("#unban-modal").modal('hide');
+  });
+
+  $("#unban-no").on("click", function(){
+    callback(false);
+    $("#unban-modal").modal('hide');
+  });
+};
+
+modalConfirm(function(confirm){
+  if(confirm){
+
+       $.ajax({
+              type: "POST",
+              url: "php/index.php",
+              data: {
+                    id_unban: $("#id").val()
+                    },
+              success: function(result) {
+                          window.location.href = "index.php?msg=1&account_id=" + $("#id").val();
+
+
+                    }
+               });
+
+
+  }else{
+    //Acciones si el usuario no confirma
+    $("#result").html("NO CONFIRMADO");
+  }
+});
+
+
+
+
+
+
+
+
+
+
 var modalConfirm = function(callback){
 
   $("#delete-account").on("click", function(){

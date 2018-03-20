@@ -33,7 +33,7 @@ if($_SESSION['account_type'] == 1){
 echo '
                     <li class="submenu">
                          <a href="#">
-                            <i class="glyphicon glyphicon-list"></i> Users
+                            <i class="glyphicon glyphicon-user"></i> Users
                             <span class="caret pull-right"></span>
                          </a>
                          <!-- Sub menu -->

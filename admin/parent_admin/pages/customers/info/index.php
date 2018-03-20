@@ -2,6 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/topbar.php";
 $link = "http://localhost/augeo/admin/parent_admin/pages/customers/info/";
 require $_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/sidebar.php";
+include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
 
 if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
     if($_SESSION['account_type'] == "2")
@@ -179,6 +180,24 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
   </div>
 </div>
 
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="unban-modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">UnBan This Account</h4>
+      </div>
+      <div class="modal-body">
+          <h4>UnBanning this account will restore its data to the public.<br> <b> PROCEED WITH CAUTION</b></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="unban-yes">Confirm</button>
+        <button type="button" class="btn btn-primary" id="unban-no">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="delete-modal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -196,8 +215,18 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
     </div>
   </div>
 </div>
+<?php
+ $id = $_GET['account_id'];
+        $sql = "SELECT * FROM augeo_user_end.user_account WHERE augeo_user_end.user_account.account_id = '$id'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
 
-                    <button class="btn btn-default" id="ban-account">Ban Account</button><br>
+        if($row['state'] == 1)
+          echo '<button class="btn btn-default" id="ban-account">Ban Account</button><br>';
+        else
+          echo '<button class="btn btn-default" id="unban-account">UnBan Account</button><br>';
+?>
+      
                     <h3>OR</h3>
                     <button class="btn btn-default" id="delete-account">Delete Account</button><br>
 

@@ -36,7 +36,7 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
                         </div>
                         <div class="panel-body">
 
-                            <h1> <div id="total_income"></div></h1>
+                            <h1> <a href="http://localhost/augeo/admin/parent_admin/pages/logs/#transactions"><div id="total_income"></div></a></h1>
 
                             <br /><br />
                         </div>

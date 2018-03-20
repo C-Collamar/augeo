@@ -137,6 +137,32 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
 
 
 
+    <div class="content-box-large">
+        <div class="panel-heading">
+            <div class="panel-title"><b>Transactions</b></div>
+        </div>
+
+    <div class="panel-body" id="transactions" onclick="window.location.hash='transactions'; ">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-responsive" id="example">
+            <thead>
+                <tr>
+                    <th>Recieved from</th>
+                    <th>Transaction ID</th>
+                    <th>amount</th>
+                    <th>time</th>
+                </tr>
+            </thead>
+
+            <tbody id="data_transactions" ></tbody>
+
+        </table>
+
+    <div id="pagination123">
+        <div><a href="#" id="1"></a></div>
+    </div>
+</div>
+</div>
+
 
 
 </div>
