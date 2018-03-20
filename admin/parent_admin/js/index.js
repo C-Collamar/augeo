@@ -199,19 +199,12 @@ Morris.Area(config);
           visit_count: ""
         },
         success: function(result) {
+
           var content_info = JSON.parse(result);
-          var tax_data = [
-                        {"period": "2018-04", "visits": content_info.visit, "signups": content_info.signup},
-                        {"period": "2018-03", "visits": 0, "signups": 0}
-                          ];
-          Morris.Line({
-                        element: 'hero-graph',
-                        data: tax_data,
-                        xkey: 'period',
-                        xLabels: "month",
-                        ykeys: ['visits', 'signups'],
-                        labels: ['Visits', 'User signups']
-});
+            document.getElementById('total_visit').innerHTML = '<span class="glyphicon glyphicon-thumbs-up"></span> '+content_info.visit;
+            document.getElementById('total_signup').innerHTML = '<span class="glyphicon glyphicon-user"></span> '+content_info.signup;
+            document.getElementById('total_income').innerHTML = '<span class="glyphicon glyphicon-stats"></span> Php '+content_info.income+'.00';
+
 
 
         }

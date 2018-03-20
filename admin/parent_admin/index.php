@@ -24,6 +24,64 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
     <div class="col-md-10">
         <div class="row">
 
+              <div class="col-md-4">
+                    <div class="content-box-large">
+                        <div class="panel-heading">
+                            <div class="panel-title">Total Income</div>
+
+                            <div class="panel-options">
+                                <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                                <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <h1> <div id="total_income"></div></h1>
+
+                            <br /><br />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="content-box-large">
+                        <div class="panel-heading">
+                            <div class="panel-title">Total Visit</div>
+
+                            <div class="panel-options">
+                                <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                                <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                                  
+                            <h1> <div id="total_visit"></div></h1>
+
+                            <br /><br />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="content-box-large">
+                        <div class="panel-heading">
+                            <div class="panel-title">User's Signup</div>
+
+                            <div class="panel-options">
+                                <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                                <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                                  
+                            <h1><div id="total_signup"></div></h1>
+
+                            <br /><br />
+                        </div>
+                    </div>
+                </div>
+
+
             <div class="col-md-6">
                     <div class="content-box-large">
                         <div class="panel-heading">
@@ -104,23 +162,6 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
                     </div>
             </div>
 
-
-            <div class="col-md-12 panel-warning">
-                <div class="content-box-header panel-heading">
-                    <div class="panel-title ">Visits And Users Signup</div>
-
-                    <div class="panel-options">
-                        <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                        <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-                    </div>
-                </div>
-                    <div class="content-box-large box-with-header">
-                        <div class="panel-body">
-                            <div id="hero-graph" style="height: 230px;"></div>
-                        </div>
-                        <br/><br/>
-                    </div>
-            </div>
 
 
              <div class="col-md-12 panel-warning">

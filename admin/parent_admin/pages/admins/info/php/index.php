@@ -2,8 +2,8 @@
 include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
 include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php");
 include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
-
-
+session_start();
+$admin_id = $_SESSION['admin_id'];
 if(isset($_POST['id'])){
         $id = $_POST['id'];
         $sql = "SELECT * FROM augeo_administration.admin_account INNER JOIN  augeo_administration.admin ON augeo_administration.admin_account.account_id = augeo_administration.admin.account_id WHERE augeo_administration.admin_account.account_id = '$id'";
@@ -78,11 +78,17 @@ if(isset($_POST['id_ban'])){
         $id = $_POST['id_ban'];
         mysqli_query($conn,"UPDATE augeo_administration.admin_account SET state = '2' WHERE augeo_administration.admin_account.account_id = $id");
         echo "success";
+        $details = 'Banned admin with the admin id <a href="http://localhost/augeo/admin/parent_admin/pages/admins/info/?account_id='.$id.'">'.$id.' </a> ';
+        mysqli_query($conn,"INSERT INTO augeo_administration.admin_log(log_id,admin_id,details) VALUES ('','$admin_id','$details')");
+        echo mysqli_error($conn);
 }
 
 if(isset($_POST['id_del'])){
         $id = $_POST['id_del'];
         mysqli_query($conn,"DELETE FROM augeo_administration.admin_account WHERE augeo_administration.admin_account.account_id= $id");
+        echo mysqli_error($conn);
+         $details = 'Deleted admin with the admin id '.$id.' ';
+        mysqli_query($conn,"INSERT INTO augeo_administration.admin_log(log_id,admin_id,details) VALUES ('','$admin_id','$details')");
         echo mysqli_error($conn);
 }
 

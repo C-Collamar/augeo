@@ -26,6 +26,10 @@ if($_SESSION['account_type'] == 1){
                       echo '<li class="current"><a href="http://localhost/augeo/admin/parent_admin/pages/transactions"><i class="glyphicon glyphicon-list"></i> Transactions</a></li>';
                     else
                       echo '<li><a href="http://localhost/augeo/admin/parent_admin/pages/transactions"><i class="glyphicon glyphicon-list"></i> Transactions</a></li>';
+                     if($link == "http://localhost/augeo/admin/parent_admin/pages/logs")
+                      echo '<li class="current"><a href="http://localhost/augeo/admin/parent_admin/pages/logs"><i class="glyphicon glyphicon-list"></i>Logs</a></li>';
+                    else
+                      echo '<li><a href="http://localhost/augeo/admin/parent_admin/pages/logs"><i class="glyphicon glyphicon-list"></i>Logs</a></li>';
 echo '
                     <li class="submenu">
                          <a href="#">

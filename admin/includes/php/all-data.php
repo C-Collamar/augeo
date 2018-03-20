@@ -156,7 +156,20 @@ elseif (isset($_POST['count_admin'])) {
 
         echo
                     ''.
-                            '"signup": '.$row['total_signup'].' '.
+                            '"signup": '.$row['total_signup'].', '.
+                    '';
+    }
+
+     $sql = "SELECT amount FROM augeo_application.bid, augeo_application.deal WHERE augeo_application.bid.bid_id = augeo_application.deal.bid_id";
+    if($result = $conn->query($sql)) {
+        $amount = 0;
+        while($row = $result->fetch_assoc()){
+                $percent =  $row['amount'] * .05;
+                $amount = $amount + $percent;
+        }
+         echo
+                    ''.
+                            '"income": '.$amount.' '.
                     '}';
     }
 

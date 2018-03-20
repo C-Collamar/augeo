@@ -144,6 +144,7 @@ modalConfirm(function(confirm){
                     item_state: $("#item_state").val()
                     },
               success: function(result) {
+
                           window.location.href = "../index.php?msg=1";
 
 

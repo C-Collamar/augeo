@@ -2,8 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/connection.php");
 include($_SERVER['DOCUMENT_ROOT']."/augeo/global/php/encrypt.php");
 include($_SERVER['DOCUMENT_ROOT']."/augeo/admin/includes/php/connection.php");
-session_start();
-$admin_id = $_SESSION['admin_id'];
+
 
 
 if(isset($_POST['id'])){
@@ -107,17 +106,11 @@ if(isset($_POST['id_ban'])){
         $id = $_POST['id_ban'];
         mysqli_query($conn,"UPDATE augeo_user_end.user_account SET state = '2' WHERE augeo_user_end.user_account.account_id = $id");
         echo "success";
-        $details = 'Banned Customer with the Customer id <a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$id.'">'.$id.' </a> ';
-        mysqli_query($conn,"INSERT INTO augeo_administration.admin_log(log_id,admin_id,classification,details) VALUES ('','$admin_id','3','$details')");
-        echo mysqli_error($conn);
 }
 
 if(isset($_POST['id_del'])){
         $id = $_POST['id_del'];
         mysqli_query($conn,"DELETE FROM augeo_user_end.user_account WHERE augeo_user_end.user_account.account_id = $id");
-        echo mysqli_error($conn);
-        $details = 'Banned Customer with the Customer id <a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$id.'">'.$id.' </a> ';
-        mysqli_query($conn,"INSERT INTO augeo_administration.admin_log(log_id,admin_id,classification,details) VALUES ('','$admin_id','3','$details')");
         echo mysqli_error($conn);
 }
 
