@@ -246,6 +246,27 @@ function display404() {
                       </div>
                     </div>';
                 }
+                elseif ($item_state == 3) {
+                     echo ' <h1 style="color: green"> Item Has been Removed</h1><br>
+                   <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="ban-modal">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Ban Item</h4>
+                          </div>
+                          <div class="modal-body">
+                              <h4>UnBanning this item will show it from public<br><b>PROCEED WITH CAUTION</b></h4>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id="ban-yes">Confirm</button>
+                            <button type="button" class="btn btn-primary" id="ban-no">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
+                }
+
 
 ?>
                 </div>

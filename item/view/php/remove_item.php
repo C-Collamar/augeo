@@ -18,7 +18,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     $conn->query('BEGIN TRANSACTION');
 
     try {
-        $query = "UPDATE augeo_user_end.item SET state = 2 WHERE item.item_id = $item_id";
+        $query = "UPDATE augeo_user_end.item SET state = 3 WHERE item.item_id = $item_id";
 
         if(!$result = $conn->query($query)) {
             $conn->query('ROLLBACK TRANSACTION');
@@ -28,7 +28,8 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
             header('Content-Type: text/html; charset=UTF-8');
             exit();
         }
-        
+        $description = 'User: <a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$account_id_session.'"> '.$account_id_session.' </a>-- removed an item with item id <a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$item_id.'">'.$item_id.' </a>';
+        mysqli_query($conn,"INSERT INTO augeo_application.user_log(userlog_id,user_id,type,description) VALUES ('','.$account_id_session.','2','$description')");
         //commit transaction
         $conn->query('COMMIT TRANSACTION');
         $conn->query('SET AUTOCOMMIT = 1');

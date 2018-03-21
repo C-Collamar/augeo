@@ -189,4 +189,73 @@ if(isset($_POST['transactions'])){
         echo $dataBack;
 }
 
+
+
+if(isset($_POST['users_activity'])){
+    $page = $_POST['page']; // Current page number
+        $per_page = $_POST['per_page']; // Articles per page
+        if ($page != 1) $start = ($page-1) * $per_page;
+        else $start=0;
+
+        $select = $bdd->query("SELECT * FROM augeo_application.user_log WHERE augeo_application.user_log.type = 2 LIMIT $start ,$per_page"); // Select article list from $start
+        $select->setFetchMode(PDO::FETCH_OBJ);
+        $numArticles = $bdd->query('SELECT count(userlog_id) FROM augeo_application.user_log WHERE augeo_application.user_log.type = 2')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
+
+        $numPage = ceil($numArticles[0] / $per_page); // Total number of page
+
+        // We build the article list
+        $list = '';
+        $list= '
+
+              ';
+
+        while( $result = $select->fetch() ) {
+
+            $list .= '<tr class="gradeU">
+                <td>'.$result->description.'</td>
+                <td>'.$result->timestamp.'</td>
+              </tr>';
+        }
+
+        // We send back the total number of page and the article list
+        $dataBack = array('numPage' => $numPage, 'list' => $list);
+        $dataBack = json_encode($dataBack);
+
+        echo $dataBack;
+}
+
+
+
+if(isset($_POST['users_signups'])){
+    $page = $_POST['page']; // Current page number
+        $per_page = $_POST['per_page']; // Articles per page
+        if ($page != 1) $start = ($page-1) * $per_page;
+        else $start=0;
+
+        $select = $bdd->query("SELECT * FROM augeo_application.user_log WHERE augeo_application.user_log.type = 3 LIMIT $start ,$per_page"); // Select article list from $start
+        $select->setFetchMode(PDO::FETCH_OBJ);
+        $numArticles = $bdd->query('SELECT count(userlog_id) FROM augeo_application.user_log where augeo_application.user_log.type = 3')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
+
+        $numPage = ceil($numArticles[0] / $per_page); // Total number of page
+
+        // We build the article list
+        $list = '';
+        $list= '
+
+              ';
+
+        while( $result = $select->fetch() ) {
+
+            $list .= '<tr class="gradeU">
+                <td>'.$result->description.'</td>
+                <td>'.$result->timestamp.'</td>
+              </tr>';
+        }
+
+        // We send back the total number of page and the article list
+        $dataBack = array('numPage' => $numPage, 'list' => $list);
+        $dataBack = json_encode($dataBack);
+
+        echo $dataBack;
+}
 ?>

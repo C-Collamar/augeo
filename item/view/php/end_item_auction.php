@@ -29,6 +29,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
             exit();
         }
 
+         $description = 'User: <a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$account_id_session.'"> '.$account_id_session.' </a>-- Ended Auction with item id <a href="http://localhost/augeo/admin/parent_admin/pages/items/info/?id='.$item_id.'">'.$item_id.' </a>';
+        mysqli_query($conn,"INSERT INTO augeo_application.user_log(userlog_id,user_id,type,description) VALUES ('','.$account_id_session.','2','$description')");
+
         $query =
         'SELECT '.
             'bid.bid_id '.

@@ -30,7 +30,7 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
     <div class="col-md-10">
         <div class="row">
 
-
+<h1>Logs by Customers</h1>
 
     <div class="content-box-large">
         <div class="panel-heading">
@@ -58,6 +58,54 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
 </div>
 
 
+    <div class="content-box-large">
+        <div class="panel-heading">
+            <div class="panel-title"><b>Customer's Signups</b></div>
+        </div>
+
+    <div class="panel-body">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-responsive" id="example">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>time</th>
+                </tr>
+            </thead>
+
+            <tbody id="data_signups"></tbody>
+
+        </table>
+
+    <div id="pagination6">
+        <div><a href="#" id="1"></a></div>
+    </div>
+</div>
+</div>
+  <div class="content-box-large">
+        <div class="panel-heading">
+            <div class="panel-title"><b>Customer's Activity in items</b></div>
+        </div>
+
+    <div class="panel-body">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-responsive" id="example">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>time</th>
+                </tr>
+            </thead>
+
+            <tbody id="data_activity"></tbody>
+
+        </table>
+
+    <div id="pagination5">
+        <div><a href="#" id="1"></a></div>
+    </div>
+</div>
+</div>
+
+<h1>Logs by Admins</h1>
 
     <div class="content-box-large">
         <div class="panel-heading">
@@ -136,7 +184,7 @@ if(isset($_SESSION['account_type']) && isset($_SESSION['admin_id'])){
 </div>
 
 
-
+<h1>Total Income</h1>
     <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title"><b>Transactions</b></div>

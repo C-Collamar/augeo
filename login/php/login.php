@@ -48,6 +48,9 @@ elseif(isset($_POST['crt_uname']) && isset($_POST['crt_pass'])){
 		$account_id = $found['account_id'];
 		mysqli_query($conn,"INSERT INTO augeo_user_end.user(user_id,account_id,profile_img,cover_photo) VALUES ('$user_id','$account_id','http://localhost/augeo/data/user/profile_img/default_avatar.jpg','http://localhost/augeo/data/user/cover_photo/1.jpg')");
 		$_SESSION['account_id']=$found['account_id'];
+		 $description = 'Customer Account has been Created -- User ID: <a href="http://localhost/augeo/admin/parent_admin/pages/customers/info/?account_id='.$account_id.'"> '.$account_id.' </a>';
+        mysqli_query($conn,"INSERT INTO augeo_application.user_log(userlog_id,user_id,type,description) VALUES ('','.$account_id.','3','$description')");
+
 		mysqli_query($conn,"INSERT INTO augeo_application.user_logtime(user_id) VALUES ('$account_id') ");
 		$_SESSION['log_id'] = mysqli_insert_id($conn);
 		echo "success";
