@@ -12,15 +12,21 @@ $result = $paypal->call(
     'payKey'  => $_SESSION['payKey'],
   ), "PaymentDetails"
 );
+$deal_id = $_GET['id'];
+$amount = $_GET['amount'];
 
 if ($result['responseEnvelope']['ack'] == "Success" && $result['status'] == "COMPLETED") {
   echo 'Payment completed';
+  $sql = "INSERT INTO augeo_application.transaction_paypal (transaction_id,deal_id,total_amount) VALUES('','$deal_id','$amount')";
+  $result = $conn->query($sql);
+  echo mysqli_error($conn);
+  header("Location: http://localhost/augeo/user/auctions/info_winner/success_transac.php?id=$deal_id");
 
 } else {
   echo 'Handle payment execution failure';
 }
 
-$deal_id = $_GET['id'];
+
 
 
 $sql1 = "UPDATE augeo_application.deal set confirmation = 2 WHERE deal_id = $deal_id";
