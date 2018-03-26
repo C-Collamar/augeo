@@ -88,13 +88,15 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 "name,".
                 "description,".
                 "initial_price,".
-                "bid_interval".
+                "bid_interval,".
+                "expiration_date".
             ") VALUES (".
                 $account_id_session.",".
                 "'$name',".
                 "'$description',".
                 "$initial_price,".
-                "$bid_interval".
+                "$bid_interval,".
+                "DATE_ADD(NOW(), INTERVAL ".encode($_POST['expiration_days'])." DAY)".
             ")";
         $result = $conn->query($query) or reportQueryError(mysqli_error($conn), $query);
 

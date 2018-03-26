@@ -149,7 +149,7 @@ label[for="advanced-editor-mode"] {
     background-color: rgb(49, 49, 49);
 }
 
-input[name=initial-price], input[name=bid-interval] {
+input[name=initial-price], input[name=bid-interval], input[name=expiration_days] {
     text-align: right;
 }
 

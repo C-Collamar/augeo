@@ -49,40 +49,5 @@
 	<script src="http://localhost/augeo/global/vendor/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
 	<script src="js/view.js"></script>
 	<script src="js/home.js"></script>
-	<!--
-<a class="row card-item" href="#">
-	<div class="col-sm-7 border-right">
-		<div class="media">
-			<div class="media-left media-middle">
-				<img src="http://localhost/augeo/data/user/items/2_0.jpg" class="media-object item-img">
-			</div>
-			<div class="media-body">
-				<h4 class="media-heading">Mossimo Boomer SS Unisex Silver Stainless Steel Strap Ana-Digi Watch MS-1506G-YLW</h4>
-				<span class="item-seller">You</span>
-				<div class="w-100"></div>
-				<span class="bidders-participated">5</span>
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-5 text-center align-middle">
-		<div class="row no-padding">
-			<div class="col-xs-6">
-				<div class="row no-padding"><span class="text-caption">Your bid</span></div>
-				<div class="row no-padding">
-				<h4>&#8369; 5.00</h4>
-				</div>
-				<div class="row no-padding"><small>1 week ago</small></div>
-			</div>
-			<div class="col-xs-6">
-				<div class="row no-padding"><span class="text-caption">Highest bid</span></div>
-				<div class="row no-padding">
-				<h4>&#8369; 6.00</h4>
-				</div>
-				<div class="row no-padding"><small>3 days ago</small></div>
-			</div>
-		</div>
-	</div>
-</a>
-	-->
 </body>
 </html>

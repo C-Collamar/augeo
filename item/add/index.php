@@ -80,6 +80,11 @@
                             <input type="number" min="1" class="form-control" id="bid-interval" name="bid-interval" placeholder="Set the minimum incremental step" required>
                         </div>
                     </div>
+                    <!-- TIME LIMIT -->
+                    <div class="form-group container-fluid">
+                        <label class="control-label" for="expiration_days">Days before expiration:</label>
+                        <input type="number" min="1" class="form-control" id="expiration-time" name="expiration_days" placeholder="Number of days before expiration" value="3" required>
+                    </div>
                 </div>
             </div>
             <!-- BLOCKED USERS -->
@@ -88,7 +93,7 @@
                     <span>Additional Rules</span>
                     <i id="chevron-icon" class="glyphicon glyphicon-chevron-down" style="float: right"></i>
                 </div>
-                <div class="panel-collapse in" id="block-list">
+                <div class="panel-collapse collapse" id="block-list">
                     <div class="panel-body">
                         <div class="form-group container-fluid">
                             <label class="control-label" for="select">Blocked list:</label>

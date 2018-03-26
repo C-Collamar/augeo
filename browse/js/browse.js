@@ -61,7 +61,6 @@ function displayItems(data, textStatus, xhr) {
     var fragment = document.createDocumentFragment();
     var items = [];
     for(var i = 0; i < data.length; ++i) {
-        console.log(data[i].description.length);
         var card = document.createElement('div');
         var descClass = (data[i].description.length > 100)? 'overflow' : '';
         var amount, amountClass;

@@ -30,6 +30,8 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
     $users = [];
     while($row = $result->fetch_assoc()) {
+        $row['tag_name'] = decode($row['tag_name']);
+        $row['tag_id'] = $row['tag_name'];
         array_push($users, $row);
     }
 

@@ -14,7 +14,7 @@ function display_active_seller_items(item_list, container) {
         var name = item_list[i].name;
         var img_path = item_list[i].img_path;
         var date = item_list[i].date;
-        var amount = item_list[i].curr_price;
+        var amount = item_list[i].amount;
         var bid_count = item_list[i].bid_count;
         var views = item_list[i].view_count;
 
@@ -38,7 +38,7 @@ function display_active_seller_items(item_list, container) {
             '<div class="col-sm-5 text-center vcenter-children">' +
                 '<div class="col-xs-6">' +
                 (
-                    (bid_count == 0)?
+                    (!bid_count)?
                         '<div>' +
                             '<div class="no-bids-icon"></div>' +
                             '<span class="no-bids-msg">No bids yet</span>' +
@@ -138,7 +138,6 @@ function display_items_won(item_list, container) {
         return;
     }
 
-    console.log(item_list);
     for(var i = 0; i < item_list.length; ++i) {
         var item = document.createElement('div');
         item.innerHTML =
@@ -153,7 +152,7 @@ function display_items_won(item_list, container) {
                     '</div>' +
                 '</div>' +
             '</div>' +
-            '<div class="col-sm-4 text-center">' +
+            '<div class="col-sm-3 text-center">' +
                 '<div><small>Acquired for</small></div>' +
                 '<div><h4>&#8369; ' + item_list[i].amount + '</h4></div>' +
                 '<div><small>by <a href="http://localhost/augeo/user/?id=' + item_list[i].user_id + '">' + 
@@ -161,8 +160,8 @@ function display_items_won(item_list, container) {
                 '</a></small></div>' +
                 '<div><small>' + item_list[i].date + '</small></div>' +
             '</div>' +
-            '<div class="col-sm-1 text-center">' +
-                '<a href="http://localhost/augeo/user/auctions/info/?id=' + item_list[i].item_id + '">Confirm</a>' +
+            '<div class="col-sm-2 text-center">' +
+                '<a href="http://localhost/augeo/user/auctions/info/?id=' + item_list[i].item_id + '" class="btn btn-green fill">Confirm</a>' +
             '</div>' +
         '</div>';
         container.appendChild(item);
@@ -205,36 +204,3 @@ function display_items_sold(item_list, container) {
         container.appendChild(item);
     }
 }
-
-/*
-.innerHTML =
-'<a class="row card-item">' +
-    '<div class="col-sm-7 border-right">' +
-        '<div class="media">' +
-            '<div class="media-left">' +
-                '<img src="'+ img_path +'" class="media-object item-img">' +
-            '</div>' +
-            '<div class="media-body">' +
-                '<h4 class="media-heading">' + name + '</h4>' +
-                '<span class="item-seller">You</span>' +
-                '<div class="w-100"></div>' +
-                '<span class="bidders-participated">' + bid_count + '</span>' +
-            '</div>' +
-        '</div>' +
-    '</div>' +
-    '<div class="col-sm-5 text-center align-middle">' +
-        '<div class="row no-padding">' +
-            '<div class="col-xs-6">' +
-                '<div class="row no-padding"><span class="text-caption">Your bid</span></div>' +
-                '<div class="row no-padding"><h4>&#8369; 5.00</h4></div>' +
-                '<div class="row no-padding"><small>1 week ago</small></div>' +
-            '</div>' +
-            '<div class="col-xs-6">' +
-            '<div class="row no-padding"><span class="text-caption">Highest bid</span></div>' +
-            '<div class="row no-padding"><h4>&#8369; 6.00</h4></div>' +
-            '<div class="row no-padding"><small>3 days ago</small></div>' +
-            '</div>' +
-        '</div>' +
-    '</div>' +
-'</a>';
-*/

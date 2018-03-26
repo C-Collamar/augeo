@@ -16,7 +16,6 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     'SELECT '.
         'item.name, '.
         'item_img.img_path, '.
-        'COUNT(DISTINCT(bid.bid_id)) AS bid_count, '.
         'bid.amount, '.
         'DATE_FORMAT(deal.timestamp, "%M %e, %Y") AS date '.
     'FROM '.
@@ -30,6 +29,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
         'bid.item_id = item.item_id AND '.
         "item.user_id = $account_id_session AND ".
         'item.item_id = item_img.item_id '.
+    'GROUP BY item.item_id '.
     "ORDER BY deal.timestamp DESC";
 
     if(!$result = $conn->query($query)) {

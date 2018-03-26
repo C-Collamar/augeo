@@ -44,7 +44,8 @@ $q_item =
     'augeo_user_end.item LEFT JOIN augeo_application.bid ON item.item_id = bid.item_id '.
 'WHERE '.
     'item.state = 0 AND '.
-    'item.item_id = item_img.item_id '.
+    'item.item_id = item_img.item_id AND '.
+    "item.expiration_date > CURRENT_TIMESTAMP() ".
 'GROUP BY '.
     'item.item_id '.
 'ORDER BY '.$order_by.' '.$ordering.' LIMIT '.$limit;

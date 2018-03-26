@@ -110,6 +110,10 @@ span.no-bids-msg {
     margin: 0px auto;
 }
 
+.fill {
+    width: 100% !important;
+}
+
 @media only screen and (max-width: 768px) {
 	.border-right {
 		border-right: none;
