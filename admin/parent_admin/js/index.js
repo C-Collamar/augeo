@@ -25,16 +25,18 @@ $(document).ready(function(){
         },
         success: function(result) {
           var content_info = JSON.parse(result);
-          var total_num = content_info.active + content_info.inactive;
+          var total_num = content_info.active + content_info.inactive + content_info.banned;
           var active = content_info.active / total_num *100;
           var inactive = content_info.inactive / total_num *100;
+          var banned = content_info.banned / total_num *100;
 
 
 Morris.Donut({
     element: 'hero-donut2',
     data: [
         {label: 'Active', value: active },
-        {label: 'Inactive', value: inactive }
+        {label: 'Inactive', value: inactive },
+        {label: 'Banned', value: banned }
     ],
     colors: ["#30a1ec", "#76bdee", "#c4dafe"],
     formatter: function (y) { return y + "%" }
@@ -51,16 +53,18 @@ $.ajax({
         },
         success: function(result) {
           var content_info = JSON.parse(result);
-          var total_num = content_info.active + content_info.inactive;
+          var total_num = content_info.active + content_info.inactive + content_info.banned;
           var active = content_info.active / total_num *100;
           var inactive = content_info.inactive / total_num *100;
+          var banned = content_info.banned / total_num *100;
 
 
 Morris.Donut({
     element: 'hero-donut-admin',
     data: [
         {label: 'Active', value: active },
-        {label: 'Inactive', value: inactive }
+        {label: 'Inactive', value: inactive },
+         {label: 'Banned', value: banned }
     ],
     colors: ["#30a1ec", "#76bdee", "#c4dafe"],
     formatter: function (y) { return y + "%" }

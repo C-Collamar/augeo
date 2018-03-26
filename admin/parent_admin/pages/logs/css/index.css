@@ -696,6 +696,11 @@ body {
         #pagination6 .cell_active span { border-radius: 3px; font-size: 11px; color: #333; padding: 8px; border: 1px solid #c6c6c6; background-color: #e9e9e9; }
         #pagination6 .cell_disabled span { border-radius: 3px; font-size: 11px; color: #777777; padding: 8px; border: 1px solid #dddddd; background-color: #ffffff; }
 
+#pagination7 div { display: inline-block; margin-right: 5px; margin-top: 5px }
+        #pagination7 .cell a { border-radius: 3px; font-size: 11px; color: #333; padding: 8px; text-decoration:none; border: 1px solid #d3d3d3; background-color: #f8f8f8; }
+        #pagination7 .cell a:hover { border: 1px solid #c6c6c6; background-color: #f0f0f0;  }
+        #pagination7 .cell_active span { border-radius: 3px; font-size: 11px; color: #333; padding: 8px; border: 1px solid #c6c6c6; background-color: #e9e9e9; }
+        #pagination7 .cell_disabled span { border-radius: 3px; font-size: 11px; color: #777777; padding: 8px; border: 1px solid #dddddd; background-color: #ffffff; }
 
             .notif-img img {
     height: 40px;

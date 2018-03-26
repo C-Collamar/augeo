@@ -258,4 +258,39 @@ if(isset($_POST['users_signups'])){
 
         echo $dataBack;
 }
+
+
+
+if(isset($_POST['paypal'])){
+    $page = $_POST['page']; // Current page number
+        $per_page = $_POST['per_page']; // Articles per page
+        if ($page != 1) $start = ($page-1) * $per_page;
+        else $start=0;
+
+        $select = $bdd->query("SELECT * FROM augeo_application.transaction_paypal LIMIT $start ,$per_page"); // Select article list from $start
+        $select->setFetchMode(PDO::FETCH_OBJ);
+        $numArticles = $bdd->query('SELECT count(transaction_id) FROM augeo_application.transaction_paypal')->fetch(PDO::FETCH_NUM); // Total number of articles in the database
+
+        $numPage = ceil($numArticles[0] / $per_page); // Total number of page
+
+        // We build the article list
+        $list = '';
+        $list= '
+
+              ';
+
+        while( $result = $select->fetch() ) {
+            $list .= '<tr class="gradeU">
+                <td><a href="http://localhost/augeo/admin/parent_admin/pages/transactions/success_transac.php?id='.$result->deal_id.'"> '.$result->transaction_id.'</a></td>
+                <td>Php '.$result->total_amount.'.00</td>
+                <td>'.$result->timestamp.'</td>
+              </tr>';
+        }
+
+        // We send back the total number of page and the article list
+        $dataBack = array('numPage' => $numPage, 'list' => $list);
+        $dataBack = json_encode($dataBack);
+
+        echo $dataBack;
+}
 ?>

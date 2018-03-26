@@ -11,6 +11,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 // COMPUTATION 5%
 $amount = $row['amount'];
+$full_amount = $row['amount'];
 $percent = $amount * .05;
 $amount = $amount - $percent;
 
@@ -34,7 +35,7 @@ $result = $paypal->call(
     'memo'  => 'Order number #'.$deal_no,
 
     'cancelUrl' => ' /cancel.php',
-    'returnUrl' => ' /success.php?id='.$deal_no. '',
+    'returnUrl' => ' /success.php?id='.$deal_no.'&amount='.$full_amount.'',
 
     'receiverList' => array(
       'receiver' => array(

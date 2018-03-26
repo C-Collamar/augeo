@@ -76,7 +76,7 @@ if(isset($_POST['page'])){
 }
 
 elseif (isset($_POST['transactions'])) {
-    $sql = "SELECT COUNT(*) as deal FROM augeo_application.deal WHERE augeo_application.deal.confirmation = '1'";
+    $sql = "SELECT COUNT(*) as deal FROM augeo_application.deal WHERE augeo_application.deal.confirmation = '1' OR augeo_application.deal.confirmation='2'";
 
     if($result = $conn->query($sql)) {
         $row = $result->fetch_assoc();
