@@ -26,6 +26,8 @@ $sql1 = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 L
 $result1 = $conn->query($sql1);
 
 
+$sql3 = "SELECT * FROM augeo_user_end.item WHERE augeo_user_end.item.state = 0 ORDER BY augeo_user_end.item.expiration_date ASC LIMIt 4";
+$result3 = $conn->query($sql3);
 ?>
 
 <!DOCTYPE html>
@@ -120,12 +122,15 @@ $result1 = $conn->query($sql1);
 												while($row2 = $result2->fetch_assoc()) {
 													$item_img = $row2['img_path']; 
 												}
+												$newDate2 = date("F d Y H:i:s", strtotime($row['expiration_date']));
 												echo '								
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
 														<p><a href="item/view/?id='.$row['item_id'].'"><img src="'.$item_img.'" alt="" height="10px" width="200px"></a></p>
 														<a href="#" class="title">'.$row['name'].'</a><br/>
+														This Auction will end at:
+														<a href="#" class="title">'.$newDate2.'</a><br/>
                                                         <a href="#" class="category">'.$row['description'].'</a>
 														<p class="price">Php '.$row['initial_price'].'</p>
 													</div>
@@ -146,6 +151,50 @@ $result1 = $conn->query($sql1);
 						<div class="row">
 							<div class="span12">
 								<h4 class="title">
+									<span class="pull-left"><span class="text"><span class="line">Soon to end <strong>Auctions</strong></span></span></span>
+
+								</h4>
+								<div id="myCarousel" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											<ul class="thumbnails">	
+											<?php 		
+											while($row = $result3->fetch_assoc()) {
+												$item_id = $row['item_id'];
+												$sql2 = "SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id";
+												$result2 = $conn->query($sql2);
+												while($row2 = $result2->fetch_assoc()) {
+													$item_img = $row2['img_path']; 
+												}
+												$newDate1 = date("F d Y H:i:s", strtotime($row['expiration_date']));
+												echo '								
+												<li class="span3">
+													<div class="product-box">
+														<span class="sale_tag"></span>
+														<p><a href="item/view/?id='.$row['item_id'].'"><img src="'.$item_img.'" alt="" height="10px" width="200px"></a></p>
+														<a href="#" class="title">'.$row['name'].'</a><br/>
+														This Auction will end at:
+														<a href="#" class="title">'.$newDate1.'</a><br/>
+                                                        <a href="#" class="category">'.$row['description'].'</a>
+														<p class="price">Php '.$row['initial_price'].'</p>
+													</div>
+												</li>';
+											}
+												?>
+											</ul>
+										</div>
+										<div class="item">
+											<ul class="thumbnails">
+											
+										</div>
+									</div>							
+								</div>
+							</div>						
+						</div>
+					</br>
+						<div class="row">
+							<div class="span12">
+								<h4 class="title">
 									<span class="pull-left"><span class="text"><span class="line">Latest <strong>Products</strong></span></span></span>
 								</h4>
 								<div id="myCarousel-2" class="myCarousel carousel slide">
@@ -160,12 +209,15 @@ $result1 = $conn->query($sql1);
 												while($row3 = $result3->fetch_assoc()) {
 													$item_img1 = $row3['img_path']; 
 												}
+												$newDate3 = date("F d Y H:i:s", strtotime($row['expiration_date']));
                                                 echo '                              
                                                 <li class="span3">
                                                     <div class="product-box">
                                                         <span class="sale_tag"></span>
                                                         <p><a href="item/view/?id='.$row1['item_id'].'"><img src="'.$item_img1.'" alt="" height="10px" width="200px"></a></p>
                                                         <a href="#" class="title">'.$row1['name'].'</a><br/>
+                                                        This Auction will end at:
+														<a href="#" class="title">'.$newDate3.'</a><br/>
                                                         <a href="#" class="category">'.$row1['description'].'</a>
                                                         <p class="price">Php '.$row1['initial_price'].'</p>
                                                     </div>
