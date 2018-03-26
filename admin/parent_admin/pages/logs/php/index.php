@@ -281,7 +281,7 @@ if(isset($_POST['paypal'])){
 
         while( $result = $select->fetch() ) {
             $list .= '<tr class="gradeU">
-                <td><a href="http://localhost/augeo/admin/parent_admin/pages/transactions/success_transac.php?id='.$result->transaction_id.'"> '.$result->transaction_id.'</a></td>
+                <td><a href="http://localhost/augeo/admin/parent_admin/pages/transactions/success_transac.php?id='.$result->deal_id.'"> '.$result->transaction_id.'</a></td>
                 <td>Php '.$result->total_amount.'.00</td>
                 <td>'.$result->timestamp.'</td>
               </tr>';
