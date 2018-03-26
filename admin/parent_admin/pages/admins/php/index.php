@@ -75,10 +75,20 @@ elseif (isset($_POST['active'])) {
 
         echo
                     ''.
-                            '"inactive": '.$row['total_customer'].'.00 '.
-                    '}';
+                            '"inactive": '.$row['total_customer'].'.00, '.
+                    '';
     }
 
+    $sql = "SELECT COUNT(*) as total_customer FROM augeo_administration.admin_account WHERE augeo_administration.admin_account.state = '2'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    ''.
+                            '"banned": '.$row['total_customer'].'.00 '.
+                    '}';
+    }
 
  }
 

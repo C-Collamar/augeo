@@ -23,7 +23,17 @@ if (isset($_POST['customers_active'])) {
 
         echo
                     ''.
-                            '"inactive": '.$row['total_customer'].'.00 '.
+                            '"inactive": '.$row['total_customer'].'.00, '.
+                    '';
+    }
+     $sql = "SELECT COUNT(*) as total_customer FROM augeo_user_end.user_account WHERE augeo_user_end.user_account.state = '2'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    ''.
+                            '"banned": '.$row['total_customer'].'.00 '.
                     '}';
     }
  }
@@ -48,14 +58,25 @@ if (isset($_POST['customers_active'])) {
 
         echo
                     ''.
-                            '"inactive": '.$row['total_customer'].'.00 '.
+                            '"inactive": '.$row['total_customer'].'.00, '.
+                    '';
+    }
+
+    $sql = "SELECT COUNT(*) as total_customer FROM augeo_administration.admin_account WHERE augeo_administration.admin_account.state = '2'";
+
+    if($result = $conn->query($sql)) {
+        $row = $result->fetch_assoc();
+
+        echo
+                    ''.
+                            '"banned": '.$row['total_customer'].'.00 '.
                     '}';
     }
 
  }
 
  elseif (isset($_POST['transactions'])) {
-    $sql = "SELECT COUNT(*) as deal FROM augeo_application.deal WHERE augeo_application.deal.confirmation = '1'";
+    $sql = "SELECT COUNT(*) as deal FROM augeo_application.deal WHERE augeo_application.deal.confirmation = '1' OR augeo_application.deal.confirmation = '2'";
 
     if($result = $conn->query($sql)) {
         $row = $result->fetch_assoc();
