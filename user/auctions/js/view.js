@@ -81,6 +81,7 @@ function display_active_bidded_items(item_list, container) {
         var ubd = item_list[i].user_bid_date;
 
         var item = document.createElement('div');
+        item.style.marginBottom = '10px';
         item.innerHTML =
         '<div class="row card-item vcenter-children">' +
             '<div class="col-sm-6 border-right">' +
@@ -140,6 +141,7 @@ function display_items_won(item_list, container) {
 
     for(var i = 0; i < item_list.length; ++i) {
         var item = document.createElement('div');
+        item.style.marginBottom = '10px';
         item.innerHTML =
         '<div class="row card-item vcenter-children">' +
             '<div class="col-sm-7 border-right">' +
@@ -155,7 +157,7 @@ function display_items_won(item_list, container) {
             '<div class="col-sm-3 text-center">' +
                 '<div><small>Acquired for</small></div>' +
                 '<div><h4>&#8369; ' + item_list[i].amount + '</h4></div>' +
-                '<div><small>by <a href="http://localhost/augeo/user/?id=' + item_list[i].user_id + '">' + 
+                '<div><small>from <a href="http://localhost/augeo/user/?id=' + item_list[i].user_id + '">' + 
                     item_list[i].seller +
                 '</a></small></div>' +
                 '<div><small>' + item_list[i].date + '</small></div>' +
@@ -181,7 +183,7 @@ function display_items_sold(item_list, container) {
 
     for(var i = 0; i < item_list.length; ++i) {
         var item = document.createElement('div');
-
+        item.style.marginBottom = '10px';
         item.innerHTML =
         '<div class="row card-item vcenter-children">' +
             '<div class="col-sm-8 border-right">' +
