@@ -34,7 +34,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
     if(!$result = $conn->query($query)) {
         header($_SERVER['SERVER_PROTOCOL']." 500 Internal Server Error");
-        exit(mysqli_error($conn));
+        exit(mysqli_error($conn).PHP_EOL.$query);
     }
 
     $items_in_auction = [];
@@ -47,35 +47,37 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     }
     $id_pool = substr($id_pool, 0, -1);
 
-    $query =
-    'SELECT '.
-        'bid.item_id, '.
-        'COUNT(bid.bid_id) AS bid_count, '.
-        'MAX(bid.amount) as amount, '.
-        'DATE_FORMAT(bid.timestamp, "%M %e, %Y") AS date '.
-    'FROM '.
-        'augeo_application.bid '.
-    'WHERE '.
-        "bid.item_id IN ($id_pool) ".
-    'ORDER BY '.
-        'bid.item_id '.
-    'DESC';
+    if($id_pool != '') {
+        $query =
+        'SELECT '.
+            'bid.item_id, '.
+            'COUNT(bid.bid_id) AS bid_count, '.
+            'MAX(bid.amount) as amount, '.
+            'DATE_FORMAT(bid.timestamp, "%M %e, %Y") AS date '.
+        'FROM '.
+            'augeo_application.bid '.
+        'WHERE '.
+            "bid.item_id IN ($id_pool) ".
+        'ORDER BY '.
+            'bid.item_id '.
+        'DESC';
 
-    if(!$result = $conn->query($query)) {
-        header($_SERVER['SERVER_PROTOCOL']." 500 Internal Server Error");
-        exit(mysqli_error($conn));
-    }
-
-    $index = 0;
-    $lim = count($items_in_auction);
-    while($row = $result->fetch_assoc()) {
-        while($index < $lim && $row['item_id'] != $items_in_auction[$index]['item_id']) {
-            ++$index;
+        if(!$result = $conn->query($query)) {
+            header($_SERVER['SERVER_PROTOCOL']." 500 Internal Server Error");
+            exit(mysqli_error($conn).PHP_EOL.$query);
         }
-        if($index < $lim) {
-            $items_in_auction[$index]['amount'] = $row['amount'];
-            $items_in_auction[$index]['bid_count'] =  $row['bid_count'];
-            $items_in_auction[$index]['date'] =  $row['date'];
+
+        $index = 0;
+        $lim = count($items_in_auction);
+        while($row = $result->fetch_assoc()) {
+            while($index < $lim && $row['item_id'] != $items_in_auction[$index]['item_id']) {
+                ++$index;
+            }
+            if($index < $lim) {
+                $items_in_auction[$index]['amount'] = $row['amount'];
+                $items_in_auction[$index]['bid_count'] =  $row['bid_count'];
+                $items_in_auction[$index]['date'] =  $row['date'];
+            }
         }
     }
 

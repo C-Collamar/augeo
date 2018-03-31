@@ -32,6 +32,7 @@ $q_item =
 'SELECT '.
     'item.item_id, '.
     'item_img.img_path, '.
+    'item.expiration_date, '.
     'item.name, '.
     'LEFT(item.description, 101) AS description, '.
     'item.initial_price, '.
@@ -62,6 +63,7 @@ $itemID_list = '';
 
 while($row = $result->fetch_assoc()) {
     $row['name'] = decode($row['name']);
+    $row['expiration_date'] = date("F d Y H:i:s", strtotime($row['expiration_date']));
     $row['description'] = decode($row['description']);
     $itemID_list .= $row['item_id'].',';
     array_push($item_list, $row);

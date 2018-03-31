@@ -90,6 +90,7 @@ function display404() {
             $seller_username = decode($item_info['username']);
             $seller_profile_img = decode($item_info['profile_img']);
             $item_name = decode($item_info['name']);
+            $expiration_date = date("F d Y H:i:s", strtotime($item_info['expiration_date']));
             $item_descr = decode($item_info['description']);
         }
 
@@ -177,6 +178,7 @@ function display404() {
             </div>
             <div class="col-sm-7">
                 <div id="title"><?php echo $item_name; ?></div>
+               <div id="title">Ending on <?php echo $expiration_date; ?></div>
                 <div style="text-align: center">
                     <div style="display: inline-block">
                         <span id="amount-label" style="vertical-align: middle">Current amount</span><!--

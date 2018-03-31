@@ -194,53 +194,7 @@ $result3 = $conn->query($sql3);
 					</br>
 						<div class="row">
 							<div class="span12">
-								<h4 class="title">
-									<span class="pull-left"><span class="text"><span class="line">Latest <strong>Products</strong></span></span></span>
-								</h4>
-								<div id="myCarousel-2" class="myCarousel carousel slide">
-									<div class="carousel-inner">
-										<div class="active item">
-											<ul class="thumbnails">												
-												<?php       
-                                            while($row1 = $result1->fetch_assoc()) {
-                                            	$item_id = $row1['item_id'];
-												$sql3 = "SELECT * FROM augeo_user_end.item_img WHERE augeo_user_end.item_img.item_id = $item_id";
-												$result3 = $conn->query($sql3);
-												while($row3 = $result3->fetch_assoc()) {
-													$item_img1 = $row3['img_path']; 
-												}
-												$newDate3 = date("F d Y H:i:s", strtotime($row['expiration_date']));
-                                                echo '                              
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <span class="sale_tag"></span>
-                                                        <p><a href="item/view/?id='.$row1['item_id'].'"><img src="'.$item_img1.'" alt="" height="10px" width="200px"></a></p>
-                                                        <a href="#" class="title">'.$row1['name'].'</a><br/>
-                                                        This Auction will end at:
-														<a href="#" class="title">'.$newDate3.'</a><br/>
-                                                        <a href="#" class="category">'.$row1['description'].'</a>
-                                                        <p class="price">Php '.$row1['initial_price'].'</p>
-                                                    </div>
-                                                </li>';
-                                            }
-                                                ?>
-											
-											</ul>
-										</div>
-										<div class="item">
-											<ul class="thumbnails">
-												<li class="span3">
-													<div class="product-box">
-														<p><a href="product_detail.html"><img src="global/themes/images/cloth/bootstrap-women-ware4.jpg" alt="" /></a></p>
-														<a href="product_detail.html" class="title">Know exactly</a><br/>
-														<a href="products.html" class="category">Quis nostrud</a>
-														<p class="price">$45.50</p>
-													</div>
-												</li>				
-											</ul>
-										</div>
-									</div>							
-								</div>
+								
 								<div class="row feature_box">						
 							<div class="span4">
 								<div class="service">

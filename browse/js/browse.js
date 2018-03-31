@@ -78,6 +78,7 @@ function displayItems(data, textStatus, xhr) {
                 '<img src="' + data[i].img_path + '">' +
                 '<div class="item-details">' +
                     '<h4><b>' + data[i].name + '</b></h4>' +
+                    '<p><b>Ending in ' + data[i].expiration_date + '</b></p>' +
                     '<div class="item-description ' + descClass + '">' + marked(data[i].description) + '</div>' +
                     '<div class="' + amountClass + '">Php ' + amount + '</div>' +
                     '<div class="tag-list"></div>' +
